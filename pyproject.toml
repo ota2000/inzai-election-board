@@ -1,0 +1,39 @@
+[project]
+name = "inzai-election-board"
+version = "0.1.0"
+description = "選挙ポスター掲示板巡回最適化システム"
+authors = [
+    {name = "ota2000", email = "ota2000@ota2000.com"},
+]
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "geopy>=2.4.1",
+    "numpy>=2.3.1",
+    "pandas>=2.3.0",
+    "polyline>=2.0.2",
+    "requests>=2.32.4",
+]
+
+[project.scripts]
+inzai-election-board = "inzai_election_board.route_optimizer:main"
+test-optimizer = "inzai_election_board.test_optimizer:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/inzai_election_board"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]

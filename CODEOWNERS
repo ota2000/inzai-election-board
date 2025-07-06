@@ -1,0 +1,10 @@
+# Global code owner
+* @ota2000
+
+# Specific paths
+/src/ @ota2000
+/tests/ @ota2000
+/docs/ @ota2000
+/data/ @ota2000
+pyproject.toml @ota2000
+README.md @ota2000

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投票所ポスター掲示板巡回システム</title>
+    <title>選挙ポスター掲示板巡回最適化システム</title>
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -237,7 +237,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>投票所ポスター掲示板巡回システム</h1>
+        <h1>選挙ポスター掲示板巡回最適化システム</h1>
         <p>効率的な巡回経路を最適化された順序で表示します</p>
     </div>
 
@@ -311,7 +311,7 @@
         // データ読み込み
         async function loadData() {
             try {
-                const response = await fetch('./voting_routes.geojson');
+                const response = await fetch('./poster_board_routes.geojson');
                 if (!response.ok) {
                     throw new Error('データファイルが見つかりません');
                 }
@@ -745,7 +745,7 @@
 
             const link = document.createElement('a');
             link.href = url;
-            link.download = 'voting_routes_data.geojson';
+            link.download = 'poster_board_routes_data.geojson';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

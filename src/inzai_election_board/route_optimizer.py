@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-印西市投票所ポスター掲示板巡回システム統合版
+選挙ポスター掲示板巡回最適化システム
 - 最適始点TSP最適化
 - 徒歩経路計算
 - 個人名完全除去
@@ -499,7 +499,7 @@ class CompleteRouteOptimizer:
         }
 
         # docsディレクトリに出力
-        with open('docs/voting_routes.geojson', 'w', encoding='utf-8') as f:
+        with open('docs/poster_board_routes.geojson', 'w', encoding='utf-8') as f:
             json.dump(geojson, f, ensure_ascii=False, indent=2)
 
         print("\nGeoJSONファイルを出力しました:")
@@ -508,7 +508,7 @@ class CompleteRouteOptimizer:
 
 def main():
     """メイン処理"""
-    print("印西市投票所ポスター掲示板巡回システム統合版")
+    print("選挙ポスター掲示板巡回最適化システム")
     print("=" * 60)
 
     # APIキーの確認
@@ -549,8 +549,8 @@ def main():
     print(f"  ✅ 掲示板番号正規化")
 
     print(f"\n📁 生成されたファイル:")
-    print(f"  - voting_routes.geojson（メイン）")
-    print(f"  - docs/voting_routes.geojson（GitHub Pages用）")
+    print(f"  - poster_board_routes.geojson（メイン）")
+    print(f"  - docs/poster_board_routes.geojson（GitHub Pages用）")
 
 if __name__ == "__main__":
     main()
