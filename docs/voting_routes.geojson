@@ -16,8 +16,8 @@
         "name": "木下駅北口",
         "address": "印西市木下1633-13",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -35,27 +35,8 @@
         "name": "上町会館前",
         "address": "印西市木下774",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.150999,
-          35.833998
-        ]
-      },
-      "properties": {
-        "district": "総合福祉センター レクリエーションホール",
-        "order": 3,
-        "name": "木下南公園北側",
-        "address": "印西市木下南2-9",
-        "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -69,12 +50,12 @@
       },
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
-        "order": 4,
+        "order": 3,
         "name": "総合福祉センター前",
         "address": "印西市竹袋614-9",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -82,37 +63,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.160508,
-          35.82417
+          140.150999,
+          35.833998
         ]
       },
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
-        "order": 5,
-        "name": "岩﨑容子宅前",
-        "address": "印西市別所1008",
+        "order": 4,
+        "name": "木下南公園北側",
+        "address": "印西市木下南2-9",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.157352,
-          35.831655
-        ]
-      },
-      "properties": {
-        "district": "総合福祉センター レクリエーションホール",
-        "order": 6,
-        "name": "古川文夫宅前",
-        "address": "印西市竹袋470-4",
-        "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -126,12 +88,12 @@
       },
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
-        "order": 7,
+        "order": 5,
         "name": "旧木下保育園跡地北側",
         "address": "印西市木下1342-4",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -145,12 +107,50 @@
       },
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
-        "order": 8,
+        "order": 6,
         "name": "木下東四丁目もみじ公園東側",
         "address": "印西市木下東4-3",
         "total_points": 8,
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.157352,
+          35.831655
+        ]
+      },
+      "properties": {
+        "district": "総合福祉センター レクリエーションホール",
+        "order": 7,
+        "name": "古川文夫宅前",
+        "address": "印西市竹袋470-4",
+        "total_points": 8,
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.160508,
+          35.82417
+        ]
+      },
+      "properties": {
+        "district": "総合福祉センター レクリエーションホール",
+        "order": 8,
+        "name": "岩﨑容子宅前",
+        "address": "印西市別所1008",
+        "total_points": 8,
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -167,20 +167,12 @@
             35.837352
           ],
           [
-            140.150999,
-            35.833998
-          ],
-          [
             140.150049,
             35.832873
           ],
           [
-            140.160508,
-            35.82417
-          ],
-          [
-            140.157352,
-            35.831655
+            140.150999,
+            35.833998
           ],
           [
             140.157098,
@@ -191,6 +183,14 @@
             35.839738
           ],
           [
+            140.157352,
+            35.831655
+          ],
+          [
+            140.160508,
+            35.82417
+          ],
+          [
             140.148077,
             35.839025
           ]
@@ -199,8 +199,8 @@
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
         "type": "route",
-        "total_distance_km": 6.74,
-        "estimated_hours": 0.2
+        "total_distance_km": 10.14,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -218,8 +218,8 @@
         "name": "小林駅南口",
         "address": "印西市小林643-1",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -237,8 +237,8 @@
         "name": "旧ショッピングセンター前",
         "address": "印西市小林1811-1",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -256,8 +256,8 @@
         "name": "いなりや第二幼児公園南側",
         "address": "印西市小林浅間1-17-13",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -275,27 +275,8 @@
         "name": "小林中学校前",
         "address": "印西市小林大門下1-4-1",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.184005,
-          35.834154
-        ]
-      },
-      "properties": {
-        "district": "小林小学校体育館",
-        "order": 5,
-        "name": "渡辺友幸宅脇",
-        "address": "印西市小林2727",
-        "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -309,12 +290,31 @@
       },
       "properties": {
         "district": "小林小学校体育館",
-        "order": 6,
+        "order": 5,
         "name": "小林小学校前",
         "address": "印西市小林2448-2",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.184005,
+          35.834154
+        ]
+      },
+      "properties": {
+        "district": "小林小学校体育館",
+        "order": 6,
+        "name": "渡辺友幸宅脇",
+        "address": "印西市小林2727",
+        "total_points": 7,
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -332,8 +332,8 @@
         "name": "米元益雄宅前",
         "address": "印西市平岡1196",
         "total_points": 7,
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -358,12 +358,12 @@
             35.822941
           ],
           [
-            140.184005,
-            35.834154
-          ],
-          [
             140.187499,
             35.836771
+          ],
+          [
+            140.184005,
+            35.834154
           ],
           [
             140.175671,
@@ -378,8 +378,8 @@
       "properties": {
         "district": "小林小学校体育館",
         "type": "route",
-        "total_distance_km": 5.63,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.71,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -397,45 +397,7 @@
         "name": "小林駅北口",
         "address": "印西市小林北2-6-6",
         "total_points": 7,
-        "total_distance_km": 2.66,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.191723,
-          35.832042
-        ]
-      },
-      "properties": {
-        "district": "小林公民館集会室",
-        "order": 2,
-        "name": "なかうし西公園西側",
-        "address": "印西市小林北2-6-4",
-        "total_points": 7,
-        "total_distance_km": 2.66,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.19112,
-          35.834138
-        ]
-      },
-      "properties": {
-        "district": "小林公民館集会室",
-        "order": 3,
-        "name": "小林中継ポンプ場前",
-        "address": "印西市小林3293-2",
-        "total_points": 7,
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -450,11 +412,11 @@
       },
       "properties": {
         "district": "小林公民館集会室",
-        "order": 4,
+        "order": 2,
         "name": "小林公民館前",
         "address": "印西市小林北5-1-6",
         "total_points": 7,
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -469,11 +431,11 @@
       },
       "properties": {
         "district": "小林公民館集会室",
-        "order": 5,
+        "order": 3,
         "name": "なかうし第三幼児公園南側",
         "address": "印西市小林北3-8-15",
         "total_points": 7,
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -488,11 +450,11 @@
       },
       "properties": {
         "district": "小林公民館集会室",
-        "order": 6,
+        "order": 4,
         "name": "浅間山公園西側",
         "address": "印西市小林浅間3-1-10",
         "total_points": 7,
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -507,11 +469,49 @@
       },
       "properties": {
         "district": "小林公民館集会室",
-        "order": 7,
+        "order": 5,
         "name": "しろやま第一幼児公園南側",
         "address": "印西市小林浅間3-4-6",
         "total_points": 7,
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.191723,
+          35.832042
+        ]
+      },
+      "properties": {
+        "district": "小林公民館集会室",
+        "order": 6,
+        "name": "なかうし西公園西側",
+        "address": "印西市小林北2-6-4",
+        "total_points": 7,
+        "total_distance_km": 3.88,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.19112,
+          35.834138
+        ]
+      },
+      "properties": {
+        "district": "小林公民館集会室",
+        "order": 7,
+        "name": "小林中継ポンプ場前",
+        "address": "印西市小林3293-2",
+        "total_points": 7,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -523,14 +523,6 @@
           [
             140.193632,
             35.830587
-          ],
-          [
-            140.191723,
-            35.832042
-          ],
-          [
-            140.19112,
-            35.834138
           ],
           [
             140.198049,
@@ -549,6 +541,14 @@
             35.824934
           ],
           [
+            140.191723,
+            35.832042
+          ],
+          [
+            140.19112,
+            35.834138
+          ],
+          [
             140.193632,
             35.830587
           ]
@@ -557,7 +557,7 @@
       "properties": {
         "district": "小林公民館集会室",
         "type": "route",
-        "total_distance_km": 2.66,
+        "total_distance_km": 3.88,
         "estimated_hours": 0.1
       }
     },
@@ -576,122 +576,8 @@
         "name": "寺島佳寿宅前",
         "address": "印西市大森3213",
         "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.14049,
-          35.837213
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 2,
-        "name": "大森小学校前",
-        "address": "印西市大森3345-11地先",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.143645,
-          35.836098
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 3,
-        "name": "寺田商店駐車場前",
-        "address": "印西市大森3561-2",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.145868,
-          35.833926
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 4,
-        "name": "印西市役所前",
-        "address": "印西市大森2531-2地先",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.144716,
-          35.832554
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 5,
-        "name": "市役所駐車場",
-        "address": "印西市大森2364-2地先",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.144174,
-          35.830048
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 6,
-        "name": "松本寿枝子宅前",
-        "address": "印西市大森2289-2地先",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.13514,
-          35.823275
-        ]
-      },
-      "properties": {
-        "district": "大森保健センター",
-        "order": 7,
-        "name": "鹿黒集会所前",
-        "address": "印西市鹿黒456-2",
-        "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -705,12 +591,12 @@
       },
       "properties": {
         "district": "大森保健センター",
-        "order": 8,
+        "order": 2,
         "name": "渡辺孝宅前",
         "address": "印西市発作650",
         "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -724,12 +610,126 @@
       },
       "properties": {
         "district": "大森保健センター",
-        "order": 9,
+        "order": 3,
         "name": "亀成会館前",
         "address": "印西市亀成174-1",
         "total_points": 9,
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.13514,
+          35.823275
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 4,
+        "name": "鹿黒集会所前",
+        "address": "印西市鹿黒456-2",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.144174,
+          35.830048
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 5,
+        "name": "松本寿枝子宅前",
+        "address": "印西市大森2289-2地先",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.144716,
+          35.832554
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 6,
+        "name": "市役所駐車場",
+        "address": "印西市大森2364-2地先",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.143645,
+          35.836098
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 7,
+        "name": "寺田商店駐車場前",
+        "address": "印西市大森3561-2",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14049,
+          35.837213
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 8,
+        "name": "大森小学校前",
+        "address": "印西市大森3345-11地先",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.145868,
+          35.833926
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "order": 9,
+        "name": "印西市役所前",
+        "address": "印西市大森2531-2地先",
+        "total_points": 9,
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -742,36 +742,36 @@
             35.833961
           ],
           [
-            140.14049,
-            35.837213
-          ],
-          [
-            140.143645,
-            35.836098
-          ],
-          [
-            140.145868,
-            35.833926
-          ],
-          [
-            140.144716,
-            35.832554
-          ],
-          [
-            140.144174,
-            35.830048
-          ],
-          [
-            140.13514,
-            35.823275
-          ],
-          [
             140.12389,
             35.832047
           ],
           [
             140.120295,
             35.827726
+          ],
+          [
+            140.13514,
+            35.823275
+          ],
+          [
+            140.144174,
+            35.830048
+          ],
+          [
+            140.144716,
+            35.832554
+          ],
+          [
+            140.143645,
+            35.836098
+          ],
+          [
+            140.14049,
+            35.837213
+          ],
+          [
+            140.145868,
+            35.833926
           ],
           [
             140.135646,
@@ -782,8 +782,8 @@
       "properties": {
         "district": "大森保健センター",
         "type": "route",
-        "total_distance_km": 6.3,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.68,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -801,8 +801,8 @@
         "name": "宮内集会所隣",
         "address": "印西市浦部1991-1地先",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -820,8 +820,8 @@
         "name": "富沢商店前",
         "address": "印西市浦部1432-1地先",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -839,8 +839,8 @@
         "name": "山崎幸雄宅前",
         "address": "印西市白幡49-1",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -858,8 +858,8 @@
         "name": "山崎武雄宅前",
         "address": "印西市白幡277",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -877,8 +877,8 @@
         "name": "旧永治小学校前",
         "address": "印西市浦部557番地先",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -896,27 +896,8 @@
         "name": "武藤忠志宅前",
         "address": "印西市和泉1114番地先",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.123091,
-          35.821145
-        ]
-      },
-      "properties": {
-        "district": "永治コミュニティセンター多目的室",
-        "order": 7,
-        "name": "武藤利一宅裏",
-        "address": "印西市和泉892-2",
-        "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -930,12 +911,31 @@
       },
       "properties": {
         "district": "永治コミュニティセンター多目的室",
-        "order": 8,
+        "order": 7,
         "name": "和泉三差路",
         "address": "印西市和泉552番地先",
         "total_points": 8,
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.123091,
+          35.821145
+        ]
+      },
+      "properties": {
+        "district": "永治コミュニティセンター多目的室",
+        "order": 8,
+        "name": "武藤利一宅裏",
+        "address": "印西市和泉892-2",
+        "total_points": 8,
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -968,12 +968,12 @@
             35.81733
           ],
           [
-            140.123091,
-            35.821145
-          ],
-          [
             140.122485,
             35.823832
+          ],
+          [
+            140.123091,
+            35.821145
           ],
           [
             140.102699,
@@ -984,8 +984,8 @@
       "properties": {
         "district": "永治コミュニティセンター多目的室",
         "type": "route",
-        "total_distance_km": 5.83,
-        "estimated_hours": 0.2
+        "total_distance_km": 7.37,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1003,7 +1003,7 @@
         "name": "武西集会所前",
         "address": "印西市武西908",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1022,7 +1022,7 @@
         "name": "武西三差路脇",
         "address": "印西市武西355-1",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1041,7 +1041,7 @@
         "name": "安養寺前",
         "address": "印西市武西158-1",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1060,7 +1060,7 @@
         "name": "消防貯水池脇",
         "address": "印西市戸神222番地先",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1079,7 +1079,7 @@
         "name": "平川久人宅前",
         "address": "印西市戸神814",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1098,7 +1098,7 @@
         "name": "ﾊｰﾄｳﾞｨﾚｯﾁﾞ前",
         "address": "印西市武西1269－1",
         "total_points": 6,
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1140,7 +1140,7 @@
       "properties": {
         "district": "武西集会所集会室",
         "type": "route",
-        "total_distance_km": 2.69,
+        "total_distance_km": 4.19,
         "estimated_hours": 0.1
       }
     },
@@ -1159,27 +1159,8 @@
         "name": "多々羅田青年館前",
         "address": "印西市多々羅田44番地先",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.135546,
-          35.789924
-        ]
-      },
-      "properties": {
-        "district": "船穂コミュニティセンター多目的室",
-        "order": 2,
-        "name": "結縁寺青年館前",
-        "address": "印西市結縁寺535-1",
-        "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1193,12 +1174,12 @@
       },
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
-        "order": 3,
+        "order": 2,
         "name": "（有）浅野自動車整備工場前",
         "address": "印西市船尾1334-4地先",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1206,18 +1187,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.138025,
-          35.778318
+          140.12062,
+          35.78103
+        ]
+      },
+      "properties": {
+        "district": "船穂コミュニティセンター多目的室",
+        "order": 3,
+        "name": "山崎章三宅前",
+        "address": "印西市船尾637-3番地先",
+        "total_points": 7,
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129946,
+          35.781814
         ]
       },
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 4,
-        "name": "押田博満宅前",
-        "address": "印西市松崎397",
+        "name": "船穂ｺﾐｭﾆﾃｨｾﾝﾀｰ前",
+        "address": "印西市船尾786-1",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1235,8 +1235,8 @@
         "name": "山崎正富宅前",
         "address": "印西市松崎343",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1244,18 +1244,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.129946,
-          35.781814
+          140.138025,
+          35.778318
         ]
       },
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 6,
-        "name": "船穂ｺﾐｭﾆﾃｨｾﾝﾀｰ前",
-        "address": "印西市船尾786-1",
+        "name": "押田博満宅前",
+        "address": "印西市松崎397",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1263,18 +1263,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.12062,
-          35.78103
+          140.135546,
+          35.789924
         ]
       },
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 7,
-        "name": "山崎章三宅前",
-        "address": "印西市船尾637-3番地先",
+        "name": "結縁寺青年館前",
+        "address": "印西市結縁寺535-1",
         "total_points": 7,
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1287,28 +1287,28 @@
             35.793106
           ],
           [
-            140.135546,
-            35.789924
-          ],
-          [
             140.130285,
             35.787404
           ],
           [
-            140.138025,
-            35.778318
-          ],
-          [
-            140.139141,
-            35.77534
+            140.12062,
+            35.78103
           ],
           [
             140.129946,
             35.781814
           ],
           [
-            140.12062,
-            35.78103
+            140.139141,
+            35.77534
+          ],
+          [
+            140.138025,
+            35.778318
+          ],
+          [
+            140.135546,
+            35.789924
           ],
           [
             140.129434,
@@ -1319,8 +1319,8 @@
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "type": "route",
-        "total_distance_km": 6.29,
-        "estimated_hours": 0.2
+        "total_distance_km": 8.03,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1338,7 +1338,7 @@
         "name": "印西市果樹園芸組合集荷所隣",
         "address": "印西市泉20",
         "total_points": 8,
-        "total_distance_km": 3.52,
+        "total_distance_km": 4.79,
         "estimated_hours": 0.1
       }
     },
@@ -1357,102 +1357,7 @@
         "name": "河内恒明宅脇",
         "address": "印西市草深1208-15地先",
         "total_points": 8,
-        "total_distance_km": 3.52,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.12826,
-          35.800872
-        ]
-      },
-      "properties": {
-        "district": "原山小学校体育館",
-        "order": 3,
-        "name": "原山北街区公園南側",
-        "address": "印西市原山1-6",
-        "total_points": 8,
-        "total_distance_km": 3.52,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.129952,
-          35.800092
-        ]
-      },
-      "properties": {
-        "district": "原山小学校体育館",
-        "order": 4,
-        "name": "原山小学校北側",
-        "address": "印西市原山3-4",
-        "total_points": 8,
-        "total_distance_km": 3.52,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.131287,
-          35.799703
-        ]
-      },
-      "properties": {
-        "district": "原山小学校体育館",
-        "order": 5,
-        "name": "原山小学校東側",
-        "address": "印西市原山3-4",
-        "total_points": 8,
-        "total_distance_km": 3.52,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.132924,
-          35.798126
-        ]
-      },
-      "properties": {
-        "district": "原山小学校体育館",
-        "order": 6,
-        "name": "企業庁跡地前",
-        "address": "印西市原山3-8",
-        "total_points": 8,
-        "total_distance_km": 3.52,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.128926,
-          35.797038
-        ]
-      },
-      "properties": {
-        "district": "原山小学校体育館",
-        "order": 7,
-        "name": "原山南児童公園南側",
-        "address": "印西市原山1-10",
-        "total_points": 8,
-        "total_distance_km": 3.52,
+        "total_distance_km": 4.79,
         "estimated_hours": 0.1
       }
     },
@@ -1467,11 +1372,106 @@
       },
       "properties": {
         "district": "原山小学校体育館",
-        "order": 8,
+        "order": 3,
         "name": "原山中学校裏門隣",
         "address": "印西市原山1-2",
         "total_points": 8,
-        "total_distance_km": 3.52,
+        "total_distance_km": 4.79,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.128926,
+          35.797038
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "order": 4,
+        "name": "原山南児童公園南側",
+        "address": "印西市原山1-10",
+        "total_points": 8,
+        "total_distance_km": 4.79,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.132924,
+          35.798126
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "order": 5,
+        "name": "企業庁跡地前",
+        "address": "印西市原山3-8",
+        "total_points": 8,
+        "total_distance_km": 4.79,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.131287,
+          35.799703
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "order": 6,
+        "name": "原山小学校東側",
+        "address": "印西市原山3-4",
+        "total_points": 8,
+        "total_distance_km": 4.79,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129952,
+          35.800092
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "order": 7,
+        "name": "原山小学校北側",
+        "address": "印西市原山3-4",
+        "total_points": 8,
+        "total_distance_km": 4.79,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12826,
+          35.800872
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "order": 8,
+        "name": "原山北街区公園南側",
+        "address": "印西市原山1-6",
+        "total_points": 8,
+        "total_distance_km": 4.79,
         "estimated_hours": 0.1
       }
     },
@@ -1489,28 +1489,28 @@
             35.809352
           ],
           [
-            140.12826,
-            35.800872
-          ],
-          [
-            140.129952,
-            35.800092
-          ],
-          [
-            140.131287,
-            35.799703
-          ],
-          [
-            140.132924,
-            35.798126
+            140.128517,
+            35.79845
           ],
           [
             140.128926,
             35.797038
           ],
           [
-            140.128517,
-            35.79845
+            140.132924,
+            35.798126
+          ],
+          [
+            140.131287,
+            35.799703
+          ],
+          [
+            140.129952,
+            35.800092
+          ],
+          [
+            140.12826,
+            35.800872
           ],
           [
             140.132592,
@@ -1521,7 +1521,7 @@
       "properties": {
         "district": "原山小学校体育館",
         "type": "route",
-        "total_distance_km": 3.52,
+        "total_distance_km": 4.79,
         "estimated_hours": 0.1
       }
     },
@@ -1540,27 +1540,8 @@
         "name": "七軒屋集会所前",
         "address": "印西市草深66-7",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.145421,
-          35.796289
-        ]
-      },
-      "properties": {
-        "district": "草深ふれあい市民センターロビー",
-        "order": 2,
-        "name": "伊藤智章宅前",
-        "address": "印西市草深132",
-        "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1574,12 +1555,31 @@
       },
       "properties": {
         "district": "草深ふれあい市民センターロビー",
-        "order": 3,
+        "order": 2,
         "name": "内川青年館前",
         "address": "印西市草深943-1",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.145421,
+          35.796289
+        ]
+      },
+      "properties": {
+        "district": "草深ふれあい市民センターロビー",
+        "order": 3,
+        "name": "伊藤智章宅前",
+        "address": "印西市草深132",
+        "total_points": 7,
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1597,8 +1597,8 @@
         "name": "永田洋子宅前",
         "address": "印西市草深2504-3",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1616,8 +1616,8 @@
         "name": "草深ふれあい市民センター前",
         "address": "印西市草深924",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1635,8 +1635,8 @@
         "name": "花島水道倉庫前",
         "address": "印西市草深423-2",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1654,8 +1654,8 @@
         "name": "湯浅勝江宅脇",
         "address": "印西市草深489",
         "total_points": 7,
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1668,12 +1668,12 @@
             35.801704
           ],
           [
-            140.145421,
-            35.796289
-          ],
-          [
             140.149414,
             35.799648
+          ],
+          [
+            140.145421,
+            35.796289
           ],
           [
             140.157331,
@@ -1700,8 +1700,8 @@
       "properties": {
         "district": "草深ふれあい市民センターロビー",
         "type": "route",
-        "total_distance_km": 6.46,
-        "estimated_hours": 0.2
+        "total_distance_km": 9.16,
+        "estimated_hours": 0.3
       }
     },
     {
@@ -1719,7 +1719,7 @@
         "name": "木刈東児童公園北側",
         "address": "印西市木刈1-2",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1728,17 +1728,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.106198,
-          35.807244
+          140.109362,
+          35.810088
         ]
       },
       "properties": {
         "district": "木刈小学校体育館",
         "order": 2,
-        "name": "木刈中児童公園西側",
-        "address": "印西市木刈2-3",
+        "name": "浦幡新田公園北側",
+        "address": "印西市木刈1-4-6",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1747,17 +1747,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.104793,
-          35.807863
+          140.106182,
+          35.81032
         ]
       },
       "properties": {
         "district": "木刈小学校体育館",
         "order": 3,
-        "name": "木刈保育園前",
-        "address": "印西市木刈6-23",
+        "name": "木刈小学校前",
+        "address": "印西市木刈2-6",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1776,7 +1776,7 @@
         "name": "木刈北児童公園南側",
         "address": "印西市木刈4-22",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1785,17 +1785,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.106182,
-          35.81032
+          140.104793,
+          35.807863
         ]
       },
       "properties": {
         "district": "木刈小学校体育館",
         "order": 5,
-        "name": "木刈小学校前",
-        "address": "印西市木刈2-6",
+        "name": "木刈保育園前",
+        "address": "印西市木刈6-23",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1804,17 +1804,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.109362,
-          35.810088
+          140.106198,
+          35.807244
         ]
       },
       "properties": {
         "district": "木刈小学校体育館",
         "order": 6,
-        "name": "浦幡新田公園北側",
-        "address": "印西市木刈1-4-6",
+        "name": "木刈中児童公園西側",
+        "address": "印西市木刈2-3",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1833,7 +1833,7 @@
         "name": "大塚三丁目集会所隣",
         "address": "印西市和泉1386-7",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1852,7 +1852,7 @@
         "name": "大塚街区公園北側",
         "address": "印西市大塚3-30",
         "total_points": 8,
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1866,24 +1866,24 @@
             35.809437
           ],
           [
-            140.106198,
-            35.807244
-          ],
-          [
-            140.104793,
-            35.807863
-          ],
-          [
-            140.104164,
-            35.810104
+            140.109362,
+            35.810088
           ],
           [
             140.106182,
             35.81032
           ],
           [
-            140.109362,
-            35.810088
+            140.104164,
+            35.810104
+          ],
+          [
+            140.104793,
+            35.807863
+          ],
+          [
+            140.106198,
+            35.807244
           ],
           [
             140.120541,
@@ -1902,7 +1902,7 @@
       "properties": {
         "district": "木刈小学校体育館",
         "type": "route",
-        "total_distance_km": 3.64,
+        "total_distance_km": 5.03,
         "estimated_hours": 0.1
       }
     },
@@ -1921,7 +1921,7 @@
         "name": "大塚前公園東側",
         "address": "印西市小倉台1-2",
         "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -1940,7 +1940,7 @@
         "name": "大塚前公園西側",
         "address": "印西市小倉台1-2",
         "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -1949,17 +1949,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.110631,
-          35.80398
+          140.112778,
+          35.806275
         ]
       },
       "properties": {
         "district": "小倉台小学校体育館",
         "order": 3,
-        "name": "小倉台小学校南側",
-        "address": "印西市小倉台2-3",
+        "name": "小倉台東児童公園西側",
+        "address": "印西市小倉台4-4",
         "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -1978,7 +1978,26 @@
         "name": "小倉台小学校北側",
         "address": "印西市小倉台2-3",
         "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.110631,
+          35.80398
+        ]
+      },
+      "properties": {
+        "district": "小倉台小学校体育館",
+        "order": 5,
+        "name": "小倉台小学校南側",
+        "address": "印西市小倉台2-3",
+        "total_points": 7,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -1993,30 +2012,11 @@
       },
       "properties": {
         "district": "小倉台小学校体育館",
-        "order": 5,
+        "order": 6,
         "name": "木刈中学校前",
         "address": "印西市木刈2-1",
         "total_points": 7,
-        "total_distance_km": 1.73,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.112778,
-          35.806275
-        ]
-      },
-      "properties": {
-        "district": "小倉台小学校体育館",
-        "order": 6,
-        "name": "小倉台東児童公園西側",
-        "address": "印西市小倉台4-4",
-        "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -2035,7 +2035,7 @@
         "name": "ファーストスクエア小倉台北側",
         "address": "印西市小倉台4-102",
         "total_points": 7,
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -2053,20 +2053,20 @@
             35.804634
           ],
           [
-            140.110631,
-            35.80398
+            140.112778,
+            35.806275
           ],
           [
             140.109209,
             35.804756
           ],
           [
-            140.1106911,
-            35.8070051
+            140.110631,
+            35.80398
           ],
           [
-            140.112778,
-            35.806275
+            140.1106911,
+            35.8070051
           ],
           [
             140.115321,
@@ -2081,7 +2081,7 @@
       "properties": {
         "district": "小倉台小学校体育館",
         "type": "route",
-        "total_distance_km": 1.73,
+        "total_distance_km": 4.36,
         "estimated_hours": 0.1
       }
     },
@@ -2100,26 +2100,7 @@
         "name": "北総花の丘公園入口",
         "address": "印西市原山1-12-1",
         "total_points": 7,
-        "total_distance_km": 2.19,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.125475,
-          35.798511
-        ]
-      },
-      "properties": {
-        "district": "内野小学校体育館",
-        "order": 2,
-        "name": "内野小学校北側",
-        "address": "印西市内野1-1",
-        "total_points": 7,
-        "total_distance_km": 2.19,
+        "total_distance_km": 4.77,
         "estimated_hours": 0.1
       }
     },
@@ -2134,49 +2115,11 @@
       },
       "properties": {
         "district": "内野小学校体育館",
-        "order": 3,
+        "order": 2,
         "name": "内野保育園前",
         "address": "印西市内野1-12",
         "total_points": 7,
-        "total_distance_km": 2.19,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.127124,
-          35.796452
-        ]
-      },
-      "properties": {
-        "district": "内野小学校体育館",
-        "order": 4,
-        "name": "多々羅田公園東側",
-        "address": "印西市内野1-10-1",
-        "total_points": 7,
-        "total_distance_km": 2.19,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.12799,
-          35.794939
-        ]
-      },
-      "properties": {
-        "district": "内野小学校体育館",
-        "order": 5,
-        "name": "多々羅田公園南側",
-        "address": "印西市内野1-10-1",
-        "total_points": 7,
-        "total_distance_km": 2.19,
+        "total_distance_km": 4.77,
         "estimated_hours": 0.1
       }
     },
@@ -2191,11 +2134,68 @@
       },
       "properties": {
         "district": "内野小学校体育館",
-        "order": 6,
+        "order": 3,
         "name": "内野南児童公園東側",
         "address": "印西市内野2-8",
         "total_points": 7,
-        "total_distance_km": 2.19,
+        "total_distance_km": 4.77,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12799,
+          35.794939
+        ]
+      },
+      "properties": {
+        "district": "内野小学校体育館",
+        "order": 4,
+        "name": "多々羅田公園南側",
+        "address": "印西市内野1-10-1",
+        "total_points": 7,
+        "total_distance_km": 4.77,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.127124,
+          35.796452
+        ]
+      },
+      "properties": {
+        "district": "内野小学校体育館",
+        "order": 5,
+        "name": "多々羅田公園東側",
+        "address": "印西市内野1-10-1",
+        "total_points": 7,
+        "total_distance_km": 4.77,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.125475,
+          35.798511
+        ]
+      },
+      "properties": {
+        "district": "内野小学校体育館",
+        "order": 6,
+        "name": "内野小学校北側",
+        "address": "印西市内野1-1",
+        "total_points": 7,
+        "total_distance_km": 4.77,
         "estimated_hours": 0.1
       }
     },
@@ -2214,7 +2214,7 @@
         "name": "内野南第２団地入口",
         "address": "印西市内野2‐6‐3",
         "total_points": 7,
-        "total_distance_km": 2.19,
+        "total_distance_km": 4.77,
         "estimated_hours": 0.1
       }
     },
@@ -2228,24 +2228,24 @@
             35.798697
           ],
           [
-            140.125475,
-            35.798511
-          ],
-          [
             140.124281,
             35.796817
           ],
           [
-            140.127124,
-            35.796452
+            140.125667,
+            35.794565
           ],
           [
             140.12799,
             35.794939
           ],
           [
-            140.125667,
-            35.794565
+            140.127124,
+            35.796452
+          ],
+          [
+            140.125475,
+            35.798511
           ],
           [
             140.12389,
@@ -2260,7 +2260,7 @@
       "properties": {
         "district": "内野小学校体育館",
         "type": "route",
-        "total_distance_km": 2.19,
+        "total_distance_km": 4.77,
         "estimated_hours": 0.1
       }
     },
@@ -2279,8 +2279,46 @@
         "name": "高花北街区公園南側",
         "address": "印西市高花1-24",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.133457,
+          35.795937
+        ]
+      },
+      "properties": {
+        "district": "高花小学校体育館",
+        "order": 2,
+        "name": "高花西児童公園西側",
+        "address": "印西市高花1-7",
+        "total_points": 8,
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.133159,
+          35.795212
+        ]
+      },
+      "properties": {
+        "district": "高花小学校体育館",
+        "order": 3,
+        "name": "船穂中学校前",
+        "address": "印西市高花1-3",
+        "total_points": 8,
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2294,12 +2332,12 @@
       },
       "properties": {
         "district": "高花小学校体育館",
-        "order": 2,
+        "order": 4,
         "name": "高花小学校前",
         "address": "印西市高花2-4",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2313,50 +2351,12 @@
       },
       "properties": {
         "district": "高花小学校体育館",
-        "order": 3,
+        "order": 5,
         "name": "高花東街区公園東側",
         "address": "印西市高花2-5",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.142777,
-          35.790678
-        ]
-      },
-      "properties": {
-        "district": "高花小学校体育館",
-        "order": 4,
-        "name": "高花南児童公園東側",
-        "address": "印西市高花6-28",
-        "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.140927,
-          35.793701
-        ]
-      },
-      "properties": {
-        "district": "高花小学校体育館",
-        "order": 5,
-        "name": "高花中児童公園南側",
-        "address": "印西市高花4-8-1",
-        "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2374,8 +2374,8 @@
         "name": "高花公園東側",
         "address": "印西市高花5-4",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2383,18 +2383,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.133457,
-          35.795937
+          140.140927,
+          35.793701
         ]
       },
       "properties": {
         "district": "高花小学校体育館",
         "order": 7,
-        "name": "高花西児童公園西側",
-        "address": "印西市高花1-7",
+        "name": "高花中児童公園南側",
+        "address": "印西市高花4-8-1",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2402,18 +2402,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.133159,
-          35.795212
+          140.142777,
+          35.790678
         ]
       },
       "properties": {
         "district": "高花小学校体育館",
         "order": 8,
-        "name": "船穂中学校前",
-        "address": "印西市高花1-3",
+        "name": "高花南児童公園東側",
+        "address": "印西市高花6-28",
         "total_points": 8,
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2426,6 +2426,14 @@
             35.798446
           ],
           [
+            140.133457,
+            35.795937
+          ],
+          [
+            140.133159,
+            35.795212
+          ],
+          [
             140.13918,
             35.797667
           ],
@@ -2434,24 +2442,16 @@
             35.797749
           ],
           [
-            140.142777,
-            35.790678
+            140.138053,
+            35.795863
           ],
           [
             140.140927,
             35.793701
           ],
           [
-            140.138053,
-            35.795863
-          ],
-          [
-            140.133457,
-            35.795937
-          ],
-          [
-            140.133159,
-            35.795212
+            140.142777,
+            35.790678
           ],
           [
             140.136662,
@@ -2462,8 +2462,8 @@
       "properties": {
         "district": "高花小学校体育館",
         "type": "route",
-        "total_distance_km": 2.99,
-        "estimated_hours": 0.1
+        "total_distance_km": 5.24,
+        "estimated_hours": 0.2
       }
     },
     {
@@ -2481,7 +2481,7 @@
         "name": "西の原小学校北側",
         "address": "印西市西の原2-7",
         "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2500,26 +2500,7 @@
         "name": "西の原西街区公園南側",
         "address": "印西市西の原3-13",
         "total_points": 7,
-        "total_distance_km": 2.42,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.155729,
-          35.802582
-        ]
-      },
-      "properties": {
-        "district": "西の原小学校体育館",
-        "order": 3,
-        "name": "西の原北街区公園東側",
-        "address": "印西市西の原3-8",
-        "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2534,11 +2515,11 @@
       },
       "properties": {
         "district": "西の原小学校体育館",
-        "order": 4,
+        "order": 3,
         "name": "西の原公園南側",
         "address": "印西市西の原1-4",
         "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2553,11 +2534,30 @@
       },
       "properties": {
         "district": "西の原小学校体育館",
-        "order": 5,
+        "order": 4,
         "name": "西の原東街区公園東側",
         "address": "印西市西の原2-1",
         "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.155729,
+          35.802582
+        ]
+      },
+      "properties": {
+        "district": "西の原小学校体育館",
+        "order": 5,
+        "name": "西の原北街区公園東側",
+        "address": "印西市西の原3-8",
+        "total_points": 7,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2576,7 +2576,7 @@
         "name": "西の原中学校北側",
         "address": "印西市西の原1-3",
         "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2595,7 +2595,7 @@
         "name": "牧の原学校給食センター前",
         "address": "印西市別所71－1",
         "total_points": 7,
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2613,16 +2613,16 @@
             35.801064
           ],
           [
-            140.155729,
-            35.802582
-          ],
-          [
             140.15774,
             35.801345
           ],
           [
             140.158924,
             35.800817
+          ],
+          [
+            140.155729,
+            35.802582
           ],
           [
             140.15757,
@@ -2641,7 +2641,7 @@
       "properties": {
         "district": "西の原小学校体育館",
         "type": "route",
-        "total_distance_km": 2.42,
+        "total_distance_km": 4.06,
         "estimated_hours": 0.1
       }
     },
@@ -2660,26 +2660,7 @@
         "name": "原西街区公園南側",
         "address": "印西市原2-6",
         "total_points": 8,
-        "total_distance_km": 2.88,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.162391,
-          35.798823
-        ]
-      },
-      "properties": {
-        "district": "そうふけ公民館多目的室",
-        "order": 2,
-        "name": "原南街区公園南側",
-        "address": "印西市原4-3-1",
-        "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2694,11 +2675,30 @@
       },
       "properties": {
         "district": "そうふけ公民館多目的室",
-        "order": 3,
+        "order": 2,
         "name": "そうふけ公民館前",
         "address": "印西市原3-4",
         "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.168312,
+          35.799211
+        ]
+      },
+      "properties": {
+        "district": "そうふけ公民館多目的室",
+        "order": 3,
+        "name": "原東街区公園東側",
+        "address": "印西市原3-1",
+        "total_points": 8,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2717,7 +2717,7 @@
         "name": "草深公園北側",
         "address": "印西市原2-4",
         "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2736,26 +2736,7 @@
         "name": "印西牧の原駅南側ロータリー",
         "address": "印西市原1-101",
         "total_points": 8,
-        "total_distance_km": 2.88,
-        "estimated_hours": 0.1
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.168312,
-          35.799211
-        ]
-      },
-      "properties": {
-        "district": "そうふけ公民館多目的室",
-        "order": 6,
-        "name": "原東街区公園東側",
-        "address": "印西市原3-1",
-        "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2770,11 +2751,11 @@
       },
       "properties": {
         "district": "そうふけ公民館多目的室",
-        "order": 7,
+        "order": 6,
         "name": "東の原街区公園北側",
         "address": "印西市東の原2-106",
         "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2789,11 +2770,30 @@
       },
       "properties": {
         "district": "そうふけ公民館多目的室",
-        "order": 8,
+        "order": 7,
         "name": "東の原公園北側",
         "address": "印西市東の原3-105",
         "total_points": 8,
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
+        "estimated_hours": 0.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.162391,
+          35.798823
+        ]
+      },
+      "properties": {
+        "district": "そうふけ公民館多目的室",
+        "order": 8,
+        "name": "原南街区公園南側",
+        "address": "印西市原4-3-1",
+        "total_points": 8,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2807,12 +2807,12 @@
             35.800773
           ],
           [
-            140.162391,
-            35.798823
-          ],
-          [
             140.165147,
             35.800043
+          ],
+          [
+            140.168312,
+            35.799211
           ],
           [
             140.166532,
@@ -2823,16 +2823,16 @@
             35.802977
           ],
           [
-            140.168312,
-            35.799211
-          ],
-          [
             140.172418,
             35.799279
           ],
           [
             140.17243,
             35.797659
+          ],
+          [
+            140.162391,
+            35.798823
           ],
           [
             140.161992,
@@ -2843,7 +2843,7 @@
       "properties": {
         "district": "そうふけ公民館多目的室",
         "type": "route",
-        "total_distance_km": 2.88,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -2862,8 +2862,8 @@
         "name": "瀬戸構造改善センター前",
         "address": "印西市美瀬1080",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2881,8 +2881,8 @@
         "name": "印旛中央公園入口",
         "address": "印西市瀬戸1504-1地先",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2900,8 +2900,8 @@
         "name": "松田敏郎畑地東側",
         "address": "印西市瀬戸1388地先",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2919,8 +2919,8 @@
         "name": "仲井青年館跡前",
         "address": "印西市山田3273番地先",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2938,8 +2938,8 @@
         "name": "仲井構造改善センター前",
         "address": "印西市山田93-1",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2957,8 +2957,8 @@
         "name": "宮後構造改善センター向い",
         "address": "印西市山田875-2",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2976,8 +2976,8 @@
         "name": "吉高構造改善センター脇",
         "address": "印西市吉高854",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -2995,8 +2995,8 @@
         "name": "一本松地区入口",
         "address": "印西市吉高3258番地先",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3014,8 +3014,8 @@
         "name": "松虫構造改善センター前",
         "address": "印西市松虫７",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3033,8 +3033,8 @@
         "name": "萩原構造改善センター入口",
         "address": "印西市萩原1404-2",
         "total_points": 10,
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3091,8 +3091,8 @@
       "properties": {
         "district": "六合小学校体育館",
         "type": "route",
-        "total_distance_km": 11.11,
-        "estimated_hours": 0.4
+        "total_distance_km": 16.92,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3110,26 +3110,7 @@
         "name": "岩戸構造改善センター前",
         "address": "印西市岩戸1616-1",
         "total_points": 10,
-        "total_distance_km": 12.98,
-        "estimated_hours": 0.4
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.152438,
-          35.766902
-        ]
-      },
-      "properties": {
-        "district": "印旛西部公園管理棟ホール",
-        "order": 2,
-        "name": "万福寺前",
-        "address": "印西市吉田821",
-        "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3144,11 +3125,30 @@
       },
       "properties": {
         "district": "印旛西部公園管理棟ホール",
-        "order": 3,
+        "order": 2,
         "name": "吉田宗像神社前",
         "address": "印西市吉田1600-1地先",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
+        "estimated_hours": 0.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.152438,
+          35.766902
+        ]
+      },
+      "properties": {
+        "district": "印旛西部公園管理棟ホール",
+        "order": 3,
+        "name": "万福寺前",
+        "address": "印西市吉田821",
+        "total_points": 10,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3167,7 +3167,7 @@
         "name": "印旛西部公園前",
         "address": "印西市岩戸2878-2",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3186,7 +3186,7 @@
         "name": "広福寺前",
         "address": "印西市師戸1486-1",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3205,7 +3205,7 @@
         "name": "渡辺文秀宅はす向かい",
         "address": "印西市師戸3315-4",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3224,26 +3224,7 @@
         "name": "鎌苅構造改善センター前",
         "address": "印西市鎌苅590-1",
         "total_points": 10,
-        "total_distance_km": 12.98,
-        "estimated_hours": 0.4
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.173151,
-          35.772686
-        ]
-      },
-      "properties": {
-        "district": "印旛西部公園管理棟ホール",
-        "order": 8,
-        "name": "カーピカランド岩戸前",
-        "address": "印西市岩戸3245-2地先",
-        "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3258,11 +3239,30 @@
       },
       "properties": {
         "district": "印旛西部公園管理棟ホール",
-        "order": 9,
+        "order": 8,
         "name": "大廻鳩谷伸一宅脇",
         "address": "印西市大廻269-3地先",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
+        "estimated_hours": 0.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.173151,
+          35.772686
+        ]
+      },
+      "properties": {
+        "district": "印旛西部公園管理棟ホール",
+        "order": 9,
+        "name": "カーピカランド岩戸前",
+        "address": "印西市岩戸3245-2地先",
+        "total_points": 10,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3281,7 +3281,7 @@
         "name": "酢崎材木店脇",
         "address": "印西市造谷658-3地先",
         "total_points": 10,
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3295,12 +3295,12 @@
             35.766291
           ],
           [
-            140.152438,
-            35.766902
-          ],
-          [
             140.154443,
             35.764749
+          ],
+          [
+            140.152438,
+            35.766902
           ],
           [
             140.164386,
@@ -3319,12 +3319,12 @@
             35.773991
           ],
           [
-            140.173151,
-            35.772686
-          ],
-          [
             140.181975,
             35.779558
+          ],
+          [
+            140.173151,
+            35.772686
           ],
           [
             140.176104,
@@ -3339,7 +3339,7 @@
       "properties": {
         "district": "印旛西部公園管理棟ホール",
         "type": "route",
-        "total_distance_km": 12.98,
+        "total_distance_km": 17.21,
         "estimated_hours": 0.4
       }
     },
@@ -3358,7 +3358,7 @@
         "name": "平賀深山宅脇",
         "address": "印西市平賀2613-2地先",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3377,7 +3377,7 @@
         "name": "平賀四角脇",
         "address": "印西市平賀821-2",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3396,7 +3396,7 @@
         "name": "平賀構造改善センター隣",
         "address": "印西市平賀870-2",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3415,7 +3415,7 @@
         "name": "学園台入口交差点脇",
         "address": "印西市平賀1200-2地先",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3434,7 +3434,7 @@
         "name": "さざなみ第2公園前",
         "address": "印西市平賀学園台2-21-3",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3453,7 +3453,7 @@
         "name": "仲の台バス停脇",
         "address": "印西市平賀3834",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3472,7 +3472,7 @@
         "name": "順天堂大学入口",
         "address": "印西市平賀3722",
         "total_points": 7,
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3518,7 +3518,7 @@
       "properties": {
         "district": "平賀小学校体育館",
         "type": "route",
-        "total_distance_km": 5.4,
+        "total_distance_km": 6.34,
         "estimated_hours": 0.2
       }
     },
@@ -3537,7 +3537,7 @@
         "name": "印旛支所前",
         "address": "印西市美瀬1-25",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3546,17 +3546,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.205544,
-          35.781535
+          140.202256,
+          35.782281
         ]
       },
       "properties": {
         "district": "ふれあいセンターいんば３階会議室",
         "order": 2,
-        "name": "美瀬の林公園前",
-        "address": "印西市美瀬146",
+        "name": "日本医大千葉北総病院入口",
+        "address": "印西市鎌苅1715",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3575,7 +3575,7 @@
         "name": "ウェルガーデンA棟前",
         "address": "印西市舞姫2-2",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3584,17 +3584,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.202256,
-          35.782281
+          140.205544,
+          35.781535
         ]
       },
       "properties": {
         "district": "ふれあいセンターいんば３階会議室",
         "order": 4,
-        "name": "日本医大千葉北総病院入口",
-        "address": "印西市鎌苅1715",
+        "name": "美瀬の林公園前",
+        "address": "印西市美瀬146",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3613,7 +3613,7 @@
         "name": "印旛中学校前",
         "address": "印西市舞姫2-1-1",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3632,7 +3632,7 @@
         "name": "エストリオいには野前",
         "address": "印西市若萩1-3",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3651,7 +3651,7 @@
         "name": "若萩の丘公園前",
         "address": "印西市若萩3-114",
         "total_points": 7,
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3665,16 +3665,16 @@
             35.779473
           ],
           [
-            140.205544,
-            35.781535
+            140.202256,
+            35.782281
           ],
           [
             140.204421,
             35.782885
           ],
           [
-            140.202256,
-            35.782281
+            140.205544,
+            35.781535
           ],
           [
             140.204078,
@@ -3697,7 +3697,7 @@
       "properties": {
         "district": "ふれあいセンターいんば３階会議室",
         "type": "route",
-        "total_distance_km": 2.68,
+        "total_distance_km": 4.52,
         "estimated_hours": 0.1
       }
     },
@@ -3716,27 +3716,8 @@
         "name": "本埜支所前",
         "address": "印西市笠神2587",
         "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.203474,
-          35.815125
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 2,
-        "name": "小手正治宅前",
-        "address": "印西市笠神2346-3番地先",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3750,12 +3731,12 @@
       },
       "properties": {
         "district": "本埜支所３階多目的スペース",
-        "order": 3,
+        "order": 2,
         "name": "笠神旧消防小屋前",
         "address": "印西市笠神",
         "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3769,12 +3750,12 @@
       },
       "properties": {
         "district": "本埜支所３階多目的スペース",
-        "order": 4,
+        "order": 3,
         "name": "一区コミュニティセンター前",
         "address": "印西市行徳21",
         "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3782,113 +3763,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.202641,
-          35.81114
+          140.203474,
+          35.815125
         ]
       },
       "properties": {
         "district": "本埜支所３階多目的スペース",
-        "order": 5,
-        "name": "旧本埜村元商工会前",
-        "address": "印西市中根856-8",
+        "order": 4,
+        "name": "小手正治宅前",
+        "address": "印西市笠神2346-3番地先",
         "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.201764,
-          35.803766
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 6,
-        "name": "辺田前コミュニティセンター前",
-        "address": "印西市中根187",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.197233,
-          35.796657
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 7,
-        "name": "荒野コミュニティセンター向い",
-        "address": "印西市荒野469-2地先",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.192105,
-          35.787015
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 8,
-        "name": "角田栄福寺入口",
-        "address": "印西市角田2地先",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.188392,
-          35.804805
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 9,
-        "name": "五十嵐花園北側畑地",
-        "address": "印西市竜腹寺478-1地先",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.179973,
-          35.817669
-        ]
-      },
-      "properties": {
-        "district": "本埜支所３階多目的スペース",
-        "order": 10,
-        "name": "滝青年館前",
-        "address": "印西市滝1008-2",
-        "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3902,12 +3788,126 @@
       },
       "properties": {
         "district": "本埜支所３階多目的スペース",
-        "order": 11,
+        "order": 5,
         "name": "諏訪神社入口",
         "address": "印西市物木230番地先",
         "total_points": 11,
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.179973,
+          35.817669
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 6,
+        "name": "滝青年館前",
+        "address": "印西市滝1008-2",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.188392,
+          35.804805
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 7,
+        "name": "五十嵐花園北側畑地",
+        "address": "印西市竜腹寺478-1地先",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.202641,
+          35.81114
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 8,
+        "name": "旧本埜村元商工会前",
+        "address": "印西市中根856-8",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.201764,
+          35.803766
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 9,
+        "name": "辺田前コミュニティセンター前",
+        "address": "印西市中根187",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.197233,
+          35.796657
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 10,
+        "name": "荒野コミュニティセンター向い",
+        "address": "印西市荒野469-2地先",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.192105,
+          35.787015
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "order": 11,
+        "name": "角田栄福寺入口",
+        "address": "印西市角田2地先",
+        "total_points": 11,
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3920,16 +3920,28 @@
             35.816427
           ],
           [
-            140.203474,
-            35.815125
-          ],
-          [
             140.205894,
             35.817569
           ],
           [
             140.209111,
             35.813256
+          ],
+          [
+            140.203474,
+            35.815125
+          ],
+          [
+            140.191522,
+            35.820345
+          ],
+          [
+            140.179973,
+            35.817669
+          ],
+          [
+            140.188392,
+            35.804805
           ],
           [
             140.202641,
@@ -3948,18 +3960,6 @@
             35.787015
           ],
           [
-            140.188392,
-            35.804805
-          ],
-          [
-            140.179973,
-            35.817669
-          ],
-          [
-            140.191522,
-            35.820345
-          ],
-          [
             140.20223,
             35.816427
           ]
@@ -3968,8 +3968,8 @@
       "properties": {
         "district": "本埜支所３階多目的スペース",
         "type": "route",
-        "total_distance_km": 10.36,
-        "estimated_hours": 0.3
+        "total_distance_km": 17.43,
+        "estimated_hours": 0.5
       }
     },
     {
@@ -3987,7 +3987,7 @@
         "name": "古川橋脇",
         "address": "印西市佐野屋82番地先",
         "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4006,26 +4006,7 @@
         "name": "旧本埜第二小学校北側",
         "address": "印西市笠神1747-15地先",
         "total_points": 7,
-        "total_distance_km": 7.64,
-        "estimated_hours": 0.3
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.205374,
-          35.830807
-        ]
-      },
-      "properties": {
-        "district": "旧本埜第二小学校体育館",
-        "order": 3,
-        "name": "旧村総合グラウンド前",
-        "address": "印西市物木419番地先",
-        "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4040,11 +4021,30 @@
       },
       "properties": {
         "district": "旧本埜第二小学校体育館",
-        "order": 4,
+        "order": 3,
         "name": "大瀧神社前",
         "address": "印西市将監235-4地先",
         "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
+        "estimated_hours": 0.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.205374,
+          35.830807
+        ]
+      },
+      "properties": {
+        "district": "旧本埜第二小学校体育館",
+        "order": 4,
+        "name": "旧村総合グラウンド前",
+        "address": "印西市物木419番地先",
+        "total_points": 7,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4063,7 +4063,7 @@
         "name": "内藤一宅前",
         "address": "印西市安食卜杭102-1地先",
         "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4082,7 +4082,7 @@
         "name": "青木隆治宅前",
         "address": "印西市酒直ト杭76",
         "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4101,7 +4101,7 @@
         "name": "和青年館前",
         "address": "印西市下井338",
         "total_points": 7,
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4119,12 +4119,12 @@
             35.827367
           ],
           [
-            140.205374,
-            35.830807
-          ],
-          [
             140.207738,
             35.832302
+          ],
+          [
+            140.205374,
+            35.830807
           ],
           [
             140.216924,
@@ -4147,7 +4147,7 @@
       "properties": {
         "district": "旧本埜第二小学校体育館",
         "type": "route",
-        "total_distance_km": 7.64,
+        "total_distance_km": 8.56,
         "estimated_hours": 0.3
       }
     },
@@ -4166,7 +4166,7 @@
         "name": "みのりの広場公園北側",
         "address": "印西市滝野18",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4185,7 +4185,7 @@
         "name": "滝野小学校前",
         "address": "印西市滝野5-1",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4204,7 +4204,7 @@
         "name": "滝の杜公園東側",
         "address": "印西市滝野6-143",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4223,7 +4223,7 @@
         "name": "牧の原公園東側",
         "address": "印西市草深1612-5",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4242,7 +4242,7 @@
         "name": "滝野公園南側",
         "address": "印西市滝野4-2-1",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4261,7 +4261,7 @@
         "name": "牧の原公園南側",
         "address": "印西市牧の原5-108",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4280,7 +4280,7 @@
         "name": "牧の原東街区公園北側",
         "address": "印西市牧の原5-3035-25",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4299,7 +4299,7 @@
         "name": "牧の原小学校東側",
         "address": "印西市牧の原3-1-1",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4318,7 +4318,7 @@
         "name": "牧の原西街区公園南側",
         "address": "印西市牧の原3-109",
         "total_points": 9,
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4372,7 +4372,7 @@
       "properties": {
         "district": "牧の原地域交流センター会議室",
         "type": "route",
-        "total_distance_km": 4.98,
+        "total_distance_km": 7.38,
         "estimated_hours": 0.2
       }
     },
@@ -4391,8 +4391,8 @@
         "name": "印西西消防署向い",
         "address": "印西市中央北1-3-3",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4410,8 +4410,8 @@
         "name": "千葉ニュータウン中央駅北口",
         "address": "印西市中央北1-106",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4429,8 +4429,8 @@
         "name": "千葉ニュータウン中央駅北口自転車駐車場前",
         "address": "印西市中央北2-1-1",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4438,18 +4438,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.115918,
-          35.799864
+          140.112281,
+          35.797329
         ]
       },
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "order": 4,
-        "name": "千葉ニュータウン中央駅南口",
-        "address": "印西市中央南１-436-3",
+        "name": "武西学園台街区公園東側",
+        "address": "印西市武西学園台1-2",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4457,18 +4457,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.119164,
-          35.80013
+          140.116389,
+          35.79585
         ]
       },
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "order": 5,
-        "name": "中央駅前地域交流館前",
-        "address": "印西市中央南1-2",
+        "name": "戸神台西街区公園東側",
+        "address": "印西市戸神台2-3-1",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4486,8 +4486,8 @@
         "name": "戸神台東街区公園西側",
         "address": "印西市戸神台1-2-5",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4495,18 +4495,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.116389,
-          35.79585
+          140.119164,
+          35.80013
         ]
       },
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "order": 7,
-        "name": "戸神台西街区公園東側",
-        "address": "印西市戸神台2-3-1",
+        "name": "中央駅前地域交流館前",
+        "address": "印西市中央南1-2",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4514,18 +4514,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.112281,
-          35.797329
+          140.115918,
+          35.799864
         ]
       },
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "order": 8,
-        "name": "武西学園台街区公園東側",
-        "address": "印西市武西学園台1-2",
+        "name": "千葉ニュータウン中央駅南口",
+        "address": "印西市中央南１-436-3",
         "total_points": 8,
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     },
     {
@@ -4546,24 +4546,24 @@
             35.800579
           ],
           [
-            140.115918,
-            35.799864
-          ],
-          [
-            140.119164,
-            35.80013
-          ],
-          [
-            140.120004,
-            35.796933
+            140.112281,
+            35.797329
           ],
           [
             140.116389,
             35.79585
           ],
           [
-            140.112281,
-            35.797329
+            140.120004,
+            35.796933
+          ],
+          [
+            140.119164,
+            35.80013
+          ],
+          [
+            140.115918,
+            35.799864
           ],
           [
             140.117246,
@@ -4574,8 +4574,8 @@
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "type": "route",
-        "total_distance_km": 2.75,
-        "estimated_hours": 0.1
+        "total_distance_km": 17.78,
+        "estimated_hours": 0.4
       }
     }
   ]
