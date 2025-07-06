@@ -183,15 +183,23 @@ function showDistrict(districtName) {
             `;
             marker.bindPopup(popupContent);
 
-            // 番号表示
+            // 番号表示（クリック可能）
             const numberIcon = L.divIcon({
-                html: `<div style="background: ${isStart ? '#FF4757' : '#667eea'}; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">${point.properties.order}</div>`,
-                className: 'custom-div-icon',
-                iconSize: [20, 20],
-                iconAnchor: [10, 10]
+                html: `<div style="background: ${isStart ? '#FF4757' : '#667eea'}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
+                className: 'custom-div-icon clickable',
+                iconSize: [24, 24],
+                iconAnchor: [12, 12]
             });
 
-            L.marker(coord, { icon: numberIcon }).addTo(markersLayer);
+            const numberMarker = L.marker(coord, { icon: numberIcon }).addTo(markersLayer);
+            
+            // 番号マーカーにクリックイベントを追加
+            numberMarker.on('click', () => {
+                // メインマーカーのポップアップを開く
+                marker.openPopup();
+                // 地図をその地点にズーム
+                map.setView(coord, 16);
+            });
         });
 
     // 投票所マーカー追加
@@ -201,7 +209,7 @@ function showDistrict(districtName) {
 
         // 投票所用の特別なアイコン
         const officeIcon = L.divIcon({
-            html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">●</div>`,
+            html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">🗳️</div>`,
             className: 'voting-office-icon',
             iconSize: [40, 40],
             iconAnchor: [20, 20]

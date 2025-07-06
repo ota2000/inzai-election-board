@@ -481,3 +481,18 @@ html {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
+
+/* Map marker styles */
+.clickable {
+    cursor: pointer !important;
+}
+
+.custom-div-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.voting-office-icon:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+}
