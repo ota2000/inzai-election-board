@@ -105,7 +105,7 @@
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
         "order": 5,
-        "name": "古川文夫宅前",
+        "name": "個人宅前",
         "address": "印西市竹袋470-4",
         "board_number": "1-6",
         "total_points": 8,
@@ -174,7 +174,7 @@
       "properties": {
         "district": "総合福祉センター レクリエーションホール",
         "order": 8,
-        "name": "岩﨑容子宅前",
+        "name": "個人宅前",
         "address": "印西市別所1008",
         "board_number": "1-7",
         "total_points": 8,
@@ -1484,7 +1484,7 @@
       "properties": {
         "district": "小林小学校体育館",
         "order": 7,
-        "name": "米元益雄宅前",
+        "name": "個人宅前",
         "address": "印西市平岡1196",
         "board_number": "2-4",
         "total_points": 7,
@@ -3176,7 +3176,7 @@
       "properties": {
         "district": "大森保健センター",
         "order": 1,
-        "name": "寺島佳寿宅前",
+        "name": "個人宅前",
         "address": "印西市大森3213",
         "board_number": "4-1",
         "total_points": 9,
@@ -3291,7 +3291,7 @@
       "properties": {
         "district": "大森保健センター",
         "order": 6,
-        "name": "松本寿枝子宅前",
+        "name": "個人宅前",
         "address": "印西市大森2289-2地先",
         "board_number": "4-6",
         "total_points": 9,
@@ -3360,7 +3360,7 @@
       "properties": {
         "district": "大森保健センター",
         "order": 9,
-        "name": "渡辺孝宅前",
+        "name": "個人宅前",
         "address": "印西市発作650",
         "board_number": "4-8",
         "total_points": 9,
@@ -4443,7 +4443,7 @@
       "properties": {
         "district": "永治コミュニティセンター多目的室",
         "order": 3,
-        "name": "山崎幸雄宅前",
+        "name": "個人宅前",
         "address": "印西市白幡49-1",
         "board_number": "5-3",
         "total_points": 8,
@@ -4466,7 +4466,7 @@
       "properties": {
         "district": "永治コミュニティセンター多目的室",
         "order": 4,
-        "name": "山崎武雄宅前",
+        "name": "個人宅前",
         "address": "印西市白幡277",
         "board_number": "5-4",
         "total_points": 8,
@@ -4558,7 +4558,7 @@
       "properties": {
         "district": "永治コミュニティセンター多目的室",
         "order": 8,
-        "name": "武藤忠志宅前",
+        "name": "個人宅前",
         "address": "印西市和泉1114番地先",
         "board_number": "5-7",
         "total_points": 8,
@@ -5710,7 +5710,7 @@
       "properties": {
         "district": "武西集会所集会室",
         "order": 5,
-        "name": "平川久人宅前",
+        "name": "個人宅前",
         "address": "印西市戸神814",
         "board_number": "6-4",
         "total_points": 6,
@@ -6278,7 +6278,7 @@
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 2,
-        "name": "山崎章三宅前",
+        "name": "個人宅前",
         "address": "印西市船尾637-3番地先",
         "board_number": "7-5",
         "total_points": 7,
@@ -6301,7 +6301,7 @@
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 3,
-        "name": "山崎正富宅前",
+        "name": "個人宅前",
         "address": "印西市松崎343",
         "board_number": "7-7",
         "total_points": 7,
@@ -6324,7 +6324,7 @@
       "properties": {
         "district": "船穂コミュニティセンター多目的室",
         "order": 4,
-        "name": "押田博満宅前",
+        "name": "個人宅前",
         "address": "印西市松崎397",
         "board_number": "7-6",
         "total_points": 7,
@@ -8268,7 +8268,7 @@
       "properties": {
         "district": "草深ふれあい市民センターロビー",
         "order": 2,
-        "name": "伊藤智章宅前",
+        "name": "個人宅前",
         "address": "印西市草深132",
         "board_number": "8-3",
         "total_points": 7,
@@ -8314,7 +8314,7 @@
       "properties": {
         "district": "草深ふれあい市民センターロビー",
         "order": 4,
-        "name": "永田洋子宅前",
+        "name": "個人宅前",
         "address": "印西市草深2504-3",
         "board_number": "8-5",
         "total_points": 7,
@@ -18679,7 +18679,7 @@
       "properties": {
         "district": "本埜支所３階多目的スペース",
         "order": 2,
-        "name": "小手正治宅前",
+        "name": "個人宅前",
         "address": "印西市笠神2346-3番地先",
         "board_number": "20-2",
         "total_points": 11,
@@ -20950,7 +20950,7 @@
       "properties": {
         "district": "旧本埜第二小学校体育館",
         "order": 4,
-        "name": "内藤一宅前",
+        "name": "個人宅前",
         "address": "印西市安食卜杭102-1地先",
         "board_number": "21-5",
         "total_points": 7,
@@ -20996,7 +20996,7 @@
       "properties": {
         "district": "旧本埜第二小学校体育館",
         "order": 6,
-        "name": "青木隆治宅前",
+        "name": "個人宅前",
         "address": "印西市酒直ト杭76",
         "board_number": "21-3",
         "total_points": 7,
@@ -23244,6 +23244,1018 @@
       "properties": {
         "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
         "type": "simple_route",
+        "total_distance_km": 3.08,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.15057,
+          35.83306
+        ]
+      },
+      "properties": {
+        "district": "総合福祉センター レクリエーションホール",
+        "type": "voting_office",
+        "name": "総合福祉センター レクリエーションホール",
+        "address": "竹袋６１４番地９",
+        "district_number": "第1投票区",
+        "office_name": "総合福祉センター レクリエーションホール",
+        "office_address": "竹袋６１４番地９",
+        "total_points": 8,
+        "total_distance_km": 8.2,
+        "estimated_hours": 1.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.187082,
+          35.830844
+        ]
+      },
+      "properties": {
+        "district": "小林小学校体育館",
+        "type": "voting_office",
+        "name": "小林小学校体育館",
+        "address": "小林２４４８番地",
+        "district_number": "第2投票区",
+        "office_name": "小林小学校体育館",
+        "office_address": "小林２４４８番地",
+        "total_points": 7,
+        "total_distance_km": 5.51,
+        "estimated_hours": 1.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.197642,
+          35.831775
+        ]
+      },
+      "properties": {
+        "district": "小林公民館集会室",
+        "type": "voting_office",
+        "name": "小林公民館集会室",
+        "address": "小林北１－１－８",
+        "district_number": "第3投票区",
+        "office_name": "小林公民館集会室",
+        "office_address": "小林北１－１－８",
+        "total_points": 7,
+        "total_distance_km": 3.43,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14437,
+          35.83257
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "type": "voting_office",
+        "name": "大森保健センター",
+        "address": "大森２３６５番地７",
+        "district_number": "第4投票区",
+        "office_name": "大森保健センター",
+        "office_address": "大森２３６５番地７",
+        "total_points": 9,
+        "total_distance_km": 6.93,
+        "estimated_hours": 1.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109192,
+          35.825108
+        ]
+      },
+      "properties": {
+        "district": "永治コミュニティセンター多目的室",
+        "type": "voting_office",
+        "name": "永治コミュニティセンター多目的室",
+        "address": "浦部村新田２３８番地１",
+        "district_number": "第5投票区",
+        "office_name": "永治コミュニティセンター多目的室",
+        "office_address": "浦部村新田２３８番地１",
+        "total_points": 8,
+        "total_distance_km": 5.5,
+        "estimated_hours": 1.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.106945,
+          35.783353
+        ]
+      },
+      "properties": {
+        "district": "武西集会所集会室",
+        "type": "voting_office",
+        "name": "武西集会所集会室",
+        "address": "武西１４４６番地",
+        "district_number": "第6投票区",
+        "office_name": "武西集会所集会室",
+        "office_address": "武西１４４６番地",
+        "total_points": 6,
+        "total_distance_km": 3.45,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129665,
+          35.781555
+        ]
+      },
+      "properties": {
+        "district": "船穂コミュニティセンター多目的室",
+        "type": "voting_office",
+        "name": "船穂コミュニティセンター多目的室",
+        "address": "船尾７５３番地１",
+        "district_number": "第7投票区",
+        "office_name": "船穂コミュニティセンター多目的室",
+        "office_address": "船尾７５３番地１",
+        "total_points": 7,
+        "total_distance_km": 8.25,
+        "estimated_hours": 1.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129908,
+          35.799808
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "type": "voting_office",
+        "name": "原山小学校体育館",
+        "address": "原山１－２",
+        "district_number": "第12投票区",
+        "office_name": "原山小学校体育館",
+        "office_address": "原山１－２",
+        "total_points": 8,
+        "total_distance_km": 3.15,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.150942,
+          35.795735
+        ]
+      },
+      "properties": {
+        "district": "草深ふれあい市民センターロビー",
+        "type": "voting_office",
+        "name": "草深ふれあい市民センターロビー",
+        "address": "草深９２４番地",
+        "district_number": "第8投票区",
+        "office_name": "草深ふれあい市民センターロビー",
+        "office_address": "草深９２４番地",
+        "total_points": 7,
+        "total_distance_km": 4.47,
+        "estimated_hours": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.107716,
+          35.810354
+        ]
+      },
+      "properties": {
+        "district": "木刈小学校体育館",
+        "type": "voting_office",
+        "name": "木刈小学校体育館",
+        "address": "木刈１－８－７",
+        "district_number": "第9投票区",
+        "office_name": "木刈小学校体育館",
+        "office_address": "木刈１－８－７",
+        "total_points": 8,
+        "total_distance_km": 4.25,
+        "estimated_hours": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109482,
+          35.8041
+        ]
+      },
+      "properties": {
+        "district": "小倉台小学校体育館",
+        "type": "voting_office",
+        "name": "小倉台小学校体育館",
+        "address": "小倉台２－３",
+        "district_number": "第10投票区",
+        "office_name": "小倉台小学校体育館",
+        "office_address": "小倉台２－３",
+        "total_points": 7,
+        "total_distance_km": 2.62,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.125085,
+          35.797774
+        ]
+      },
+      "properties": {
+        "district": "内野小学校体育館",
+        "type": "voting_office",
+        "name": "内野小学校体育館",
+        "address": "内野３－５",
+        "district_number": "第11投票区",
+        "office_name": "内野小学校体育館",
+        "office_address": "内野３－５",
+        "total_points": 7,
+        "total_distance_km": 2.55,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.139104,
+          35.797309
+        ]
+      },
+      "properties": {
+        "district": "高花小学校体育館",
+        "type": "voting_office",
+        "name": "高花小学校体育館",
+        "address": "高花１－５",
+        "district_number": "第13投票区",
+        "office_name": "高花小学校体育館",
+        "office_address": "高花１－５",
+        "total_points": 8,
+        "total_distance_km": 3.45,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.152741,
+          35.800311
+        ]
+      },
+      "properties": {
+        "district": "西の原小学校体育館",
+        "type": "voting_office",
+        "name": "西の原小学校体育館",
+        "address": "西の原３－９",
+        "district_number": "第14投票区",
+        "office_name": "西の原小学校体育館",
+        "office_address": "西の原３－９",
+        "total_points": 7,
+        "total_distance_km": 2.85,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.165204,
+          35.799746
+        ]
+      },
+      "properties": {
+        "district": "そうふけ公民館多目的室",
+        "type": "voting_office",
+        "name": "そうふけ公民館多目的室",
+        "address": "竜腹寺３７８番地",
+        "district_number": "第15投票区",
+        "office_name": "そうふけ公民館多目的室",
+        "office_address": "竜腹寺３７８番地",
+        "total_points": 8,
+        "total_distance_km": 2.93,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.227656,
+          35.777644
+        ]
+      },
+      "properties": {
+        "district": "六合小学校体育館",
+        "type": "voting_office",
+        "name": "六合小学校体育館",
+        "address": "六合１１９７番地",
+        "district_number": "第16投票区",
+        "office_name": "六合小学校体育館",
+        "office_address": "六合１１９７番地",
+        "total_points": 10,
+        "total_distance_km": 11.82,
+        "estimated_hours": 2.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16401,
+          35.763344
+        ]
+      },
+      "properties": {
+        "district": "印旛西部公園管理棟ホール",
+        "type": "voting_office",
+        "name": "印旛西部公園管理棟ホール",
+        "address": "松虫７番地２",
+        "district_number": "第17投票区",
+        "office_name": "印旛西部公園管理棟ホール",
+        "office_address": "松虫７番地２",
+        "total_points": 10,
+        "total_distance_km": 14.18,
+        "estimated_hours": 2.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.246737,
+          35.755232
+        ]
+      },
+      "properties": {
+        "district": "平賀小学校体育館",
+        "type": "voting_office",
+        "name": "平賀小学校体育館",
+        "address": "平賀３０５２番地１",
+        "district_number": "第18投票区",
+        "office_name": "平賀小学校体育館",
+        "office_address": "平賀３０５２番地１",
+        "total_points": 7,
+        "total_distance_km": 3.88,
+        "estimated_hours": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.204728,
+          35.779244
+        ]
+      },
+      "properties": {
+        "district": "ふれあいセンターいんば３階会議室",
+        "type": "voting_office",
+        "name": "ふれあいセンターいんば３階会議室",
+        "address": "美瀬１－２５",
+        "district_number": "第19投票区",
+        "office_name": "ふれあいセンターいんば３階会議室",
+        "office_address": "美瀬１－２５",
+        "total_points": 7,
+        "total_distance_km": 1.97,
+        "estimated_hours": 0.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.201533,
+          35.816618
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "type": "voting_office",
+        "name": "本埜支所３階多目的スペース",
+        "address": "滝野３－４",
+        "district_number": "第20投票区",
+        "office_name": "本埜支所３階多目的スペース",
+        "office_address": "滝野３－４",
+        "total_points": 11,
+        "total_distance_km": 13.29,
+        "estimated_hours": 2.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.215506,
+          35.826951
+        ]
+      },
+      "properties": {
+        "district": "旧本埜第二小学校体育館",
+        "type": "voting_office",
+        "name": "旧本埜第二小学校体育館",
+        "address": "角田４７８番地",
+        "district_number": "第21投票区",
+        "office_name": "旧本埜第二小学校体育館",
+        "office_address": "角田４７８番地",
+        "total_points": 7,
+        "total_distance_km": 6.38,
+        "estimated_hours": 1.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16014,
+          35.8124
+        ]
+      },
+      "properties": {
+        "district": "牧の原地域交流センター会議室",
+        "type": "voting_office",
+        "name": "牧の原地域交流センター会議室",
+        "address": "牧の原１－１－３",
+        "district_number": "第22投票区",
+        "office_name": "牧の原地域交流センター会議室",
+        "office_address": "牧の原１－１－３",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1107354,
+          35.80191811
+        ]
+      },
+      "properties": {
+        "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "type": "voting_office",
+        "name": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "address": "中央北３－２",
+        "district_number": "第23投票区",
+        "office_name": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "office_address": "中央北３－２",
+        "total_points": 8,
+        "total_distance_km": 3.08,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.15057,
+          35.83306
+        ]
+      },
+      "properties": {
+        "district": "総合福祉センター レクリエーションホール",
+        "type": "voting_office",
+        "name": "総合福祉センター レクリエーションホール",
+        "address": "竹袋６１４番地９",
+        "district_number": "第1投票区",
+        "office_name": "総合福祉センター レクリエーションホール",
+        "office_address": "竹袋６１４番地９",
+        "total_points": 8,
+        "total_distance_km": 8.2,
+        "estimated_hours": 1.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.187082,
+          35.830844
+        ]
+      },
+      "properties": {
+        "district": "小林小学校体育館",
+        "type": "voting_office",
+        "name": "小林小学校体育館",
+        "address": "小林２４４８番地",
+        "district_number": "第2投票区",
+        "office_name": "小林小学校体育館",
+        "office_address": "小林２４４８番地",
+        "total_points": 7,
+        "total_distance_km": 5.51,
+        "estimated_hours": 1.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.197642,
+          35.831775
+        ]
+      },
+      "properties": {
+        "district": "小林公民館集会室",
+        "type": "voting_office",
+        "name": "小林公民館集会室",
+        "address": "小林北１－１－８",
+        "district_number": "第3投票区",
+        "office_name": "小林公民館集会室",
+        "office_address": "小林北１－１－８",
+        "total_points": 7,
+        "total_distance_km": 3.43,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.14437,
+          35.83257
+        ]
+      },
+      "properties": {
+        "district": "大森保健センター",
+        "type": "voting_office",
+        "name": "大森保健センター",
+        "address": "大森２３６５番地７",
+        "district_number": "第4投票区",
+        "office_name": "大森保健センター",
+        "office_address": "大森２３６５番地７",
+        "total_points": 9,
+        "total_distance_km": 6.93,
+        "estimated_hours": 1.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109192,
+          35.825108
+        ]
+      },
+      "properties": {
+        "district": "永治コミュニティセンター多目的室",
+        "type": "voting_office",
+        "name": "永治コミュニティセンター多目的室",
+        "address": "浦部村新田２３８番地１",
+        "district_number": "第5投票区",
+        "office_name": "永治コミュニティセンター多目的室",
+        "office_address": "浦部村新田２３８番地１",
+        "total_points": 8,
+        "total_distance_km": 5.5,
+        "estimated_hours": 1.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.106945,
+          35.783353
+        ]
+      },
+      "properties": {
+        "district": "武西集会所集会室",
+        "type": "voting_office",
+        "name": "武西集会所集会室",
+        "address": "武西１４４６番地",
+        "district_number": "第6投票区",
+        "office_name": "武西集会所集会室",
+        "office_address": "武西１４４６番地",
+        "total_points": 6,
+        "total_distance_km": 3.45,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129665,
+          35.781555
+        ]
+      },
+      "properties": {
+        "district": "船穂コミュニティセンター多目的室",
+        "type": "voting_office",
+        "name": "船穂コミュニティセンター多目的室",
+        "address": "船尾７５３番地１",
+        "district_number": "第7投票区",
+        "office_name": "船穂コミュニティセンター多目的室",
+        "office_address": "船尾７５３番地１",
+        "total_points": 7,
+        "total_distance_km": 8.25,
+        "estimated_hours": 1.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.129908,
+          35.799808
+        ]
+      },
+      "properties": {
+        "district": "原山小学校体育館",
+        "type": "voting_office",
+        "name": "原山小学校体育館",
+        "address": "原山１－２",
+        "district_number": "第12投票区",
+        "office_name": "原山小学校体育館",
+        "office_address": "原山１－２",
+        "total_points": 8,
+        "total_distance_km": 3.15,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.150942,
+          35.795735
+        ]
+      },
+      "properties": {
+        "district": "草深ふれあい市民センターロビー",
+        "type": "voting_office",
+        "name": "草深ふれあい市民センターロビー",
+        "address": "草深９２４番地",
+        "district_number": "第8投票区",
+        "office_name": "草深ふれあい市民センターロビー",
+        "office_address": "草深９２４番地",
+        "total_points": 7,
+        "total_distance_km": 4.47,
+        "estimated_hours": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.107716,
+          35.810354
+        ]
+      },
+      "properties": {
+        "district": "木刈小学校体育館",
+        "type": "voting_office",
+        "name": "木刈小学校体育館",
+        "address": "木刈１－８－７",
+        "district_number": "第9投票区",
+        "office_name": "木刈小学校体育館",
+        "office_address": "木刈１－８－７",
+        "total_points": 8,
+        "total_distance_km": 4.25,
+        "estimated_hours": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109482,
+          35.8041
+        ]
+      },
+      "properties": {
+        "district": "小倉台小学校体育館",
+        "type": "voting_office",
+        "name": "小倉台小学校体育館",
+        "address": "小倉台２－３",
+        "district_number": "第10投票区",
+        "office_name": "小倉台小学校体育館",
+        "office_address": "小倉台２－３",
+        "total_points": 7,
+        "total_distance_km": 2.62,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.125085,
+          35.797774
+        ]
+      },
+      "properties": {
+        "district": "内野小学校体育館",
+        "type": "voting_office",
+        "name": "内野小学校体育館",
+        "address": "内野３－５",
+        "district_number": "第11投票区",
+        "office_name": "内野小学校体育館",
+        "office_address": "内野３－５",
+        "total_points": 7,
+        "total_distance_km": 2.55,
+        "estimated_hours": 0.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.139104,
+          35.797309
+        ]
+      },
+      "properties": {
+        "district": "高花小学校体育館",
+        "type": "voting_office",
+        "name": "高花小学校体育館",
+        "address": "高花１－５",
+        "district_number": "第13投票区",
+        "office_name": "高花小学校体育館",
+        "office_address": "高花１－５",
+        "total_points": 8,
+        "total_distance_km": 3.45,
+        "estimated_hours": 0.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.152741,
+          35.800311
+        ]
+      },
+      "properties": {
+        "district": "西の原小学校体育館",
+        "type": "voting_office",
+        "name": "西の原小学校体育館",
+        "address": "西の原３－９",
+        "district_number": "第14投票区",
+        "office_name": "西の原小学校体育館",
+        "office_address": "西の原３－９",
+        "total_points": 7,
+        "total_distance_km": 2.85,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.165204,
+          35.799746
+        ]
+      },
+      "properties": {
+        "district": "そうふけ公民館多目的室",
+        "type": "voting_office",
+        "name": "そうふけ公民館多目的室",
+        "address": "竜腹寺３７８番地",
+        "district_number": "第15投票区",
+        "office_name": "そうふけ公民館多目的室",
+        "office_address": "竜腹寺３７８番地",
+        "total_points": 8,
+        "total_distance_km": 2.93,
+        "estimated_hours": 0.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.227656,
+          35.777644
+        ]
+      },
+      "properties": {
+        "district": "六合小学校体育館",
+        "type": "voting_office",
+        "name": "六合小学校体育館",
+        "address": "六合１１９７番地",
+        "district_number": "第16投票区",
+        "office_name": "六合小学校体育館",
+        "office_address": "六合１１９７番地",
+        "total_points": 10,
+        "total_distance_km": 11.82,
+        "estimated_hours": 2.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16401,
+          35.763344
+        ]
+      },
+      "properties": {
+        "district": "印旛西部公園管理棟ホール",
+        "type": "voting_office",
+        "name": "印旛西部公園管理棟ホール",
+        "address": "松虫７番地２",
+        "district_number": "第17投票区",
+        "office_name": "印旛西部公園管理棟ホール",
+        "office_address": "松虫７番地２",
+        "total_points": 10,
+        "total_distance_km": 14.18,
+        "estimated_hours": 2.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.246737,
+          35.755232
+        ]
+      },
+      "properties": {
+        "district": "平賀小学校体育館",
+        "type": "voting_office",
+        "name": "平賀小学校体育館",
+        "address": "平賀３０５２番地１",
+        "district_number": "第18投票区",
+        "office_name": "平賀小学校体育館",
+        "office_address": "平賀３０５２番地１",
+        "total_points": 7,
+        "total_distance_km": 3.88,
+        "estimated_hours": 0.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.204728,
+          35.779244
+        ]
+      },
+      "properties": {
+        "district": "ふれあいセンターいんば３階会議室",
+        "type": "voting_office",
+        "name": "ふれあいセンターいんば３階会議室",
+        "address": "美瀬１－２５",
+        "district_number": "第19投票区",
+        "office_name": "ふれあいセンターいんば３階会議室",
+        "office_address": "美瀬１－２５",
+        "total_points": 7,
+        "total_distance_km": 1.97,
+        "estimated_hours": 0.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.201533,
+          35.816618
+        ]
+      },
+      "properties": {
+        "district": "本埜支所３階多目的スペース",
+        "type": "voting_office",
+        "name": "本埜支所３階多目的スペース",
+        "address": "滝野３－４",
+        "district_number": "第20投票区",
+        "office_name": "本埜支所３階多目的スペース",
+        "office_address": "滝野３－４",
+        "total_points": 11,
+        "total_distance_km": 13.29,
+        "estimated_hours": 2.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.215506,
+          35.826951
+        ]
+      },
+      "properties": {
+        "district": "旧本埜第二小学校体育館",
+        "type": "voting_office",
+        "name": "旧本埜第二小学校体育館",
+        "address": "角田４７８番地",
+        "district_number": "第21投票区",
+        "office_name": "旧本埜第二小学校体育館",
+        "office_address": "角田４７８番地",
+        "total_points": 7,
+        "total_distance_km": 6.38,
+        "estimated_hours": 1.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16014,
+          35.8124
+        ]
+      },
+      "properties": {
+        "district": "牧の原地域交流センター会議室",
+        "type": "voting_office",
+        "name": "牧の原地域交流センター会議室",
+        "address": "牧の原１－１－３",
+        "district_number": "第22投票区",
+        "office_name": "牧の原地域交流センター会議室",
+        "office_address": "牧の原１－１－３",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1107354,
+          35.80191811
+        ]
+      },
+      "properties": {
+        "district": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "type": "voting_office",
+        "name": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "address": "中央北３－２",
+        "district_number": "第23投票区",
+        "office_name": "イオンモール千葉ニュータウンシネマ・スポーツ棟１階",
+        "office_address": "中央北３－２",
+        "total_points": 8,
         "total_distance_km": 3.08,
         "estimated_hours": 0.6
       }
