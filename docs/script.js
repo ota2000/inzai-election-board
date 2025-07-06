@@ -303,6 +303,11 @@ function showDistrict(districtName) {
                 </div>
             `).addTo(routesLayer);
             
+            // セグメント識別用のプロパティを追加
+            polyline.segmentId = `${segment.properties.from_point}-${segment.properties.to_point}`;
+            polyline.fromPoint = segment.properties.from_point;
+            polyline.toPoint = segment.properties.to_point;
+            
             // ホバー効果
             polyline.on('mouseover', function() {
                 this.setStyle({ weight: 8, opacity: 1 });
@@ -598,6 +603,19 @@ function updateRouteList(points) {
                 const midLng = (coord1[1] + coord2[1]) / 2;
                 
                 map.setView([midLat, midLng], 15);
+                
+                // 対応するルートセグメントのポップアップを開く
+                routesLayer.eachLayer(layer => {
+                    // セグメントIDで該当するルートセグメントを特定
+                    if (layer.fromPoint && layer.toPoint) {
+                        const currentFromPoint = point.properties.order;
+                        const currentToPoint = nextPoint.properties.order;
+                        
+                        if (layer.fromPoint === currentFromPoint && layer.toPoint === currentToPoint) {
+                            layer.openPopup();
+                        }
+                    }
+                });
                 
                 // マップコンテナにフォーカスを当てる
                 setTimeout(() => {
