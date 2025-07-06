@@ -308,6 +308,8 @@ function showDistrict(districtName) {
             polyline.fromPoint = segment.properties.from_point;
             polyline.toPoint = segment.properties.to_point;
             
+            console.log(`Created route segment: ${polyline.fromPoint} → ${polyline.toPoint} (segment ${segment.properties.segment})`);
+            
             // ホバー効果
             polyline.on('mouseover', function() {
                 this.setStyle({ weight: 8, opacity: 1 });
@@ -611,17 +613,35 @@ function updateRouteList(points) {
                 map.setView([midLat, midLng], 15);
                 
                 // 対応するルートセグメントのポップアップを開く
+                const currentFromOrder = point.properties.order;
+                const currentToOrder = nextPoint.properties.order;
+                console.log(`Looking for route segment from order: ${currentFromOrder} → ${currentToOrder}`);
+                
+                let foundSegment = false;
                 routesLayer.eachLayer(layer => {
-                    // セグメントIDで該当するルートセグメントを特定
+                    // ルートセグメントかどうかを確認
                     if (layer.fromPoint && layer.toPoint) {
-                        const currentFromPoint = point.properties.order;
-                        const currentToPoint = nextPoint.properties.order;
+                        console.log(`Checking segment: ${layer.fromPoint} → ${layer.toPoint}`);
                         
-                        if (layer.fromPoint === currentFromPoint && layer.toPoint === currentToPoint) {
+                        // order番号とセグメントのfrom_point/to_pointを比較
+                        if (layer.fromPoint === currentFromOrder && layer.toPoint === currentToOrder) {
+                            console.log(`Found matching segment by order: ${layer.fromPoint} → ${layer.toPoint}`);
                             layer.openPopup();
+                            foundSegment = true;
+                            return; // 見つかったらループを抜ける
                         }
                     }
                 });
+                
+                if (!foundSegment) {
+                    console.log(`No matching segment found for order ${currentFromOrder} → ${currentToOrder}`);
+                    console.log('Available segments:');
+                    routesLayer.eachLayer(layer => {
+                        if (layer.fromPoint && layer.toPoint) {
+                            console.log(`  - ${layer.fromPoint} → ${layer.toPoint}`);
+                        }
+                    });
+                }
                 
                 // マップコンテナにフォーカスを当てる
                 setTimeout(() => {
@@ -778,10 +798,9 @@ function showGoogleMapsButton(points) {
         googleMapsBtn.className = 'btn google-maps-btn';
         googleMapsBtn.innerHTML = '📍 Googleマップで表示';
         
-        // 巡回順序カードに追加
-        const routeCard = document.getElementById('routeCard');
-        const routeCardHeader = routeCard.querySelector('h3');
-        routeCardHeader.insertAdjacentElement('afterend', googleMapsBtn);
+        // マップコンテナの下に追加
+        const mapContainer = document.querySelector('.map-container');
+        mapContainer.insertAdjacentElement('afterend', googleMapsBtn);
     }
     
     // クリックイベントを設定
