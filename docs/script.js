@@ -314,7 +314,7 @@ function showDistrict(districtName) {
 
     // 情報パネル更新
     updateInfoPanel(districtName, districtPoints[0].properties);
-    updateRouteList(districtPoints);
+    updateRouteList(districtPoints, districtRouteSegments);
     
     // UI状態の更新
     updateUIForDistrictSelection();
@@ -418,7 +418,7 @@ function updateInfoPanel(districtName, properties) {
         </div>
         <div class="stat-item">
             <span class="stat-label">推定時間</span>
-            <span class="stat-value">${properties.estimated_hours}時間</span>
+            <span class="stat-value">${formatTime(properties.estimated_hours)}</span>
         </div>
         <div class="stat-item">
             <span class="stat-label">平均間隔</span>
@@ -477,23 +477,55 @@ function updateUIForDistrictSelection() {
 }
 
 // 巡回順序リスト更新
-function updateRouteList(points) {
+function updateRouteList(points, routeSegments) {
     const routeList = document.getElementById('routeList');
     routeList.innerHTML = '';
+    
+    // 距離・時間情報を計算するための配列を作成
+    const sortedPoints = points.sort((a, b) => a.properties.order - b.properties.order);
+    const segmentDistances = calculateSegmentDistances(sortedPoints);
 
-    points
-        .sort((a, b) => a.properties.order - b.properties.order)
-        .forEach(point => {
-            const item = document.createElement('div');
-            item.className = 'route-item';
-            const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
-            item.innerHTML = `
-                <div class="route-number">${point.properties.order}</div>
-                <div class="route-details">
-                    <div class="route-name">${boardNumber}${point.properties.name}</div>
-                    <div class="route-address">${point.properties.address}</div>
+    sortedPoints.forEach((point, index) => {
+        const item = document.createElement('div');
+        item.className = 'route-item';
+        const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+        
+        // 次の地点までの距離・時間情報
+        let segmentInfo = '';
+        if (index < sortedPoints.length - 1 && segmentDistances[index]) {
+            const dist = segmentDistances[index].distance;
+            const timeInMinutes = segmentDistances[index].time;
+            
+            // 時間を「X時間Y分」形式に変換
+            let timeDisplay = '';
+            if (timeInMinutes >= 60) {
+                const hours = Math.floor(timeInMinutes / 60);
+                const minutes = timeInMinutes % 60;
+                if (minutes > 0) {
+                    timeDisplay = `${hours}時間${minutes}分`;
+                } else {
+                    timeDisplay = `${hours}時間`;
+                }
+            } else {
+                timeDisplay = `${timeInMinutes}分`;
+            }
+            
+            segmentInfo = `
+                <div class="segment-info">
+                    <span class="segment-distance">→ ${dist}km</span>
+                    <span class="segment-time">${timeDisplay}</span>
                 </div>
             `;
+        }
+        
+        item.innerHTML = `
+            <div class="route-number">${point.properties.order}</div>
+            <div class="route-details">
+                <div class="route-name">${boardNumber}${point.properties.name}</div>
+                <div class="route-address">${point.properties.address}</div>
+                ${segmentInfo}
+            </div>
+        `;
 
             // クリックでマーカーに移動しマップにフォーカス
             item.onclick = () => {
@@ -593,6 +625,58 @@ function showCopyFeedback() {
             }
         }, 300);
     }, 2000);
+}
+
+// 時間を「X時間Y分」形式にフォーマット
+function formatTime(hours) {
+    if (hours < 1) {
+        const minutes = Math.round(hours * 60);
+        return `${minutes}分`;
+    } else {
+        const wholeHours = Math.floor(hours);
+        const minutes = Math.round((hours - wholeHours) * 60);
+        if (minutes > 0) {
+            return `${wholeHours}時間${minutes}分`;
+        } else {
+            return `${wholeHours}時間`;
+        }
+    }
+}
+
+// セグメントごとの距離・時間を計算
+function calculateSegmentDistances(points) {
+    const distances = [];
+    
+    for (let i = 0; i < points.length - 1; i++) {
+        const point1 = points[i];
+        const point2 = points[i + 1];
+        
+        // 簡易的に直線距離で計算（実際のセグメントデータがあればそれを使う）
+        const lat1 = point1.geometry.coordinates[1];
+        const lon1 = point1.geometry.coordinates[0];
+        const lat2 = point2.geometry.coordinates[1];
+        const lon2 = point2.geometry.coordinates[0];
+        
+        // Haversine公式で距離計算
+        const R = 6371; // 地球の半径（km）
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = (R * c).toFixed(2);
+        
+        // 徒歩速度4km/hで時間を計算
+        const timeInMinutes = Math.round((distance / 4) * 60);
+        
+        distances.push({
+            distance: distance,
+            time: timeInMinutes
+        });
+    }
+    
+    return distances;
 }
 
 // 初期化

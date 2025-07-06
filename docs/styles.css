@@ -366,6 +366,30 @@ body {
     line-height: 1.4;
 }
 
+.segment-info {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+}
+
+.segment-distance,
+.segment-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.segment-time {
+    color: var(--accent-color);
+}
+
 .loading {
     text-align: center;
     padding: 3rem;
