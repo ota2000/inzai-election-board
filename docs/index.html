@@ -391,13 +391,21 @@
                     }).addTo(markersLayer);
 
                     // ポップアップ
+                    const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
                     const popupContent = `
-                        <div style="min-width: 200px;">
-                            <h4>${point.properties.order}. ${point.properties.name}</h4>
-                            <p style="margin: 0.5rem 0; color: #666;">${point.properties.address}</p>
+                        <div style="min-width: 240px;">
+                            <h4>${point.properties.order}. ${boardNumber}${point.properties.name}</h4>
+                            <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${point.properties.address}</p>
+                            <div style="background: #f8f9fa; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #667eea;">
+                                <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">📍 ${point.properties.district_number || '投票区'}</div>
+                                <div style="font-size: 0.8rem; color: #666;">
+                                    投票所: ${point.properties.office_name || point.properties.district}<br>
+                                    所在地: ${point.properties.office_address || ''}
+                                </div>
+                            </div>
                             <div style="font-size: 0.9rem; color: #888;">
-                                投票区: ${point.properties.district}<br>
-                                総距離: ${point.properties.total_distance_km}km<br>
+                                ${point.properties.board_number ? `掲示板番号: ${point.properties.board_number}<br>` : ''}
+                                総巡回距離: ${point.properties.total_distance_km}km<br>
                                 推定時間: ${point.properties.estimated_hours}時間
                             </div>
                         </div>
@@ -555,17 +563,22 @@
         // 情報パネル更新
         function updateInfoPanel(districtName, properties) {
             const info = document.getElementById('districtInfo');
+            const districtNumber = properties.district_number || '';
+            const officeName = properties.office_name || districtName;
+            const officeAddress = properties.office_address || '';
+            
             info.innerHTML = `
-                <div class="stat-item">
-                    <span class="stat-label">投票区名</span>
-                    <span class="stat-value">${districtName}</span>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #667eea;">
+                    <h4 style="margin: 0 0 0.5rem 0; color: #667eea;">📍 ${districtNumber}</h4>
+                    <div style="font-weight: bold; margin-bottom: 0.3rem;">${officeName}</div>
+                    <div style="font-size: 0.9rem; color: #666;">${officeAddress}</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">総地点数</span>
+                    <span class="stat-label">掲示板数</span>
                     <span class="stat-value">${properties.total_points}地点</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">総距離</span>
+                    <span class="stat-label">巡回距離</span>
                     <span class="stat-value">${properties.total_distance_km}km</span>
                 </div>
                 <div class="stat-item">
@@ -573,7 +586,7 @@
                     <span class="stat-value">${properties.estimated_hours}時間</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-label">平均地点間距離</span>
+                    <span class="stat-label">平均間隔</span>
                     <span class="stat-value">${(properties.total_distance_km / properties.total_points).toFixed(2)}km</span>
                 </div>
             `;
@@ -623,10 +636,11 @@
                 .forEach(point => {
                     const item = document.createElement('div');
                     item.className = 'route-item';
+                    const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
                     item.innerHTML = `
                         <div class="route-number">${point.properties.order}</div>
                         <div class="route-details">
-                            <div class="route-name">${point.properties.name}</div>
+                            <div class="route-name">${boardNumber}${point.properties.name}</div>
                             <div class="route-address">${point.properties.address}</div>
                         </div>
                     `;
