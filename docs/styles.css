@@ -512,13 +512,3 @@ html {
     transform: translateX(2px);
 }
 
-.route-address.clickable-address {
-    background: transparent;
-    border: 1px solid transparent;
-    margin: 0;
-}
-
-.route-address.clickable-address:hover {
-    background: var(--surface-hover) !important;
-    border-color: var(--accent-color) !important;
-}

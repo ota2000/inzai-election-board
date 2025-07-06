@@ -315,6 +315,9 @@ function showDistrict(districtName) {
     // 情報パネル更新
     updateInfoPanel(districtName, districtPoints[0].properties);
     updateRouteList(districtPoints);
+    
+    // UI状態の更新
+    updateUIForDistrictSelection();
 }
 
 // 全投票区表示
@@ -387,6 +390,9 @@ function showAllDistricts() {
 
     // 全体情報表示
     updateOverallInfo();
+    
+    // UI状態の更新
+    updateUIForAllDistricts();
 }
 
 // 情報パネル更新
@@ -450,9 +456,24 @@ function updateOverallInfo() {
             <span class="stat-value">${totalDistance.toFixed(2)}km</span>
         </div>
     `;
+}
 
-    document.getElementById('routeList').innerHTML =
-        '<div style="text-align: center; color: #666;">投票区を選択すると巡回順序が表示されます</div>';
+// UI状態の更新（全区表示時）
+function updateUIForAllDistricts() {
+    // タイトルを変更
+    document.getElementById('districtInfoTitle').textContent = '全投票区統計情報';
+    
+    // 巡回順序カードを非表示
+    document.getElementById('routeCard').style.display = 'none';
+}
+
+// UI状態の更新（投票区選択時）
+function updateUIForDistrictSelection() {
+    // タイトルを戻す
+    document.getElementById('districtInfoTitle').textContent = '選択中の投票区情報';
+    
+    // 巡回順序カードを表示
+    document.getElementById('routeCard').style.display = 'block';
 }
 
 // 巡回順序リスト更新
@@ -470,15 +491,11 @@ function updateRouteList(points) {
                 <div class="route-number">${point.properties.order}</div>
                 <div class="route-details">
                     <div class="route-name">${boardNumber}${point.properties.name}</div>
-                    <div class="route-address clickable-address" 
-                         onclick="event.stopPropagation(); copyToClipboard('${point.properties.address}');" 
-                         title="クリックでコピー">
-                        ${point.properties.address}
-                    </div>
+                    <div class="route-address">${point.properties.address}</div>
                 </div>
             `;
 
-            // クリックでマーカーに移動
+            // クリックでマーカーに移動しマップにフォーカス
             item.onclick = () => {
                 const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
                 map.setView(coord, 16);
@@ -490,6 +507,12 @@ function updateRouteList(points) {
                         layer.openPopup();
                     }
                 });
+                
+                // マップコンテナにフォーカスを当てる
+                setTimeout(() => {
+                    document.getElementById('map').focus();
+                    document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
             };
 
             routeList.appendChild(item);
