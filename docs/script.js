@@ -639,6 +639,10 @@ function updateRouteList(points) {
                                 距離: ${segmentDistance}km<br>
                                 時間: ${segmentTimeFormatted}
                             </div>
+                            <button onclick="openSegmentInGoogleMaps([${point.geometry.coordinates[0]}, ${point.geometry.coordinates[1]}], [${nextPoint.geometry.coordinates[0]}, ${nextPoint.geometry.coordinates[1]}])" 
+                                    style="background: #4285f4; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem;">
+                                📍 Googleマップで開く
+                            </button>
                         </div>
                     `)
                     .openOn(map);
@@ -843,9 +847,27 @@ function generateGoogleMapsUrl(points) {
     return url;
 }
 
+// セグメント間の単一ルート用GoogleマップURL生成
+function generateSegmentGoogleMapsUrl(fromCoord, toCoord) {
+    const origin = `${fromCoord[1]},${fromCoord[0]}`;
+    const destination = `${toCoord[1]},${toCoord[0]}`;
+    
+    return `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
+}
+
 // Googleマップで開く
 function openInGoogleMaps(points) {
     const url = generateGoogleMapsUrl(points);
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('ルート情報が不足しています。');
+    }
+}
+
+// セグメント間のルートをGoogleマップで開く
+function openSegmentInGoogleMaps(fromCoord, toCoord) {
+    const url = generateSegmentGoogleMapsUrl(fromCoord, toCoord);
     if (url) {
         window.open(url, '_blank');
     } else {
