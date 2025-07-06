@@ -585,15 +585,18 @@
                     }
                 });
 
-            // 各投票区の中心にマーカー配置
+            // 各投票区の投票所位置にマーカー配置
             Array.from(districtCenters.entries()).forEach(([district, coords], index) => {
-                const center = [
-                    coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
-                    coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
-                ];
+                // 投票所の位置を使用、なければ掲示板の中心点
+                const position = votingOffices.has(district) ? 
+                    votingOffices.get(district) : 
+                    [
+                        coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
+                        coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
+                    ];
 
                 const color = districtColors[index % districtColors.length];
-                const marker = L.circleMarker(center, {
+                const marker = L.circleMarker(position, {
                     radius: 12,
                     fillColor: color,
                     color: 'white',
@@ -610,25 +613,6 @@
                 `);
             });
 
-            // 全体表示時も投票所マーカーを表示
-            Array.from(votingOffices.entries()).forEach(([district, coord]) => {
-                const officeIcon = L.divIcon({
-                    html: `<div style="background: #28a745; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">🗳</div>`,
-                    className: 'voting-office-icon-small',
-                    iconSize: [24, 24],
-                    iconAnchor: [12, 12]
-                });
-
-                const officeMarker = L.marker(coord, { icon: officeIcon }).addTo(markersLayer);
-
-                officeMarker.bindPopup(`
-                    <div style="min-width: 180px;">
-                        <h4 style="color: #28a745;">🗳️ ${district}</h4>
-                        <p style="margin: 0.5rem 0;">投票所</p>
-                        <button onclick="showDistrict('${district}')" style="background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 3px; cursor: pointer;">詳細表示</button>
-                    </div>
-                `);
-            });
 
             // 全体情報表示
             updateOverallInfo();
