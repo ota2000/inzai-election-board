@@ -24,7 +24,7 @@ class CompleteRouteOptimizer:
         """初期化"""
         # 掲示板データを読み込み
         self.df = pd.read_csv(poster_csv)
-        
+
         # 投票所データを読み込み
         self.voting_offices = {}
         if os.path.exists(polling_csv):
@@ -38,7 +38,7 @@ class CompleteRouteOptimizer:
                 }
         else:
             print(f"警告: {polling_csv}が見つかりません。投票所データなしで実行します。")
-        
+
         self.api_key = api_key
         self.base_url = "https://api.openrouteservice.org/v2"
 
@@ -129,7 +129,7 @@ class CompleteRouteOptimizer:
         # 全ての地点を始点として試行
         for start_idx in range(n):
             route, distance = self.solve_tsp_from_start(start_idx, distances)
-            
+
             if distance < best_distance:
                 best_distance = distance
                 best_route = route
@@ -141,7 +141,7 @@ class CompleteRouteOptimizer:
     def solve_tsp_from_start(self, start_idx, distances):
         """指定した始点からのTSP解法（最近傍法 + 2-opt）"""
         n = distances.shape[0]
-        
+
         # 最近傍法で初期解を生成
         unvisited = set(range(n))
         current = start_idx
@@ -221,7 +221,7 @@ class CompleteRouteOptimizer:
                     route = result['routes'][0]
                     if 'geometry' in route:
                         geometry_data = route['geometry']
-                        
+
                         if isinstance(geometry_data, str):
                             coords = polyline.decode(geometry_data)
                             coords = [[lon, lat] for lat, lon in coords]
@@ -231,7 +231,7 @@ class CompleteRouteOptimizer:
                             }
                         else:
                             geometry = geometry_data
-                        
+
                         geojson_response = {
                             'type': 'FeatureCollection',
                             'features': [{
@@ -244,7 +244,7 @@ class CompleteRouteOptimizer:
                             }]
                         }
                         return geojson_response
-                        
+
                 return None
             else:
                 return None
@@ -256,7 +256,7 @@ class CompleteRouteOptimizer:
         """個人名を含む地名を適切に置換"""
         if not name:
             return name
-        
+
         # 個人宅関連のパターンを検出して置換
         patterns = [
             (r'[一-龯\w\s]+宅前', '個人宅前'),
@@ -266,13 +266,13 @@ class CompleteRouteOptimizer:
             (r'[一-龯\w\s]+宅横', '個人宅横'),
             (r'[一-龯\w\s]+宅側', '個人宅側'),
         ]
-        
+
         sanitized_name = name
         for pattern, replacement in patterns:
             if re.search(pattern, sanitized_name):
                 sanitized_name = re.sub(pattern, replacement, sanitized_name)
                 break
-        
+
         return sanitized_name
 
     def extract_board_number(self, voting_area):
@@ -294,23 +294,23 @@ class CompleteRouteOptimizer:
     def get_detailed_route_segments(self, locations, route):
         """最適化されたルートに沿って詳細な道路形状を取得"""
         detailed_segments = []
-        
+
         if self.api_key is None:
             print("APIキーがないため、簡略ルートを使用します")
             return []
-            
+
         print(f"  詳細ルート形状を取得中...")
-        
+
         for i in range(len(route) - 1):
             start_idx = route[i]
             end_idx = route[i + 1]
-            
+
             start_coord = [locations[start_idx][0], locations[start_idx][1]]
             end_coord = [locations[end_idx][0], locations[end_idx][1]]
-            
+
             try:
                 route_data = self.get_detailed_route_geometry(start_coord, end_coord)
-                
+
                 if route_data and 'features' in route_data and len(route_data['features']) > 0:
                     geometry = route_data['features'][0]['geometry']
                     if geometry['type'] == 'LineString':
@@ -331,7 +331,7 @@ class CompleteRouteOptimizer:
                         'from_point': start_idx + 1,
                         'to_point': end_idx + 1
                     })
-                    
+
             except Exception:
                 # フォールバック：直線
                 detailed_segments.append({
@@ -343,7 +343,7 @@ class CompleteRouteOptimizer:
                     'from_point': start_idx + 1,
                     'to_point': end_idx + 1
                 })
-        
+
         return detailed_segments
 
     def optimize_all_districts_with_roads(self):
@@ -373,7 +373,7 @@ class CompleteRouteOptimizer:
             # 一方向経路の時間計算
             total_duration = sum(durations[optimized_route[i]][optimized_route[i+1]]
                                for i in range(len(optimized_route) - 1))
-            
+
             results[district_name] = {
                 'data': district_data,
                 'route': optimized_route,
@@ -396,18 +396,18 @@ class CompleteRouteOptimizer:
 
         for district_name, result in results.items():
             print(f"\n【{district_name}】統合データ生成中...")
-            
+
             # 投票所情報を取得
             office_info = self.voting_offices.get(district_name, {})
-            
+
             # 各地点をPointとして追加
             for i, location in enumerate(result['locations']):
                 # 個人名を除去
                 sanitized_name = self.sanitize_location_name(location['設置場所名'])
-                
+
                 # 掲示板番号を抽出
                 board_number = self.extract_board_number(location['投票区'])
-                
+
                 feature = {
                     "type": "Feature",
                     "geometry": {
@@ -429,11 +429,11 @@ class CompleteRouteOptimizer:
                     }
                 }
                 features.append(feature)
-            
+
             # 詳細ルートセグメントを取得
             locations = [(row['経度'], row['緯度']) for _, row in result['data'].iterrows()]
             detailed_segments = self.get_detailed_route_segments(locations, result['route'])
-            
+
             # 詳細ルートセグメントを追加
             for segment in detailed_segments:
                 route_feature = {
@@ -450,7 +450,7 @@ class CompleteRouteOptimizer:
                     }
                 }
                 features.append(route_feature)
-            
+
             # 簡略ルート（フォールバック用）も追加
             route_coords = [[loc['経度'], loc['緯度']] for loc in result['locations']]
             if len(route_coords) > 1:
@@ -498,18 +498,12 @@ class CompleteRouteOptimizer:
             "features": features
         }
 
-        # メインディレクトリに出力
-        with open('voting_routes.geojson', 'w', encoding='utf-8') as f:
-            json.dump(geojson, f, ensure_ascii=False, indent=2)
-
-        # docsディレクトリにもコピー
+        # docsディレクトリに出力
         with open('docs/voting_routes.geojson', 'w', encoding='utf-8') as f:
             json.dump(geojson, f, ensure_ascii=False, indent=2)
 
-        print("\n統合GeoJSONファイルを出力しました:")
-        print("  - voting_routes.geojson")
-        print("  - docs/voting_routes.geojson")
-        
+        print("\nGeoJSONファイルを出力しました:")
+
         return geojson
 
 def main():
