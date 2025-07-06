@@ -37,7 +37,8 @@ const districtColors = [
 
 // 地図初期化
 function initMap() {
-    map = L.map('map').setView([35.82, 140.15], 11);
+    // 印西市により適したズームレベルと中心座標に変更
+    map = L.map('map').setView([35.8327, 140.1451], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
@@ -379,6 +380,9 @@ function showAllDistricts() {
     // 地図クリア
     markersLayer.clearLayers();
     routesLayer.clearLayers();
+    
+    // 地図をデフォルトビューにリセット
+    map.setView([35.8327, 140.1451], 13);
 
     // 全投票区の中心点を表示（投票所は除外）
     const districtCenters = new Map();
@@ -607,13 +611,14 @@ function updateRouteList(points) {
             
             // ルート情報クリックで地図にフォーカス
             routeItem.onclick = () => {
-                // 2つの地点の中間にフォーカス
+                // 2つの地点の座標を取得
                 const coord1 = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
                 const coord2 = [nextPoint.geometry.coordinates[1], nextPoint.geometry.coordinates[0]];
-                const midLat = (coord1[0] + coord2[0]) / 2;
-                const midLng = (coord1[1] + coord2[1]) / 2;
                 
-                map.setView([midLat, midLng], 15);
+                // ルートセグメント上の実際の点を取得
+                const routePoint = getPointOnRoute(coord1, coord2, point.properties.order, nextPoint.properties.order);
+                
+                map.setView(routePoint, 15);
                 
                 // 対応するルートセグメントのポップアップを開く
                 // 最適化されたルートの実際の順序を使用
@@ -626,12 +631,9 @@ function updateRouteList(points) {
                 const segmentDistance = dist;
                 const segmentTimeFormatted = timeDisplay;
                 
-                // 2つの地点の中間にポップアップを表示
-                const midLatLng = [midLat, midLng];
-                
                 // 動的にポップアップを作成して表示
                 const popup = L.popup()
-                    .setLatLng(midLatLng)
+                    .setLatLng(routePoint)
                     .setContent(`
                         <div style="min-width: 200px;">
                             <strong>${fromBoardNumber} → ${toBoardNumber}</strong><br>
@@ -753,6 +755,31 @@ function formatTime(hours) {
             return `${wholeHours}時間`;
         }
     }
+}
+
+// ルートセグメント上の実際の点を取得する関数
+function getPointOnRoute(from, to, fromOrder, toOrder) {
+    // 現在表示中の投票区のルートセグメントから対応するセグメントを探す
+    const routeSegments = allData.features.filter(f => 
+        f.properties.district === currentDistrict && 
+        f.properties.type === 'route_segment'
+    );
+    
+    // 該当するセグメントを探す（順序に基づいて）
+    const segment = routeSegments.find(seg => {
+        return (seg.properties.from_point === fromOrder && seg.properties.to_point === toOrder) ||
+               (seg.properties.from_point === toOrder && seg.properties.to_point === fromOrder);
+    });
+    
+    if (segment && segment.geometry && segment.geometry.coordinates && segment.geometry.coordinates.length > 0) {
+        // セグメントの中央付近の点を取得
+        const coords = segment.geometry.coordinates;
+        const midIndex = Math.floor(coords.length / 2);
+        return [coords[midIndex][1], coords[midIndex][0]]; // [lat, lng]形式で返す
+    }
+    
+    // セグメントが見つからない場合は中間点を返す
+    return [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
 }
 
 // セグメントごとの距離・時間を計算
