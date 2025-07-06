@@ -46,8 +46,7 @@
 ```
 docs/
 ├── index.html          # メインページ
-├── voting_routes.geojson  # 最適化されたルートデータ
-└── README.md           # このファイル
+└── voting_routes.geojson  # 最適化されたルートデータ
 ```
 
 ### カスタマイズ
@@ -63,7 +62,7 @@ docs/
 
 ```bash
 export OPENROUTESERVICE_API_KEY='your_api_key'
-python3 enhanced_route_optimizer.py
+python3 route_optimizer.py
 ```
 
 ## ライセンス
