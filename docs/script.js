@@ -262,10 +262,6 @@ function showDistrict(districtName) {
             const fromBoardNumber = fromPoint?.properties.board_number || segment.properties.from_point;
             const toBoardNumber = toPoint?.properties.board_number || segment.properties.to_point;
             
-            console.log(`Segment ${segment.properties.segment}: ${segment.properties.from_point}(${fromBoardNumber}) → ${segment.properties.to_point}(${toBoardNumber})`);
-            console.log(`fromPoint:`, fromPoint);
-            console.log(`toPoint:`, toPoint);
-            
             // セグメントの距離・時間を計算
             let segmentDistance = '';
             let segmentTime = '';
@@ -316,8 +312,6 @@ function showDistrict(districtName) {
             polyline.fromPoint = segment.properties.from_point;
             polyline.toPoint = segment.properties.to_point;
             polyline.segmentNumber = segment.properties.segment;
-            
-            console.log(`Created route segment: ${polyline.fromPoint} → ${polyline.toPoint} (segment ${segment.properties.segment})`);
             
             // ホバー効果
             polyline.on('mouseover', function() {
@@ -599,8 +593,6 @@ function updateRouteList(points) {
             // 次の地点の情報を取得
             const nextPoint = sortedPoints[index + 1];
             
-            console.log(`Route list item ${index + 1}: ${point.properties.order}(${point.properties.board_number}) → ${nextPoint.properties.order}(${nextPoint.properties.board_number})`);
-            
             // ルート情報アイテムを作成
             const routeItem = document.createElement('div');
             routeItem.className = 'route-segment-item';
@@ -634,8 +626,6 @@ function updateRouteList(points) {
                 const segmentDistance = dist;
                 const segmentTimeFormatted = timeDisplay;
                 
-                console.log(`Creating popup for route segment: ${point.properties.order}(${fromBoardNumber}) → ${nextPoint.properties.order}(${toBoardNumber})`);
-                
                 // 2つの地点の中間にポップアップを表示
                 const midLatLng = [midLat, midLng];
                 
@@ -652,8 +642,6 @@ function updateRouteList(points) {
                         </div>
                     `)
                     .openOn(map);
-                
-                console.log(`Opened popup at [${midLat}, ${midLng}] for ${fromBoardNumber} → ${toBoardNumber}`);
                 
                 // マップコンテナにフォーカスを当てる
                 setTimeout(() => {
