@@ -474,6 +474,21 @@ body {
     background: var(--text-primary);
 }
 
+.google-maps-btn {
+    background: #4285f4;
+    margin: 1rem 0 0 0;
+    width: 100%;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.google-maps-btn:hover {
+    background: #3367d6;
+}
+
 @media (max-width: 1024px) {
     .container {
         padding: 1rem;

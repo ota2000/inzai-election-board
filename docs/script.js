@@ -357,6 +357,9 @@ function showDistrict(districtName) {
     
     // UI状態の更新
     updateUIForDistrictSelection();
+    
+    // Googleマップボタンを表示
+    showGoogleMapsButton(districtPoints);
 }
 
 // 全投票区表示
@@ -504,6 +507,9 @@ function updateUIForAllDistricts() {
     
     // 巡回順序カードを非表示
     document.getElementById('routeCard').style.display = 'none';
+    
+    // Googleマップボタンを非表示
+    hideGoogleMapsButton();
 }
 
 // UI状態の更新（投票区選択時）
@@ -759,6 +765,73 @@ function calculateSegmentDistances(points) {
     }
     
     return distances;
+}
+
+// Googleマップボタンを表示
+function showGoogleMapsButton(points) {
+    let googleMapsBtn = document.getElementById('googleMapsBtn');
+    
+    if (!googleMapsBtn) {
+        // ボタンが存在しない場合は作成
+        googleMapsBtn = document.createElement('button');
+        googleMapsBtn.id = 'googleMapsBtn';
+        googleMapsBtn.className = 'btn google-maps-btn';
+        googleMapsBtn.innerHTML = '📍 Googleマップで表示';
+        
+        // 巡回順序カードに追加
+        const routeCard = document.getElementById('routeCard');
+        const routeCardHeader = routeCard.querySelector('h3');
+        routeCardHeader.insertAdjacentElement('afterend', googleMapsBtn);
+    }
+    
+    // クリックイベントを設定
+    googleMapsBtn.onclick = () => openInGoogleMaps(points);
+    googleMapsBtn.style.display = 'block';
+}
+
+// Googleマップボタンを非表示
+function hideGoogleMapsButton() {
+    const googleMapsBtn = document.getElementById('googleMapsBtn');
+    if (googleMapsBtn) {
+        googleMapsBtn.style.display = 'none';
+    }
+}
+
+// GoogleマップでルートURLを生成
+function generateGoogleMapsUrl(points) {
+    const sortedPoints = points.sort((a, b) => a.properties.order - b.properties.order);
+    
+    if (sortedPoints.length === 0) return null;
+    
+    // 開始地点
+    const origin = `${sortedPoints[0].geometry.coordinates[1]},${sortedPoints[0].geometry.coordinates[0]}`;
+    
+    // 終了地点
+    const destination = `${sortedPoints[sortedPoints.length - 1].geometry.coordinates[1]},${sortedPoints[sortedPoints.length - 1].geometry.coordinates[0]}`;
+    
+    // 経由地点（最初と最後を除く）
+    const waypoints = sortedPoints.slice(1, -1).map(point => 
+        `${point.geometry.coordinates[1]},${point.geometry.coordinates[0]}`
+    ).join('|');
+    
+    // Google Maps URL を構築
+    let url = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
+    
+    if (waypoints) {
+        url += `&waypoints=${waypoints}`;
+    }
+    
+    return url;
+}
+
+// Googleマップで開く
+function openInGoogleMaps(points) {
+    const url = generateGoogleMapsUrl(points);
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('ルート情報が不足しています。');
+    }
 }
 
 // 初期化
