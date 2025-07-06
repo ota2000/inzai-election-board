@@ -160,6 +160,9 @@ function showDistrict(districtName) {
                 weight: 2,
                 fillOpacity: 0.8
             }).addTo(markersLayer);
+            
+            // 掲示板マーカーであることを示すプロパティを追加
+            marker.boardOrder = point.properties.order;
 
             // ポップアップ（シンプル版）
             const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
@@ -480,11 +483,10 @@ function updateRouteList(points) {
                 const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
                 map.setView(coord, 16);
 
-                // 該当マーカーのポップアップを開く
+                // 該当する掲示板マーカーのポップアップを開く
                 markersLayer.eachLayer(layer => {
-                    if (layer.getLatLng &&
-                        Math.abs(layer.getLatLng().lat - coord[0]) < 0.001 &&
-                        Math.abs(layer.getLatLng().lng - coord[1]) < 0.001) {
+                    // 掲示板マーカーかつ順序が一致するものを探す
+                    if (layer.boardOrder && layer.boardOrder === point.properties.order) {
                         layer.openPopup();
                     }
                 });
