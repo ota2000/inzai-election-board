@@ -628,39 +628,32 @@ function updateRouteList(points) {
                 // sortedPointsは巡回順序（1,2,3...）でソートされているが
                 // 実際のルートは最適化された順序（6→5→4→2→1→3→7→8→10→9）
                 
-                // 巡回順序リストの地点番号で対応するセグメントを検索
-                // 巡回順序リスト: point.properties.order → nextPoint.properties.order
-                // 実際のセグメント: nextPoint.properties.order → point.properties.order (逆順)
-                const fromOrder = nextPoint.properties.order;  // 逆順
-                const toOrder = point.properties.order;        // 逆順
+                // 巡回順序に基づく動的なポップアップ作成
+                const fromBoardNumber = point.properties.board_number;
+                const toBoardNumber = nextPoint.properties.board_number;
+                const segmentDistance = dist;
+                const segmentTimeFormatted = timeDisplay;
                 
-                console.log(`Looking for route segment: ${fromOrder} → ${toOrder} (from route list: ${point.properties.order} → ${nextPoint.properties.order})`);
+                console.log(`Creating popup for route segment: ${point.properties.order}(${fromBoardNumber}) → ${nextPoint.properties.order}(${toBoardNumber})`);
                 
-                let foundSegment = false;
-                routesLayer.eachLayer(layer => {
-                    // ルートセグメントかどうかを確認
-                    if (layer.fromPoint && layer.toPoint) {
-                        console.log(`Checking segment: ${layer.fromPoint} → ${layer.toPoint} (segment number: ${layer.segmentNumber})`);
-                        
-                        // 地点番号で検索
-                        if (layer.fromPoint === fromOrder && layer.toPoint === toOrder) {
-                            console.log(`Found matching segment by points: ${layer.fromPoint} → ${layer.toPoint} (segment ${layer.segmentNumber})`);
-                            layer.openPopup();
-                            foundSegment = true;
-                            return; // 見つかったらループを抜ける
-                        }
-                    }
-                });
+                // 2つの地点の中間にポップアップを表示
+                const midLatLng = [midLat, midLng];
                 
-                if (!foundSegment) {
-                    console.log(`No matching segment found for ${fromOrder} → ${toOrder}`);
-                    console.log('Available segments:');
-                    routesLayer.eachLayer(layer => {
-                        if (layer.fromPoint && layer.toPoint) {
-                            console.log(`  - ${layer.fromPoint} → ${layer.toPoint} (segment: ${layer.segmentNumber})`);
-                        }
-                    });
-                }
+                // 動的にポップアップを作成して表示
+                const popup = L.popup()
+                    .setLatLng(midLatLng)
+                    .setContent(`
+                        <div style="min-width: 200px;">
+                            <strong>${fromBoardNumber} → ${toBoardNumber}</strong><br>
+                            <div style="margin: 0.5rem 0; font-size: 0.9rem;">
+                                距離: ${segmentDistance}km<br>
+                                時間: ${segmentTimeFormatted}
+                            </div>
+                        </div>
+                    `)
+                    .openOn(map);
+                
+                console.log(`Opened popup at [${midLat}, ${midLng}] for ${fromBoardNumber} → ${toBoardNumber}`);
                 
                 // マップコンテナにフォーカスを当てる
                 setTimeout(() => {
