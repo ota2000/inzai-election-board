@@ -262,6 +262,8 @@ function showDistrict(districtName) {
             const fromBoardNumber = fromPoint?.properties.board_number || segment.properties.from_point;
             const toBoardNumber = toPoint?.properties.board_number || segment.properties.to_point;
             
+            console.log(`Segment ${segment.properties.segment}: ${segment.properties.from_point}(${fromBoardNumber}) → ${segment.properties.to_point}(${toBoardNumber})`);
+            
             // セグメントの距離・時間を計算
             let segmentDistance = '';
             let segmentTime = '';
@@ -589,6 +591,8 @@ function updateRouteList(points) {
             
             // 次の地点の情報を取得
             const nextPoint = sortedPoints[index + 1];
+            
+            console.log(`Route list item ${index + 1}: ${point.properties.order}(${point.properties.board_number}) → ${nextPoint.properties.order}(${nextPoint.properties.board_number})`);
             
             // ルート情報アイテムを作成
             const routeItem = document.createElement('div');
