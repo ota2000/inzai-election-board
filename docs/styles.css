@@ -390,6 +390,43 @@ body {
     color: var(--accent-color);
 }
 
+.route-segment-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.route-segment-item:hover {
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.route-segment-arrow {
+    color: var(--accent-color);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+.route-segment-details {
+    flex: 1;
+    text-align: center;
+}
+
+.route-segment-stats {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
 .loading {
     text-align: center;
     padding: 3rem;

@@ -253,6 +253,40 @@ function showDistrict(districtName) {
             const hue = 200 + (progress * 80); // 200(青) -> 280(紫)
             const segmentColor = `hsl(${hue}, 70%, 50%)`;
             
+            // セグメントの開始点と終了点の掲示板情報を取得
+            const fromPointIndex = segment.properties.from_point - 1;
+            const toPointIndex = segment.properties.to_point - 1;
+            const fromPoint = districtPoints[fromPointIndex];
+            const toPoint = districtPoints[toPointIndex];
+            
+            // 掲示板番号を取得
+            const fromBoardNumber = fromPoint?.properties.board_number || segment.properties.from_point;
+            const toBoardNumber = toPoint?.properties.board_number || segment.properties.to_point;
+            
+            // セグメントの距離・時間を計算
+            let segmentDistance = '';
+            let segmentTime = '';
+            if (fromPoint && toPoint) {
+                const segmentDistances = calculateSegmentDistances([fromPoint, toPoint]);
+                if (segmentDistances.length > 0) {
+                    segmentDistance = segmentDistances[0].distance;
+                    const timeInMinutes = segmentDistances[0].time;
+                    
+                    // 時間を「X時間Y分」形式に変換
+                    if (timeInMinutes >= 60) {
+                        const hours = Math.floor(timeInMinutes / 60);
+                        const minutes = timeInMinutes % 60;
+                        if (minutes > 0) {
+                            segmentTime = `${hours}時間${minutes}分`;
+                        } else {
+                            segmentTime = `${hours}時間`;
+                        }
+                    } else {
+                        segmentTime = `${timeInMinutes}分`;
+                    }
+                }
+            }
+            
             const polyline = L.polyline(segmentCoords, {
                 color: segmentColor,
                 weight: 6,
@@ -260,11 +294,11 @@ function showDistrict(districtName) {
                 lineCap: 'round',
                 lineJoin: 'round'
             }).bindPopup(`
-                <div style="min-width: 180px;">
-                    <strong>ルートセグメント ${segment.properties.segment}</strong><br>
+                <div style="min-width: 200px;">
+                    <strong>${fromBoardNumber} → ${toBoardNumber}</strong><br>
                     <div style="margin: 0.5rem 0; font-size: 0.9rem;">
-                        ${segment.properties.from_point} → ${segment.properties.to_point}地点目<br>
-                        実際の道路経路に沿ったルート
+                        ${segmentDistance ? `距離: ${segmentDistance}km<br>` : ''}
+                        ${segmentTime ? `時間: ${segmentTime}` : ''}
                     </div>
                 </div>
             `).addTo(routesLayer);
@@ -314,7 +348,7 @@ function showDistrict(districtName) {
 
     // 情報パネル更新
     updateInfoPanel(districtName, districtPoints[0].properties);
-    updateRouteList(districtPoints, districtRouteSegments);
+    updateRouteList(districtPoints);
     
     // UI状態の更新
     updateUIForDistrictSelection();
@@ -477,7 +511,7 @@ function updateUIForDistrictSelection() {
 }
 
 // 巡回順序リスト更新
-function updateRouteList(points, routeSegments) {
+function updateRouteList(points) {
     const routeList = document.getElementById('routeList');
     routeList.innerHTML = '';
     
@@ -486,12 +520,42 @@ function updateRouteList(points, routeSegments) {
     const segmentDistances = calculateSegmentDistances(sortedPoints);
 
     sortedPoints.forEach((point, index) => {
+        // 掲示板アイテムを作成
         const item = document.createElement('div');
         item.className = 'route-item';
         const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
         
-        // 次の地点までの距離・時間情報
-        let segmentInfo = '';
+        item.innerHTML = `
+            <div class="route-number">${point.properties.order}</div>
+            <div class="route-details">
+                <div class="route-name">${boardNumber}${point.properties.name}</div>
+                <div class="route-address">${point.properties.address}</div>
+            </div>
+        `;
+
+        // クリックでマーカーに移動しマップにフォーカス
+        item.onclick = () => {
+            const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+            map.setView(coord, 16);
+
+            // 該当する掲示板マーカーのポップアップを開く
+            markersLayer.eachLayer(layer => {
+                // 掲示板マーカーかつ順序が一致するものを探す
+                if (layer.boardOrder && layer.boardOrder === point.properties.order) {
+                    layer.openPopup();
+                }
+            });
+            
+            // マップコンテナにフォーカスを当てる
+            setTimeout(() => {
+                document.getElementById('map').focus();
+                document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        };
+
+        routeList.appendChild(item);
+        
+        // 次の地点までのルート情報を追加
         if (index < sortedPoints.length - 1 && segmentDistances[index]) {
             const dist = segmentDistances[index].distance;
             const timeInMinutes = segmentDistances[index].time;
@@ -510,35 +574,30 @@ function updateRouteList(points, routeSegments) {
                 timeDisplay = `${timeInMinutes}分`;
             }
             
-            segmentInfo = `
-                <div class="segment-info">
-                    <span class="segment-distance">→ ${dist}km</span>
-                    <span class="segment-time">${timeDisplay}</span>
+            // 次の地点の情報を取得
+            const nextPoint = sortedPoints[index + 1];
+            
+            // ルート情報アイテムを作成
+            const routeItem = document.createElement('div');
+            routeItem.className = 'route-segment-item';
+            routeItem.innerHTML = `
+                <div class="route-segment-arrow">↓</div>
+                <div class="route-segment-details">
+                    <div class="route-segment-stats">
+                        ${dist}km • ${timeDisplay}
+                    </div>
                 </div>
             `;
-        }
-        
-        item.innerHTML = `
-            <div class="route-number">${point.properties.order}</div>
-            <div class="route-details">
-                <div class="route-name">${boardNumber}${point.properties.name}</div>
-                <div class="route-address">${point.properties.address}</div>
-                ${segmentInfo}
-            </div>
-        `;
-
-            // クリックでマーカーに移動しマップにフォーカス
-            item.onclick = () => {
-                const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
-                map.setView(coord, 16);
-
-                // 該当する掲示板マーカーのポップアップを開く
-                markersLayer.eachLayer(layer => {
-                    // 掲示板マーカーかつ順序が一致するものを探す
-                    if (layer.boardOrder && layer.boardOrder === point.properties.order) {
-                        layer.openPopup();
-                    }
-                });
+            
+            // ルート情報クリックで地図にフォーカス
+            routeItem.onclick = () => {
+                // 2つの地点の中間にフォーカス
+                const coord1 = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+                const coord2 = [nextPoint.geometry.coordinates[1], nextPoint.geometry.coordinates[0]];
+                const midLat = (coord1[0] + coord2[0]) / 2;
+                const midLng = (coord1[1] + coord2[1]) / 2;
+                
+                map.setView([midLat, midLng], 15);
                 
                 // マップコンテナにフォーカスを当てる
                 setTimeout(() => {
@@ -546,9 +605,10 @@ function updateRouteList(points, routeSegments) {
                     document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 100);
             };
-
-            routeList.appendChild(item);
-        });
+            
+            routeList.appendChild(routeItem);
+        }
+    });
 }
 
 // データダウンロード
@@ -580,7 +640,11 @@ function copyToClipboard(text) {
         textArea.value = text;
         document.body.appendChild(textArea);
         textArea.select();
-        document.execCommand('copy');
+        try {
+            document.execCommand('copy');
+        } catch (err) {
+            console.error('フォールバックコピーも失敗しました:', err);
+        }
         document.body.removeChild(textArea);
         showCopyFeedback();
     });
