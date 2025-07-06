@@ -1,0 +1,498 @@
+// グローバル変数
+let map;
+let allData = null;
+let currentDistrict = null;
+let markersLayer = null;
+let routesLayer = null;
+
+// テーマ切り替え
+function toggleTheme() {
+    const currentTheme = document.body.dataset.theme;
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.body.dataset.theme = newTheme;
+    localStorage.setItem('theme', newTheme);
+    
+    // ボタンアイコンを更新
+    const toggleBtn = document.querySelector('.theme-toggle');
+    toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+}
+
+// テーマの初期化
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.dataset.theme = savedTheme;
+    const toggleBtn = document.querySelector('.theme-toggle');
+    toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+}
+
+// 投票区ごとの色
+const districtColors = [
+    '#3b82f6', '#2563eb', '#1d4ed8', '#1e40af', '#1e3a8a',
+    '#3730a3', '#4338ca', '#4f46e5', '#6366f1', '#7c3aed',
+    '#8b5cf6', '#9333ea', '#a855f7', '#b91c1c', '#dc2626',
+    '#ef4444', '#f87171', '#fb7185', '#f43f5e', '#e11d48',
+    '#be123c', '#9f1239', '#881337'
+];
+
+// 地図初期化
+function initMap() {
+    map = L.map('map').setView([35.82, 140.15], 11);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    markersLayer = L.layerGroup().addTo(map);
+    routesLayer = L.layerGroup().addTo(map);
+}
+
+// データ読み込み
+async function loadData() {
+    try {
+        const response = await fetch('./poster_board_routes.geojson');
+        if (!response.ok) {
+            throw new Error('データファイルが見つかりません');
+        }
+        allData = await response.json();
+        setupDistrictSelector();
+        showAllDistricts();
+    } catch (error) {
+        console.error('データ読み込みエラー:', error);
+        document.getElementById('districtSelector').innerHTML =
+            '<div class="error">データの読み込みに失敗しました: ' + error.message + '</div>';
+    }
+}
+
+// 投票区セレクター設定
+function setupDistrictSelector() {
+    // 投票区と対応する投票区番号を取得
+    const districtMap = new Map();
+    allData.features
+        .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office')
+        .forEach(f => {
+            const district = f.properties.district;
+            const districtNumber = f.properties.district_number;
+            if (!districtMap.has(district)) {
+                districtMap.set(district, districtNumber);
+            }
+        });
+
+    // 投票区番号順にソート
+    const districts = Array.from(districtMap.entries()).sort((a, b) => {
+        // 第X投票区の番号を抽出してソート
+        const numA = parseInt(a[1].replace('第', '').replace('投票区', '')) || 0;
+        const numB = parseInt(b[1].replace('第', '').replace('投票区', '')) || 0;
+        return numA - numB;
+    });
+
+    const selector = document.getElementById('districtSelector');
+    selector.innerHTML = '';
+
+    districts.forEach(([district, districtNumber], index) => {
+        const btn = document.createElement('div');
+        btn.className = 'district-btn';
+        
+        // 投票区番号を表示（第X投票区のXを使用）
+        const voteNumber = districtNumber.replace('第', '').replace('投票区', '');
+        const displayText = `${voteNumber}. ${district}`;
+        
+        btn.textContent = displayText.length > 25 ? `${voteNumber}. ${district.substring(0, 20)}...` : displayText;
+        btn.title = `${voteNumber}. ${district}`;
+        btn.onclick = () => showDistrict(district);
+        selector.appendChild(btn);
+    });
+}
+
+// 特定投票区表示
+function showDistrict(districtName) {
+    currentDistrict = districtName;
+
+    // ボタンの状態更新
+    document.querySelectorAll('.district-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.title === districtName || btn.textContent === districtName) {
+            btn.classList.add('active');
+        }
+    });
+
+    // 地図クリア
+    markersLayer.clearLayers();
+    routesLayer.clearLayers();
+
+    // 該当データをフィルタ
+    const districtPoints = allData.features.filter(f =>
+        f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
+    );
+    const votingOffice = allData.features.find(f =>
+        f.properties.district === districtName && f.properties.type === 'voting_office'
+    );
+    const districtRouteSegments = allData.features.filter(f =>
+        f.properties.district === districtName && f.properties.type === 'route_segment'
+    );
+    const districtSimpleRoute = allData.features.find(f =>
+        f.properties.district === districtName && f.properties.type === 'simple_route'
+    );
+
+    if (districtPoints.length === 0) return;
+
+    // ポイントマーカー追加
+    const bounds = [];
+    districtPoints
+        .sort((a, b) => a.properties.order - b.properties.order)
+        .forEach((point, index) => {
+            const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+            bounds.push(coord);
+
+            const isStart = point.properties.order === 1;
+            const marker = L.circleMarker(coord, {
+                radius: isStart ? 10 : 8,
+                fillColor: isStart ? '#FF4757' : '#667eea',
+                color: 'white',
+                weight: 2,
+                fillOpacity: 0.8
+            }).addTo(markersLayer);
+
+            // ポップアップ
+            const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+            const popupContent = `
+                <div style="min-width: 240px;">
+                    <h4>${point.properties.order}. ${boardNumber}${point.properties.name}</h4>
+                    <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${point.properties.address}</p>
+                    <div style="background: #f8f9fa; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #667eea;">
+                        <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">📍 ${point.properties.district_number || '投票区'}</div>
+                        <div style="font-size: 0.8rem; color: #666;">
+                            投票所: ${point.properties.office_name || point.properties.district}<br>
+                            所在地: ${point.properties.office_address || ''}
+                        </div>
+                    </div>
+                    <div style="font-size: 0.9rem; color: #888;">
+                        ${point.properties.board_number ? `掲示板番号: ${point.properties.board_number}<br>` : ''}
+                        総巡回距離: ${point.properties.total_distance_km}km<br>
+                        推定時間: ${point.properties.estimated_hours}時間
+                    </div>
+                </div>
+            `;
+            marker.bindPopup(popupContent);
+
+            // 番号表示
+            const numberIcon = L.divIcon({
+                html: `<div style="background: ${isStart ? '#FF4757' : '#667eea'}; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold;">${point.properties.order}</div>`,
+                className: 'custom-div-icon',
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            });
+
+            L.marker(coord, { icon: numberIcon }).addTo(markersLayer);
+        });
+
+    // 投票所マーカー追加
+    if (votingOffice) {
+        const officeCoord = [votingOffice.geometry.coordinates[1], votingOffice.geometry.coordinates[0]];
+        bounds.push(officeCoord);
+
+        // 投票所用の特別なアイコン
+        const officeIcon = L.divIcon({
+            html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">●</div>`,
+            className: 'voting-office-icon',
+            iconSize: [40, 40],
+            iconAnchor: [20, 20]
+        });
+
+        const officeMarker = L.marker(officeCoord, { icon: officeIcon }).addTo(markersLayer);
+
+        // 投票所のポップアップ
+        const officePopupContent = `
+            <div style="min-width: 250px;">
+                <h4 style="margin: 0 0 0.5rem 0; color: #28a745;">投票所</h4>
+                <h3 style="margin: 0 0 0.5rem 0;">${votingOffice.properties.name}</h3>
+                <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${votingOffice.properties.address}</p>
+                <div style="background: #e8f5e8; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #28a745;">
+                    <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">${votingOffice.properties.district_number || '投票区'}</div>
+                    <div style="font-size: 0.8rem; color: #666;">
+                        管轄掲示板数: ${votingOffice.properties.total_points || 0}ヶ所<br>
+                        総巡回距離: ${votingOffice.properties.total_distance_km || 0}km
+                    </div>
+                </div>
+            </div>
+        `;
+        officeMarker.bindPopup(officePopupContent);
+    }
+
+    // 詳細ルートセグメント追加
+    if (districtRouteSegments.length > 0) {
+        console.log(`詳細ルートセグメント数: ${districtRouteSegments.length}`);
+        
+        // セグメントを順序でソート
+        districtRouteSegments.sort((a, b) => a.properties.segment - b.properties.segment);
+        
+        districtRouteSegments.forEach((segment, index) => {
+            const segmentCoords = segment.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+            
+            // 鮮やかな青から紫へのグラデーション
+            const progress = index / Math.max(1, districtRouteSegments.length - 1);
+            const hue = 200 + (progress * 80); // 200(青) -> 280(紫)
+            const segmentColor = `hsl(${hue}, 70%, 50%)`;
+            
+            const polyline = L.polyline(segmentCoords, {
+                color: segmentColor,
+                weight: 6,
+                opacity: 0.9,
+                lineCap: 'round',
+                lineJoin: 'round'
+            }).bindPopup(`
+                <div style="min-width: 180px;">
+                    <strong>ルートセグメント ${segment.properties.segment}</strong><br>
+                    <div style="margin: 0.5rem 0; font-size: 0.9rem;">
+                        ${segment.properties.from_point} → ${segment.properties.to_point}地点目<br>
+                        実際の道路経路に沿ったルート
+                    </div>
+                </div>
+            `).addTo(routesLayer);
+            
+            // ホバー効果
+            polyline.on('mouseover', function() {
+                this.setStyle({ weight: 8, opacity: 1 });
+            });
+            polyline.on('mouseout', function() {
+                this.setStyle({ weight: 6, opacity: 0.9 });
+            });
+        });
+        
+        // ルート情報メッセージを表示
+        const routeInfo = L.control({ position: 'topright' });
+        routeInfo.onAdd = function() {
+            const div = L.DomUtil.create('div', 'route-info');
+            div.style.cssText = 'background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 0.8rem;';
+            div.innerHTML = `
+                <strong>詳細ルート表示中</strong><br>
+                実際の道路に沿った経路
+            `;
+            return div;
+        };
+        routeInfo.addTo(map);
+        
+        // 5秒後にメッセージを削除
+        setTimeout(() => {
+            map.removeControl(routeInfo);
+        }, 5000);
+        
+    } else if (districtSimpleRoute) {
+        // フォールバック：簡略ルート
+        const routeCoords = districtSimpleRoute.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+        L.polyline(routeCoords, {
+            color: '#667eea',
+            weight: 4,
+            opacity: 0.7,
+            dashArray: '10, 5'
+        }).bindPopup('簡略化されたルート（直線距離）').addTo(routesLayer);
+    }
+
+    // 地図範囲調整
+    if (bounds.length > 0) {
+        map.fitBounds(bounds, { padding: [20, 20] });
+    }
+
+    // 情報パネル更新
+    updateInfoPanel(districtName, districtPoints[0].properties);
+    updateRouteList(districtPoints);
+}
+
+// 全投票区表示
+function showAllDistricts() {
+    currentDistrict = null;
+
+    // ボタンの状態リセット
+    document.querySelectorAll('.district-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // 地図クリア
+    markersLayer.clearLayers();
+    routesLayer.clearLayers();
+
+    // 全投票区の中心点を表示（投票所は除外）
+    const districtCenters = new Map();
+    const votingOffices = new Map();
+
+    allData.features
+        .filter(f => f.geometry.type === 'Point')
+        .forEach(point => {
+            const district = point.properties.district;
+            if (point.properties.type === 'voting_office') {
+                // 投票所の位置を記録
+                votingOffices.set(district, [
+                    point.geometry.coordinates[1],
+                    point.geometry.coordinates[0]
+                ]);
+            } else {
+                // 掲示板の位置を記録
+                if (!districtCenters.has(district)) {
+                    districtCenters.set(district, []);
+                }
+                districtCenters.get(district).push([
+                    point.geometry.coordinates[1],
+                    point.geometry.coordinates[0]
+                ]);
+            }
+        });
+
+    // 各投票区の投票所位置にマーカー配置
+    Array.from(districtCenters.entries()).forEach(([district, coords], index) => {
+        // 投票所の位置を使用、なければ掲示板の中心点
+        const position = votingOffices.has(district) ? 
+            votingOffices.get(district) : 
+            [
+                coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
+                coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
+            ];
+
+        const color = districtColors[index % districtColors.length];
+        const marker = L.circleMarker(position, {
+            radius: 12,
+            fillColor: color,
+            color: 'white',
+            weight: 2,
+            fillOpacity: 0.8
+        }).addTo(markersLayer);
+
+        marker.bindPopup(`
+            <div style="min-width: 200px;">
+                <h4>${district}</h4>
+                <p>地点数: ${coords.length}地点</p>
+                <button onclick="showDistrict('${district}')" style="background: ${color}; color: white; border: none; padding: 0.5rem 1rem; border-radius: 3px; cursor: pointer;">詳細表示</button>
+            </div>
+        `);
+    });
+
+
+    // 全体情報表示
+    updateOverallInfo();
+}
+
+// 情報パネル更新
+function updateInfoPanel(districtName, properties) {
+    const info = document.getElementById('districtInfo');
+    const districtNumber = properties.district_number || '';
+    const officeName = properties.office_name || districtName;
+    const officeAddress = properties.office_address || '';
+    
+    info.innerHTML = `
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #667eea;">
+            <h4 style="margin: 0 0 0.5rem 0; color: #667eea;">📍 ${districtNumber}</h4>
+            <div style="font-weight: bold; margin-bottom: 0.3rem;">${officeName}</div>
+            <div style="font-size: 0.9rem; color: #666;">${officeAddress}</div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">掲示板数</span>
+            <span class="stat-value">${properties.total_points}地点</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">巡回距離</span>
+            <span class="stat-value">${properties.total_distance_km}km</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">推定時間</span>
+            <span class="stat-value">${properties.estimated_hours}時間</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">平均間隔</span>
+            <span class="stat-value">${(properties.total_distance_km / properties.total_points).toFixed(2)}km</span>
+        </div>
+    `;
+}
+
+// 全体情報更新
+function updateOverallInfo() {
+    const districts = [...new Set(allData.features
+        .filter(f => f.geometry.type === 'Point')
+        .map(f => f.properties.district))];
+
+    const totalPoints = allData.features.filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office').length;
+    const totalDistance = districts.reduce((sum, district) => {
+        const route = allData.features.find(f =>
+            f.properties.district === district && f.geometry.type === 'LineString'
+        );
+        return sum + (route ? route.properties.total_distance_km : 0);
+    }, 0);
+
+    const info = document.getElementById('districtInfo');
+    info.innerHTML = `
+        <div class="stat-item">
+            <span class="stat-label">総投票区数</span>
+            <span class="stat-value">${districts.length}区</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">総地点数</span>
+            <span class="stat-value">${totalPoints}地点</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">総巡回距離</span>
+            <span class="stat-value">${totalDistance.toFixed(2)}km</span>
+        </div>
+    `;
+
+    document.getElementById('routeList').innerHTML =
+        '<div style="text-align: center; color: #666;">投票区を選択すると巡回順序が表示されます</div>';
+}
+
+// 巡回順序リスト更新
+function updateRouteList(points) {
+    const routeList = document.getElementById('routeList');
+    routeList.innerHTML = '';
+
+    points
+        .sort((a, b) => a.properties.order - b.properties.order)
+        .forEach(point => {
+            const item = document.createElement('div');
+            item.className = 'route-item';
+            const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+            item.innerHTML = `
+                <div class="route-number">${point.properties.order}</div>
+                <div class="route-details">
+                    <div class="route-name">${boardNumber}${point.properties.name}</div>
+                    <div class="route-address">${point.properties.address}</div>
+                </div>
+            `;
+
+            // クリックでマーカーに移動
+            item.onclick = () => {
+                const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+                map.setView(coord, 16);
+
+                // 該当マーカーのポップアップを開く
+                markersLayer.eachLayer(layer => {
+                    if (layer.getLatLng &&
+                        Math.abs(layer.getLatLng().lat - coord[0]) < 0.001 &&
+                        Math.abs(layer.getLatLng().lng - coord[1]) < 0.001) {
+                        layer.openPopup();
+                    }
+                });
+            };
+
+            routeList.appendChild(item);
+        });
+}
+
+// データダウンロード
+function downloadData() {
+    if (!allData) return;
+
+    const dataStr = JSON.stringify(allData, null, 2);
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'poster_board_routes_data.geojson';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+}
+
+// 初期化
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initMap();
+    loadData();
+});
