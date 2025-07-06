@@ -254,10 +254,9 @@ function showDistrict(districtName) {
             const segmentColor = `hsl(${hue}, 70%, 50%)`;
             
             // セグメントの開始点と終了点の掲示板情報を取得
-            const fromPointIndex = segment.properties.from_point - 1;
-            const toPointIndex = segment.properties.to_point - 1;
-            const fromPoint = districtPoints[fromPointIndex];
-            const toPoint = districtPoints[toPointIndex];
+            // from_pointとto_pointは地点のorder番号なので、対応する地点を検索
+            const fromPoint = districtPoints.find(p => p.properties.order === segment.properties.from_point);
+            const toPoint = districtPoints.find(p => p.properties.order === segment.properties.to_point);
             
             // 掲示板番号を取得
             const fromBoardNumber = fromPoint?.properties.board_number || segment.properties.from_point;
