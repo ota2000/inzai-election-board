@@ -331,14 +331,22 @@
                 .filter(f => f.geometry.type === 'Point')
                 .map(f => f.properties.district))];
 
+            // 投票区を名前でソート
+            districts.sort((a, b) => a.localeCompare(b, 'ja'));
+
             const selector = document.getElementById('districtSelector');
             selector.innerHTML = '';
 
             districts.forEach((district, index) => {
                 const btn = document.createElement('div');
                 btn.className = 'district-btn';
-                btn.textContent = district.length > 20 ? district.substring(0, 17) + '...' : district;
-                btn.title = district;
+                
+                // ナンバーを追加（1番から開始）
+                const districtNumber = index + 1;
+                const displayText = `${districtNumber}. ${district}`;
+                
+                btn.textContent = displayText.length > 25 ? `${districtNumber}. ${district.substring(0, 20)}...` : displayText;
+                btn.title = `${districtNumber}. ${district}`;
                 btn.onclick = () => showDistrict(district);
                 selector.appendChild(btn);
             });
@@ -362,7 +370,10 @@
 
             // 該当データをフィルタ
             const districtPoints = allData.features.filter(f =>
-                f.properties.district === districtName && f.geometry.type === 'Point'
+                f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
+            );
+            const votingOffice = allData.features.find(f =>
+                f.properties.district === districtName && f.properties.type === 'voting_office'
             );
             const districtRouteSegments = allData.features.filter(f =>
                 f.properties.district === districtName && f.properties.type === 'route_segment'
@@ -422,6 +433,39 @@
 
                     L.marker(coord, { icon: numberIcon }).addTo(markersLayer);
                 });
+
+            // 投票所マーカー追加
+            if (votingOffice) {
+                const officeCoord = [votingOffice.geometry.coordinates[1], votingOffice.geometry.coordinates[0]];
+                bounds.push(officeCoord);
+
+                // 投票所用の特別なアイコン
+                const officeIcon = L.divIcon({
+                    html: `<div style="background: #28a745; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; border: 3px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">🗳</div>`,
+                    className: 'voting-office-icon',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                });
+
+                const officeMarker = L.marker(officeCoord, { icon: officeIcon }).addTo(markersLayer);
+
+                // 投票所のポップアップ
+                const officePopupContent = `
+                    <div style="min-width: 250px;">
+                        <h4 style="margin: 0 0 0.5rem 0; color: #28a745;">🗳️ 投票所</h4>
+                        <h3 style="margin: 0 0 0.5rem 0;">${votingOffice.properties.name}</h3>
+                        <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${votingOffice.properties.address}</p>
+                        <div style="background: #e8f5e8; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #28a745;">
+                            <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">📍 ${votingOffice.properties.district_number || '投票区'}</div>
+                            <div style="font-size: 0.8rem; color: #666;">
+                                管轄掲示板数: ${votingOffice.properties.total_points || 0}ヶ所<br>
+                                総巡回距離: ${votingOffice.properties.total_distance_km || 0}km
+                            </div>
+                        </div>
+                    </div>
+                `;
+                officeMarker.bindPopup(officePopupContent);
+            }
 
             // 詳細ルートセグメント追加
             if (districtRouteSegments.length > 0) {
@@ -515,20 +559,30 @@
             markersLayer.clearLayers();
             routesLayer.clearLayers();
 
-            // 全投票区の中心点を表示
+            // 全投票区の中心点を表示（投票所は除外）
             const districtCenters = new Map();
+            const votingOffices = new Map();
 
             allData.features
                 .filter(f => f.geometry.type === 'Point')
                 .forEach(point => {
                     const district = point.properties.district;
-                    if (!districtCenters.has(district)) {
-                        districtCenters.set(district, []);
+                    if (point.properties.type === 'voting_office') {
+                        // 投票所の位置を記録
+                        votingOffices.set(district, [
+                            point.geometry.coordinates[1],
+                            point.geometry.coordinates[0]
+                        ]);
+                    } else {
+                        // 掲示板の位置を記録
+                        if (!districtCenters.has(district)) {
+                            districtCenters.set(district, []);
+                        }
+                        districtCenters.get(district).push([
+                            point.geometry.coordinates[1],
+                            point.geometry.coordinates[0]
+                        ]);
                     }
-                    districtCenters.get(district).push([
-                        point.geometry.coordinates[1],
-                        point.geometry.coordinates[0]
-                    ]);
                 });
 
             // 各投票区の中心にマーカー配置
@@ -552,6 +606,26 @@
                         <h4>${district}</h4>
                         <p>地点数: ${coords.length}地点</p>
                         <button onclick="showDistrict('${district}')" style="background: ${color}; color: white; border: none; padding: 0.5rem 1rem; border-radius: 3px; cursor: pointer;">詳細表示</button>
+                    </div>
+                `);
+            });
+
+            // 全体表示時も投票所マーカーを表示
+            Array.from(votingOffices.entries()).forEach(([district, coord]) => {
+                const officeIcon = L.divIcon({
+                    html: `<div style="background: #28a745; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">🗳</div>`,
+                    className: 'voting-office-icon-small',
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12]
+                });
+
+                const officeMarker = L.marker(coord, { icon: officeIcon }).addTo(markersLayer);
+
+                officeMarker.bindPopup(`
+                    <div style="min-width: 180px;">
+                        <h4 style="color: #28a745;">🗳️ ${district}</h4>
+                        <p style="margin: 0.5rem 0;">投票所</p>
+                        <button onclick="showDistrict('${district}')" style="background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 3px; cursor: pointer;">詳細表示</button>
                     </div>
                 `);
             });
@@ -598,7 +672,7 @@
                 .filter(f => f.geometry.type === 'Point')
                 .map(f => f.properties.district))];
 
-            const totalPoints = allData.features.filter(f => f.geometry.type === 'Point').length;
+            const totalPoints = allData.features.filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office').length;
             const totalDistance = districts.reduce((sum, district) => {
                 const route = allData.features.find(f =>
                     f.properties.district === district && f.geometry.type === 'LineString'
