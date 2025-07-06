@@ -307,6 +307,7 @@ function showDistrict(districtName) {
             polyline.segmentId = `${segment.properties.from_point}-${segment.properties.to_point}`;
             polyline.fromPoint = segment.properties.from_point;
             polyline.toPoint = segment.properties.to_point;
+            polyline.segmentNumber = segment.properties.segment;
             
             console.log(`Created route segment: ${polyline.fromPoint} → ${polyline.toPoint} (segment ${segment.properties.segment})`);
             
@@ -613,22 +614,23 @@ function updateRouteList(points) {
                 map.setView([midLat, midLng], 15);
                 
                 // 対応するルートセグメントのポップアップを開く
-                // sortedPointsは既に最適化された順序で並んでいる
-                // indexは最適化された順序でのインデックス
-                const currentFromOrder = point.properties.order;
-                const currentToOrder = nextPoint.properties.order;
+                // 最適化されたルートの実際の順序を使用
+                // sortedPointsは巡回順序（1,2,3...）でソートされているが
+                // 実際のルートは最適化された順序（6→5→4→2→1→3→7→8→10→9）
                 
-                console.log(`Looking for route segment: ${currentFromOrder} → ${currentToOrder} (optimized route index: ${index} → ${index + 1})`);
+                // セグメント番号（index + 1）に対応するルートセグメントを探す
+                const segmentNumber = index + 1;
+                console.log(`Looking for route segment number: ${segmentNumber} (from route index: ${index} → ${index + 1})`);
                 
                 let foundSegment = false;
                 routesLayer.eachLayer(layer => {
                     // ルートセグメントかどうかを確認
                     if (layer.fromPoint && layer.toPoint) {
-                        console.log(`Checking segment: ${layer.fromPoint} → ${layer.toPoint}`);
+                        // セグメント番号で検索
+                        console.log(`Checking segment: ${layer.fromPoint} → ${layer.toPoint} (segment number: ${layer.segmentNumber})`);
                         
-                        // 最適化されたルート順序でのfrom→toを比較
-                        if (layer.fromPoint === currentFromOrder && layer.toPoint === currentToOrder) {
-                            console.log(`Found matching segment: ${layer.fromPoint} → ${layer.toPoint}`);
+                        if (layer.segmentNumber === segmentNumber) {
+                            console.log(`Found matching segment by number: ${layer.fromPoint} → ${layer.toPoint} (segment ${segmentNumber})`);
                             layer.openPopup();
                             foundSegment = true;
                             return; // 見つかったらループを抜ける
@@ -637,11 +639,11 @@ function updateRouteList(points) {
                 });
                 
                 if (!foundSegment) {
-                    console.log(`No matching segment found for ${currentFromOrder} → ${currentToOrder}`);
+                    console.log(`No matching segment found for segment number ${segmentNumber}`);
                     console.log('Available segments:');
                     routesLayer.eachLayer(layer => {
                         if (layer.fromPoint && layer.toPoint) {
-                            console.log(`  - ${layer.fromPoint} → ${layer.toPoint}`);
+                            console.log(`  - ${layer.fromPoint} → ${layer.toPoint} (segment: ${layer.segmentNumber})`);
                         }
                     });
                 }
