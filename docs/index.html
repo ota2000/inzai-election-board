@@ -327,26 +327,39 @@
 
         // 投票区セレクター設定
         function setupDistrictSelector() {
-            const districts = [...new Set(allData.features
-                .filter(f => f.geometry.type === 'Point')
-                .map(f => f.properties.district))];
+            // 投票区と対応する投票区番号を取得
+            const districtMap = new Map();
+            allData.features
+                .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office')
+                .forEach(f => {
+                    const district = f.properties.district;
+                    const districtNumber = f.properties.district_number;
+                    if (!districtMap.has(district)) {
+                        districtMap.set(district, districtNumber);
+                    }
+                });
 
-            // 投票区を名前でソート
-            districts.sort((a, b) => a.localeCompare(b, 'ja'));
+            // 投票区番号順にソート
+            const districts = Array.from(districtMap.entries()).sort((a, b) => {
+                // 第X投票区の番号を抽出してソート
+                const numA = parseInt(a[1].replace('第', '').replace('投票区', '')) || 0;
+                const numB = parseInt(b[1].replace('第', '').replace('投票区', '')) || 0;
+                return numA - numB;
+            });
 
             const selector = document.getElementById('districtSelector');
             selector.innerHTML = '';
 
-            districts.forEach((district, index) => {
+            districts.forEach(([district, districtNumber], index) => {
                 const btn = document.createElement('div');
                 btn.className = 'district-btn';
                 
-                // ナンバーを追加（1番から開始）
-                const districtNumber = index + 1;
-                const displayText = `${districtNumber}. ${district}`;
+                // 投票区番号を表示（第X投票区のXを使用）
+                const voteNumber = districtNumber.replace('第', '').replace('投票区', '');
+                const displayText = `${voteNumber}. ${district}`;
                 
-                btn.textContent = displayText.length > 25 ? `${districtNumber}. ${district.substring(0, 20)}...` : displayText;
-                btn.title = `${districtNumber}. ${district}`;
+                btn.textContent = displayText.length > 25 ? `${voteNumber}. ${district.substring(0, 20)}...` : displayText;
+                btn.title = `${voteNumber}. ${district}`;
                 btn.onclick = () => showDistrict(district);
                 selector.appendChild(btn);
             });
