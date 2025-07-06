@@ -613,9 +613,12 @@ function updateRouteList(points) {
                 map.setView([midLat, midLng], 15);
                 
                 // 対応するルートセグメントのポップアップを開く
+                // sortedPointsは既に最適化された順序で並んでいる
+                // indexは最適化された順序でのインデックス
                 const currentFromOrder = point.properties.order;
                 const currentToOrder = nextPoint.properties.order;
-                console.log(`Looking for route segment from order: ${currentFromOrder} → ${currentToOrder}`);
+                
+                console.log(`Looking for route segment: ${currentFromOrder} → ${currentToOrder} (optimized route index: ${index} → ${index + 1})`);
                 
                 let foundSegment = false;
                 routesLayer.eachLayer(layer => {
@@ -623,9 +626,9 @@ function updateRouteList(points) {
                     if (layer.fromPoint && layer.toPoint) {
                         console.log(`Checking segment: ${layer.fromPoint} → ${layer.toPoint}`);
                         
-                        // order番号とセグメントのfrom_point/to_pointを比較
+                        // 最適化されたルート順序でのfrom→toを比較
                         if (layer.fromPoint === currentFromOrder && layer.toPoint === currentToOrder) {
-                            console.log(`Found matching segment by order: ${layer.fromPoint} → ${layer.toPoint}`);
+                            console.log(`Found matching segment: ${layer.fromPoint} → ${layer.toPoint}`);
                             layer.openPopup();
                             foundSegment = true;
                             return; // 見つかったらループを抜ける
@@ -634,7 +637,7 @@ function updateRouteList(points) {
                 });
                 
                 if (!foundSegment) {
-                    console.log(`No matching segment found for order ${currentFromOrder} → ${currentToOrder}`);
+                    console.log(`No matching segment found for ${currentFromOrder} → ${currentToOrder}`);
                     console.log('Available segments:');
                     routesLayer.eachLayer(layer => {
                         if (layer.fromPoint && layer.toPoint) {
