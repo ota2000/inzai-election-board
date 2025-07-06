@@ -5,24 +5,25 @@ let currentDistrict = null;
 let markersLayer = null;
 let routesLayer = null;
 
-// テーマ切り替え
-function toggleTheme() {
-    const currentTheme = document.body.dataset.theme;
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.body.dataset.theme = newTheme;
-    localStorage.setItem('theme', newTheme);
+// 投票区検索機能
+function filterDistricts() {
+    const searchInput = document.getElementById('districtSearch');
+    const searchText = searchInput.value.toLowerCase();
+    const districtBtns = document.querySelectorAll('.district-btn');
     
-    // ボタンアイコンを更新
-    const toggleBtn = document.querySelector('.theme-toggle');
-    toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-}
-
-// テーマの初期化
-function initTheme() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.dataset.theme = savedTheme;
-    const toggleBtn = document.querySelector('.theme-toggle');
-    toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    districtBtns.forEach(btn => {
+        const districtName = btn.dataset.district || '';
+        const districtNumber = btn.dataset.number || '';
+        const textContent = btn.textContent.toLowerCase();
+        
+        if (districtName.toLowerCase().includes(searchText) || 
+            districtNumber.includes(searchText) ||
+            textContent.includes(searchText)) {
+            btn.classList.remove('hidden');
+        } else {
+            btn.classList.add('hidden');
+        }
+    });
 }
 
 // 投票区ごとの色
@@ -94,10 +95,18 @@ function setupDistrictSelector() {
         
         // 投票区番号を表示（第X投票区のXを使用）
         const voteNumber = districtNumber.replace('第', '').replace('投票区', '');
-        const displayText = `${voteNumber}. ${district}`;
         
-        btn.textContent = displayText.length > 25 ? `${voteNumber}. ${district.substring(0, 20)}...` : displayText;
+        // データ属性を設定（検索用）
+        btn.dataset.district = district;
+        btn.dataset.number = voteNumber;
         btn.title = `${voteNumber}. ${district}`;
+        
+        // 新しい構造でHTMLを作成
+        btn.innerHTML = `
+            <span class="district-btn-name">${district}</span>
+            <span class="district-btn-number">${voteNumber}</span>
+        `;
+        
         btn.onclick = () => showDistrict(district);
         selector.appendChild(btn);
     });
@@ -110,7 +119,7 @@ function showDistrict(districtName) {
     // ボタンの状態更新
     document.querySelectorAll('.district-btn').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.title === districtName || btn.textContent === districtName) {
+        if (btn.dataset.district === districtName) {
             btn.classList.add('active');
         }
     });
@@ -492,7 +501,6 @@ function downloadData() {
 
 // 初期化
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
     initMap();
     loadData();
 });

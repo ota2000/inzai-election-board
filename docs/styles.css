@@ -17,17 +17,6 @@
     --radius-xl: 1rem;
 }
 
-[data-theme="dark"] {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --background: #111827;
-    --surface: #1f2937;
-    --surface-hover: #374151;
-    --border: #374151;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
-}
 
 * {
     margin: 0;
@@ -42,7 +31,6 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .header {
@@ -74,24 +62,6 @@ body {
     margin: 0 auto;
 }
 
-.theme-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-lg);
-    padding: 0.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: white;
-    font-size: 1.25rem;
-}
-
-.theme-toggle:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
 
 .container {
     max-width: 1400px;
@@ -132,39 +102,101 @@ body {
 }
 
 .district-selector {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     margin-bottom: 0;
 }
 
-.district-btn {
+.district-search {
     background: var(--surface-hover);
     border: 2px solid var(--border);
     border-radius: var(--radius-lg);
     padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.district-search:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.district-search::placeholder {
+    color: var(--text-secondary);
+}
+
+.district-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+}
+
+.district-btn {
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 0.75rem 1rem;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s ease;
     font-size: 0.875rem;
     font-weight: 500;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
 }
 
 .district-btn:hover {
     background: var(--surface);
-    border-color: var(--accent-color);
+    border-color: var(--primary-color);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
 }
 
 .district-btn.active {
     background: var(--primary-color);
     color: white;
-    border-color: transparent;
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.district-btn.hidden {
+    display: none;
+}
+
+.district-btn-name {
+    flex: 1;
+    text-align: left;
+}
+
+.district-btn-number {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.district-btn.active .district-btn-number {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.district-btn:not(.active) .district-btn-number {
+    background: var(--primary-color);
+    color: white;
 }
 
 .map-container {
@@ -406,9 +438,10 @@ body {
         gap: 1rem;
     }
 
-    .district-selector {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    .district-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 0.5rem;
+        max-height: 250px;
     }
 
     .district-btn {
@@ -436,17 +469,6 @@ body {
     }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0f172a;
-        --surface: #1e293b;
-        --surface-hover: #334155;
-        --text-primary: #f1f5f9;
-        --text-secondary: #94a3b8;
-        --border: #334155;
-    }
-}
 
 /* Smooth scrolling */
 html {
