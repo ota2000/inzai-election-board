@@ -161,23 +161,18 @@ function showDistrict(districtName) {
                 fillOpacity: 0.8
             }).addTo(markersLayer);
 
-            // ポップアップ
+            // ポップアップ（シンプル版）
             const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
             const popupContent = `
-                <div style="min-width: 240px;">
-                    <h4>${point.properties.order}. ${boardNumber}${point.properties.name}</h4>
-                    <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${point.properties.address}</p>
-                    <div style="background: #f8f9fa; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #667eea;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">📍 ${point.properties.district_number || '投票区'}</div>
-                        <div style="font-size: 0.8rem; color: #666;">
-                            投票所: ${point.properties.office_name || point.properties.district}<br>
-                            所在地: ${point.properties.office_address || ''}
-                        </div>
+                <div style="min-width: 200px;">
+                    <div style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;">
+                        ${point.properties.order}. ${boardNumber}${point.properties.name}
                     </div>
-                    <div style="font-size: 0.9rem; color: #888;">
-                        ${point.properties.board_number ? `掲示板番号: ${point.properties.board_number}<br>` : ''}
-                        総巡回距離: ${point.properties.total_distance_km}km<br>
-                        推定時間: ${point.properties.estimated_hours}時間
+                    <div class="clickable-address" 
+                         style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
+                         onclick="copyToClipboard('${point.properties.address}')" 
+                         title="クリックでコピー">
+                        📋 ${point.properties.address}
                     </div>
                 </div>
             `;
@@ -222,7 +217,12 @@ function showDistrict(districtName) {
             <div style="min-width: 250px;">
                 <h4 style="margin: 0 0 0.5rem 0; color: #28a745;">投票所</h4>
                 <h3 style="margin: 0 0 0.5rem 0;">${votingOffice.properties.name}</h3>
-                <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${votingOffice.properties.address}</p>
+                <div class="clickable-address" 
+                     style="margin: 0.5rem 0; color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
+                     onclick="copyToClipboard('${votingOffice.properties.address}')" 
+                     title="クリックでコピー">
+                    📋 ${votingOffice.properties.address}
+                </div>
                 <div style="background: #e8f5e8; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #28a745;">
                     <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">${votingOffice.properties.district_number || '投票区'}</div>
                     <div style="font-size: 0.8rem; color: #666;">
@@ -467,7 +467,11 @@ function updateRouteList(points) {
                 <div class="route-number">${point.properties.order}</div>
                 <div class="route-details">
                     <div class="route-name">${boardNumber}${point.properties.name}</div>
-                    <div class="route-address">${point.properties.address}</div>
+                    <div class="route-address clickable-address" 
+                         onclick="event.stopPropagation(); copyToClipboard('${point.properties.address}');" 
+                         title="クリックでコピー">
+                        ${point.properties.address}
+                    </div>
                 </div>
             `;
 
@@ -505,6 +509,65 @@ function downloadData() {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
+}
+
+// 住所コピー機能
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // コピー成功のフィードバック
+        showCopyFeedback();
+    }).catch(err => {
+        console.error('コピーに失敗しました:', err);
+        // フォールバック: 古い方法でコピー
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showCopyFeedback();
+    });
+}
+
+// コピー成功のフィードバック
+function showCopyFeedback() {
+    // 既存のフィードバックを削除
+    const existingFeedback = document.querySelector('.copy-feedback');
+    if (existingFeedback) {
+        existingFeedback.remove();
+    }
+    
+    // フィードバック要素を作成
+    const feedback = document.createElement('div');
+    feedback.className = 'copy-feedback';
+    feedback.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-size: 0.875rem;
+        font-weight: 500;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    `;
+    feedback.textContent = '📋 住所をコピーしました';
+    
+    document.body.appendChild(feedback);
+    
+    // 2秒後にフェードアウトして削除
+    setTimeout(() => {
+        feedback.style.opacity = '0';
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 300);
+    }, 2000);
 }
 
 // 初期化

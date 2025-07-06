@@ -496,3 +496,29 @@ html {
     transform: scale(1.05);
     transition: transform 0.2s ease;
 }
+
+/* Clickable address styles */
+.clickable-address {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    padding: 0.25rem;
+    margin: 0.25rem 0;
+}
+
+.clickable-address:hover {
+    background: var(--surface-hover) !important;
+    border-color: var(--primary-color) !important;
+    transform: translateX(2px);
+}
+
+.route-address.clickable-address {
+    background: transparent;
+    border: 1px solid transparent;
+    margin: 0;
+}
+
+.route-address.clickable-address:hover {
+    background: var(--surface-hover) !important;
+    border-color: var(--accent-color) !important;
+}
