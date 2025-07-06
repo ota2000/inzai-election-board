@@ -15,24 +15,34 @@
 
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --modern-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-            --dark-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            --accent-color: #06b6d4;
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --background: #fafaff;
-            --surface: #ffffff;
-            --surface-hover: #f8fafc;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --primary-color: #3b82f6;
+            --primary-hover: #2563eb;
+            --accent-color: #10b981;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --background: #ffffff;
+            --surface: #f9fafb;
+            --surface-hover: #f3f4f6;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
             --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 0.75rem;
             --radius-xl: 1rem;
+        }
+
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --background: #111827;
+            --surface: #1f2937;
+            --surface-hover: #374151;
+            --border: #374151;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
         }
 
         * {
@@ -48,27 +58,16 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .header {
-            background: var(--modern-gradient);
+            background: var(--primary-color);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-md);
             position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.5;
         }
 
         .header-content {
@@ -77,22 +76,37 @@
         }
 
         .header h1 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(45deg, #ffffff 0%, #f1f5f9 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .header p {
-            opacity: 0.95;
+            opacity: 0.9;
             font-size: 1rem;
             font-weight: 400;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
         .container {
@@ -154,20 +168,6 @@
             overflow: hidden;
         }
 
-        .district-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-
-        .district-btn:hover::before {
-            left: 100%;
-        }
 
         .district-btn:hover {
             background: var(--surface);
@@ -177,7 +177,7 @@
         }
 
         .district-btn.active {
-            background: var(--modern-gradient);
+            background: var(--primary-color);
             color: white;
             border-color: transparent;
             transform: translateY(-1px);
@@ -201,7 +201,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: var(--modern-gradient);
+            background: var(--primary-color);
             z-index: 1000;
         }
 
@@ -233,10 +233,7 @@
         }
 
         .info-card h3 {
-            background: var(--modern-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
             font-size: 1.25rem;
             font-weight: 700;
@@ -267,12 +264,8 @@
 
         .stat-value {
             font-weight: 700;
-            color: var(--text-primary);
+            color: var(--primary-color);
             font-size: 1.1rem;
-            background: var(--modern-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .route-list {
@@ -316,7 +309,7 @@
             top: 0;
             height: 100%;
             width: 4px;
-            background: var(--modern-gradient);
+            background: var(--primary-color);
         }
 
         .route-item:hover {
@@ -326,7 +319,7 @@
         }
 
         .route-number {
-            background: var(--modern-gradient);
+            background: var(--primary-color);
             color: white;
             border-radius: 50%;
             width: 32px;
@@ -365,12 +358,6 @@
             font-size: 1rem;
         }
 
-        .loading::before {
-            content: '⏳';
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
 
         .error {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
@@ -383,35 +370,19 @@
         }
 
         .btn {
-            background: var(--modern-gradient);
+            background: var(--primary-color);
             color: white;
             border: none;
             border-radius: var(--radius-lg);
             padding: 0.75rem 1.5rem;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.2s ease;
             font-weight: 600;
             font-size: 0.875rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
         }
 
         .btn:hover {
+            background: var(--primary-hover);
             transform: translateY(-1px);
             box-shadow: var(--shadow-lg);
         }
@@ -421,11 +392,11 @@
         }
 
         .btn-secondary {
-            background: var(--dark-gradient);
+            background: var(--text-secondary);
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(135deg, #334155 0%, #475569 100%);
+            background: var(--text-primary);
         }
 
         @media (max-width: 1024px) {
@@ -512,17 +483,18 @@
     <div class="header">
         <div class="header-content">
             <h1>選挙ポスター掲示板巡回最適化システム</h1>
-            <p>効率的な巡回経路を最適化された順序で表示します ✨</p>
+            <p>効率的な巡回経路を最適化された順序で表示します</p>
         </div>
+        <button class="theme-toggle" onclick="toggleTheme()" title="テーマ切り替え">🌙</button>
     </div>
 
     <div class="container">
         <div class="control-panel">
             <div class="control-header">
-                <h3>📍 投票区選択</h3>
+                <h3>投票区選択</h3>
                 <div class="control-buttons">
-                    <button class="btn" onclick="showAllDistricts()">🗺️ 全区表示</button>
-                    <button class="btn btn-secondary" onclick="downloadData()">💾 データダウンロード</button>
+                    <button class="btn" onclick="showAllDistricts()">全区表示</button>
+                    <button class="btn btn-secondary" onclick="downloadData()">データダウンロード</button>
                 </div>
             </div>
             <div class="district-selector" id="districtSelector">
@@ -536,14 +508,14 @@
 
         <div class="info-panel">
             <div class="info-card">
-                <h3>📊 選択中の投票区情報</h3>
+                <h3>選択中の投票区情報</h3>
                 <div id="districtInfo">
                     <div class="loading">投票区を選択してください</div>
                 </div>
             </div>
 
             <div class="info-card">
-                <h3>🚶‍♂️ 巡回順序</h3>
+                <h3>巡回順序</h3>
                 <div id="routeList">
                     <div class="loading">投票区を選択してください</div>
                 </div>
@@ -562,13 +534,33 @@
         let markersLayer = null;
         let routesLayer = null;
 
+        // テーマ切り替え
+        function toggleTheme() {
+            const currentTheme = document.body.dataset.theme;
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.body.dataset.theme = newTheme;
+            localStorage.setItem('theme', newTheme);
+            
+            // ボタンアイコンを更新
+            const toggleBtn = document.querySelector('.theme-toggle');
+            toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // テーマの初期化
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.dataset.theme = savedTheme;
+            const toggleBtn = document.querySelector('.theme-toggle');
+            toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        }
+
         // 投票区ごとの色
         const districtColors = [
-            '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7',
-            '#DDA0DD', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9',
-            '#F8C471', '#82E0AA', '#F1948A', '#85C1E9', '#A569BD',
-            '#5DADE2', '#58D68D', '#F4D03F', '#EB984E', '#AED6F1',
-            '#A3E4D7', '#D5DBDB', '#F8D7DA'
+            '#3b82f6', '#2563eb', '#1d4ed8', '#1e40af', '#1e3a8a',
+            '#3730a3', '#4338ca', '#4f46e5', '#6366f1', '#7c3aed',
+            '#8b5cf6', '#9333ea', '#a855f7', '#b91c1c', '#dc2626',
+            '#ef4444', '#f87171', '#fb7185', '#f43f5e', '#e11d48',
+            '#be123c', '#9f1239', '#881337'
         ];
 
         // 地図初期化
@@ -729,7 +721,7 @@
 
                 // 投票所用の特別なアイコン
                 const officeIcon = L.divIcon({
-                    html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">🗳</div>`,
+                    html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">●</div>`,
                     className: 'voting-office-icon',
                     iconSize: [40, 40],
                     iconAnchor: [20, 20]
@@ -740,11 +732,11 @@
                 // 投票所のポップアップ
                 const officePopupContent = `
                     <div style="min-width: 250px;">
-                        <h4 style="margin: 0 0 0.5rem 0; color: #28a745;">🗳️ 投票所</h4>
+                        <h4 style="margin: 0 0 0.5rem 0; color: #28a745;">投票所</h4>
                         <h3 style="margin: 0 0 0.5rem 0;">${votingOffice.properties.name}</h3>
                         <p style="margin: 0.5rem 0; color: #666; font-size: 0.9rem;">${votingOffice.properties.address}</p>
                         <div style="background: #e8f5e8; padding: 0.5rem; border-radius: 4px; margin: 0.5rem 0; border-left: 3px solid #28a745;">
-                            <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">📍 ${votingOffice.properties.district_number || '投票区'}</div>
+                            <div style="font-weight: bold; color: #333; margin-bottom: 0.2rem;">${votingOffice.properties.district_number || '投票区'}</div>
                             <div style="font-size: 0.8rem; color: #666;">
                                 管轄掲示板数: ${votingOffice.properties.total_points || 0}ヶ所<br>
                                 総巡回距離: ${votingOffice.properties.total_distance_km || 0}km
@@ -778,10 +770,10 @@
                         lineJoin: 'round'
                     }).bindPopup(`
                         <div style="min-width: 180px;">
-                            <strong>🚗 ルートセグメント ${segment.properties.segment}</strong><br>
+                            <strong>ルートセグメント ${segment.properties.segment}</strong><br>
                             <div style="margin: 0.5rem 0; font-size: 0.9rem;">
-                                📍 ${segment.properties.from_point} → ${segment.properties.to_point}地点目<br>
-                                📏 実際の道路経路に沿ったルート
+                                ${segment.properties.from_point} → ${segment.properties.to_point}地点目<br>
+                                実際の道路経路に沿ったルート
                             </div>
                         </div>
                     `).addTo(routesLayer);
@@ -801,7 +793,7 @@
                     const div = L.DomUtil.create('div', 'route-info');
                     div.style.cssText = 'background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 0.8rem;';
                     div.innerHTML = `
-                        <strong>🛣️ 詳細ルート表示中</strong><br>
+                        <strong>詳細ルート表示中</strong><br>
                         実際の道路に沿った経路
                     `;
                     return div;
@@ -1029,6 +1021,7 @@
 
         // 初期化
         document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
             initMap();
             loadData();
         });
