@@ -112,11 +112,11 @@ export class RouteManager {
                     }
                 }
                 
-                // 巡回順序に合わせて表示順序を調整
+                // マップ上のルートセグメント用：データの順序を巡回順序に合わせて調整
                 const displayFromBoard = toBoardNumber;  // セグメントのtoが巡回順序のfrom
                 const displayToBoard = fromBoardNumber;  // セグメントのfromが巡回順序のto
                 
-                // ルートセグメントの座標を取得（表示順序に合わせて調整）
+                // 座標も調整
                 const displayFromCoord = [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];
                 const displayToCoord = [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];
                 
