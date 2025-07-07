@@ -379,7 +379,7 @@ export class DistrictManager {
                     <div class="clickable-address" 
                          onclick="window.appUtils.copyToClipboard('${properties.office_address || '不明'}')" 
                          title="クリックでコピー" 
-                         style="cursor: pointer; font-size: 0.8em; color: #999; margin-top: 0.25rem; opacity: 0.7;">
+                         style="cursor: pointer; font-size: 0.8em; color: #999; margin-top: 0.25rem; opacity: 0.7; text-align: right;">
                         ${properties.office_address || '不明'}
                     </div>
                 </span>
