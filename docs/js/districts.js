@@ -341,7 +341,7 @@ export class DistrictManager {
     updateInfoPanel(districtName, properties) {
         // 投票区番号を取得（第X投票区形式）
         const districtNumber = properties.district_number || '不明';
-        document.getElementById('districtInfoTitle').textContent = `${districtNumber} 情報`;
+        document.getElementById('districtInfoTitle').textContent = districtNumber;
         
         const totalPoints = this.allData.features.filter(f => 
             f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
