@@ -369,15 +369,14 @@ export class DistrictManager {
             </div>
             <div class="stat-item">
                 <span class="stat-label">投票所</span>
-                <span class="stat-value">${properties.office_name || '不明'}</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">投票所住所</span>
-                <span class="stat-value clickable-address" 
-                      onclick="window.appUtils.copyToClipboard('${properties.office_address || '不明'}')" 
-                      title="クリックでコピー" 
-                      style="cursor: pointer; text-decoration: underline;">
-                    ${properties.office_address || '不明'}
+                <span class="stat-value">
+                    ${properties.office_name || '不明'}
+                    <div class="clickable-address" 
+                         onclick="window.appUtils.copyToClipboard('${properties.office_address || '不明'}')" 
+                         title="クリックでコピー" 
+                         style="cursor: pointer; font-size: 0.8em; color: #999; margin-top: 0.25rem; opacity: 0.7;">
+                        ${properties.office_address || '不明'}
+                    </div>
                 </span>
             </div>
             <div class="stat-item">
