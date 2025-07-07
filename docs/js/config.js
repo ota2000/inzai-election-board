@@ -56,6 +56,6 @@ export const CONFIG = {
     
     // データ設定
     DATA: {
-        GEOJSON_PATH: './poster_board_routes.geojson'
+        GEOJSON_PATH: './data/poster_board_routes.geojson'
     }
 };

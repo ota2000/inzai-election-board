@@ -93,6 +93,17 @@ export class GoogleMapsManager {
     
     // セグメント用のポップアップコンテンツを生成
     createSegmentPopupContent(fromBoardNumber, toBoardNumber, distance, time, fromCoord, toCoord) {
+        // ユニークなボタンIDを生成
+        const buttonId = `gmaps-btn-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+        
+        // ボタンクリック用のコールバックを登録
+        setTimeout(() => {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                button.onclick = () => this.openSegment(fromCoord, toCoord);
+            }
+        }, 0);
+        
         return `
             <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
                 <strong>${fromBoardNumber} → ${toBoardNumber}</strong><br>
@@ -100,7 +111,7 @@ export class GoogleMapsManager {
                     距離: ${distance}km<br>
                     時間: ${time}
                 </div>
-                <button onclick="window.googleMapsManager.openSegment([${fromCoord[0]}, ${fromCoord[1]}], [${toCoord[0]}, ${toCoord[1]}])" 
+                <button id="${buttonId}" 
                         style="background: ${CONFIG.COLORS.GOOGLE_MAPS_BTN}; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem;">
                     📍 Googleマップで開く
                 </button>
