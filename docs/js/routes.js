@@ -80,23 +80,13 @@ export class RouteManager {
                 const fromPoint = point;
                 const toPoint = sortedPoints[index + 1];
                 
-                // 掲示板番号から数字部分を抽出（例："1-7" → 7）
-                const fromBoardNum = parseInt(fromPoint.properties.board_number.split('-')[1]);
-                const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
-                
-                
                 // ルートセグメントデータを探す
-                // segment番号による統一マッチング（よりシンプルで確実）
+                // segment番号による統一マッチング
                 const segmentIndex = index + 1; // 1から始まるセグメント番号
                 const routeSegment = districtRouteSegments.find(seg => {
                     return seg.properties.segment === segmentIndex;
                 });
                 
-                // テスト用統計収集
-                if (!this._segmentStats) this._segmentStats = {};
-                if (!this._segmentStats[districtName]) this._segmentStats[districtName] = { total: 0, matched: 0 };
-                this._segmentStats[districtName].total++;
-                if (routeSegment) this._segmentStats[districtName].matched++;
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
                 let segmentCoords;
