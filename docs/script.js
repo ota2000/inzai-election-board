@@ -380,13 +380,11 @@ function showAllDistricts() {
     // 地図クリア
     markersLayer.clearLayers();
     routesLayer.clearLayers();
-    
-    // 地図をデフォルトビューにリセット
-    map.setView([35.8327, 140.1451], 13);
 
     // 全投票区の中心点を表示（投票所は除外）
     const districtCenters = new Map();
     const votingOffices = new Map();
+    const allBounds = [];
 
     allData.features
         .filter(f => f.geometry.type === 'Point')
@@ -420,6 +418,9 @@ function showAllDistricts() {
                 coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
             ];
 
+        // 境界計算用に位置を追加
+        allBounds.push(position);
+
         const color = districtColors[index % districtColors.length];
         const marker = L.circleMarker(position, {
             radius: 12,
@@ -437,6 +438,12 @@ function showAllDistricts() {
             </div>
         `);
     });
+    
+    // 全ての投票区が収まるように地図を調整
+    if (allBounds.length > 0) {
+        const bounds = L.latLngBounds(allBounds);
+        map.fitBounds(bounds, { padding: [50, 50] });
+    }
 
 
     // 全体情報表示
