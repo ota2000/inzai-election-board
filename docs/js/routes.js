@@ -112,13 +112,25 @@ export class RouteManager {
                     }
                 }
                 
-                // マップ上のルートセグメント用：データの順序を巡回順序に合わせて調整
-                const displayFromBoard = toBoardNumber;  // セグメントのtoが巡回順序のfrom
-                const displayToBoard = fromBoardNumber;  // セグメントのfromが巡回順序のto
+                // 巡回順序（order）を使用して正しい表示順序を決定
+                const fromOrder = fromPoint.properties.order;
+                const toOrder = toPoint.properties.order;
                 
-                // 座標も調整
-                const displayFromCoord = [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];
-                const displayToCoord = [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];
+                // orderの小さい方から大きい方への順序で表示
+                const displayFromOrder = Math.min(fromOrder, toOrder);
+                const displayToOrder = Math.max(fromOrder, toOrder);
+                
+                // 表示用の掲示板番号を取得
+                const displayFromBoard = fromOrder < toOrder ? fromBoardNumber : toBoardNumber;
+                const displayToBoard = fromOrder < toOrder ? toBoardNumber : fromBoardNumber;
+                
+                // 座標も正しい順序で
+                const displayFromCoord = fromOrder < toOrder ? 
+                    [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]] :
+                    [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];
+                const displayToCoord = fromOrder < toOrder ? 
+                    [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]] :
+                    [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];
                 
                 const polyline = L.polyline(segmentCoords, {
                     color: segmentColor,
@@ -128,7 +140,7 @@ export class RouteManager {
                     lineJoin: 'round'
                 }).bindPopup(
                     this.googleMapsManager.createSegmentPopupContent(
-                        displayFromBoard, displayToBoard, segmentDistance, segmentTime,
+                        `${displayFromOrder}. ${displayFromBoard}`, `${displayToOrder}. ${displayToBoard}`, segmentDistance, segmentTime,
                         displayFromCoord, displayToCoord
                     )
                 ).addTo(routesLayer);
@@ -280,13 +292,15 @@ export class RouteManager {
         
         this.mapManager.setView(routePoint, CONFIG.MAP.SEGMENT_ZOOM);
         
-        // 巡回順序に基づく動的なポップアップ作成
+        // 巡回順序（order）に基づく動的なポップアップ作成
+        const fromOrder = point.properties.order;
+        const toOrder = nextPoint.properties.order;
         const fromBoardNumber = point.properties.board_number;
         const toBoardNumber = nextPoint.properties.board_number;
         
         // 動的にポップアップを作成して表示
         const content = this.googleMapsManager.createSegmentPopupContent(
-            fromBoardNumber, toBoardNumber, dist, timeDisplay,
+            `${fromOrder}. ${fromBoardNumber}`, `${toOrder}. ${toBoardNumber}`, dist, timeDisplay,
             [point.geometry.coordinates[0], point.geometry.coordinates[1]],
             [nextPoint.geometry.coordinates[0], nextPoint.geometry.coordinates[1]]
         );
