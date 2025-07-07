@@ -80,11 +80,26 @@ export class RouteManager {
                 const fromPoint = point;
                 const toPoint = sortedPoints[index + 1];
                 
-                // 直線ルートを作成（実際のルートデータがない場合のフォールバック）
-                const segmentCoords = [
-                    [fromPoint.geometry.coordinates[1], fromPoint.geometry.coordinates[0]],
-                    [toPoint.geometry.coordinates[1], toPoint.geometry.coordinates[0]]
-                ];
+                // 実際のルートセグメントデータを探す
+                const routeSegment = districtRouteSegments.find(seg => {
+                    return (seg.properties.from_point === fromPoint.properties.order && 
+                            seg.properties.to_point === toPoint.properties.order) ||
+                           (seg.properties.from_point === toPoint.properties.order && 
+                            seg.properties.to_point === fromPoint.properties.order);
+                });
+                
+                // 実際のルートセグメントがある場合はそれを使用、なければ直線
+                let segmentCoords;
+                if (routeSegment && routeSegment.geometry && routeSegment.geometry.coordinates) {
+                    // GeoJSONの座標を[lat, lng]形式に変換
+                    segmentCoords = routeSegment.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+                } else {
+                    // フォールバック: 直線ルート
+                    segmentCoords = [
+                        [fromPoint.geometry.coordinates[1], fromPoint.geometry.coordinates[0]],
+                        [toPoint.geometry.coordinates[1], toPoint.geometry.coordinates[0]]
+                    ];
+                }
                 
                 // セグメントの色を設定
                 const segmentColor = CONFIG.COLORS.ROUTE_COLOR;
