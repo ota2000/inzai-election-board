@@ -71,14 +71,20 @@ export class RouteManager {
                 f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
             );
             
-            districtRouteSegments.forEach(segment => {
-                const segmentCoords = segment.geometry.coordinates.map(coord => [coord[1], coord[0]]);
+            // 巡回順序に基づいてルートセグメントを作成
+            const sortedPoints = districtPoints.sort((a, b) => a.properties.order - b.properties.order);
+            
+            sortedPoints.forEach((point, index) => {
+                if (index >= sortedPoints.length - 1) return; // 最後の地点はスキップ
                 
-                // 対応する地点を特定
-                const fromPoint = districtPoints.find(p => p.properties.order === segment.properties.from_point);
-                const toPoint = districtPoints.find(p => p.properties.order === segment.properties.to_point);
+                const fromPoint = point;
+                const toPoint = sortedPoints[index + 1];
                 
-                if (!fromPoint || !toPoint) return;
+                // 直線ルートを作成（実際のルートデータがない場合のフォールバック）
+                const segmentCoords = [
+                    [fromPoint.geometry.coordinates[1], fromPoint.geometry.coordinates[0]],
+                    [toPoint.geometry.coordinates[1], toPoint.geometry.coordinates[0]]
+                ];
                 
                 // セグメントの色を設定
                 const segmentColor = CONFIG.COLORS.ROUTE_COLOR;
@@ -91,46 +97,31 @@ export class RouteManager {
                 let segmentDistance = '';
                 let segmentTime = '';
                 
-                if (fromPoint && toPoint) {
-                    const segmentDistances = calculateSegmentDistances([fromPoint, toPoint]);
-                    if (segmentDistances.length > 0) {
-                        segmentDistance = segmentDistances[0].distance;
-                        const timeInMinutes = segmentDistances[0].time;
-                        
-                        // 時間を「X時間Y分」形式に変換
-                        if (timeInMinutes >= 60) {
-                            const hours = Math.floor(timeInMinutes / 60);
-                            const minutes = timeInMinutes % 60;
-                            if (minutes > 0) {
-                                segmentTime = `${hours}時間${minutes}分`;
-                            } else {
-                                segmentTime = `${hours}時間`;
-                            }
+                const segmentDistances = calculateSegmentDistances([fromPoint, toPoint]);
+                if (segmentDistances.length > 0) {
+                    segmentDistance = segmentDistances[0].distance;
+                    const timeInMinutes = segmentDistances[0].time;
+                    
+                    // 時間を「X時間Y分」形式に変換
+                    if (timeInMinutes >= 60) {
+                        const hours = Math.floor(timeInMinutes / 60);
+                        const minutes = timeInMinutes % 60;
+                        if (minutes > 0) {
+                            segmentTime = `${hours}時間${minutes}分`;
                         } else {
-                            segmentTime = `${timeInMinutes}分`;
+                            segmentTime = `${hours}時間`;
                         }
+                    } else {
+                        segmentTime = `${timeInMinutes}分`;
                     }
                 }
                 
-                // 巡回順序（order）を使用して正しい表示順序を決定
+                // 正しい巡回順序で表示
                 const fromOrder = fromPoint.properties.order;
                 const toOrder = toPoint.properties.order;
                 
-                // orderの小さい方から大きい方への順序で表示
-                const displayFromOrder = Math.min(fromOrder, toOrder);
-                const displayToOrder = Math.max(fromOrder, toOrder);
-                
-                // 表示用の掲示板番号を取得
-                const displayFromBoard = fromOrder < toOrder ? fromBoardNumber : toBoardNumber;
-                const displayToBoard = fromOrder < toOrder ? toBoardNumber : fromBoardNumber;
-                
-                // 座標も正しい順序で
-                const displayFromCoord = fromOrder < toOrder ? 
-                    [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]] :
-                    [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];
-                const displayToCoord = fromOrder < toOrder ? 
-                    [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]] :
-                    [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];
+                const displayFromCoord = [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];
+                const displayToCoord = [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];
                 
                 const polyline = L.polyline(segmentCoords, {
                     color: segmentColor,
@@ -140,16 +131,16 @@ export class RouteManager {
                     lineJoin: 'round'
                 }).bindPopup(
                     this.googleMapsManager.createSegmentPopupContent(
-                        `${displayFromOrder}. ${displayFromBoard}`, `${displayToOrder}. ${displayToBoard}`, segmentDistance, segmentTime,
+                        `${fromOrder}. ${fromBoardNumber}`, `${toOrder}. ${toBoardNumber}`, segmentDistance, segmentTime,
                         displayFromCoord, displayToCoord
                     )
                 ).addTo(routesLayer);
                 
                 // セグメント識別用のプロパティを追加
-                polyline.segmentId = `${segment.properties.from_point}-${segment.properties.to_point}`;
-                polyline.fromPoint = segment.properties.from_point;
-                polyline.toPoint = segment.properties.to_point;
-                polyline.segmentNumber = segment.properties.segment;
+                polyline.segmentId = `${fromOrder}-${toOrder}`;
+                polyline.fromPoint = fromOrder;
+                polyline.toPoint = toOrder;
+                polyline.segmentNumber = index + 1;
                 
                 // ホバー効果
                 polyline.on('mouseover', function() {
