@@ -339,17 +339,15 @@ export class DistrictManager {
     
     // 情報パネルを更新
     updateInfoPanel(districtName, properties) {
-        document.getElementById('districtInfoTitle').textContent = `${districtName} 情報`;
+        // 投票区番号を取得（第X投票区形式）
+        const districtNumber = properties.district_number || '不明';
+        document.getElementById('districtInfoTitle').textContent = `${districtNumber} 情報`;
         
         const totalPoints = this.allData.features.filter(f => 
             f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
         ).length;
         
         document.getElementById('districtInfo').innerHTML = `
-            <div class="stat-item">
-                <span class="stat-label">投票区</span>
-                <span class="stat-value">${districtName}</span>
-            </div>
             <div class="stat-item">
                 <span class="stat-label">掲示板数</span>
                 <span class="stat-value">${totalPoints}ヶ所</span>
@@ -408,7 +406,16 @@ export class DistrictManager {
     
     // UI状態を全投票区表示用に更新
     updateUIForAllDistricts() {
-        document.getElementById('routeList').innerHTML = '<div class="loading">投票区を選択してください</div>';
+        const routeList = document.getElementById('routeList');
+        if (routeList) {
+            routeList.innerHTML = `
+                <div style="text-align: center; padding: 2rem; color: #666;">
+                    <div style="font-size: 1.2rem; margin-bottom: 1rem;">📍</div>
+                    <div style="font-weight: bold; margin-bottom: 0.5rem;">投票区を選択してください</div>
+                    <div style="font-size: 0.9rem;">個別の投票区を選択すると巡回順序が表示されます</div>
+                </div>
+            `;
+        }
     }
     
     // UI状態を投票区選択用に更新
