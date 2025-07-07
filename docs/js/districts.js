@@ -218,14 +218,14 @@ export class DistrictManager {
                     <div style="font-weight: bold; color: #007bff; margin-bottom: 0.25rem;">
                         ${votingOffice.properties.district_number}
                     </div>
-                    <div style="font-size: 0.85rem; color: #666;">
-                        掲示板数: ${votingOffice.properties.total_points}ヶ所 | 
-                        巡回距離: ${votingOffice.properties.total_distance_km}km | 
+                    <div style="font-size: 0.85rem; color: #666; line-height: 1.4;">
+                        掲示板数: ${votingOffice.properties.total_points}ヶ所<br>
+                        巡回距離: ${votingOffice.properties.total_distance_km}km<br>
                         推定時間: ${votingOffice.properties.estimated_hours}時間
                     </div>
                 </div>
                 <div class="clickable-address" 
-                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.5rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; margin: 0.5rem 0;"
+                     style="color: #999; font-size: 0.75rem; cursor: pointer; padding: 0.25rem; border-radius: 3px; background: #f8f9fa; border: 1px solid #e9ecef; margin: 0.5rem 0; opacity: 0.8;"
                      onclick="window.appUtils.copyToClipboard('${votingOffice.properties.address}')" 
                      title="クリックでコピー">
                     📍 ${votingOffice.properties.address}
