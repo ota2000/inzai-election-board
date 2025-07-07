@@ -334,11 +334,16 @@ export class DistrictManager {
                 fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
+            // マーカーのクリックイベントで直接投票区を表示
+            marker.on('click', () => {
+                this.showDistrict(district);
+            });
+            
             marker.bindPopup(`
                 <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
                     <h4>${district}</h4>
                     <p>地点数: ${coords.length}地点</p>
-                    <button onclick="window.districtManager.showDistrict('${district}')" style="background: ${color}; color: white; border: none; padding: 0.5rem 1rem; border-radius: 3px; cursor: pointer;">詳細表示</button>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
                 </div>
             `);
         });
@@ -426,19 +431,21 @@ export class DistrictManager {
     // UI状態を全投票区表示用に更新
     updateUIForAllDistricts() {
         const routeList = document.getElementById('routeList');
-        if (routeList) {
-            routeList.innerHTML = `
-                <div style="text-align: center; padding: 2rem; color: #666;">
-                    <div style="font-size: 1.2rem; margin-bottom: 1rem;">📍</div>
-                    <div style="font-weight: bold; margin-bottom: 0.5rem;">投票区を選択してください</div>
-                    <div style="font-size: 0.9rem;">個別の投票区を選択すると巡回順序が表示されます</div>
-                </div>
-            `;
+        const routeContainer = document.querySelector('.route-container');
+        
+        // 巡回順序エリア全体を非表示
+        if (routeContainer) {
+            routeContainer.style.display = 'none';
         }
     }
     
     // UI状態を投票区選択用に更新
     updateUIForDistrictSelection() {
-        // 必要に応じて実装
+        const routeContainer = document.querySelector('.route-container');
+        
+        // 巡回順序エリアを表示
+        if (routeContainer) {
+            routeContainer.style.display = 'block';
+        }
     }
 }
