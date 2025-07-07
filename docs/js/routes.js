@@ -23,6 +23,7 @@ export class RouteManager {
     // ルートセグメント上の実際の点を取得
     getPointOnRoute(from, to, fromOrder, toOrder) {
         if (!this.allData || !this.currentDistrict) {
+            console.log('データまたは投票区が設定されていません');
             return [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
         }
         
@@ -31,6 +32,8 @@ export class RouteManager {
             f.properties.district === this.currentDistrict && 
             f.properties.type === 'route_segment'
         );
+        
+        console.log(`探しているセグメント: ${fromOrder} -> ${toOrder}, 利用可能セグメント:`, routeSegments.map(s => `${s.properties.from_point}->${s.properties.to_point}`));
         
         // 該当するセグメントを探す（順序に基づいて）
         const segment = routeSegments.find(seg => {
@@ -42,11 +45,15 @@ export class RouteManager {
             // セグメントの中央付近の点を取得
             const coords = segment.geometry.coordinates;
             const midIndex = Math.floor(coords.length / 2);
-            return [coords[midIndex][1], coords[midIndex][0]]; // [lat, lng]形式で返す
+            const routePoint = [coords[midIndex][1], coords[midIndex][0]]; // [lat, lng]形式
+            console.log('ルートセグメント上の点を使用:', routePoint);
+            return routePoint;
         }
         
         // セグメントが見つからない場合は中間点を返す
-        return [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
+        const fallbackPoint = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
+        console.log('セグメントが見つからないため中間点を使用:', fallbackPoint);
+        return fallbackPoint;
     }
     
     // ルートセグメントを表示
