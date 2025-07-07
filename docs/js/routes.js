@@ -85,23 +85,18 @@ export class RouteManager {
                 const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
                 
                 
-                // 実際のルートセグメントデータを探す
-                // 1. まず掲示板番号でマッチングを試みる（通常のケース）
-                let routeSegment = districtRouteSegments.find(seg => {
-                    return (seg.properties.from_point === fromBoardNum && 
-                            seg.properties.to_point === toBoardNum) ||
-                           (seg.properties.from_point === toBoardNum && 
-                            seg.properties.to_point === fromBoardNum);
+                // ルートセグメントデータを探す
+                // segment番号による統一マッチング（よりシンプルで確実）
+                const segmentIndex = index + 1; // 1から始まるセグメント番号
+                const routeSegment = districtRouteSegments.find(seg => {
+                    return seg.properties.segment === segmentIndex;
                 });
                 
-                // 2. 掲示板番号でマッチしない場合、segment番号で順次探す（特殊ケース）
-                if (!routeSegment) {
-                    const segmentIndex = index + 1; // 1から始まるセグメント番号
-                    routeSegment = districtRouteSegments.find(seg => {
-                        return seg.properties.segment === segmentIndex;
-                    });
-                }
-                
+                // テスト用統計収集
+                if (!this._segmentStats) this._segmentStats = {};
+                if (!this._segmentStats[districtName]) this._segmentStats[districtName] = { total: 0, matched: 0 };
+                this._segmentStats[districtName].total++;
+                if (routeSegment) this._segmentStats[districtName].matched++;
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
                 let segmentCoords;

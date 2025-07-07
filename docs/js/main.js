@@ -84,6 +84,18 @@ class ElectionBoardApp {
             this.googleMapsManager.openSegment(fromCoord, toCoord);
         };
         
+        // テスト用関数
+        window.showSegmentStats = () => {
+            if (this.routeManager._segmentStats) {
+                console.log('=== segment番号マッチング統計 ===');
+                Object.keys(this.routeManager._segmentStats).forEach(district => {
+                    const stats = this.routeManager._segmentStats[district];
+                    const percentage = ((stats.matched / stats.total) * 100).toFixed(1);
+                    console.log(`${district}: ${stats.matched}/${stats.total} (${percentage}%)`);
+                });
+            }
+        };
+        
     }
     
     // データ読み込み
