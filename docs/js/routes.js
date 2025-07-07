@@ -131,7 +131,7 @@ export class RouteManager {
                     lineJoin: 'round'
                 }).bindPopup(
                     this.googleMapsManager.createSegmentPopupContent(
-                        `${fromOrder}. ${fromBoardNumber}`, `${toOrder}. ${toBoardNumber}`, segmentDistance, segmentTime,
+                        fromBoardNumber, toBoardNumber, segmentDistance, segmentTime,
                         displayFromCoord, displayToCoord
                     )
                 ).addTo(routesLayer);
@@ -291,7 +291,7 @@ export class RouteManager {
         
         // 動的にポップアップを作成して表示
         const content = this.googleMapsManager.createSegmentPopupContent(
-            `${fromOrder}. ${fromBoardNumber}`, `${toOrder}. ${toBoardNumber}`, dist, timeDisplay,
+            fromBoardNumber, toBoardNumber, dist, timeDisplay,
             [point.geometry.coordinates[0], point.geometry.coordinates[1]],
             [nextPoint.geometry.coordinates[0], nextPoint.geometry.coordinates[1]]
         );
