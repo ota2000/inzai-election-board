@@ -84,17 +84,12 @@ export class RouteManager {
                 const fromBoardNum = parseInt(fromPoint.properties.board_number.split('-')[1]);
                 const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
                 
-                // デバッグログ: 第12投票区と第13投票区の場合のみ
-                if (districtName === '原山小学校体育館' || districtName === '高花小学校体育館') {
-                    console.log(`[DEBUG ${districtName}] ルートセグメント探索:`, {
-                        fromOrder: fromPoint.properties.order,
-                        toOrder: toPoint.properties.order,
-                        fromBoardNumber: fromPoint.properties.board_number,
-                        toBoardNumber: toPoint.properties.board_number,
-                        fromBoardNum: fromBoardNum,
-                        toBoardNum: toBoardNum,
-                        availableSegments: districtRouteSegments.map(s => `${s.properties.from_point}->${s.properties.to_point}`)
-                    });
+                // デバッグログ: マッチング統計を収集
+                if (!this._matchingStats) {
+                    this._matchingStats = {};
+                }
+                if (!this._matchingStats[districtName]) {
+                    this._matchingStats[districtName] = { total: 0, matched: 0 };
                 }
                 
                 // 実際のルートセグメントデータを探す（掲示板番号で照合）
@@ -105,12 +100,10 @@ export class RouteManager {
                             seg.properties.to_point === fromBoardNum);
                 });
                 
-                // デバッグログ: マッチング結果
-                if (districtName === '原山小学校体育館' || districtName === '高花小学校体育館') {
-                    console.log(`[DEBUG ${districtName}] マッチング結果:`, {
-                        found: !!routeSegment,
-                        segment: routeSegment ? `${routeSegment.properties.from_point}->${routeSegment.properties.to_point}` : 'なし'
-                    });
+                // マッチング統計を更新
+                this._matchingStats[districtName].total++;
+                if (routeSegment) {
+                    this._matchingStats[districtName].matched++;
                 }
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
@@ -194,6 +187,9 @@ export class RouteManager {
             // ルート情報メッセージを表示
             this.showRouteInfoMessage();
             
+            // マッチング統計を表示
+            this.showMatchingStats(districtName);
+            
         } else {
             // フォールバック：簡略ルート
             this.displaySimpleRoute(districtName);
@@ -216,6 +212,27 @@ export class RouteManager {
                 dashArray: '10, 5'
             }).addTo(routesLayer);
         }
+    }
+    
+    // マッチング統計を表示
+    showMatchingStats(districtName) {
+        if (this._matchingStats && this._matchingStats[districtName]) {
+            const stats = this._matchingStats[districtName];
+            const percentage = ((stats.matched / stats.total) * 100).toFixed(1);
+            console.log(`[STATS ${districtName}] ルートセグメントマッチング: ${stats.matched}/${stats.total} (${percentage}%)`);
+        }
+    }
+    
+    // 全投票区の統計を表示
+    showAllMatchingStats() {
+        if (!this._matchingStats) return;
+        
+        console.log('=== 全投票区のルートセグメントマッチング統計 ===');
+        Object.keys(this._matchingStats).forEach(district => {
+            const stats = this._matchingStats[district];
+            const percentage = ((stats.matched / stats.total) * 100).toFixed(1);
+            console.log(`${district}: ${stats.matched}/${stats.total} (${percentage}%)`);
+        });
     }
     
     // ルート情報メッセージを表示
