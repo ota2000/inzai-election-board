@@ -211,16 +211,25 @@ export class MapManager {
     
     // 現在地コントロールを追加
     addLocationControl() {
-        const locationControl = L.control({ position: 'topright' });
+        const locationControl = L.control({ position: 'bottomright' });
         
         locationControl.onAdd = (map) => {
             const container = L.DomUtil.create('div', 'location-control');
             container.innerHTML = `
                 <button class="location-btn" title="現在地を表示">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v4"/>
+                        <path d="M12 18v4"/>
+                        <path d="M4.93 4.93l2.83 2.83"/>
+                        <path d="M16.24 16.24l2.83 2.83"/>
+                        <path d="M2 12h4"/>
+                        <path d="M18 12h4"/>
+                        <path d="M4.93 19.07l2.83-2.83"/>
+                        <path d="M16.24 7.76l2.83-2.83"/>
                     </svg>
+                    <span class="location-text">現在地</span>
                 </button>
             `;
             
@@ -232,29 +241,41 @@ export class MapManager {
             
             const button = container.querySelector('.location-btn');
             button.style.cssText = `
-                width: 34px;
-                height: 34px;
-                background: white;
-                border: 2px solid rgba(0,0,0,0.2);
-                border-radius: 4px;
+                min-width: 90px;
+                height: 40px;
+                background: #007bff;
+                border: none;
+                border-radius: 20px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: #666;
-                box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+                gap: 6px;
+                color: white;
+                box-shadow: 0 2px 8px rgba(0,123,255,0.3);
                 transition: all 0.2s ease;
+                font-size: 12px;
+                font-weight: 500;
+                padding: 0 12px;
+            `;
+            
+            const locationText = container.querySelector('.location-text');
+            locationText.style.cssText = `
+                font-family: 'Inter', sans-serif;
+                white-space: nowrap;
             `;
             
             // ホバー効果
             button.addEventListener('mouseenter', () => {
-                button.style.backgroundColor = '#f4f4f4';
-                button.style.color = '#333';
+                button.style.backgroundColor = '#0056b3';
+                button.style.transform = 'translateY(-1px)';
+                button.style.boxShadow = '0 4px 12px rgba(0,123,255,0.4)';
             });
             
             button.addEventListener('mouseleave', () => {
-                button.style.backgroundColor = 'white';
-                button.style.color = '#666';
+                button.style.backgroundColor = '#007bff';
+                button.style.transform = 'translateY(0)';
+                button.style.boxShadow = '0 2px 8px rgba(0,123,255,0.3)';
             });
             
             // クリックイベント
