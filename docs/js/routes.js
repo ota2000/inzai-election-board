@@ -80,12 +80,16 @@ export class RouteManager {
                 const fromPoint = point;
                 const toPoint = sortedPoints[index + 1];
                 
-                // 実際のルートセグメントデータを探す
+                // 掲示板番号から数字部分を抽出（例："1-7" → 7）
+                const fromBoardNum = parseInt(fromPoint.properties.board_number.split('-')[1]);
+                const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
+                
+                // 実際のルートセグメントデータを探す（掲示板番号で照合）
                 const routeSegment = districtRouteSegments.find(seg => {
-                    return (seg.properties.from_point === fromPoint.properties.order && 
-                            seg.properties.to_point === toPoint.properties.order) ||
-                           (seg.properties.from_point === toPoint.properties.order && 
-                            seg.properties.to_point === fromPoint.properties.order);
+                    return (seg.properties.from_point === fromBoardNum && 
+                            seg.properties.to_point === toBoardNum) ||
+                           (seg.properties.from_point === toBoardNum && 
+                            seg.properties.to_point === fromBoardNum);
                 });
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
