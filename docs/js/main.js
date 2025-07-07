@@ -56,6 +56,9 @@ class ElectionBoardApp {
         this.routeManager = new RouteManager(this.mapManager, this.googleMapsManager);
         this.districtManager = new DistrictManager(this.mapManager, this.routeManager, this.googleMapsManager);
         this.uiManager = new UIManager(this.districtManager);
+        
+        // GoogleMapsManagerのグローバルイベントリスナーを設定
+        this.googleMapsManager.setupGlobalEventListener();
     }
     
     // グローバル参照を設定（既存コードとの互換性のため）
