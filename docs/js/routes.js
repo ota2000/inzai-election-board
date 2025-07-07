@@ -298,7 +298,7 @@ export class RouteManager {
         // 地点の座標を取得
         const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
         
-        // 地図をその地点にズーム（フォーカスなし）
+        // 地図をその地点にズーム
         this.mapManager.setView(coord, CONFIG.MAP.DETAIL_ZOOM);
         
         // 掲示板情報のポップアップを作成
@@ -318,5 +318,11 @@ export class RouteManager {
         `;
         
         this.mapManager.openPopup(coord, popupContent);
+        
+        // マップコンテナにフォーカスを当てる（ルートセグメントと統一）
+        setTimeout(() => {
+            document.getElementById('map').focus();
+            document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, CONFIG.UI.SCROLL_DELAY);
     }
 }
