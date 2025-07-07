@@ -84,8 +84,6 @@ class ElectionBoardApp {
             this.googleMapsManager.openSegment(fromCoord, toCoord);
         };
         
-        // デバッグ用関数
-        window.showMatchingStats = () => this.routeManager.showAllMatchingStats();
     }
     
     // データ読み込み

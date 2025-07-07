@@ -84,13 +84,6 @@ export class RouteManager {
                 const fromBoardNum = parseInt(fromPoint.properties.board_number.split('-')[1]);
                 const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
                 
-                // デバッグログ: マッチング統計を収集
-                if (!this._matchingStats) {
-                    this._matchingStats = {};
-                }
-                if (!this._matchingStats[districtName]) {
-                    this._matchingStats[districtName] = { total: 0, matched: 0 };
-                }
                 
                 // 実際のルートセグメントデータを探す
                 // 1. まず掲示板番号でマッチングを試みる（通常のケース）
@@ -109,11 +102,6 @@ export class RouteManager {
                     });
                 }
                 
-                // マッチング統計を更新
-                this._matchingStats[districtName].total++;
-                if (routeSegment) {
-                    this._matchingStats[districtName].matched++;
-                }
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
                 let segmentCoords;
@@ -196,9 +184,6 @@ export class RouteManager {
             // ルート情報メッセージを表示
             this.showRouteInfoMessage();
             
-            // マッチング統計を表示
-            this.showMatchingStats(districtName);
-            
         } else {
             // フォールバック：簡略ルート
             this.displaySimpleRoute(districtName);
@@ -221,27 +206,6 @@ export class RouteManager {
                 dashArray: '10, 5'
             }).addTo(routesLayer);
         }
-    }
-    
-    // マッチング統計を表示
-    showMatchingStats(districtName) {
-        if (this._matchingStats && this._matchingStats[districtName]) {
-            const stats = this._matchingStats[districtName];
-            const percentage = ((stats.matched / stats.total) * 100).toFixed(1);
-            console.log(`[STATS ${districtName}] ルートセグメントマッチング: ${stats.matched}/${stats.total} (${percentage}%)`);
-        }
-    }
-    
-    // 全投票区の統計を表示
-    showAllMatchingStats() {
-        if (!this._matchingStats) return;
-        
-        console.log('=== 全投票区のルートセグメントマッチング統計 ===');
-        Object.keys(this._matchingStats).forEach(district => {
-            const stats = this._matchingStats[district];
-            const percentage = ((stats.matched / stats.total) * 100).toFixed(1);
-            console.log(`${district}: ${stats.matched}/${stats.total} (${percentage}%)`);
-        });
     }
     
     // ルート情報メッセージを表示
