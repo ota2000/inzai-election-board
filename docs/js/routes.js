@@ -278,14 +278,12 @@ export class RouteManager {
         const coord1 = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
         const coord2 = [nextPoint.geometry.coordinates[1], nextPoint.geometry.coordinates[0]];
         
-        // ルートセグメント上の実際の点を取得
-        const routePoint = this.getPointOnRoute(coord1, coord2, point.properties.order, nextPoint.properties.order);
+        // 2点の中間点を計算（ルートリストからのクリック用）
+        const midPoint = [(coord1[0] + coord2[0]) / 2, (coord1[1] + coord2[1]) / 2];
         
-        this.mapManager.setView(routePoint, CONFIG.MAP.SEGMENT_ZOOM);
+        this.mapManager.setView(midPoint, CONFIG.MAP.SEGMENT_ZOOM);
         
-        // 巡回順序（order）に基づく動的なポップアップ作成
-        const fromOrder = point.properties.order;
-        const toOrder = nextPoint.properties.order;
+        // 掲示板番号を取得
         const fromBoardNumber = point.properties.board_number;
         const toBoardNumber = nextPoint.properties.board_number;
         
@@ -296,7 +294,7 @@ export class RouteManager {
             [nextPoint.geometry.coordinates[0], nextPoint.geometry.coordinates[1]]
         );
         
-        this.mapManager.openPopup(routePoint, content);
+        this.mapManager.openPopup(midPoint, content);
         
         // マップコンテナにフォーカスを当てる
         setTimeout(() => {
