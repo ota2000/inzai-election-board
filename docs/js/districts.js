@@ -430,22 +430,21 @@ export class DistrictManager {
     
     // UI状態を全投票区表示用に更新
     updateUIForAllDistricts() {
-        const routeList = document.getElementById('routeList');
-        const routeContainer = document.querySelector('.route-container');
+        const routeCard = document.getElementById('routeCard');
         
         // 巡回順序エリア全体を非表示
-        if (routeContainer) {
-            routeContainer.style.display = 'none';
+        if (routeCard) {
+            routeCard.style.display = 'none';
         }
     }
     
     // UI状態を投票区選択用に更新
     updateUIForDistrictSelection() {
-        const routeContainer = document.querySelector('.route-container');
+        const routeCard = document.getElementById('routeCard');
         
         // 巡回順序エリアを表示
-        if (routeContainer) {
-            routeContainer.style.display = 'block';
+        if (routeCard) {
+            routeCard.style.display = 'block';
         }
     }
 }
