@@ -84,6 +84,19 @@ export class RouteManager {
                 const fromBoardNum = parseInt(fromPoint.properties.board_number.split('-')[1]);
                 const toBoardNum = parseInt(toPoint.properties.board_number.split('-')[1]);
                 
+                // デバッグログ: 第12投票区と第13投票区の場合のみ
+                if (districtName === '原山小学校体育館' || districtName === '高花小学校体育館') {
+                    console.log(`[DEBUG ${districtName}] ルートセグメント探索:`, {
+                        fromOrder: fromPoint.properties.order,
+                        toOrder: toPoint.properties.order,
+                        fromBoardNumber: fromPoint.properties.board_number,
+                        toBoardNumber: toPoint.properties.board_number,
+                        fromBoardNum: fromBoardNum,
+                        toBoardNum: toBoardNum,
+                        availableSegments: districtRouteSegments.map(s => `${s.properties.from_point}->${s.properties.to_point}`)
+                    });
+                }
+                
                 // 実際のルートセグメントデータを探す（掲示板番号で照合）
                 const routeSegment = districtRouteSegments.find(seg => {
                     return (seg.properties.from_point === fromBoardNum && 
@@ -91,6 +104,14 @@ export class RouteManager {
                            (seg.properties.from_point === toBoardNum && 
                             seg.properties.to_point === fromBoardNum);
                 });
+                
+                // デバッグログ: マッチング結果
+                if (districtName === '原山小学校体育館' || districtName === '高花小学校体育館') {
+                    console.log(`[DEBUG ${districtName}] マッチング結果:`, {
+                        found: !!routeSegment,
+                        segment: routeSegment ? `${routeSegment.properties.from_point}->${routeSegment.properties.to_point}` : 'なし'
+                    });
+                }
                 
                 // 実際のルートセグメントがある場合はそれを使用、なければ直線
                 let segmentCoords;
