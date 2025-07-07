@@ -170,7 +170,7 @@ export class DistrictManager {
                              style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
                              onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
                              title="クリックでコピー">
-                            📋 ${point.properties.address}
+                             ${point.properties.address}
                         </div>
                     </div>
                 `;
@@ -228,7 +228,7 @@ export class DistrictManager {
                      style="color: #999; font-size: 0.75rem; cursor: pointer; padding: 0.25rem; border-radius: 3px; background: #f8f9fa; border: 1px solid #e9ecef; margin: 0.5rem 0; opacity: 0.8;"
                      onclick="window.appUtils.copyToClipboard('${votingOffice.properties.address}')" 
                      title="クリックでコピー">
-                    📍 ${votingOffice.properties.address}
+                     ${votingOffice.properties.address}
                 </div>
             </div>
         `);
