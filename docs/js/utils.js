@@ -100,7 +100,7 @@ export function showCopyFeedback() {
         transform: translateY(10px);
         transition: all 0.3s ease;
     `;
-    feedback.textContent = '住所をコピーしました';
+    feedback.textContent = '📋 住所をコピーしました';
     
     document.body.appendChild(feedback);
     

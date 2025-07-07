@@ -361,18 +361,6 @@ export class DistrictManager {
         
         document.getElementById('districtInfo').innerHTML = `
             <div class="stat-item">
-                <span class="stat-label">掲示板数</span>
-                <span class="stat-value">${totalPoints}ヶ所</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総距離</span>
-                <span class="stat-value">${properties.total_distance_km}km</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">推定時間</span>
-                <span class="stat-value">${properties.estimated_hours}時間</span>
-            </div>
-            <div class="stat-item">
                 <span class="stat-label">投票所</span>
                 <span class="stat-value">
                     ${properties.office_name || '不明'}
@@ -385,8 +373,16 @@ export class DistrictManager {
                 </span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">歩行速度</span>
-                <span class="stat-value">${CONFIG.UI.WALKING_SPEED_KMH}km/h (想定)</span>
+                <span class="stat-label">掲示板数</span>
+                <span class="stat-value">${totalPoints}ヶ所</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">総距離</span>
+                <span class="stat-value">${properties.total_distance_km}km</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">推定時間</span>
+                <span class="stat-value">${properties.estimated_hours}時間</span>
             </div>
         `;
     }
