@@ -93,16 +93,8 @@ export class GoogleMapsManager {
     
     // セグメント用のポップアップコンテンツを生成
     createSegmentPopupContent(fromBoardNumber, toBoardNumber, distance, time, fromCoord, toCoord) {
-        // ユニークなボタンIDを生成
-        const buttonId = `gmaps-btn-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
-        
-        // ボタンクリック用のコールバックを登録
-        setTimeout(() => {
-            const button = document.getElementById(buttonId);
-            if (button) {
-                button.onclick = () => this.openSegment(fromCoord, toCoord);
-            }
-        }, 0);
+        // 座標を文字列にエンコードしてdata属性に埋め込む
+        const coordData = `${fromCoord[0]},${fromCoord[1]},${toCoord[0]},${toCoord[1]}`;
         
         return `
             <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
@@ -111,11 +103,32 @@ export class GoogleMapsManager {
                     距離: ${distance}km<br>
                     時間: ${time}
                 </div>
-                <button id="${buttonId}" 
+                <button class="gmaps-segment-btn" 
+                        data-coords="${coordData}"
                         style="background: ${CONFIG.COLORS.GOOGLE_MAPS_BTN}; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem;">
                     📍 Googleマップで開く
                 </button>
             </div>
         `;
+    }
+    
+    // グローバルイベントリスナーを設定（初期化時に一度だけ呼ぶ）
+    setupGlobalEventListener() {
+        if (!this.eventListenerSetup) {
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('gmaps-segment-btn')) {
+                    const coordData = e.target.getAttribute('data-coords');
+                    if (coordData) {
+                        const coords = coordData.split(',').map(parseFloat);
+                        if (coords.length === 4) {
+                            const fromCoord = [coords[0], coords[1]];
+                            const toCoord = [coords[2], coords[3]];
+                            this.openSegment(fromCoord, toCoord);
+                        }
+                    }
+                }
+            });
+            this.eventListenerSetup = true;
+        }
     }
 }
