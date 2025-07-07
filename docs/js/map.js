@@ -21,6 +21,9 @@ export class MapManager {
         this.markersLayer = L.layerGroup().addTo(this.map);
         this.routesLayer = L.layerGroup().addTo(this.map);
         
+        // 現在地ボタンを追加
+        this.addLocationControl();
+        
         return this.map;
     }
     
@@ -204,5 +207,69 @@ export class MapManager {
                 <small>精度: 約${Math.round(accuracy)}m</small>
             </div>
         `);
+    }
+    
+    // 現在地コントロールを追加
+    addLocationControl() {
+        const locationControl = L.control({ position: 'topright' });
+        
+        locationControl.onAdd = (map) => {
+            const container = L.DomUtil.create('div', 'location-control');
+            container.innerHTML = `
+                <button class="location-btn" title="現在地を表示">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </button>
+            `;
+            
+            // スタイルを設定
+            container.style.cssText = `
+                background: none;
+                border: none;
+            `;
+            
+            const button = container.querySelector('.location-btn');
+            button.style.cssText = `
+                width: 34px;
+                height: 34px;
+                background: white;
+                border: 2px solid rgba(0,0,0,0.2);
+                border-radius: 4px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #666;
+                box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+                transition: all 0.2s ease;
+            `;
+            
+            // ホバー効果
+            button.addEventListener('mouseenter', () => {
+                button.style.backgroundColor = '#f4f4f4';
+                button.style.color = '#333';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.backgroundColor = 'white';
+                button.style.color = '#666';
+            });
+            
+            // クリックイベント
+            button.addEventListener('click', (e) => {
+                L.DomEvent.stopPropagation(e);
+                this.showCurrentLocation();
+            });
+            
+            // イベント伝播を停止
+            L.DomEvent.disableClickPropagation(container);
+            
+            return container;
+        };
+        
+        locationControl.addTo(this.map);
+        return locationControl;
     }
 }
