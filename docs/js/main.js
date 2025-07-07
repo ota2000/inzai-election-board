@@ -38,8 +38,8 @@ class ElectionBoardApp {
             // 投票区セレクターを設定
             this.districtManager.setupDistrictSelector();
             
-            // 全投票区を表示
-            this.districtManager.showAllDistricts();
+            // 保存された状態を復元するか、全投票区を表示
+            this.restoreState();
             
             console.log('アプリケーションが正常に初期化されました');
             
@@ -128,6 +128,62 @@ class ElectionBoardApp {
         this.mapManager?.clearLayers();
         this.districtManager?.showAllDistricts();
         this.googleMapsManager?.hideButton();
+        this.clearSavedState();
+    }
+    
+    // 状態を保存
+    saveState(district = null) {
+        const state = {
+            currentDistrict: district,
+            timestamp: Date.now()
+        };
+        
+        try {
+            localStorage.setItem('electionBoardState', JSON.stringify(state));
+        } catch (error) {
+            console.warn('状態の保存に失敗しました:', error);
+        }
+    }
+    
+    // 保存された状態を復元
+    restoreState() {
+        try {
+            const savedState = localStorage.getItem('electionBoardState');
+            if (savedState) {
+                const state = JSON.parse(savedState);
+                
+                // 24時間以内の状態のみ復元
+                const maxAge = 24 * 60 * 60 * 1000; // 24時間
+                if (Date.now() - state.timestamp < maxAge && state.currentDistrict) {
+                    // 投票区が存在するかチェック
+                    const districtExists = this.allData?.features?.some(f => 
+                        f.properties.district === state.currentDistrict && 
+                        f.geometry.type === 'Point' && 
+                        f.properties.type !== 'voting_office'
+                    );
+                    
+                    if (districtExists) {
+                        console.log('保存された状態を復元:', state.currentDistrict);
+                        this.districtManager.showDistrict(state.currentDistrict);
+                        return;
+                    }
+                }
+            }
+        } catch (error) {
+            console.warn('状態の復元に失敗しました:', error);
+        }
+        
+        // デフォルトは全投票区表示
+        this.districtManager.showAllDistricts();
+    }
+    
+    // 保存された状態をクリア
+    clearSavedState() {
+        try {
+            localStorage.removeItem('electionBoardState');
+        } catch (error) {
+            console.warn('状態のクリアに失敗しました:', error);
+        }
     }
 }
 

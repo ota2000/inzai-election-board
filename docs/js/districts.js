@@ -88,6 +88,11 @@ export class DistrictManager {
     // 特定投票区表示
     showDistrict(districtName) {
         this.currentDistrict = districtName;
+        
+        // 状態を保存
+        if (window.app) {
+            window.app.saveState(districtName);
+        }
         this.routeManager.setCurrentDistrict(districtName);
         
         // ボタンの状態更新
@@ -254,6 +259,11 @@ export class DistrictManager {
     // 全投票区表示
     showAllDistricts() {
         this.currentDistrict = null;
+        
+        // 状態をクリア
+        if (window.app) {
+            window.app.saveState(null);
+        }
         this.routeManager.setCurrentDistrict(null);
         
         // ボタンの状態リセット
