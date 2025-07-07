@@ -1,15 +1,14 @@
 [project]
-name = "election-board-optimizer"
+name = "board-route-optimizer"
 version = "1.0.0"
-description = "Election Board Route Optimizer - TSP-based route optimization for election poster board maintenance"
+description = "Board Route Optimizer - TSP-based route optimization for poster board maintenance"
 authors = [
-    {name = "Election Board Optimizer Team", email = "contact@election-optimizer.org"},
+    {name = "Board Route Optimizer Team", email = "contact@board-route-optimizer.org"},
 ]
 readme = "README.md"
 requires-python = ">=3.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "Intended Audience :: Government",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -20,7 +19,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
     "Topic :: Office/Business :: Scheduling",
 ]
-keywords = ["election", "route-optimization", "tsp", "geojson", "government"]
+keywords = ["route-optimization", "tsp", "geojson", "poster-board", "election"]
 dependencies = [
     "geopy>=2.4.1",
     "numpy>=1.24.0",
@@ -36,14 +35,14 @@ Repository = "https://github.com/ota2000/inzai-election-board.git"
 Issues = "https://github.com/ota2000/inzai-election-board/issues"
 
 [project.scripts]
-election-optimizer = "election_optimizer.cli:main"
+board-route-optimizer = "board_route_optimizer.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/election_optimizer"]
+packages = ["src/board_route_optimizer"]
 
 [dependency-groups]
 dev = [

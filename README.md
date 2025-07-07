@@ -1,10 +1,10 @@
-# Election Board Route Optimizer
+# Board Route Optimizer
 
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-A comprehensive route optimization system for election poster board maintenance using TSP (Traveling Salesman Problem) algorithms. Optimizes walking routes for efficient poster board management with privacy-conscious location handling.
+A comprehensive route optimization system for poster board maintenance using TSP (Traveling Salesman Problem) algorithms. Optimizes walking routes for efficient poster board management with privacy-conscious location handling.
 
 ## 🌟 Features
 
@@ -63,10 +63,10 @@ A comprehensive route optimization system for election poster board maintenance 
 4. **Run optimization**
    ```bash
    # Using uv
-   uv run election-optimizer
+   uv run board-route-optimizer
    
    # Or directly
-   python -m election_optimizer.cli
+   python -m board_route_optimizer.cli
    ```
 
 5. **View results**
@@ -100,25 +100,25 @@ A comprehensive route optimization system for election poster board maintenance 
 
 ```bash
 # Basic usage
-election-optimizer
+board-route-optimizer
 
 # Specify custom data files
-election-optimizer --poster-csv data/my_boards.csv --polling-csv data/my_offices.csv
+board-route-optimizer --poster-csv data/my_boards.csv --polling-csv data/my_offices.csv
 
 # Use API for road distances
-election-optimizer --api-key YOUR_OPENROUTESERVICE_API_KEY
+board-route-optimizer --api-key YOUR_OPENROUTESERVICE_API_KEY
 
 # Custom output location
-election-optimizer --output results/routes.geojson
+board-route-optimizer --output results/routes.geojson
 
 # Configuration from file
-election-optimizer --config config.json
+board-route-optimizer --config config.json
 ```
 
 ### Python API
 
 ```python
-from election_optimizer import RouteOptimizer, Config
+from board_route_optimizer import RouteOptimizer, Config
 
 # Create configuration
 config = Config()
@@ -180,8 +180,8 @@ The system generates an interactive web interface at `docs/index.html` with:
 ## 📁 Project Structure
 
 ```
-election-board-optimizer/
-├── src/election_optimizer/          # Python package
+board-route-optimizer/
+├── src/board_route_optimizer/       # Python package
 │   ├── config.py                    # Configuration management
 │   ├── cli.py                       # Command line interface
 │   ├── core/                        # Core algorithms
@@ -281,10 +281,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: contact@election-optimizer.org
+- 📧 Email: contact@board-route-optimizer.org
 - 🐛 Issues: [GitHub Issues](https://github.com/ota2000/inzai-election-board/issues)
 - 📖 Documentation: [GitHub README](https://github.com/ota2000/inzai-election-board#readme)
 
 ---
 
-**Election Board Route Optimizer** - Making election administration more efficient, one route at a time. 🗳️✨
+**Board Route Optimizer** - Making poster board maintenance more efficient, one route at a time. 🗳️✨

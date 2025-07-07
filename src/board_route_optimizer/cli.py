@@ -1,5 +1,5 @@
 """
-Command Line Interface for Election Board Route Optimizer.
+Command Line Interface for Board Route Optimizer.
 """
 
 import argparse
@@ -15,24 +15,24 @@ from .core.optimizer import RouteOptimizer
 def create_parser() -> argparse.ArgumentParser:
     """Create command line argument parser."""
     parser = argparse.ArgumentParser(
-        description='Election Board Route Optimizer',
+        description='Board Route Optimizer',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   # Basic usage with default settings
-  python -m election_optimizer.cli
+  python -m board_route_optimizer.cli
   
   # Specify custom data files
-  python -m election_optimizer.cli --poster-csv data/boards.csv --polling-csv data/offices.csv
+  python -m board_route_optimizer.cli --poster-csv data/boards.csv --polling-csv data/offices.csv
   
   # Use API key for road distance calculation
-  python -m election_optimizer.cli --api-key YOUR_API_KEY
+  python -m board_route_optimizer.cli --api-key YOUR_API_KEY
   
   # Custom output location
-  python -m election_optimizer.cli --output results/routes.geojson
+  python -m board_route_optimizer.cli --output results/routes.geojson
   
   # Load configuration from file
-  python -m election_optimizer.cli --config config.json
+  python -m board_route_optimizer.cli --config config.json
         """
     )
     
@@ -152,8 +152,8 @@ def main():
         
         # Print header
         if not args.quiet:
-            print("Election Board Route Optimizer")
-            print("=" * 60)
+            print("Board Route Optimizer")
+            print("=" * 40)
             
             if config.api.api_key and not args.no_api:
                 print("✅ OpenRouteService API key configured.")
