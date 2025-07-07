@@ -214,14 +214,21 @@ export class DistrictManager {
         officeMarker.bindPopup(`
             <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
                 <h4>🗳️ ${votingOffice.properties.name}</h4>
+                <div style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #007bff;">
+                    <div style="font-weight: bold; color: #007bff; margin-bottom: 0.25rem;">
+                        ${votingOffice.properties.district_number}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #666;">
+                        掲示板数: ${votingOffice.properties.total_points}ヶ所 | 
+                        巡回距離: ${votingOffice.properties.total_distance_km}km | 
+                        推定時間: ${votingOffice.properties.estimated_hours}時間
+                    </div>
+                </div>
                 <div class="clickable-address" 
-                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
+                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.5rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; margin: 0.5rem 0;"
                      onclick="window.appUtils.copyToClipboard('${votingOffice.properties.address}')" 
                      title="クリックでコピー">
-                    📋 ${votingOffice.properties.address}
-                </div>
-                <div style="margin-top: 0.5rem; font-size: 0.85rem; color: #666;">
-                    投票所
+                    📍 ${votingOffice.properties.address}
                 </div>
             </div>
         `);
@@ -363,6 +370,19 @@ export class DistrictManager {
             <div class="stat-item">
                 <span class="stat-label">投票所</span>
                 <span class="stat-value">${properties.office_name || '不明'}</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">投票所住所</span>
+                <span class="stat-value clickable-address" 
+                      onclick="window.appUtils.copyToClipboard('${properties.office_address || '不明'}')" 
+                      title="クリックでコピー" 
+                      style="cursor: pointer; text-decoration: underline;">
+                    ${properties.office_address || '不明'}
+                </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">歩行速度</span>
+                <span class="stat-value">${CONFIG.UI.WALKING_SPEED_KMH}km/h (想定)</span>
             </div>
         `;
     }

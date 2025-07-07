@@ -216,6 +216,16 @@ export class RouteManager {
                 </div>
             `;
             
+            // 掲示板項目全体をクリック可能にしてマップにフォーカス
+            routeItem.style.cursor = 'pointer';
+            routeItem.onclick = (e) => {
+                // アドレス部分のクリックは除外（コピー機能を優先）
+                if (e.target.classList.contains('clickable-address')) {
+                    return;
+                }
+                this.focusOnPoint(point);
+            };
+            
             routeList.appendChild(routeItem);
             
             // 次の地点との間にセグメント情報を表示
@@ -281,5 +291,32 @@ export class RouteManager {
             document.getElementById('map').focus();
             document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, CONFIG.UI.SCROLL_DELAY);
+    }
+    
+    // 特定の地点にフォーカス
+    focusOnPoint(point) {
+        // 地点の座標を取得
+        const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+        
+        // 地図をその地点にズーム（フォーカスなし）
+        this.mapManager.setView(coord, CONFIG.MAP.DETAIL_ZOOM);
+        
+        // 掲示板情報のポップアップを作成
+        const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+        const popupContent = `
+            <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
+                <div style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;">
+                    ${point.properties.order}. ${boardNumber}${point.properties.name}
+                </div>
+                <div class="clickable-address" 
+                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
+                     onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
+                     title="クリックでコピー">
+                    📋 ${point.properties.address}
+                </div>
+            </div>
+        `;
+        
+        this.mapManager.openPopup(coord, popupContent);
     }
 }
