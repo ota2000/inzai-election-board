@@ -1,37 +1,49 @@
 [project]
-name = "inzai-election-board"
-version = "0.1.0"
-description = "選挙ポスター掲示板巡回最適化システム"
+name = "election-board-optimizer"
+version = "1.0.0"
+description = "Election Board Route Optimizer - TSP-based route optimization for election poster board maintenance"
 authors = [
-    {name = "ota2000", email = "ota2000@ota2000.com"},
+    {name = "Election Board Optimizer Team", email = "contact@election-optimizer.org"},
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.9"
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Government",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: GIS",
+    "Topic :: Office/Business :: Scheduling",
 ]
+keywords = ["election", "route-optimization", "tsp", "geojson", "government"]
 dependencies = [
     "geopy>=2.4.1",
-    "numpy>=2.3.1",
-    "pandas>=2.3.0",
-    "polyline>=2.0.2",
-    "requests>=2.32.4",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "polyline>=2.0.0",
+    "requests>=2.28.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/ota2000/inzai-election-board"
+Documentation = "https://github.com/ota2000/inzai-election-board#readme"
+Repository = "https://github.com/ota2000/inzai-election-board.git"
+Issues = "https://github.com/ota2000/inzai-election-board/issues"
+
 [project.scripts]
-inzai-election-board = "inzai_election_board.route_optimizer:main"
-test-optimizer = "inzai_election_board.test_optimizer:main"
+election-optimizer = "election_optimizer.cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/inzai_election_board"]
+packages = ["src/election_optimizer"]
 
 [dependency-groups]
 dev = [

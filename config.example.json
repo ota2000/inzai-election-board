@@ -1,0 +1,20 @@
+{
+  "api": {
+    "openrouteservice_base_url": "https://api.openrouteservice.org/v2",
+    "api_key": "YOUR_API_KEY_HERE",
+    "request_delay": 2.0,
+    "timeout": 30
+  },
+  "optimization": {
+    "walking_speed_kmh": 4.0,
+    "max_tsp_iterations": 50,
+    "tsp_improvement_threshold": 0.01
+  },
+  "data": {
+    "poster_board_csv": "data/poster_board_locations.csv",
+    "polling_places_csv": "data/polling_places.csv",
+    "anonymize_personal_names": true,
+    "output_directory": "docs/data",
+    "output_filename": "poster_board_routes.geojson"
+  }
+}

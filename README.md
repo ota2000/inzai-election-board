@@ -1,256 +1,290 @@
-# 選挙ポスター掲示板巡回最適化システム
+# Election Board Route Optimizer
 
-選挙ポスター掲示板を効率的に巡回するためのルート最適化システムです。
+[![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-## 概要
+A comprehensive route optimization system for election poster board maintenance using TSP (Traveling Salesman Problem) algorithms. Optimizes walking routes for efficient poster board management with privacy-conscious location handling.
 
-- 各投票区の掲示板設置場所を最適な順序で巡回するルートを計算
-- TSP（巡回セールスマン問題）アルゴリズムを使用して最短経路を算出
-- 徒歩での巡回を想定した経路最適化
-- GeoJSON形式で可視化データを出力
+## 🌟 Features
 
-## ディレクトリ構成
+### Core Optimization
+- **🔍 Optimal Starting Point Discovery**: Automatically finds the best starting location for each route
+- **🚶 Walking Route Optimization**: Specialized for pedestrian navigation with realistic time estimates
+- **🗺️ Multiple Distance Calculation Methods**: 
+  - Road-based distances via OpenRouteService API
+  - Straight-line distances as fallback
+- **⚡ 2-opt Algorithm**: Advanced route improvement for minimal travel distance
 
-```
-inzai-election-board/
-├── src/
-│   └── inzai_election_board/
-│       ├── __init__.py
-│       └── route_optimizer.py      # メイン最適化システム
-├── data/
-│   ├── poster_board_locations.csv  # 掲示板設置場所データ
-│   └── polling_places.csv          # 投票所データ
-├── docs/
-│   ├── index.html                  # GitHub Pages用ビューア
-│   └── poster_board_routes.geojson # 最適化結果（GeoJSON）
-├── tests/                          # テストファイル
-├── pyproject.toml                  # プロジェクト設定
-└── README.md                       # このファイル
-```
+### Data Management & Privacy
+- **🔒 Personal Information Protection**: Automatically anonymizes personal residence references
+- **📍 Voting Office Integration**: Seamlessly integrates polling place locations
+- **🏷️ Board Number Normalization**: Standardizes identification numbers
+- **📊 GeoJSON Export**: Web-ready geographic data format
 
-## セットアップ
+### Web Interface
+- **🌐 Interactive Map**: Modern web interface with Leaflet.js
+- **📱 Mobile-Responsive**: Optimized for tablets and smartphones used in the field
+- **🔍 Advanced Search**: Quick district and location finding
+- **📍 Google Maps Integration**: One-click navigation for individual route segments
+- **📋 Copy-to-Clipboard**: Easy address copying for field use
 
-### 前提条件
+## 🚀 Quick Start
 
-- Python 3.12以上
-- uv（推奨）またはpip
+### Prerequisites
 
-### インストール
+- Python 3.9 or higher
+- [uv](https://github.com/astral-sh/uv) package manager (recommended) or pip
 
-```bash
-# プロジェクトをクローン
-git clone https://github.com/ota2000/inzai-election-board.git
-cd inzai-election-board
+### Installation
 
-# uvを使用する場合（推奨）
-uv sync
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ota2000/inzai-election-board.git
+   cd inzai-election-board
+   ```
 
-# pipを使用する場合
-pip install -e .
-```
+2. **Install dependencies**
+   ```bash
+   # Using uv (recommended)
+   uv sync
+   
+   # Or using pip
+   pip install -e .
+   ```
 
-## 使用方法
+3. **Prepare your data** (see [Data Format](#-data-format) section)
+   ```
+   data/
+   ├── poster_board_locations.csv
+   └── polling_places.csv
+   ```
 
-### 1. テスト実行（推奨）
+4. **Run optimization**
+   ```bash
+   # Using uv
+   uv run election-optimizer
+   
+   # Or directly
+   python -m election_optimizer.cli
+   ```
 
-まずはテスト用の軽量版で動作確認：
+5. **View results**
+   Open `docs/index.html` in your web browser to view the interactive map.
 
-```bash
-# uvを使用する場合
-uv run test-optimizer
+## 📊 Data Format
 
-# pipを使用する場合
-test-optimizer
-```
+### Poster Board Locations (`data/poster_board_locations.csv`)
 
-### 2. 本格実行
+| Column | Description | Example |
+|--------|-------------|---------|
+| `投票区` | Voting district ID | `第01投票区: 中央南` |
+| `設置場所名` | Location name | `市民会館前` |
+| `住所` | Address | `東京都○○市○○町1-1` |
+| `緯度` | Latitude | `35.8327` |
+| `経度` | Longitude | `140.1451` |
 
-実際のデータで完全な最適化を実行：
+### Polling Places (`data/polling_places.csv`)
 
-```bash
-# APIキーを設定（オプション）
-export OPENROUTESERVICE_API_KEY="your-api-key"
+| Column | Description | Example |
+|--------|-------------|---------|
+| `polling_place_name` | Polling place name | `中央南` |
+| `address` | Address | `東京都○○市○○町2-2` |
+| `district_number` | District number | `第1投票区` |
+| `latitude` | Latitude | `35.8330` |
+| `longitude` | Longitude | `140.1455` |
 
-# uvを使用する場合
-uv run inzai-election-board
+## 🛠️ Usage
 
-# pipを使用する場合
-inzai-election-board
-```
-
-### 3. 結果の確認
-
-- 最適化結果は `docs/poster_board_routes.geojson` に出力されます
-- `docs/index.html` でWebブラウザで可視化できます
-- GitHub Pagesで公開されている場合は、そちらでも確認可能です
-
-## 機能
-
-### 主な機能
-
-- **最適始点探索**: 全ての掲示板を始点候補として最適なルートを計算
-- **TSP最適化**: 2-opt法による経路改善
-- **徒歩経路計算**: OpenRouteService APIを使用した実際の歩行経路
-- **個人情報保護**: 個人宅関連の住所を自動的に匿名化
-- **GeoJSON出力**: 地図上で可視化可能な形式で結果を出力
-
-### インタラクティブ地図機能
-
-- **投票区別表示**: 23の投票区から選択して詳細表示
-- **最適化された経路**: TSPアルゴリズムによる効率的な巡回順序
-- **詳細情報**: 各地点の住所、距離、推定時間を表示
-- **レスポンシブデザイン**: PC・スマートフォン・タブレット対応
-
-### データ形式
-
-#### 入力データ
-
-- `poster_board_locations.csv`: 掲示板設置場所
-- `polling_places.csv`: 投票所情報
-
-#### 出力データ
-
-- `poster_board_routes.geojson`: 最適化されたルート情報（GeoJSON形式）
-
-## 技術仕様
-
-### バックエンド
-
-- **言語**: Python 3.12+
-- **主要ライブラリ**: pandas, numpy, geopy, requests
-- **最適化アルゴリズム**: TSP（最近傍法 + 2-opt改善）
-- **API**: OpenRouteService（徒歩経路計算）
-- **出力形式**: GeoJSON
-
-### フロントエンド
-
-- **技術**: HTML5, CSS3, JavaScript (ES6+)
-- **地図ライブラリ**: Leaflet.js
-- **データ形式**: GeoJSON
-- **ホスティング**: GitHub Pages
-
-## 開発
-
-### 開発環境のセットアップ
+### Command Line Interface
 
 ```bash
-# 開発用の依存関係をインストール
-uv sync --dev
+# Basic usage
+election-optimizer
 
-# テストの実行
+# Specify custom data files
+election-optimizer --poster-csv data/my_boards.csv --polling-csv data/my_offices.csv
+
+# Use API for road distances
+election-optimizer --api-key YOUR_OPENROUTESERVICE_API_KEY
+
+# Custom output location
+election-optimizer --output results/routes.geojson
+
+# Configuration from file
+election-optimizer --config config.json
+```
+
+### Python API
+
+```python
+from election_optimizer import RouteOptimizer, Config
+
+# Create configuration
+config = Config()
+config.data.poster_board_csv = "data/poster_board_locations.csv"
+config.data.polling_places_csv = "data/polling_places.csv"
+
+# Initialize optimizer
+optimizer = RouteOptimizer(config)
+
+# Run optimization
+results = optimizer.optimize_all_districts()
+
+# Export to GeoJSON
+optimizer.export_geojson("output/routes.geojson")
+
+# Print summary
+optimizer.print_summary()
+```
+
+### Configuration File
+
+Create a `config.json` file for custom settings:
+
+```json
+{
+  "api": {
+    "request_delay": 2.0,
+    "timeout": 30
+  },
+  "optimization": {
+    "walking_speed_kmh": 4.0,
+    "max_tsp_iterations": 50
+  },
+  "data": {
+    "anonymize_personal_names": true,
+    "output_directory": "docs/data"
+  }
+}
+```
+
+## 🗺️ Web Interface
+
+The system generates an interactive web interface at `docs/index.html` with:
+
+- **District Selection**: Quick access to all voting districts
+- **Route Visualization**: Color-coded optimal routes
+- **Segment Details**: Distance and time for each route segment
+- **Google Maps Integration**: Direct navigation links
+- **Mobile Support**: Touch-friendly interface for field use
+
+### Web Interface Features
+
+- 🔍 **Search Districts**: Find districts quickly by name or number
+- 📍 **Interactive Markers**: Click for detailed location information
+- 📊 **Route Statistics**: View distance, time, and efficiency metrics
+- 📱 **Responsive Design**: Works on desktop, tablet, and mobile
+- 🗺️ **Multiple Views**: Switch between all districts and individual routes
+
+## 📁 Project Structure
+
+```
+election-board-optimizer/
+├── src/election_optimizer/          # Python package
+│   ├── config.py                    # Configuration management
+│   ├── cli.py                       # Command line interface
+│   ├── core/                        # Core algorithms
+│   │   ├── optimizer.py             # Main optimization engine
+│   │   └── tsp_solver.py            # TSP solving algorithms
+│   ├── data/                        # Data handling
+│   │   └── loader.py                # Data loading and preprocessing
+│   ├── utils/                       # Utilities
+│   │   └── distance.py              # Distance calculations
+│   └── export/                      # Export functionality
+│       └── geojson_exporter.py      # GeoJSON export
+├── docs/                            # Web interface
+│   ├── js/                          # JavaScript modules
+│   ├── css/                         # Stylesheets
+│   ├── data/                        # Generated data files
+│   └── index.html                   # Main interface
+├── data/                            # Input data
+│   ├── poster_board_locations.csv   # Poster board data
+│   └── polling_places.csv           # Polling place data
+├── tests/                           # Test suite
+└── pyproject.toml                   # Project configuration
+```
+
+## 🔧 Configuration Options
+
+### API Settings
+- `openrouteservice_base_url`: API endpoint
+- `api_key`: Your OpenRouteService API key
+- `request_delay`: Delay between API requests (seconds)
+- `timeout`: Request timeout (seconds)
+
+### Optimization Settings
+- `walking_speed_kmh`: Average walking speed
+- `max_tsp_iterations`: Maximum optimization iterations
+- `tsp_improvement_threshold`: Minimum improvement threshold
+
+### Data Settings
+- `anonymize_personal_names`: Enable privacy protection
+- `output_directory`: Directory for generated files
+- `output_filename`: Name of generated GeoJSON file
+
+## 🔒 Privacy Features
+
+The system includes comprehensive privacy protection:
+
+- **Personal Name Anonymization**: Automatically replaces personal residence references
+- **Configurable Patterns**: Customizable anonymization rules
+- **Data Sanitization**: Removes sensitive information from exports
+- **Audit Trail**: Logs all data transformations
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+# Using uv
 uv run pytest
 
-# 詳細なテスト実行
-uv run pytest -v
-
-# カバレッジ付きテスト実行
-uv run pytest --cov=src/inzai_election_board
-
-# 特定のテストファイルのみ実行
-uv run pytest tests/test_route_optimizer.py
-
-# コードフォーマット
-uv run black src/
-uv run isort src/
+# Or directly
+python -m pytest tests/
 ```
 
-### テスト構成
+## 📚 API Documentation
 
-プロジェクトには包括的なテストスイートが含まれています：
+### RouteOptimizer Class
 
-#### テストファイル
+The main optimization engine with methods for:
+- `load_data()`: Load and preprocess input data
+- `optimize_all_districts()`: Run optimization for all districts
+- `export_geojson()`: Export results to GeoJSON format
+- `get_summary_statistics()`: Get optimization statistics
 
-- **`tests/test_route_optimizer.py`**: 包括的なテストスイート
-  - **基本機能テスト**:
-    - モジュールのインポート確認
-    - データファイルの存在確認
-    - pandas/numpy の動作確認
-  - **CompleteRouteOptimizerクラスのテスト**:
-    - 地名サニタイズ機能のテスト
-    - 掲示板番号抽出のテスト
-    - 距離計算アルゴリズムのテスト
-  - **TSPアルゴリズムの詳細テスト**:
-    - 最適化アルゴリズムの動作確認
-    - ルート距離計算の検証
-  - **ユーティリティ機能テスト**:
-    - レート制限機能の確認
+### Config Class
 
-#### テスト実行例
+Configuration management with sections for:
+- `APIConfig`: API-related settings
+- `OptimizationConfig`: Algorithm parameters
+- `DataConfig`: Data processing options
 
-```bash
-# 全テストの実行
-uv run pytest
+## 🤝 Contributing
 
-# 詳細表示
-uv run pytest -v
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# 特定のテストクラスのみ
-uv run pytest tests/test_route_optimizer.py::TestBasicFunctionality
+## 📄 License
 
-# 特定のテストメソッドのみ
-uv run pytest tests/test_route_optimizer.py::TestCompleteRouteOptimizer::test_sanitize_location_name
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# テスト結果の表示オプション
-uv run pytest -v --tb=short  # 短いトレースバック
-uv run pytest -x             # 最初の失敗で停止
-uv run pytest --maxfail=3    # 3回失敗で停止
-```
+## 🙏 Acknowledgments
 
-#### テストカバレッジ
+- [OpenRouteService](https://openrouteservice.org/) for routing API
+- [Leaflet.js](https://leafletjs.com/) for web mapping
+- [GeoPy](https://geopy.readthedocs.io/) for geographic calculations
 
-各テストは以下の側面をカバーしています：
+## 📞 Support
 
-- **機能テスト**: 個別の機能が正しく動作することを確認
-- **統合テスト**: 複数のコンポーネントが連携して動作することを確認
-- **エラーハンドリング**: 異常な入力や状況に対する適切な処理を確認
-- **パフォーマンス**: 実行時間が許容範囲内であることを確認
-- **データ整合性**: 入力・出力データの形式と内容が正しいことを確認
-- **ファイルI/O**: ファイルの読み書きが正しく行われることを確認
-
-### 新機能の追加
-
-1. `src/inzai_election_board/` にモジュールを追加
-2. テストを `tests/` に追加
-3. 必要に応じて `pyproject.toml` を更新
-
-## GitHub Pages
-
-このプロジェクトは GitHub Pages で可視化結果を公開できます。
-
-1. `docs/` ディレクトリに最適化結果が出力されます
-2. GitHub Pages の設定で `docs/` を公開ディレクトリに設定
-3. `docs/index.html` で結果を確認可能
-
-## データについて
-
-- **総投票区数**: 23区
-- **総地点数**: 181地点
-- **総巡回距離**: 約120km
-- **データ更新日**: 2025年7月6日
-
-## ブラウザ対応
-
-- Chrome (推奨)
-- Firefox
-- Safari
-- Edge
-
-## 使用方法（Web版）
-
-1. **投票区選択**: 上部のボタンから特定の投票区を選択
-2. **全区表示**: "全区表示"ボタンで全投票区の概要を表示
-3. **地点詳細**: マーカーをクリックすると詳細情報を表示
-4. **巡回順序**: 右側パネルで最適化された順序を確認
-5. **データダウンロード**: GeoJSONデータをダウンロード可能
-
-## ライセンス
-
-MIT License
-
-## 貢献
-
-プルリクエストや Issue の報告を歓迎します。
+- 📧 Email: contact@election-optimizer.org
+- 🐛 Issues: [GitHub Issues](https://github.com/ota2000/inzai-election-board/issues)
+- 📖 Documentation: [GitHub README](https://github.com/ota2000/inzai-election-board#readme)
 
 ---
 
-**注意**: このシステムは選挙活動の効率化を目的としており、個人情報の取り扱いには十分注意してください。
+**Election Board Route Optimizer** - Making election administration more efficient, one route at a time. 🗳️✨

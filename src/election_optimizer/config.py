@@ -88,6 +88,19 @@ class Config:
             data=DataConfig(**config_dict.get('data', {}))
         )
     
+    @classmethod
+    def from_file(cls, config_path: str) -> 'Config':
+        """Load configuration from JSON file."""
+        import json
+        try:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config_dict = json.load(f)
+            return cls.from_dict(config_dict)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Configuration file not found: {config_path}")
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in configuration file: {e}")
+    
     def to_dict(self) -> dict:
         """Convert configuration to dictionary."""
         return {
