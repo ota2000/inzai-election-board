@@ -292,6 +292,10 @@ function showDistrict(districtName) {
             const displayFromBoard = toBoardNumber;  // セグメントのtoが巡回順序のfrom
             const displayToBoard = fromBoardNumber;  // セグメントのfromが巡回順序のto
             
+            // ルートセグメントの座標を取得（表示順序に合わせて調整）
+            const displayFromCoord = [toPoint.geometry.coordinates[0], toPoint.geometry.coordinates[1]];  // 表示上のfrom
+            const displayToCoord = [fromPoint.geometry.coordinates[0], fromPoint.geometry.coordinates[1]];  // 表示上のto
+            
             const polyline = L.polyline(segmentCoords, {
                 color: segmentColor,
                 weight: 6,
@@ -305,6 +309,10 @@ function showDistrict(districtName) {
                         ${segmentDistance ? `距離: ${segmentDistance}km<br>` : ''}
                         ${segmentTime ? `時間: ${segmentTime}` : ''}
                     </div>
+                    <button onclick="openSegmentInGoogleMaps([${displayFromCoord[0]}, ${displayFromCoord[1]}], [${displayToCoord[0]}, ${displayToCoord[1]}])" 
+                            style="background: #4285f4; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem;">
+                        📍 Googleマップで開く
+                    </button>
                 </div>
             `).addTo(routesLayer);
             
