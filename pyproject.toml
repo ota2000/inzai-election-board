@@ -3,7 +3,7 @@ name = "board-route-optimizer"
 version = "1.0.0"
 description = "Board Route Optimizer - TSP-based route optimization for poster board maintenance"
 authors = [
-    {name = "Board Route Optimizer Team", email = "contact@board-route-optimizer.org"},
+    {name = "ota2000", email = "ota2000@ota2000.com"},
 ]
 readme = "README.md"
 requires-python = ">=3.9"

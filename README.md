@@ -281,7 +281,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📧 Email: contact@board-route-optimizer.org
+- 📧 Email: ota2000@ota2000.com
 - 🐛 Issues: [GitHub Issues](https://github.com/ota2000/inzai-election-board/issues)
 - 📖 Documentation: [GitHub README](https://github.com/ota2000/inzai-election-board#readme)
 
