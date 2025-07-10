@@ -61,19 +61,15 @@ export class RouteManager {
                             ${statusDisplay}
                         </span>
                     </div>
-                    <div class="route-address clickable-address" onclick="window.appUtils.copyToClipboard('${point.properties.address}')" title="クリックでコピー">
-                        📍 ${point.properties.address}
+                    <div class="route-address">
+                        ${point.properties.address}
                     </div>
                 </div>
             `;
             
             // 掲示板項目全体をクリック可能にしてマップにフォーカス
             routeItem.style.cursor = 'pointer';
-            routeItem.onclick = (e) => {
-                // アドレス部分のクリックは除外（コピー機能を優先）
-                if (e.target.classList.contains('clickable-address')) {
-                    return;
-                }
+            routeItem.onclick = () => {
                 this.focusOnPoint(point);
             };
             
