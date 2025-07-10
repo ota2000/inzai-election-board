@@ -419,7 +419,7 @@ export class DistrictManager {
             <div class="stat-item">
                 <span class="stat-label">掲示板数</span>
                 <span class="stat-value">
-                    ${totalPoints}ヶ所 (未完了: ${optimizationPoints}, 完了: ${completedPoints.length})
+                    ${totalPoints}ヶ所 (未完了: ${optimizationPoints})
                 </span>
             </div>
             <div class="stat-item">
@@ -449,24 +449,66 @@ export class DistrictManager {
     
     // 完了地点にフォーカス
     focusOnCompletedPoint(point) {
+        console.log('focusOnCompletedPoint called with:', point);
+        
         const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
-        this.mapManager.setView(coord, 16);
+        console.log('Target coordinates:', coord);
+        
+        // マップのビューを設定
+        try {
+            this.mapManager.setView(coord, 16);
+            console.log('Map view set to:', coord, 'zoom: 16');
+        } catch (error) {
+            console.error('Error setting map view:', error);
+        }
         
         // ポップアップを表示するためにマーカーを見つけてクリック
         setTimeout(() => {
-            const markers = this.mapManager.getMarkersLayer().getLayers();
-            const targetMarker = markers.find(marker => {
-                if (marker.getLatLng) {
-                    const markerPos = marker.getLatLng();
-                    return Math.abs(markerPos.lat - coord[0]) < 0.0001 && 
-                           Math.abs(markerPos.lng - coord[1]) < 0.0001;
+            try {
+                const markers = this.mapManager.getMarkersLayer().getLayers();
+                console.log('Found markers count:', markers.length);
+                
+                const targetMarker = markers.find(marker => {
+                    if (marker.getLatLng) {
+                        const markerPos = marker.getLatLng();
+                        const latDiff = Math.abs(markerPos.lat - coord[0]);
+                        const lngDiff = Math.abs(markerPos.lng - coord[1]);
+                        console.log('Checking marker at:', markerPos.lat, markerPos.lng, 'diff:', latDiff, lngDiff);
+                        
+                        // 精度を緩めて検索
+                        return latDiff < 0.001 && lngDiff < 0.001;
+                    }
+                    return false;
+                });
+                
+                if (targetMarker && targetMarker.openPopup) {
+                    console.log('Found target marker, opening popup');
+                    targetMarker.openPopup();
+                } else {
+                    console.log('Target marker not found, creating custom popup');
+                    // マーカーが見つからない場合は直接ポップアップを作成
+                    const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+                    const popupContent = `
+                        <div style="min-width: 200px;">
+                            <div style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;">
+                                ${boardNumber}${point.properties.name}
+                            </div>
+                            <div style="margin-bottom: 0.5rem;">
+                                <span style="display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; color: white; background-color: #27ae60;">
+                                    完了
+                                </span>
+                            </div>
+                            <div style="color: #666; font-size: 0.9rem;">
+                                ${point.properties.address}
+                            </div>
+                        </div>
+                    `;
+                    this.mapManager.openPopup(coord, popupContent);
                 }
-                return false;
-            });
-            if (targetMarker && targetMarker.openPopup) {
-                targetMarker.openPopup();
+            } catch (error) {
+                console.error('Error in marker search or popup:', error);
             }
-        }, 100);
+        }, 200);
     }
     
     // 完了地点カードを非表示
