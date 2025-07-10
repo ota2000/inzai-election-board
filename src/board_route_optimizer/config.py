@@ -12,7 +12,7 @@ class APIConfig:
     """API configuration settings."""
     openrouteservice_base_url: str = "https://api.openrouteservice.org/v2"
     api_key: Optional[str] = None
-    request_delay: float = 2.0  # seconds
+    request_delay: float = 1.6  # seconds (for 40 requests/minute limit)
     timeout: int = 30
     max_retries: int = 3
     

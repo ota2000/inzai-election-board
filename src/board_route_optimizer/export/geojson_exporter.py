@@ -118,26 +118,47 @@ class GeoJSONExporter:
         """Create GeoJSON features for routes."""
         features = []
         
-        # Create simple route (fallback)
-        route_coords = [
-            [loc['経度'], loc['緯度']] for loc in result['locations']
-        ]
-        
-        if len(route_coords) > 1:
-            simple_route_feature = {
-                "type": "Feature", 
-                "geometry": {
-                    "type": "LineString",
-                    "coordinates": route_coords
-                },
-                "properties": {
-                    "district": district_name,
-                    "type": "simple_route",
-                    "total_distance_km": round(result['distance'] / 1000, 2),
-                    "estimated_hours": round(result['duration'] / 3600, 1)
+        # Check if we have detailed route segments from API
+        if 'route_segments' in result and result['route_segments']:
+            # Create detailed route segments
+            for i, segment in enumerate(result['route_segments']):
+                if segment and len(segment) > 1:
+                    segment_feature = {
+                        "type": "Feature",
+                        "geometry": {
+                            "type": "LineString",
+                            "coordinates": segment
+                        },
+                        "properties": {
+                            "district": district_name,
+                            "type": "route_segment",
+                            "segment": i + 1,
+                            "from_point": i + 1,
+                            "to_point": i + 2 if i + 2 <= len(result['locations']) else 1
+                        }
+                    }
+                    features.append(segment_feature)
+        else:
+            # Create simple route (fallback)
+            route_coords = [
+                [loc['経度'], loc['緯度']] for loc in result['locations']
+            ]
+            
+            if len(route_coords) > 1:
+                simple_route_feature = {
+                    "type": "Feature", 
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": route_coords
+                    },
+                    "properties": {
+                        "district": district_name,
+                        "type": "simple_route",
+                        "total_distance_km": round(result['distance'] / 1000, 2),
+                        "estimated_hours": round(result['duration'] / 3600, 1)
+                    }
                 }
-            }
-            features.append(simple_route_feature)
+                features.append(simple_route_feature)
         
         return features
     

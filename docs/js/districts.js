@@ -129,10 +129,10 @@ export class DistrictManager {
             this.addCompletedBoardMarkers(donePoints);
         }
         
-        // 投票所マーカー追加
-        if (votingOffice) {
-            this.addVotingOfficeMarker(votingOffice);
-        }
+        // 投票所マーカー追加（非表示）
+        // if (votingOffice) {
+        //     this.addVotingOfficeMarker(votingOffice);
+        // }
         
         // ルートセグメント表示
         this.routeManager.displayRouteSegments(districtName);
@@ -151,6 +151,9 @@ export class DistrictManager {
         
         // ルートリスト更新
         this.routeManager.updateRouteList(districtPoints);
+        
+        // 完了地点リスト更新
+        this.updateCompletedList(donePoints);
     }
     
     // 投票区マーカーを追加
@@ -446,26 +449,25 @@ export class DistrictManager {
         const districtNumber = properties.district_number || '不明';
         document.getElementById('districtInfoTitle').textContent = districtNumber;
         
-        const totalPoints = this.allData.features.filter(f => 
-            f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
+        // 該当する投票区の掲示板数を計算（最適化対象のみ）
+        const optimizationPoints = this.allData.features.filter(f =>
+            f.properties.district === districtName && f.geometry.type === 'Point' && 
+            f.properties.type !== 'voting_office' && f.properties.type !== 'completed_board'
         ).length;
+        
+        // 完了済み掲示板数を計算
+        const completedPoints = this.allData.features.filter(f =>
+            f.properties.district === districtName && f.properties.type === 'completed_board'
+        ).length;
+        
+        const totalPoints = optimizationPoints + completedPoints;
         
         document.getElementById('districtInfo').innerHTML = `
             <div class="stat-item">
-                <span class="stat-label">投票所</span>
-                <span class="stat-value">
-                    ${properties.office_name || '不明'}
-                    <div class="clickable-address" 
-                         onclick="window.appUtils.copyToClipboard('${properties.office_address || '不明'}')" 
-                         title="クリックでコピー" 
-                         style="cursor: pointer; font-size: 0.8em; color: #999; margin-top: 0.25rem; opacity: 0.7; text-align: right;">
-                        ${properties.office_address || '不明'}
-                    </div>
-                </span>
-            </div>
-            <div class="stat-item">
                 <span class="stat-label">掲示板数</span>
-                <span class="stat-value">${totalPoints}ヶ所</span>
+                <span class="stat-value">
+                    ${totalPoints}ヶ所 (未完了: ${optimizationPoints}, 完了: ${completedPoints})
+                </span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">総距離</span>
@@ -476,6 +478,67 @@ export class DistrictManager {
                 <span class="stat-value">${properties.estimated_hours}時間</span>
             </div>
         `;
+    }
+    
+    // 完了地点リストを更新
+    updateCompletedList(completedPoints) {
+        const completedCard = document.getElementById('completedCard');
+        const completedList = document.getElementById('completedList');
+        
+        if (completedPoints.length === 0) {
+            completedCard.style.display = 'none';
+            return;
+        }
+        
+        completedCard.style.display = 'block';
+        
+        const listContent = completedPoints.map(point => {
+            const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+            const statusDisplay = getStatusDisplayName(point.properties.status);
+            const statusColor = getStatusColor(point.properties.status);
+            
+            return `
+                <div class="route-item completed-item" onclick="this.showCompletedPoint([${point.geometry.coordinates[1]}, ${point.geometry.coordinates[0]}])">
+                    <div class="route-item-header">
+                        <span class="route-number completed-badge">✓</span>
+                        <span class="route-name">${boardNumber}${point.properties.name}</span>
+                    </div>
+                    <div class="route-item-details">
+                        <span class="status-badge" style="background-color: ${statusColor};">
+                            ${statusDisplay}
+                        </span>
+                        <div class="route-address">${point.properties.address}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        completedList.innerHTML = listContent;
+        
+        // 完了地点クリックイベントを追加
+        document.querySelectorAll('.completed-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const point = completedPoints[index];
+                const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+                this.mapManager.setView(coord, 16);
+                
+                // ポップアップを表示するためにマーカーを見つけてクリック
+                setTimeout(() => {
+                    const markers = this.mapManager.getMarkersLayer().getLayers();
+                    const targetMarker = markers.find(marker => {
+                        if (marker.getLatLng) {
+                            const markerPos = marker.getLatLng();
+                            return Math.abs(markerPos.lat - coord[0]) < 0.0001 && 
+                                   Math.abs(markerPos.lng - coord[1]) < 0.0001;
+                        }
+                        return false;
+                    });
+                    if (targetMarker && targetMarker.openPopup) {
+                        targetMarker.openPopup();
+                    }
+                }, 100);
+            });
+        });
     }
     
     // 全体情報を更新
@@ -518,10 +581,16 @@ export class DistrictManager {
     // UI状態を全投票区表示用に更新
     updateUIForAllDistricts() {
         const routeCard = document.getElementById('routeCard');
+        const completedCard = document.getElementById('completedCard');
         
         // 巡回順序エリア全体を非表示
         if (routeCard) {
             routeCard.style.display = 'none';
+        }
+        
+        // 完了地点エリアも非表示
+        if (completedCard) {
+            completedCard.style.display = 'none';
         }
     }
     

@@ -45,6 +45,99 @@ class DistanceCalculator:
         
         return self._calculate_straight_distance_matrix(locations)
     
+    def get_route_segments(self, locations: List[Tuple[float, float]], 
+                          route: List[int]) -> List[List[List[float]]]:
+        """
+        Get detailed route segments for optimized route.
+        
+        Args:
+            locations: List of (lon, lat) coordinates
+            route: Optimized route order
+            
+        Returns:
+            List of route segments as coordinates
+        """
+        if not self.config.api.api_key:
+            return []
+        
+        segments = []
+        total_segments = len(route) - 1
+        
+        print(f"  Getting {total_segments} route segments...")
+        
+        for i in range(total_segments):
+            from_idx = route[i]
+            to_idx = route[i + 1]
+            
+            print(f"    Segment {i+1}/{total_segments}: {from_idx+1} -> {to_idx+1}")
+            
+            try:
+                segment = self._get_route_segment(
+                    locations[from_idx], 
+                    locations[to_idx]
+                )
+                if segment:
+                    segments.append(segment)
+                else:
+                    # Fallback to straight line
+                    segments.append([
+                        [locations[from_idx][0], locations[from_idx][1]],
+                        [locations[to_idx][0], locations[to_idx][1]]
+                    ])
+            except Exception as e:
+                print(f"    Failed to get segment {i+1}: {e}")
+                # Fallback to straight line
+                segments.append([
+                    [locations[from_idx][0], locations[from_idx][1]],
+                    [locations[to_idx][0], locations[to_idx][1]]
+                ])
+        
+        print(f"  Route segments completed: {len(segments)}/{total_segments}")
+        return segments
+    
+    def _get_route_segment(self, from_loc: Tuple[float, float], 
+                          to_loc: Tuple[float, float]) -> Optional[List[List[float]]]:
+        """
+        Get route segment between two points.
+        
+        Args:
+            from_loc: (lon, lat) of starting point
+            to_loc: (lon, lat) of ending point
+            
+        Returns:
+            List of coordinates for the route segment
+        """
+        self._wait_for_rate_limit()
+        
+        url = f"{self.config.api.openrouteservice_base_url}/directions/foot-walking/geojson"
+        headers = {
+            'Authorization': self.config.api.api_key,
+            'Content-Type': 'application/json'
+        }
+        
+        data = {
+            'coordinates': [
+                [from_loc[0], from_loc[1]],
+                [to_loc[0], to_loc[1]]
+            ]
+        }
+        
+        response = requests.post(
+            url, 
+            json=data, 
+            headers=headers, 
+            timeout=self.config.api.timeout
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            if 'features' in result and len(result['features']) > 0:
+                geometry = result['features'][0]['geometry']
+                if geometry['type'] == 'LineString':
+                    return geometry['coordinates']
+        
+        return None
+    
     def _get_road_distance_matrix(self, locations: List[Tuple[float, float]]) -> Tuple[np.ndarray, np.ndarray]:
         """
         Get road distance matrix using OpenRouteService API.

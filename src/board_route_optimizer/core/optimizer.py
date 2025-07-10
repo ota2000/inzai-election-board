@@ -114,6 +114,16 @@ class RouteOptimizer:
             for i in range(len(optimized_route) - 1)
         )
         
+        # Get route segments if API is available
+        route_segments = []
+        if bool(self.config.api.api_key):
+            try:
+                route_segments = self.distance_calculator.get_route_segments(
+                    locations, optimized_route
+                )
+            except Exception as e:
+                print(f"Failed to get route segments: {e}")
+        
         # Prepare result
         result = {
             'data': district_data,
@@ -122,7 +132,8 @@ class RouteOptimizer:
             'duration': total_duration,
             'locations': [district_data.iloc[i] for i in optimized_route],
             'distance_matrix': distance_matrix.tolist(),
-            'duration_matrix': duration_matrix.tolist()
+            'duration_matrix': duration_matrix.tolist(),
+            'route_segments': route_segments
         }
         
         return result
@@ -162,6 +173,16 @@ class RouteOptimizer:
             for i in range(len(optimized_route) - 1)
         )
         
+        # Get route segments if API is available
+        route_segments = []
+        if bool(self.config.api.api_key):
+            try:
+                route_segments = self.distance_calculator.get_route_segments(
+                    locations, optimized_route
+                )
+            except Exception as e:
+                print(f"Failed to get route segments: {e}")
+        
         # Prepare result
         result = {
             'data': district_data,
@@ -170,7 +191,8 @@ class RouteOptimizer:
             'duration': total_duration,
             'locations': [district_data.iloc[i] for i in optimized_route],
             'distance_matrix': distance_matrix.tolist(),
-            'duration_matrix': duration_matrix.tolist()
+            'duration_matrix': duration_matrix.tolist(),
+            'route_segments': route_segments
         }
         
         return result
