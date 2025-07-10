@@ -1,0 +1,502 @@
+Loading data...
+Loaded cached BigQuery data from: docs/data/bigquery_cache.csv
+Loaded 181 total boards from cache: 154 for optimization, 27 completed (reference only)
+Loaded 154 poster board locations
+Loaded 23 voting offices
+\nOptimizing routes for 23 districts...
+============================================================
+\n【第20投票区】Optimizing...
+Road distance matrix obtained (10 points)
+  Optimizing with 10 points as starting candidates...
+  Optimal starting point: 2
+  Getting 9 route segments...
+    Segment 1/9: 2 -> 5
+      Using cached segment
+    Segment 2/9: 5 -> 9
+      Using cached segment
+    Segment 3/9: 9 -> 6
+      Using cached segment
+    Segment 4/9: 6 -> 8
+      Using cached segment
+    Segment 5/9: 8 -> 3
+      Using cached segment
+    Segment 6/9: 3 -> 4
+      Using cached segment
+    Segment 7/9: 4 -> 1
+      Using cached segment
+    Segment 8/9: 1 -> 10
+      Using cached segment
+    Segment 9/9: 10 -> 7
+      Using cached segment
+  Route segments completed: 9/9 (Cache hits: 9, API calls: 0)
+  Optimization complete: 10 points
+  Total distance: 10.65km
+  Estimated time: 2.1hours
+\n【第11投票区】Optimizing...
+Road distance matrix obtained (3 points)
+  Optimizing with 3 points as starting candidates...
+  Optimal starting point: 2
+  Getting 2 route segments...
+    Segment 1/2: 2 -> 1
+      Using cached segment
+    Segment 2/2: 1 -> 3
+      Using cached segment
+  Route segments completed: 2/2 (Cache hits: 2, API calls: 0)
+  Optimization complete: 3 points
+  Total distance: 1.44km
+  Estimated time: 0.3hours
+\n【第17投票区】Optimizing...
+Road distance matrix obtained (10 points)
+  Optimizing with 10 points as starting candidates...
+  Optimal starting point: 2
+  Getting 9 route segments...
+    Segment 1/9: 2 -> 7
+      Using cached segment
+    Segment 2/9: 7 -> 9
+      Using cached segment
+    Segment 3/9: 9 -> 4
+      Using cached segment
+    Segment 4/9: 4 -> 6
+      Using cached segment
+    Segment 5/9: 6 -> 8
+      Using cached segment
+    Segment 6/9: 8 -> 1
+      Using cached segment
+    Segment 7/9: 1 -> 3
+      Using cached segment
+    Segment 8/9: 3 -> 5
+      Using cached segment
+    Segment 9/9: 5 -> 10
+      Using cached segment
+  Route segments completed: 9/9 (Cache hits: 9, API calls: 0)
+  Optimization complete: 10 points
+  Total distance: 12.27km
+  Estimated time: 2.5hours
+\n【第21投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 5
+  Getting 6 route segments...
+    Segment 1/6: 5 -> 4
+      Using cached segment
+    Segment 2/6: 4 -> 6
+      Using cached segment
+    Segment 3/6: 6 -> 3
+      Using cached segment
+    Segment 4/6: 3 -> 1
+      Using cached segment
+    Segment 5/6: 1 -> 2
+      Using cached segment
+    Segment 6/6: 2 -> 7
+      Using cached segment
+  Route segments completed: 6/6 (Cache hits: 6, API calls: 0)
+  Optimization complete: 7 points
+  Total distance: 5.52km
+  Estimated time: 1.1hours
+\n【第1投票区】Optimizing...
+Road distance matrix obtained (8 points)
+  Optimizing with 8 points as starting candidates...
+  Optimal starting point: 3
+  Getting 7 route segments...
+    Segment 1/7: 3 -> 6
+      Using cached segment
+    Segment 2/7: 6 -> 4
+      Using cached segment
+    Segment 3/7: 4 -> 1
+      Using cached segment
+    Segment 4/7: 1 -> 2
+      Using cached segment
+    Segment 5/7: 2 -> 8
+      Using cached segment
+    Segment 6/7: 8 -> 7
+      Using cached segment
+    Segment 7/7: 7 -> 5
+      Using cached segment
+  Route segments completed: 7/7 (Cache hits: 7, API calls: 0)
+  Optimization complete: 8 points
+  Total distance: 6.88km
+  Estimated time: 1.4hours
+\n【第22投票区】Optimizing...
+Road distance matrix obtained (9 points)
+  Optimizing with 9 points as starting candidates...
+  Optimal starting point: 5
+  Getting 8 route segments...
+    Segment 1/8: 5 -> 6
+      Using cached segment
+    Segment 2/8: 6 -> 8
+      Using cached segment
+    Segment 3/8: 8 -> 7
+      Using cached segment
+    Segment 4/8: 7 -> 1
+      Using cached segment
+    Segment 5/8: 1 -> 3
+      Using cached segment
+    Segment 6/8: 3 -> 4
+      Using cached segment
+    Segment 7/8: 4 -> 9
+      Using cached segment
+    Segment 8/8: 9 -> 2
+      Using cached segment
+  Route segments completed: 8/8 (Cache hits: 8, API calls: 0)
+  Optimization complete: 9 points
+  Total distance: 4.69km
+  Estimated time: 0.9hours
+\n【第16投票区】Optimizing...
+Road distance matrix obtained (9 points)
+  Optimizing with 9 points as starting candidates...
+  Optimal starting point: 9
+  Getting 8 route segments...
+    Segment 1/8: 9 -> 6
+      Using cached segment
+    Segment 2/8: 6 -> 7
+      Using cached segment
+    Segment 3/8: 7 -> 5
+      Using cached segment
+    Segment 4/8: 5 -> 2
+      Using cached segment
+    Segment 5/8: 2 -> 1
+      Using cached segment
+    Segment 6/8: 1 -> 4
+      Using cached segment
+    Segment 7/8: 4 -> 3
+      Using cached segment
+    Segment 8/8: 3 -> 8
+      Using cached segment
+  Route segments completed: 8/8 (Cache hits: 8, API calls: 0)
+  Optimization complete: 9 points
+  Total distance: 10.36km
+  Estimated time: 2.1hours
+\n【第15投票区】Optimizing...
+Road distance matrix obtained (8 points)
+  Optimizing with 8 points as starting candidates...
+  Optimal starting point: 5
+  Getting 7 route segments...
+    Segment 1/7: 5 -> 4
+      Using cached segment
+    Segment 2/7: 4 -> 2
+      Using cached segment
+    Segment 3/7: 2 -> 1
+      Using cached segment
+    Segment 4/7: 1 -> 3
+      Using cached segment
+    Segment 5/7: 3 -> 8
+      Using cached segment
+    Segment 6/7: 8 -> 7
+      Using cached segment
+    Segment 7/7: 7 -> 6
+      Using cached segment
+  Route segments completed: 7/7 (Cache hits: 7, API calls: 0)
+  Optimization complete: 8 points
+  Total distance: 2.71km
+  Estimated time: 0.5hours
+\n【第2投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 6
+  Getting 6 route segments...
+    Segment 1/6: 6 -> 4
+      Using cached segment
+    Segment 2/6: 4 -> 3
+      Using cached segment
+    Segment 3/6: 3 -> 7
+      Using cached segment
+    Segment 4/6: 7 -> 2
+      Using cached segment
+    Segment 5/6: 2 -> 5
+      Using cached segment
+    Segment 6/6: 5 -> 1
+      Using cached segment
+  Route segments completed: 6/6 (Cache hits: 6, API calls: 0)
+  Optimization complete: 7 points
+  Total distance: 4.40km
+  Estimated time: 0.9hours
+\n【第4投票区】Optimizing...
+Road distance matrix obtained (9 points)
+  Optimizing with 9 points as starting candidates...
+  Optimal starting point: 2
+  Getting 8 route segments...
+    Segment 1/8: 2 -> 9
+      Using cached segment
+    Segment 2/8: 9 -> 8
+      Using cached segment
+    Segment 3/8: 8 -> 1
+      Using cached segment
+    Segment 4/8: 1 -> 5
+      Using cached segment
+    Segment 5/8: 5 -> 6
+      Using cached segment
+    Segment 6/8: 6 -> 3
+      Using cached segment
+    Segment 7/8: 3 -> 4
+      Using cached segment
+    Segment 8/8: 4 -> 7
+      Using cached segment
+  Route segments completed: 8/8 (Cache hits: 8, API calls: 0)
+  Optimization complete: 9 points
+  Total distance: 6.03km
+  Estimated time: 1.2hours
+\n【第5投票区】Optimizing...
+Road distance matrix obtained (8 points)
+  Optimizing with 8 points as starting candidates...
+  Optimal starting point: 6
+  Getting 7 route segments...
+    Segment 1/7: 6 -> 4
+      Using cached segment
+    Segment 2/7: 4 -> 5
+      Using cached segment
+    Segment 3/7: 5 -> 7
+      Using cached segment
+    Segment 4/7: 7 -> 8
+      Using cached segment
+    Segment 5/7: 8 -> 1
+      Using cached segment
+    Segment 6/7: 1 -> 2
+      Using cached segment
+    Segment 7/7: 2 -> 3
+      Using cached segment
+  Route segments completed: 7/7 (Cache hits: 7, API calls: 0)
+  Optimization complete: 8 points
+  Total distance: 5.04km
+  Estimated time: 1.0hours
+\n【第14投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 1
+  Getting 6 route segments...
+    Segment 1/6: 1 -> 6
+      Fetching from API...
+    Segment 2/6: 6 -> 2
+      Fetching from API...
+    Segment 3/6: 2 -> 7
+      Fetching from API...
+    Segment 4/6: 7 -> 4
+      Fetching from API...
+    Segment 5/6: 4 -> 5
+      Fetching from API...
+    Segment 6/6: 5 -> 3
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 2.49km
+  Estimated time: 0.5hours
+\n【第12投票区】Optimizing...
+Road distance matrix obtained (4 points)
+  Optimizing with 4 points as starting candidates...
+  Optimal starting point: 2
+  Getting 3 route segments...
+    Segment 1/3: 2 -> 1
+      Fetching from API...
+    Segment 2/3: 1 -> 4
+      Fetching from API...
+    Segment 3/3: 4 -> 3
+      Fetching from API...
+  Route segments completed: 3/3 (Cache hits: 0, API calls: 3)
+  Optimization complete: 4 points
+  Total distance: 1.97km
+  Estimated time: 0.4hours
+\n【第13投票区】Optimizing...
+Road distance matrix obtained (6 points)
+  Optimizing with 6 points as starting candidates...
+  Optimal starting point: 2
+  Getting 5 route segments...
+    Segment 1/5: 2 -> 4
+      Fetching from API...
+    Segment 2/5: 4 -> 1
+      Fetching from API...
+    Segment 3/5: 1 -> 6
+      Fetching from API...
+    Segment 4/5: 6 -> 3
+      Fetching from API...
+    Segment 5/5: 3 -> 5
+      Fetching from API...
+  Route segments completed: 5/5 (Cache hits: 0, API calls: 5)
+  Optimization complete: 6 points
+  Total distance: 2.45km
+  Estimated time: 0.5hours
+\n【第18投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 6
+  Getting 6 route segments...
+    Segment 1/6: 6 -> 3
+      Fetching from API...
+    Segment 2/6: 3 -> 5
+      Fetching from API...
+    Segment 3/6: 5 -> 4
+      Fetching from API...
+    Segment 4/6: 4 -> 7
+      Fetching from API...
+    Segment 5/6: 7 -> 1
+      Fetching from API...
+    Segment 6/6: 1 -> 2
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 3.88km
+  Estimated time: 0.8hours
+\n【第6投票区】Optimizing...
+Road distance matrix obtained (6 points)
+  Optimizing with 6 points as starting candidates...
+  Optimal starting point: 2
+  Getting 5 route segments...
+    Segment 1/5: 2 -> 4
+      Fetching from API...
+    Segment 2/5: 4 -> 1
+      Fetching from API...
+    Segment 3/5: 1 -> 6
+      Fetching from API...
+    Segment 4/5: 6 -> 5
+      Fetching from API...
+    Segment 5/5: 5 -> 3
+      Fetching from API...
+  Route segments completed: 5/5 (Cache hits: 0, API calls: 5)
+  Optimization complete: 6 points
+  Total distance: 2.96km
+  Estimated time: 0.6hours
+\n【第3投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 5
+  Getting 6 route segments...
+    Segment 1/6: 5 -> 4
+      Fetching from API...
+    Segment 2/6: 4 -> 2
+      Fetching from API...
+    Segment 3/6: 2 -> 1
+      Fetching from API...
+    Segment 4/6: 1 -> 7
+      Fetching from API...
+    Segment 5/6: 7 -> 3
+      Fetching from API...
+    Segment 6/6: 3 -> 6
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 2.49km
+  Estimated time: 0.5hours
+\n【第7投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 6
+  Getting 6 route segments...
+    Segment 1/6: 6 -> 1
+      Fetching from API...
+    Segment 2/6: 1 -> 2
+      Fetching from API...
+    Segment 3/6: 2 -> 4
+      Fetching from API...
+    Segment 4/6: 4 -> 7
+      Fetching from API...
+    Segment 5/6: 7 -> 5
+      Fetching from API...
+    Segment 6/6: 5 -> 3
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 6.16km
+  Estimated time: 1.2hours
+\n【第9投票区】Optimizing...
+Road distance matrix obtained (4 points)
+  Optimizing with 4 points as starting candidates...
+  Optimal starting point: 1
+  Getting 3 route segments...
+    Segment 1/3: 1 -> 2
+      Fetching from API...
+    Segment 2/3: 2 -> 4
+      Fetching from API...
+    Segment 3/3: 4 -> 3
+      Fetching from API...
+  Route segments completed: 3/3 (Cache hits: 0, API calls: 3)
+  Optimization complete: 4 points
+  Total distance: 2.71km
+  Estimated time: 0.5hours
+\n【第19投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 4
+  Getting 6 route segments...
+    Segment 1/6: 4 -> 3
+      Fetching from API...
+    Segment 2/6: 3 -> 1
+      Fetching from API...
+    Segment 3/6: 1 -> 2
+      Fetching from API...
+    Segment 4/6: 2 -> 7
+      Fetching from API...
+    Segment 5/6: 7 -> 6
+      Fetching from API...
+    Segment 6/6: 6 -> 5
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 1.97km
+  Estimated time: 0.4hours
+\n【第8投票区】Optimizing...
+Road distance matrix obtained (7 points)
+  Optimizing with 7 points as starting candidates...
+  Optimal starting point: 5
+  Getting 6 route segments...
+    Segment 1/6: 5 -> 3
+      Fetching from API...
+    Segment 2/6: 3 -> 1
+      Fetching from API...
+    Segment 3/6: 1 -> 2
+      Fetching from API...
+    Segment 4/6: 2 -> 4
+      Fetching from API...
+    Segment 5/6: 4 -> 6
+      Fetching from API...
+    Segment 6/6: 6 -> 7
+      Fetching from API...
+  Route segments completed: 6/6 (Cache hits: 0, API calls: 6)
+  Optimization complete: 7 points
+  Total distance: 4.47km
+  Estimated time: 0.9hours
+\n【第10投票区】Optimizing...
+Road distance matrix obtained (3 points)
+  Optimizing with 3 points as starting candidates...
+  Optimal starting point: 1
+  Getting 2 route segments...
+    Segment 1/2: 1 -> 3
+      Fetching from API...
+    Segment 2/2: 3 -> 2
+      Fetching from API...
+  Route segments completed: 2/2 (Cache hits: 0, API calls: 2)
+  Optimization complete: 3 points
+  Total distance: 1.39km
+  Estimated time: 0.3hours
+\n【第23投票区】Optimizing...
+API error: HTTP 400: {"error":{"code":6003,"message":"Parameter 'locations' has incorrect value or format."},"info":{"engine":{"build_date":"2025-06-06T15:39:25Z","graph_version":"2","graph_date":"2025-06-24T15:58:53Z","osm_date":"1970-01-01T00:00:00Z","version":"9.3.0"},"timestamp":1752155247406}}
+Falling back to straight-line distances.
+  Getting 0 route segments...
+  Route segments completed: 0/0 (Cache hits: 0, API calls: 0)
+  Optimization complete: 1 points
+  Total distance: 0.00km
+  Estimated time: 0.0hours
+\nExporting GeoJSON data to docs/data/poster_board_routes.geojson...
+\n【第20投票区】Generating integrated data...
+\n【第11投票区】Generating integrated data...
+\n【第17投票区】Generating integrated data...
+\n【第21投票区】Generating integrated data...
+\n【第1投票区】Generating integrated data...
+\n【第22投票区】Generating integrated data...
+\n【第16投票区】Generating integrated data...
+\n【第15投票区】Generating integrated data...
+\n【第2投票区】Generating integrated data...
+\n【第4投票区】Generating integrated data...
+\n【第5投票区】Generating integrated data...
+\n【第14投票区】Generating integrated data...
+\n【第12投票区】Generating integrated data...
+\n【第13投票区】Generating integrated data...
+\n【第18投票区】Generating integrated data...
+\n【第6投票区】Generating integrated data...
+\n【第3投票区】Generating integrated data...
+\n【第7投票区】Generating integrated data...
+\n【第9投票区】Generating integrated data...
+\n【第19投票区】Generating integrated data...
+\n【第8投票区】Generating integrated data...
+\n【第10投票区】Generating integrated data...
+\n【第23投票区】Generating integrated data...
+\nAdding 27 completed boards as reference points...
+GeoJSON export complete: docs/data/poster_board_routes.geojson
+\n🎉 Optimization complete!

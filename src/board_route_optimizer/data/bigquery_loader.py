@@ -126,3 +126,39 @@ class BigQueryLoader:
             return optimization_boards
         
         return df
+    
+    def save_to_csv(self, df: pd.DataFrame, output_path: str = "docs/data/bigquery_cache.csv") -> None:
+        """
+        Save BigQuery data to CSV for caching.
+        
+        Args:
+            df: DataFrame to save
+            output_path: Path to save CSV file
+        """
+        from pathlib import Path
+        
+        output_file = Path(output_path)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        
+        df.to_csv(output_file, index=False, encoding='utf-8')
+        print(f"BigQuery data cached to: {output_file}")
+    
+    def load_from_csv(self, input_path: str = "docs/data/bigquery_cache.csv") -> pd.DataFrame:
+        """
+        Load cached BigQuery data from CSV.
+        
+        Args:
+            input_path: Path to CSV file
+            
+        Returns:
+            DataFrame with cached data
+        """
+        from pathlib import Path
+        
+        input_file = Path(input_path)
+        if not input_file.exists():
+            raise FileNotFoundError(f"Cached data not found: {input_file}")
+        
+        df = pd.read_csv(input_file)
+        print(f"Loaded cached BigQuery data from: {input_file}")
+        return df

@@ -43,6 +43,7 @@ class DataConfig:
     """Data processing configuration."""
     # Data source settings
     use_bigquery: bool = True
+    use_bigquery_cache: bool = False  # Use cached BigQuery data from CSV
     
     # CSV settings (legacy)
     poster_board_csv: str = "data/poster_board_locations.csv"

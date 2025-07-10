@@ -52,6 +52,11 @@ Examples:
         action='store_true',
         help='Use CSV files as data source'
     )
+    data_group.add_argument(
+        '--use-cache',
+        action='store_true',
+        help='Use cached BigQuery data from CSV (fastest for development)'
+    )
     
     # BigQuery options
     parser.add_argument(
@@ -165,7 +170,15 @@ def create_config_from_args(args) -> Config:
         config = Config()
     
     # Override with command line arguments
-    config.data.use_bigquery = not args.use_csv
+    if args.use_cache:
+        config.data.use_bigquery = False
+        config.data.use_bigquery_cache = True
+    elif args.use_csv:
+        config.data.use_bigquery = False
+        config.data.use_bigquery_cache = False
+    else:
+        config.data.use_bigquery = True
+        config.data.use_bigquery_cache = False
     
     # BigQuery settings
     if args.project_id:

@@ -39,8 +39,19 @@ class DataLoader:
             FileNotFoundError: If required data files are not found
             ValueError: If data format is invalid
         """
-        # Check if we should use BigQuery or CSV
-        if self.config.data.use_bigquery:
+        # Check if we should use BigQuery, cached data, or CSV
+        if self.config.data.use_bigquery_cache:
+            # Load from cached BigQuery data
+            bigquery_loader = BigQueryLoader(
+                project_id=self.config.data.bigquery_project_id,
+                dataset_id=self.config.data.bigquery_dataset_id,
+                table_id=self.config.data.bigquery_table_id
+            )
+            # Load from cache and apply filtering
+            cached_df = bigquery_loader.load_from_csv()
+            self.poster_boards_df = self._apply_bigquery_filtering(cached_df, bigquery_loader)
+            self.bigquery_loader = bigquery_loader
+        elif self.config.data.use_bigquery:
             # Load from BigQuery
             bigquery_loader = BigQueryLoader(
                 project_id=self.config.data.bigquery_project_id,
@@ -229,3 +240,25 @@ class DataLoader:
         if hasattr(self, 'bigquery_loader') and self.bigquery_loader.done_boards is not None:
             return self.bigquery_loader.done_boards
         return pd.DataFrame()
+    
+    def _apply_bigquery_filtering(self, df: pd.DataFrame, bigquery_loader: BigQueryLoader) -> pd.DataFrame:
+        """
+        Apply BigQuery filtering to cached data.
+        
+        Args:
+            df: Full cached DataFrame
+            bigquery_loader: BigQuery loader instance
+            
+        Returns:
+            Filtered DataFrame for optimization
+        """
+        # Split data into optimization targets and reference data
+        done_boards = df[df['ステータス'] == 'done'].copy()
+        optimization_boards = df[df['ステータス'] != 'done'].copy()
+        
+        print(f"Loaded {len(df)} total boards from cache: {len(optimization_boards)} for optimization, {len(done_boards)} completed (reference only)")
+        
+        # Store done boards for reference
+        bigquery_loader.done_boards = done_boards
+        
+        return optimization_boards
