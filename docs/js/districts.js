@@ -401,10 +401,10 @@ export class DistrictManager {
                 <div class="stat-item">
                     <span class="stat-label">完了済み地点</span>
                     <div class="completed-points-list">
-                        ${completedPoints.map(point => {
+                        ${completedPoints.map((point, index) => {
                             const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
                             return `
-                                <div class="completed-point-item" onclick="this.showCompletedPoint([${point.geometry.coordinates[1]}, ${point.geometry.coordinates[0]}])">
+                                <div class="completed-point-item" data-point-index="${index}">
                                     <span class="completed-indicator">✓</span>
                                     <span class="completed-name">${boardNumber}${point.properties.name}</span>
                                 </div>
@@ -422,35 +422,51 @@ export class DistrictManager {
                     ${totalPoints}ヶ所 (未完了: ${optimizationPoints}, 完了: ${completedPoints.length})
                 </span>
             </div>
+            <div class="stat-item">
+                <span class="stat-label">最適経路距離</span>
+                <span class="stat-value">${properties.total_distance_km}km</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">推定時間</span>
+                <span class="stat-value">${properties.estimated_hours}時間</span>
+            </div>
             ${completedListHtml}
         `;
         
         // 完了地点のクリックイベントを追加
         if (completedPoints.length > 0) {
-            document.querySelectorAll('.completed-point-item').forEach((item, index) => {
+            document.querySelectorAll('.completed-point-item').forEach((item) => {
                 item.addEventListener('click', () => {
-                    const point = completedPoints[index];
-                    const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
-                    this.mapManager.setView(coord, 16);
-                    
-                    // ポップアップを表示するためにマーカーを見つけてクリック
-                    setTimeout(() => {
-                        const markers = this.mapManager.getMarkersLayer().getLayers();
-                        const targetMarker = markers.find(marker => {
-                            if (marker.getLatLng) {
-                                const markerPos = marker.getLatLng();
-                                return Math.abs(markerPos.lat - coord[0]) < 0.0001 && 
-                                       Math.abs(markerPos.lng - coord[1]) < 0.0001;
-                            }
-                            return false;
-                        });
-                        if (targetMarker && targetMarker.openPopup) {
-                            targetMarker.openPopup();
-                        }
-                    }, 100);
+                    const pointIndex = parseInt(item.getAttribute('data-point-index'));
+                    const point = completedPoints[pointIndex];
+                    if (point) {
+                        this.focusOnCompletedPoint(point);
+                    }
                 });
             });
         }
+    }
+    
+    // 完了地点にフォーカス
+    focusOnCompletedPoint(point) {
+        const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+        this.mapManager.setView(coord, 16);
+        
+        // ポップアップを表示するためにマーカーを見つけてクリック
+        setTimeout(() => {
+            const markers = this.mapManager.getMarkersLayer().getLayers();
+            const targetMarker = markers.find(marker => {
+                if (marker.getLatLng) {
+                    const markerPos = marker.getLatLng();
+                    return Math.abs(markerPos.lat - coord[0]) < 0.0001 && 
+                           Math.abs(markerPos.lng - coord[1]) < 0.0001;
+                }
+                return false;
+            });
+            if (targetMarker && targetMarker.openPopup) {
+                targetMarker.openPopup();
+            }
+        }, 100);
     }
     
     // 完了地点カードを非表示
@@ -471,12 +487,16 @@ export class DistrictManager {
     updateOverallInfo() {
         const districts = new Set();
         let totalPoints = 0;
+        let totalDistance = 0;
+        let totalTime = 0;
         
         this.allData.features
-            .filter(f => f.geometry.type === 'Point')
+            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'completed_board')
             .forEach(f => {
                 districts.add(f.properties.district);
                 totalPoints++;
+                totalDistance += f.properties.total_distance_km || 0;
+                totalTime += f.properties.estimated_hours || 0;
             });
         
         document.getElementById('districtInfoTitle').textContent = '全投票区情報';
@@ -487,7 +507,15 @@ export class DistrictManager {
             </div>
             <div class="stat-item">
                 <span class="stat-label">総掲示板数</span>
-                <span class="stat-value">${totalPoints}ヶ所</span>
+                <span class="stat-value">${totalPoints}ヶ所（未完了のみ）</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">総距離</span>
+                <span class="stat-value">${(totalDistance/districts.size).toFixed(1)}km（平均）</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">総時間</span>
+                <span class="stat-value">${(totalTime/districts.size).toFixed(1)}時間（平均）</span>
             </div>
         `;
     }

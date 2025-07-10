@@ -1,4 +1,5 @@
 import { CONFIG } from './config.js';
+import { getStatusDisplayName, getStatusColor } from './utils.js';
 
 // ルート管理クラス（ポイントのみシステム用に簡略化）
 export class RouteManager {
@@ -47,11 +48,19 @@ export class RouteManager {
             routeItem.className = 'route-item';
             
             const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+            const status = point.properties.status || 'unknown';
+            const statusDisplay = getStatusDisplayName(status);
+            const statusColor = getStatusColor(status);
             
             routeItem.innerHTML = `
                 <div class="route-number">${point.properties.order}</div>
                 <div class="route-details">
-                    <div class="route-name">${boardNumber}${point.properties.name}</div>
+                    <div class="route-item-header">
+                        <div class="route-name">${boardNumber}${point.properties.name}</div>
+                        <span class="status-badge" style="background-color: ${statusColor};">
+                            ${statusDisplay}
+                        </span>
+                    </div>
                     <div class="route-address clickable-address" onclick="window.appUtils.copyToClipboard('${point.properties.address}')" title="クリックでコピー">
                         📍 ${point.properties.address}
                     </div>
