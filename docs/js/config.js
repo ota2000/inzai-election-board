@@ -16,7 +16,6 @@ export const CONFIG = {
         NORMAL_RADIUS: 8,
         START_RADIUS: 10,
         DISTRICT_RADIUS: 12,
-        VOTING_OFFICE_SIZE: 40,
         WEIGHT: 2,
         OPACITY: 0.8
     },
@@ -56,6 +55,6 @@ export const CONFIG = {
     
     // データ設定
     DATA: {
-        GEOJSON_PATH: './data/poster_board_routes.geojson'
+        GEOJSON_PATH: './data/poster_board_points.geojson'
     }
 };

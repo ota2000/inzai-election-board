@@ -26,7 +26,7 @@ class DistanceCalculator:
         """
         self.config = config
         self.last_request_time = 0
-        self.route_cache_dir = Path("docs/data/route_cache")
+        self.route_cache_dir = Path("src/board_route_optimizer/cache/route_cache")
         self.route_cache_dir.mkdir(parents=True, exist_ok=True)
     
     def calculate_matrix(self, locations: List[Tuple[float, float]], 

@@ -54,7 +54,7 @@ export class UIManager {
             return;
         }
         
-        downloadData(this.allData, 'poster_board_routes_data.geojson');
+        downloadData(this.allData, 'poster_board_points_data.geojson');
     }
     
     // ローディング状態を表示

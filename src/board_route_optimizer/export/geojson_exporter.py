@@ -22,7 +22,8 @@ class GeoJSONExporter:
     def export(self, results: Dict[str, Any], voting_offices: Dict, 
                data_loader) -> Dict[str, Any]:
         """
-        Export optimization results to GeoJSON format.
+        Export optimization results as points only (no route segments).
+        Suitable for Google Maps display.
         
         Args:
             results: Optimization results dictionary
@@ -30,33 +31,22 @@ class GeoJSONExporter:
             data_loader: Data loader instance for board number extraction
             
         Returns:
-            GeoJSON feature collection
+            GeoJSON feature collection with points only
         """
         features = []
         
         for district_name, result in results.items():
-            print(f"\\n【{district_name}】Generating integrated data...")
+            print(f"\\n【{district_name}】Generating point data...")
             
             # Get voting office info
             office_info = voting_offices.get(district_name, {})
             
-            # Add poster board points
+            # Add poster board points only
             features.extend(self._create_poster_board_features(
                 district_name, result, office_info, data_loader
             ))
-            
-            # Add route segments
-            features.extend(self._create_route_features(
-                district_name, result
-            ))
-            
-            # Add voting office pin
-            if district_name in voting_offices:
-                features.append(self._create_voting_office_feature(
-                    district_name, result, voting_offices[district_name]
-                ))
         
-        # Add done boards as reference points (no routes)
+        # Add done boards as reference points
         done_boards = data_loader.get_done_boards()
         if not done_boards.empty:
             print(f"\\nAdding {len(done_boards)} completed boards as reference points...")
@@ -114,74 +104,6 @@ class GeoJSONExporter:
         
         return features
     
-    def _create_route_features(self, district_name: str, result: Dict[str, Any]) -> List[Dict[str, Any]]:
-        """Create GeoJSON features for routes."""
-        features = []
-        
-        # Check if we have detailed route segments from API
-        if 'route_segments' in result and result['route_segments']:
-            # Create detailed route segments
-            for i, segment in enumerate(result['route_segments']):
-                if segment and len(segment) > 1:
-                    segment_feature = {
-                        "type": "Feature",
-                        "geometry": {
-                            "type": "LineString",
-                            "coordinates": segment
-                        },
-                        "properties": {
-                            "district": district_name,
-                            "type": "route_segment",
-                            "segment": i + 1,
-                            "from_point": i + 1,
-                            "to_point": i + 2 if i + 2 <= len(result['locations']) else 1
-                        }
-                    }
-                    features.append(segment_feature)
-        else:
-            # Create simple route (fallback)
-            route_coords = [
-                [loc['経度'], loc['緯度']] for loc in result['locations']
-            ]
-            
-            if len(route_coords) > 1:
-                simple_route_feature = {
-                    "type": "Feature", 
-                    "geometry": {
-                        "type": "LineString",
-                        "coordinates": route_coords
-                    },
-                    "properties": {
-                        "district": district_name,
-                        "type": "simple_route",
-                        "total_distance_km": round(result['distance'] / 1000, 2),
-                        "estimated_hours": round(result['duration'] / 3600, 1)
-                    }
-                }
-                features.append(simple_route_feature)
-        
-        return features
-    
-    def _create_voting_office_feature(self, district_name: str, result: Dict[str, Any],
-                                    office_data: Dict) -> Dict[str, Any]:
-        """Create GeoJSON feature for voting office."""
-        return {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point", 
-                "coordinates": [office_data['lon'], office_data['lat']]
-            },
-            "properties": {
-                "district": district_name,
-                "type": "voting_office",
-                "name": district_name,
-                "address": office_data['address'],
-                "district_number": office_data['district_number'],
-                "total_points": len(result['locations']),
-                "total_distance_km": round(result['distance'] / 1000, 2),
-                "estimated_hours": round(result['duration'] / 3600, 1)
-            }
-        }
     
     def _create_done_board_features(self, done_boards, data_loader) -> List[Dict[str, Any]]:
         """Create GeoJSON features for completed (done) boards."""

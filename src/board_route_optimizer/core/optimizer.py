@@ -4,6 +4,7 @@ Main route optimizer implementation.
 
 import pandas as pd
 import numpy as np
+import json
 from typing import Dict, List, Tuple, Any
 from pathlib import Path
 
@@ -61,6 +62,61 @@ class RouteOptimizer:
         
         for district_name in districts:
             print(f"\\n【{district_name}】Optimizing...")
+            
+            try:
+                district_result = self._optimize_district(district_name)
+                results[district_name] = district_result
+                
+                print(f"  Optimization complete: {len(district_result['locations'])} points")
+                print(f"  Total distance: {district_result['distance']/1000:.2f}km")
+                print(f"  Estimated time: {district_result['duration']/3600:.1f}hours")
+                
+            except Exception as e:
+                print(f"  Error optimizing {district_name}: {e}")
+                continue
+        
+        self.optimization_results = results
+        return results
+    
+    def optimize_specific_districts(self, district_names: List[str]) -> Dict[str, Any]:
+        """
+        Optimize routes for specific districts only.
+        
+        Args:
+            district_names: List of district names to optimize
+            
+        Returns:
+            Dictionary containing optimization results for specified districts
+        """
+        if self.poster_boards_df is None:
+            self.load_data()
+        
+        # Load existing results if available
+        results = {}
+        output_path = Path(self.config.data.output_directory) / self.config.data.output_filename
+        if output_path.exists():
+            try:
+                with open(output_path, 'r', encoding='utf-8') as f:
+                    existing_geojson = json.load(f)
+                    # Extract existing results from GeoJSON
+                    for feature in existing_geojson['features']:
+                        if feature['properties'].get('type') == 'route':
+                            district = feature['properties'].get('district')
+                            if district and district not in district_names:
+                                # Keep existing results for districts not being re-optimized
+                                results[district] = {
+                                    'geojson_feature': feature,
+                                    'preserved': True  # Mark as preserved from previous run
+                                }
+                print(f"Loaded {len(results)} existing district results")
+            except Exception as e:
+                print(f"Could not load existing results: {e}")
+        
+        print(f"\\nRe-optimizing {len(district_names)} specific districts...")
+        print("=" * 60)
+        
+        for district_name in district_names:
+            print(f"\\n【{district_name}】Re-optimizing...")
             
             try:
                 district_result = self._optimize_district(district_name)
@@ -199,7 +255,7 @@ class RouteOptimizer:
     
     def export_geojson(self, output_path: str = None) -> None:
         """
-        Export optimization results to GeoJSON format.
+        Export optimization results to GeoJSON format (points only).
         
         Args:
             output_path: Path to save GeoJSON file. If None, uses config default.

@@ -45,7 +45,7 @@ export class DistrictManager {
         // 投票区と対応する投票区番号を取得
         const districtMap = new Map();
         this.allData.features
-            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office')
+            .filter(f => f.geometry.type === 'Point')
             .forEach(f => {
                 const district = f.properties.district;
                 const districtNumber = f.properties.district_number;
@@ -107,16 +107,13 @@ export class DistrictManager {
         // 地図クリア
         this.mapManager.clearLayers();
         
-        // 該当データをフィルタ
+        // 該当データをフィルタ（ポイントのみシステム）
         const districtPoints = this.allData.features.filter(f =>
             f.properties.district === districtName && f.geometry.type === 'Point' && 
-            f.properties.type !== 'voting_office' && f.properties.type !== 'completed_board'
+            f.properties.type !== 'completed_board'
         );
         const donePoints = this.allData.features.filter(f =>
             f.properties.district === districtName && f.properties.type === 'completed_board'
-        );
-        const votingOffice = this.allData.features.find(f =>
-            f.properties.district === districtName && f.properties.type === 'voting_office'
         );
         
         if (districtPoints.length === 0) return;
@@ -129,16 +126,8 @@ export class DistrictManager {
             this.addCompletedBoardMarkers(donePoints);
         }
         
-        // 投票所マーカー追加（非表示）
-        // if (votingOffice) {
-        //     this.addVotingOfficeMarker(votingOffice);
-        // }
-        
-        // ルートセグメント表示
-        this.routeManager.displayRouteSegments(districtName);
-        
-        // 地図の表示範囲を調整
-        this.fitDistrictBounds([...districtPoints, ...donePoints], votingOffice);
+        // 地図の表示範囲を調整（ポイントのみ）
+        this.fitDistrictBounds([...districtPoints, ...donePoints]);
         
         // UI状態の更新
         this.updateUIForDistrictSelection();
@@ -285,55 +274,14 @@ export class DistrictManager {
         });
     }
     
-    // 投票所マーカーを追加
-    addVotingOfficeMarker(votingOffice) {
-        const markersLayer = this.mapManager.getMarkersLayer();
-        const officeCoord = [votingOffice.geometry.coordinates[1], votingOffice.geometry.coordinates[0]];
-        
-        // 投票所用の特別なアイコン
-        const officeIcon = L.divIcon({
-            html: `<div style="background: #ff4757; color: white; border-radius: 50%; width: ${CONFIG.MARKERS.VOTING_OFFICE_SIZE}px; height: ${CONFIG.MARKERS.VOTING_OFFICE_SIZE}px; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; border: 4px solid #ffffff; box-shadow: 0 0 0 3px #ff4757, 0 4px 12px rgba(0,0,0,0.4); z-index: 1000;">🗳️</div>`,
-            className: 'voting-office-icon',
-            iconSize: [CONFIG.MARKERS.VOTING_OFFICE_SIZE, CONFIG.MARKERS.VOTING_OFFICE_SIZE],
-            iconAnchor: [CONFIG.MARKERS.VOTING_OFFICE_SIZE/2, CONFIG.MARKERS.VOTING_OFFICE_SIZE/2]
-        });
-        
-        const officeMarker = L.marker(officeCoord, { icon: officeIcon }).addTo(markersLayer);
-        
-        officeMarker.bindPopup(`
-            <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
-                <h4>🗳️ ${votingOffice.properties.name}</h4>
-                <div style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #007bff;">
-                    <div style="font-weight: bold; color: #007bff; margin-bottom: 0.25rem;">
-                        第${votingOffice.properties.district_number}投票区
-                    </div>
-                    <div style="font-size: 0.85rem; color: #666; line-height: 1.4;">
-                        掲示板数: ${votingOffice.properties.total_points}ヶ所<br>
-                        巡回距離: ${votingOffice.properties.total_distance_km}km<br>
-                        推定時間: ${votingOffice.properties.estimated_hours}時間
-                    </div>
-                </div>
-                <div class="clickable-address" 
-                     style="color: #999; font-size: 0.75rem; cursor: pointer; padding: 0.25rem; border-radius: 3px; background: #f8f9fa; border: 1px solid #e9ecef; margin: 0.5rem 0; opacity: 0.8;"
-                     onclick="window.appUtils.copyToClipboard('${votingOffice.properties.address}')" 
-                     title="クリックでコピー">
-                     ${votingOffice.properties.address}
-                </div>
-            </div>
-        `);
-    }
     
-    // 投票区の境界に合わせる
-    fitDistrictBounds(districtPoints, votingOffice) {
+    // 投票区の境界に合わせる（ポイントのみシステム）
+    fitDistrictBounds(districtPoints) {
         const bounds = [];
         
         districtPoints.forEach(point => {
             bounds.push([point.geometry.coordinates[1], point.geometry.coordinates[0]]);
         });
-        
-        if (votingOffice) {
-            bounds.push([votingOffice.geometry.coordinates[1], votingOffice.geometry.coordinates[0]]);
-        }
         
         if (bounds.length > 0) {
             this.mapManager.fitBounds(L.latLngBounds(bounds));
@@ -358,35 +306,25 @@ export class DistrictManager {
         // 地図クリア
         this.mapManager.clearLayers();
         
-        // 全投票区の中心点を表示（投票所は除外）
+        // 全投票区の掲示板地点を表示（ポイントのみシステム）
         const districtCenters = new Map();
-        const votingOffices = new Map();
         const allBounds = [];
         
         this.allData.features
-            .filter(f => f.geometry.type === 'Point')
+            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'completed_board')
             .forEach(point => {
                 const district = point.properties.district;
-                if (point.properties.type === 'voting_office') {
-                    // 投票所の位置を記録
-                    votingOffices.set(district, [
-                        point.geometry.coordinates[1],
-                        point.geometry.coordinates[0]
-                    ]);
-                } else {
-                    // 掲示板の位置を記録
-                    if (!districtCenters.has(district)) {
-                        districtCenters.set(district, []);
-                    }
-                    districtCenters.get(district).push([
-                        point.geometry.coordinates[1],
-                        point.geometry.coordinates[0]
-                    ]);
+                if (!districtCenters.has(district)) {
+                    districtCenters.set(district, []);
                 }
+                districtCenters.get(district).push([
+                    point.geometry.coordinates[1],
+                    point.geometry.coordinates[0]
+                ]);
             });
         
-        // 各投票区の投票所位置にマーカー配置
-        this.addAllDistrictMarkers(districtCenters, votingOffices, allBounds);
+        // 各投票区の掲示板地点にマーカー配置
+        this.addAllDistrictMarkers(districtCenters, allBounds);
         
         // 全ての投票区が収まるように地図を調整
         if (allBounds.length > 0) {
@@ -403,18 +341,16 @@ export class DistrictManager {
         this.googleMapsManager.hideButton();
     }
     
-    // 全投票区マーカーを追加
-    addAllDistrictMarkers(districtCenters, votingOffices, allBounds) {
+    // 全投票区マーカーを追加（ポイントのみシステム）
+    addAllDistrictMarkers(districtCenters, allBounds) {
         const markersLayer = this.mapManager.getMarkersLayer();
         
         Array.from(districtCenters.entries()).forEach(([district, coords], index) => {
-            // 投票所の位置を使用、なければ掲示板の中心点
-            const position = votingOffices.has(district) ? 
-                votingOffices.get(district) : 
-                [
-                    coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
-                    coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
-                ];
+            // 掲示板の中心点を計算
+            const position = [
+                coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
+                coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
+            ];
             
             // 境界計算用に位置を追加
             allBounds.push(position);
@@ -452,7 +388,7 @@ export class DistrictManager {
         // 該当する投票区の掲示板数を計算（最適化対象のみ）
         const optimizationPoints = this.allData.features.filter(f =>
             f.properties.district === districtName && f.geometry.type === 'Point' && 
-            f.properties.type !== 'voting_office' && f.properties.type !== 'completed_board'
+            f.properties.type !== 'completed_board'
         ).length;
         
         // 完了済み掲示板数を計算
@@ -549,7 +485,7 @@ export class DistrictManager {
         let totalTime = 0;
         
         this.allData.features
-            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'voting_office')
+            .filter(f => f.geometry.type === 'Point')
             .forEach(f => {
                 districts.add(f.properties.district);
                 totalPoints++;

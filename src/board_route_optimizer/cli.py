@@ -106,7 +106,7 @@ Examples:
     parser.add_argument(
         '--output',
         type=str,
-        default='docs/data/poster_board_routes.geojson',
+        default='docs/data/poster_board_points.geojson',
         help='Output GeoJSON file path'
     )
     
@@ -149,6 +149,14 @@ Examples:
         action='store_true', 
         help='Enable verbose output'
     )
+    
+    parser.add_argument(
+        '--districts',
+        type=str,
+        nargs='+',
+        help='Specific district names to optimize (e.g., --districts 第8投票区 第10投票区)'
+    )
+    
     
     return parser
 
@@ -235,7 +243,10 @@ def main():
                 print("⚠️  Using straight-line distances (no API key).")
         
         # Run optimization
-        results = optimizer.optimize_all_districts()
+        if args.districts:
+            results = optimizer.optimize_specific_districts(args.districts)
+        else:
+            results = optimizer.optimize_all_districts()
         
         # Export results
         output_path = Path(args.output)

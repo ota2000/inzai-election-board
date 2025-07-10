@@ -127,7 +127,7 @@ class BigQueryLoader:
         
         return df
     
-    def save_to_csv(self, df: pd.DataFrame, output_path: str = "docs/data/bigquery_cache.csv") -> None:
+    def save_to_csv(self, df: pd.DataFrame, output_path: str = "src/board_route_optimizer/cache/bigquery_cache.csv") -> None:
         """
         Save BigQuery data to CSV for caching.
         
@@ -143,7 +143,7 @@ class BigQueryLoader:
         df.to_csv(output_file, index=False, encoding='utf-8')
         print(f"BigQuery data cached to: {output_file}")
     
-    def load_from_csv(self, input_path: str = "docs/data/bigquery_cache.csv") -> pd.DataFrame:
+    def load_from_csv(self, input_path: str = "src/board_route_optimizer/cache/bigquery_cache.csv") -> pd.DataFrame:
         """
         Load cached BigQuery data from CSV.
         

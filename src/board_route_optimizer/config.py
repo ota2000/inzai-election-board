@@ -58,7 +58,10 @@ class DataConfig:
     
     # Output settings
     output_directory: str = "docs/data"
-    output_filename: str = "poster_board_routes.geojson"
+    output_filename: str = "poster_board_points.geojson"
+    
+    # Cache settings
+    cache_directory: str = "src/board_route_optimizer/cache"
     
     # Privacy settings
     anonymize_personal_names: bool = True
