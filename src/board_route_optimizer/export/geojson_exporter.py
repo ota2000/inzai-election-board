@@ -63,23 +63,11 @@ class GeoJSONExporter:
         features = []
         
         for i, location in enumerate(result['locations']):
-            # Extract board number
-            if '掲示板番号' in location:
-                # BigQuery data has board number directly
-                board_number = location['掲示板番号']
-            else:
-                # CSV data needs extraction
-                board_number = data_loader.extract_board_number(location['投票区'])
+            # Extract board number (BigQuery data only)
+            board_number = location.get('掲示板番号', '')
             
-            # Get district number as integer
-            if '投票区番号' in location:
-                # BigQuery data has voting district number
-                district_number = int(location['投票区番号'])
-            else:
-                # Extract from district name (e.g., "第5投票区" -> 5)
-                import re
-                match = re.search(r'第(\d+)投票区', district_name)
-                district_number = int(match.group(1)) if match else 0
+            # Get district number as integer (BigQuery data only)
+            district_number = int(location.get('投票区番号', 0))
             
             feature = {
                 "type": "Feature",

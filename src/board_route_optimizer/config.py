@@ -45,9 +45,6 @@ class DataConfig:
     use_bigquery: bool = True
     use_bigquery_cache: bool = False  # Use cached BigQuery data from CSV
     
-    # CSV settings (legacy)
-    poster_board_csv: str = "data/poster_board_locations.csv"
-    polling_places_csv: str = "data/polling_places.csv"
     
     # BigQuery settings
     bigquery_project_id: Optional[str] = None

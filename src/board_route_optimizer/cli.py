@@ -22,8 +22,8 @@ Examples:
   # Basic usage with BigQuery (default)
   python -m board_route_optimizer.cli
   
-  # Use CSV files instead of BigQuery
-  python -m board_route_optimizer.cli --use-csv --poster-csv data/boards.csv
+  # Use cached BigQuery data (fastest for development)
+  python -m board_route_optimizer.cli --use-cache
   
   # Specify BigQuery parameters
   python -m board_route_optimizer.cli --project-id my-project --city 印西市
@@ -46,11 +46,6 @@ Examples:
         action='store_true',
         default=True,
         help='Use BigQuery as data source (default)'
-    )
-    data_group.add_argument(
-        '--use-csv',
-        action='store_true',
-        help='Use CSV files as data source'
     )
     data_group.add_argument(
         '--use-cache',
@@ -89,19 +84,6 @@ Examples:
         help='City to filter (default: 印西市)'
     )
     
-    # CSV options
-    parser.add_argument(
-        '--poster-csv',
-        type=str,
-        default='data/poster_board_locations.csv',
-        help='Path to poster board locations CSV file'
-    )
-    parser.add_argument(
-        '--polling-csv', 
-        type=str,
-        default='data/polling_places.csv',
-        help='Path to polling places CSV file'
-    )
     
     parser.add_argument(
         '--output',
@@ -181,9 +163,6 @@ def create_config_from_args(args) -> Config:
     if args.use_cache:
         config.data.use_bigquery = False
         config.data.use_bigquery_cache = True
-    elif args.use_csv:
-        config.data.use_bigquery = False
-        config.data.use_bigquery_cache = False
     else:
         config.data.use_bigquery = True
         config.data.use_bigquery_cache = False
@@ -196,9 +175,6 @@ def create_config_from_args(args) -> Config:
     config.data.prefecture = args.prefecture
     config.data.city = args.city
     
-    # CSV settings
-    config.data.poster_board_csv = args.poster_csv
-    config.data.polling_places_csv = args.polling_csv
     
     # Optimization settings
     config.optimization.walking_speed_kmh = args.walking_speed

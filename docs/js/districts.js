@@ -381,9 +381,10 @@ export class DistrictManager {
     
     // 情報パネルを更新
     updateInfoPanel(districtName, properties) {
-        // 投票区番号を取得（第X投票区形式）
+        // 投票区名を取得（第X投票区形式）
         const districtNumber = properties.district_number || '不明';
-        document.getElementById('districtInfoTitle').textContent = districtNumber;
+        const districtTitle = districtNumber !== '不明' ? `第${districtNumber}投票区` : '投票区情報';
+        document.getElementById('districtInfoTitle').textContent = districtTitle;
         
         // 該当する投票区の掲示板数を計算（最適化対象のみ）
         const optimizationPoints = this.allData.features.filter(f =>
@@ -404,14 +405,6 @@ export class DistrictManager {
                 <span class="stat-value">
                     ${totalPoints}ヶ所 (未完了: ${optimizationPoints}, 完了: ${completedPoints})
                 </span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総距離</span>
-                <span class="stat-value">${properties.total_distance_km}km</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">推定時間</span>
-                <span class="stat-value">${properties.estimated_hours}時間</span>
             </div>
         `;
     }
@@ -481,16 +474,12 @@ export class DistrictManager {
     updateOverallInfo() {
         const districts = new Set();
         let totalPoints = 0;
-        let totalDistance = 0;
-        let totalTime = 0;
         
         this.allData.features
             .filter(f => f.geometry.type === 'Point')
             .forEach(f => {
                 districts.add(f.properties.district);
                 totalPoints++;
-                totalDistance += f.properties.total_distance_km || 0;
-                totalTime += f.properties.estimated_hours || 0;
             });
         
         document.getElementById('districtInfoTitle').textContent = '全投票区情報';
@@ -502,14 +491,6 @@ export class DistrictManager {
             <div class="stat-item">
                 <span class="stat-label">総掲示板数</span>
                 <span class="stat-value">${totalPoints}ヶ所</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総距離</span>
-                <span class="stat-value">${(totalDistance/districts.size).toFixed(1)}km (平均)</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総時間</span>
-                <span class="stat-value">${(totalTime/districts.size).toFixed(1)}時間 (平均)</span>
             </div>
         `;
     }

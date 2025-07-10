@@ -66,23 +66,12 @@ class DataLoader:
             # BigQueryLoaderインスタンスを保存してdone_boardsにアクセス可能にする
             self.bigquery_loader = bigquery_loader
         else:
-            # Load poster board data from CSV
-            poster_path = Path(self.config.data.poster_board_csv)
-            if not poster_path.exists():
-                raise FileNotFoundError(f"Poster board data not found: {poster_path}")
-            
-            self.poster_boards_df = pd.read_csv(poster_path)
+            raise ValueError("CSV data source is no longer supported. Use BigQuery or cached data instead.")
         
         self._validate_poster_board_data()
         
-        # Load polling place data (still from CSV for now)
-        polling_path = Path(self.config.data.polling_places_csv)
-        if polling_path.exists():
-            self.polling_places_df = pd.read_csv(polling_path)
-            self.voting_offices = self._process_voting_offices()
-        else:
-            print(f"Warning: {polling_path} not found. Running without polling place data.")
-            self.voting_offices = {}
+        # Voting offices are no longer used in points-only system
+        self.voting_offices = {}
         
         # Preprocess data
         self._preprocess_poster_board_data()
@@ -102,19 +91,6 @@ class DataLoader:
             if self.poster_boards_df[col].isnull().any():
                 raise ValueError(f"Null values found in column: {col}")
     
-    def _process_voting_offices(self) -> Dict:
-        """Process polling place data into voting offices dictionary."""
-        voting_offices = {}
-        
-        for _, row in self.polling_places_df.iterrows():
-            voting_offices[row['polling_place_name']] = {
-                'address': row['address'],
-                'district_number': row['district_number'],
-                'lat': row['latitude'],
-                'lon': row['longitude']
-            }
-        
-        return voting_offices
     
     def _preprocess_poster_board_data(self) -> None:
         """Preprocess poster board data."""
@@ -125,8 +101,8 @@ class DataLoader:
                 lambda x: f"第{x}投票区"
             )
         else:
-            # For CSV data, extract from the original format
-            self.poster_boards_df['投票区名'] = self.poster_boards_df['投票区'].str.extract(r': (.+)$')[0]
+            # CSV format is no longer supported
+            raise ValueError("CSV format is no longer supported")
         
         # Anonymize personal names if enabled
         if self.config.data.anonymize_personal_names:
@@ -180,25 +156,7 @@ class DataLoader:
             if not row.empty:
                 return str(row.iloc[0]['掲示板番号'])
         
-        # Original CSV format extraction
-        try:
-            match = re.search(r'第([０-９\d]+)投票区ー([０-９\d]+)', voting_area)
-            if match:
-                district_num = match.group(1)
-                board_num = match.group(2)
-                
-                # Convert full-width to half-width numbers
-                district_num = district_num.translate(str.maketrans('０１２３４５６７８９', '0123456789'))
-                board_num = board_num.translate(str.maketrans('０１２３４５６７８９', '0123456789'))
-                
-                # Remove leading zeros
-                district_num = str(int(district_num))
-                board_num = str(int(board_num))
-                
-                return f"{district_num}-{board_num}"
-        except Exception:
-            pass
-        
+        # CSV format is no longer supported
         return ""
     
     def get_districts(self) -> List[str]:

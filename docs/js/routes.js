@@ -1,5 +1,4 @@
 import { CONFIG } from './config.js';
-import { calculateSegmentDistances, formatTime } from './utils.js';
 
 // ルート管理クラス（ポイントのみシステム用に簡略化）
 export class RouteManager {
@@ -71,31 +70,31 @@ export class RouteManager {
             
             routeList.appendChild(routeItem);
             
-            // 次の地点との直線距離を表示（簡略化）
+            // 次の地点とのGoogle Maps リンクを表示
             if (index < sortedPoints.length - 1) {
                 const nextPoint = sortedPoints[index + 1];
-                const distances = calculateSegmentDistances([point, nextPoint]);
+                const fromLat = point.geometry.coordinates[1];
+                const fromLng = point.geometry.coordinates[0];
+                const toLat = nextPoint.geometry.coordinates[1];
+                const toLng = nextPoint.geometry.coordinates[0];
                 
-                if (distances.length > 0) {
-                    const dist = distances[0].distance;
-                    const timeInMinutes = distances[0].time;
-                    const timeDisplay = timeInMinutes >= 60 ? 
-                        formatTime(timeInMinutes / 60) : `${timeInMinutes}分`;
-                    
-                    // 簡略化したルート情報アイテムを作成
-                    const routeItem = document.createElement('div');
-                    routeItem.className = 'route-segment-item';
-                    routeItem.innerHTML = `
-                        <div class="route-segment-arrow">↓</div>
-                        <div class="route-segment-details">
-                            <div class="route-segment-stats">
-                                直線距離: ${dist}km • 徒歩約${timeDisplay}
-                            </div>
-                        </div>
-                    `;
-                    
-                    routeList.appendChild(routeItem);
-                }
+                // Google Maps 経路検索URL
+                const googleMapsUrl = `https://www.google.com/maps/dir/${fromLat},${fromLng}/${toLat},${toLng}`;
+                
+                // Google Maps リンクアイテムを作成
+                const routeItem = document.createElement('div');
+                routeItem.className = 'route-segment-item';
+                routeItem.innerHTML = `
+                    <div class="route-segment-arrow">↓</div>
+                    <div class="route-segment-details">
+                        <a href="${googleMapsUrl}" target="_blank" class="google-maps-link" 
+                           style="color: #1976d2; font-size: 0.9rem; text-decoration: none; padding: 4px 8px; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; display: inline-block;">
+                            📍 Google Maps で経路確認
+                        </a>
+                    </div>
+                `;
+                
+                routeList.appendChild(routeItem);
             }
         });
     }
