@@ -131,8 +131,7 @@ class Config:
             },
             'data': {
                 'use_bigquery': self.data.use_bigquery,
-                'poster_board_csv': self.data.poster_board_csv,
-                'polling_places_csv': self.data.polling_places_csv,
+                'use_bigquery_cache': self.data.use_bigquery_cache,
                 'bigquery_project_id': self.data.bigquery_project_id,
                 'bigquery_dataset_id': self.data.bigquery_dataset_id,
                 'bigquery_table_id': self.data.bigquery_table_id,
@@ -140,6 +139,7 @@ class Config:
                 'city': self.data.city,
                 'output_directory': self.data.output_directory,
                 'output_filename': self.data.output_filename,
+                'cache_directory': self.data.cache_directory,
                 'anonymize_personal_names': self.data.anonymize_personal_names
             }
         }

@@ -598,3 +598,42 @@ html {
     transform: translateX(2px);
 }
 
+/* 完了地点のスタイル */
+.completed-points-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.completed-point-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 1px solid #10b981;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+}
+
+.completed-point-item:hover {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.completed-indicator {
+    color: #059669;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.completed-name {
+    color: #065f46;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+

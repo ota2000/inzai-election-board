@@ -6,16 +6,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.193849,
-          35.824934
+          140.19112,
+          35.834138
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 1,
-        "name": "しろやま第一幼児公園南側",
-        "address": "印西市小林浅間3-4-6",
-        "board_number": "3-7",
+        "name": "小林中継ポンプ場前",
+        "address": "印西市小林3293-2",
+        "board_number": "3-4",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -28,16 +28,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.193955,
-          35.827031
+          140.191723,
+          35.832042
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 2,
-        "name": "浅間山公園西側",
-        "address": "印西市小林浅間3-1-10",
-        "board_number": "3-5",
+        "name": "なかうし西公園西側",
+        "address": "印西市小林北2-6-4",
+        "board_number": "3-2",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -50,16 +50,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.198049,
-          35.83138
+          140.193632,
+          35.830587
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 3,
-        "name": "小林公民館前",
-        "address": "印西市小林北5-1-6",
-        "board_number": "3-3",
+        "name": "小林駅北口",
+        "address": "印西市小林北2-6-6",
+        "board_number": "3-1",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -94,16 +94,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.193632,
-          35.830587
+          140.198049,
+          35.83138
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 5,
-        "name": "小林駅北口",
-        "address": "印西市小林北2-6-6",
-        "board_number": "3-1",
+        "name": "小林公民館前",
+        "address": "印西市小林北5-1-6",
+        "board_number": "3-3",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -116,16 +116,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.191723,
-          35.832042
+          140.193955,
+          35.827031
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 6,
-        "name": "なかうし西公園西側",
-        "address": "印西市小林北2-6-4",
-        "board_number": "3-2",
+        "name": "浅間山公園西側",
+        "address": "印西市小林浅間3-1-10",
+        "board_number": "3-5",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -138,16 +138,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.19112,
-          35.834138
+          140.193849,
+          35.824934
         ]
       },
       "properties": {
         "district": "第3投票区",
         "order": 7,
-        "name": "小林中継ポンプ場前",
-        "address": "印西市小林3293-2",
-        "board_number": "3-4",
+        "name": "しろやま第一幼児公園南側",
+        "address": "印西市小林浅間3-4-6",
+        "board_number": "3-7",
         "total_points": 7,
         "total_distance_km": 2.49,
         "estimated_hours": 0.5,
@@ -314,21 +314,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.136662,
-          35.798446
+          140.233575,
+          35.767614
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 1,
-        "name": "高花北街区公園南側",
-        "address": "印西市高花1-24",
-        "board_number": "13-8",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
-        "status": "reserved"
+        "name": "仲井青年館跡前",
+        "address": "印西市山田3273番地先",
+        "board_number": "16-6",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
+        "status": "not_yet"
       }
     },
     {
@@ -336,21 +336,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.13918,
-          35.797667
+          140.236088,
+          35.77113
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 2,
-        "name": "高花小学校前",
-        "address": "印西市高花2-4",
-        "board_number": "13-4",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
-        "status": "reserved"
+        "name": "仲井構造改善センター前",
+        "address": "印西市山田93-1",
+        "board_number": "16-5",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
+        "status": "not_yet"
       }
     },
     {
@@ -358,20 +358,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.141956,
-          35.797749
+          140.239822,
+          35.773925
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 3,
-        "name": "高花東街区公園東側",
-        "address": "印西市高花2-5",
-        "board_number": "13-5",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
+        "name": "宮後構造改善センター向い",
+        "address": "印西市山田875-2",
+        "board_number": "16-4",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -380,21 +380,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.138053,
-          35.795863
+          140.226241,
+          35.776383
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 4,
-        "name": "高花公園東側",
-        "address": "印西市高花5-4",
-        "board_number": "13-3",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
-        "status": "reserved"
+        "name": "松田敏郎畑地東側",
+        "address": "印西市瀬戸1388地先",
+        "board_number": "16-2",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
+        "status": "not_yet"
       }
     },
     {
@@ -402,20 +402,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.140927,
-          35.793701
+          140.220674,
+          35.774543
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 5,
-        "name": "高花中児童公園南側",
-        "address": "印西市高花4-8-1",
-        "board_number": "13-2",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
+        "name": "瀬戸構造改善センター前",
+        "address": "印西市美瀬1080",
+        "board_number": "16-1",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -424,20 +424,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.142777,
-          35.790678
+          140.235048,
+          35.78827
         ]
       },
       "properties": {
-        "district": "第13投票区",
+        "district": "第16投票区",
         "order": 6,
-        "name": "高花南児童公園東側",
-        "address": "印西市高花6-28",
-        "board_number": "13-6",
-        "total_points": 6,
-        "total_distance_km": 2.45,
-        "estimated_hours": 0.5,
-        "district_number": 13,
+        "name": "吉高構造改善センター脇",
+        "address": "印西市吉高854",
+        "board_number": "16-7",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -446,152 +446,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.152438,
-          35.766902
+          140.226321,
+          35.792854
         ]
       },
       "properties": {
-        "district": "第17投票区",
-        "order": 1,
-        "name": "万福寺前",
-        "address": "印西市吉田821",
-        "board_number": "17-10",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.154443,
-          35.764749
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
-        "order": 2,
-        "name": "吉田宗像神社前",
-        "address": "印西市吉田1600-1地先",
-        "board_number": "17-9",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.164386,
-          35.763075
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
-        "order": 3,
-        "name": "印旛西部公園前",
-        "address": "印西市岩戸2878-2",
-        "board_number": "17-2",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.169935,
-          35.766291
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
-        "order": 4,
-        "name": "岩戸構造改善センター前",
-        "address": "印西市岩戸1616-1",
-        "board_number": "17-1",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.184163,
-          35.760516
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
-        "order": 5,
-        "name": "広福寺前",
-        "address": "印西市師戸1486-1",
-        "board_number": "17-3",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.191542,
-          35.762504
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
-        "order": 6,
-        "name": "masked",
-        "address": "印西市師戸3315-4",
-        "board_number": "17-4",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.189761,
-          35.773991
-        ]
-      },
-      "properties": {
-        "district": "第17投票区",
+        "district": "第16投票区",
         "order": 7,
-        "name": "鎌苅構造改善センター前",
-        "address": "印西市鎌苅590-1",
-        "board_number": "17-5",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
+        "name": "一本松地区入口",
+        "address": "印西市吉高3258番地先",
+        "board_number": "16-8",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -600,20 +468,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.173151,
-          35.772686
+          140.21464,
+          35.789429
         ]
       },
       "properties": {
-        "district": "第17投票区",
+        "district": "第16投票区",
         "order": 8,
-        "name": "カーピカランド岩戸前",
-        "address": "印西市岩戸3245-2地先",
-        "board_number": "17-7",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
+        "name": "松虫構造改善センター前",
+        "address": "印西市松虫７",
+        "board_number": "16-10",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -622,20 +490,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.181975,
-          35.779558
+          140.211297,
+          35.800159
         ]
       },
       "properties": {
-        "district": "第17投票区",
+        "district": "第16投票区",
         "order": 9,
-        "name": "masked",
-        "address": "印西市大廻269-3地先",
-        "board_number": "17-8",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
+        "name": "萩原構造改善センター入口",
+        "address": "印西市萩原1404-2",
+        "board_number": "16-9",
+        "total_points": 9,
+        "total_distance_km": 10.36,
+        "estimated_hours": 2.1,
+        "district_number": 16,
         "status": "not_yet"
       }
     },
@@ -644,21 +512,329 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.176104,
-          35.78905
+          140.160508,
+          35.82417
         ]
       },
       "properties": {
-        "district": "第17投票区",
-        "order": 10,
-        "name": "酢崎材木店脇",
-        "address": "印西市造谷658-3地先",
-        "board_number": "17-6",
-        "total_points": 10,
-        "total_distance_km": 12.27,
-        "estimated_hours": 2.5,
-        "district_number": 17,
+        "district": "第1投票区",
+        "order": 1,
+        "name": "masked",
+        "address": "印西市別所1008",
+        "board_number": "1-7",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.157352,
+          35.831655
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 2,
+        "name": "masked",
+        "address": "印西市竹袋470-4",
+        "board_number": "1-6",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
         "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.150999,
+          35.833998
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 3,
+        "name": "木下南公園北側",
+        "address": "印西市木下南2-9",
+        "board_number": "1-8",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.150049,
+          35.832873
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 4,
+        "name": "総合福祉センター前",
+        "address": "印西市竹袋614-9",
+        "board_number": "1-2",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.151535,
+          35.837352
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 5,
+        "name": "上町会館前",
+        "address": "印西市木下774",
+        "board_number": "1-5",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.148077,
+          35.839025
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 6,
+        "name": "木下駅北口",
+        "address": "印西市木下1633-13",
+        "board_number": "1-1",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.157098,
+          35.840073
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 7,
+        "name": "旧木下保育園跡地北側",
+        "address": "印西市木下1342-4",
+        "board_number": "1-3",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.16746,
+          35.839738
+        ]
+      },
+      "properties": {
+        "district": "第1投票区",
+        "order": 8,
+        "name": "木下東四丁目もみじ公園東側",
+        "address": "印西市木下東4-3",
+        "board_number": "1-4",
+        "total_points": 8,
+        "total_distance_km": 6.88,
+        "estimated_hours": 1.4,
+        "district_number": 1,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.154404,
+          35.807901
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 1,
+        "name": "牧の原学校給食センター前",
+        "address": "印西市別所71－1",
+        "board_number": "14-3",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.152087,
+          35.800994
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 2,
+        "name": "西の原小学校北側",
+        "address": "印西市西の原2-7",
+        "board_number": "14-1",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.153303,
+          35.801064
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 3,
+        "name": "西の原西街区公園南側",
+        "address": "印西市西の原3-13",
+        "board_number": "14-7",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.155729,
+          35.802582
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 4,
+        "name": "西の原北街区公園東側",
+        "address": "印西市西の原3-8",
+        "board_number": "14-4",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.15774,
+          35.801345
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 5,
+        "name": "西の原公園南側",
+        "address": "印西市西の原1-4",
+        "board_number": "14-5",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.158924,
+          35.800817
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 6,
+        "name": "西の原東街区公園東側",
+        "address": "印西市西の原2-1",
+        "board_number": "14-2",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.15757,
+          35.803684
+        ]
+      },
+      "properties": {
+        "district": "第14投票区",
+        "order": 7,
+        "name": "西の原中学校北側",
+        "address": "印西市西の原1-3",
+        "board_number": "14-6",
+        "total_points": 7,
+        "total_distance_km": 2.49,
+        "estimated_hours": 0.5,
+        "district_number": 14,
+        "status": "reserved"
       }
     },
     {
@@ -812,6 +988,182 @@
         "total_distance_km": 3.88,
         "estimated_hours": 0.8,
         "district_number": 18,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.123091,
+          35.821145
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 1,
+        "name": "masked",
+        "address": "印西市和泉892-2",
+        "board_number": "5-8",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.122485,
+          35.823832
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 2,
+        "name": "和泉三差路",
+        "address": "印西市和泉552番地先",
+        "board_number": "5-6",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.117205,
+          35.81733
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 3,
+        "name": "masked",
+        "address": "印西市和泉1114番地先",
+        "board_number": "5-7",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.10896,
+          35.824523
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 4,
+        "name": "旧永治小学校前",
+        "address": "印西市浦部557番地先",
+        "board_number": "5-5",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.102699,
+          35.82516
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 5,
+        "name": "宮内集会所隣",
+        "address": "印西市浦部1991-1地先",
+        "board_number": "5-1",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.102907,
+          35.823239
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 6,
+        "name": "富沢商店前",
+        "address": "印西市浦部1432-1地先",
+        "board_number": "5-2",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.101075,
+          35.819857
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 7,
+        "name": "masked",
+        "address": "印西市白幡49-1",
+        "board_number": "5-3",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.10481,
+          35.81726
+        ]
+      },
+      "properties": {
+        "district": "第5投票区",
+        "order": 8,
+        "name": "masked",
+        "address": "印西市白幡277",
+        "board_number": "5-4",
+        "total_points": 8,
+        "total_distance_km": 5.04,
+        "estimated_hours": 1.0,
+        "district_number": 5,
         "status": "not_yet"
       }
     },
@@ -1260,20 +1612,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.233575,
-          35.767614
+          140.186256,
+          35.822941
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 1,
-        "name": "仲井青年館跡前",
-        "address": "印西市山田3273番地先",
-        "board_number": "16-6",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
+        "name": "小林中学校前",
+        "address": "印西市小林大門下1-4-1",
+        "board_number": "2-5",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1282,20 +1634,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.236088,
-          35.77113
+          140.191968,
+          35.826334
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 2,
-        "name": "仲井構造改善センター前",
-        "address": "印西市山田93-1",
-        "board_number": "16-5",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
+        "name": "いなりや第二幼児公園南側",
+        "address": "印西市小林浅間1-17-13",
+        "board_number": "2-7",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1304,20 +1656,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.239822,
-          35.773925
+          140.191942,
+          35.829964
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 3,
-        "name": "宮後構造改善センター向い",
-        "address": "印西市山田875-2",
-        "board_number": "16-4",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
+        "name": "旧ショッピングセンター前",
+        "address": "印西市小林1811-1",
+        "board_number": "2-2",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1326,20 +1678,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.226241,
-          35.776383
+          140.192872,
+          35.830543
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 4,
-        "name": "松田敏郎畑地東側",
-        "address": "印西市瀬戸1388地先",
-        "board_number": "16-2",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
+        "name": "小林駅南口",
+        "address": "印西市小林643-1",
+        "board_number": "2-1",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1348,20 +1700,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.220674,
-          35.774543
+          140.187499,
+          35.836771
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 5,
-        "name": "瀬戸構造改善センター前",
-        "address": "印西市美瀬1080",
-        "board_number": "16-1",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
+        "name": "小林小学校前",
+        "address": "印西市小林2448-2",
+        "board_number": "2-6",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1370,109 +1722,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.235048,
-          35.78827
+          140.184005,
+          35.834154
         ]
       },
       "properties": {
-        "district": "第16投票区",
+        "district": "第2投票区",
         "order": 6,
-        "name": "吉高構造改善センター脇",
-        "address": "印西市吉高854",
-        "board_number": "16-7",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.226321,
-          35.792854
-        ]
-      },
-      "properties": {
-        "district": "第16投票区",
-        "order": 7,
-        "name": "一本松地区入口",
-        "address": "印西市吉高3258番地先",
-        "board_number": "16-8",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.21464,
-          35.789429
-        ]
-      },
-      "properties": {
-        "district": "第16投票区",
-        "order": 8,
-        "name": "松虫構造改善センター前",
-        "address": "印西市松虫７",
-        "board_number": "16-10",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.211297,
-          35.800159
-        ]
-      },
-      "properties": {
-        "district": "第16投票区",
-        "order": 9,
-        "name": "萩原構造改善センター入口",
-        "address": "印西市萩原1404-2",
-        "board_number": "16-9",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
-        "district_number": 16,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.160508,
-          35.82417
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 1,
         "name": "masked",
-        "address": "印西市別所1008",
-        "board_number": "1-7",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "reserved"
+        "address": "印西市小林2727",
+        "board_number": "2-3",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
+        "status": "not_yet"
       }
     },
     {
@@ -1480,20 +1744,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.157352,
-          35.831655
+          140.175671,
+          35.837158
         ]
       },
       "properties": {
-        "district": "第1投票区",
-        "order": 2,
+        "district": "第2投票区",
+        "order": 7,
         "name": "masked",
-        "address": "印西市竹袋470-4",
-        "board_number": "1-6",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
+        "address": "印西市平岡1196",
+        "board_number": "2-4",
+        "total_points": 7,
+        "total_distance_km": 4.4,
+        "estimated_hours": 0.9,
+        "district_number": 2,
         "status": "not_yet"
       }
     },
@@ -1502,153 +1766,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.150999,
-          35.833998
+          140.192105,
+          35.787015
         ]
       },
       "properties": {
-        "district": "第1投票区",
-        "order": 3,
-        "name": "木下南公園北側",
-        "address": "印西市木下南2-9",
-        "board_number": "1-8",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.150049,
-          35.832873
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 4,
-        "name": "総合福祉センター前",
-        "address": "印西市竹袋614-9",
-        "board_number": "1-2",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.151535,
-          35.837352
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 5,
-        "name": "上町会館前",
-        "address": "印西市木下774",
-        "board_number": "1-5",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.148077,
-          35.839025
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 6,
-        "name": "木下駅北口",
-        "address": "印西市木下1633-13",
-        "board_number": "1-1",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.157098,
-          35.840073
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 7,
-        "name": "旧木下保育園跡地北側",
-        "address": "印西市木下1342-4",
-        "board_number": "1-3",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.16746,
-          35.839738
-        ]
-      },
-      "properties": {
-        "district": "第1投票区",
-        "order": 8,
-        "name": "木下東四丁目もみじ公園東側",
-        "address": "印西市木下東4-3",
-        "board_number": "1-4",
-        "total_points": 8,
-        "total_distance_km": 6.88,
-        "estimated_hours": 1.4,
-        "district_number": 1,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.125475,
-          35.798511
-        ]
-      },
-      "properties": {
-        "district": "第11投票区",
+        "district": "第20投票区",
         "order": 1,
-        "name": "内野小学校北側",
-        "address": "印西市内野1-1",
-        "board_number": "11-2",
-        "total_points": 3,
-        "total_distance_km": 1.44,
-        "estimated_hours": 0.3,
-        "district_number": 11,
-        "status": "reserved"
+        "name": "角田栄福寺入口",
+        "address": "印西市角田2地先",
+        "board_number": "20-6",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
       }
     },
     {
@@ -1656,21 +1788,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.123501,
-          35.798697
+          140.197233,
+          35.796657
         ]
       },
       "properties": {
-        "district": "第11投票区",
+        "district": "第20投票区",
         "order": 2,
-        "name": "北総花の丘公園入口",
-        "address": "印西市原山1-12-1",
-        "board_number": "11-1",
-        "total_points": 3,
-        "total_distance_km": 1.44,
-        "estimated_hours": 0.3,
-        "district_number": 11,
-        "status": "reserved"
+        "name": "荒野コミュニティセンター向い",
+        "address": "印西市荒野469-2地先",
+        "board_number": "20-5",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
       }
     },
     {
@@ -1678,21 +1810,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.12389,
-          35.791701
+          140.201764,
+          35.803766
         ]
       },
       "properties": {
-        "district": "第11投票区",
+        "district": "第20投票区",
         "order": 3,
-        "name": "内野南第２団地入口",
-        "address": "印西市内野2‐6‐3",
-        "board_number": "11-7",
-        "total_points": 3,
-        "total_distance_km": 1.44,
-        "estimated_hours": 0.3,
-        "district_number": 11,
-        "status": "reserved"
+        "name": "辺田前コミュニティセンター前",
+        "address": "印西市中根187",
+        "board_number": "20-4",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
       }
     },
     {
@@ -1700,87 +1832,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.166808,
-          35.809969
+          140.202641,
+          35.81114
         ]
       },
       "properties": {
-        "district": "第22投票区",
-        "order": 1,
-        "name": "牧の原東街区公園北側",
-        "address": "印西市牧の原5-3035-25",
-        "board_number": "22-9",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.161698,
-          35.812028
-        ]
-      },
-      "properties": {
-        "district": "第22投票区",
-        "order": 2,
-        "name": "牧の原小学校東側",
-        "address": "印西市牧の原3-1-1",
-        "board_number": "22-7",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.158865,
-          35.807765
-        ]
-      },
-      "properties": {
-        "district": "第22投票区",
-        "order": 3,
-        "name": "牧の原西街区公園南側",
-        "address": "印西市牧の原3-109",
-        "board_number": "22-6",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.167516,
-          35.805958
-        ]
-      },
-      "properties": {
-        "district": "第22投票区",
+        "district": "第20投票区",
         "order": 4,
-        "name": "牧の原公園南側",
-        "address": "印西市牧の原5-108",
-        "board_number": "22-8",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
+        "name": "旧本埜村元商工会前",
+        "address": "印西市中根856-8",
+        "board_number": "20-8",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
       }
     },
     {
@@ -1788,21 +1854,21 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.171949,
-          35.806434
+          140.209111,
+          35.813256
         ]
       },
       "properties": {
-        "district": "第22投票区",
+        "district": "第20投票区",
         "order": 5,
-        "name": "滝野公園南側",
-        "address": "印西市滝野4-2-1",
-        "board_number": "22-3",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
+        "name": "一区コミュニティセンター前",
+        "address": "印西市行徳21",
+        "board_number": "20-3",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
       }
     },
     {
@@ -1810,20 +1876,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.171621,
-          35.81101
+          140.203474,
+          35.815125
         ]
       },
       "properties": {
-        "district": "第22投票区",
+        "district": "第20投票区",
         "order": 6,
-        "name": "牧の原公園東側",
-        "address": "印西市草深1612-5",
-        "board_number": "22-2",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
+        "name": "masked",
+        "address": "印西市笠神2346-3番地先",
+        "board_number": "20-2",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
         "status": "not_yet"
       }
     },
@@ -1832,42 +1898,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.174502,
-          35.810295
+          140.20223,
+          35.816427
         ]
       },
       "properties": {
-        "district": "第22投票区",
+        "district": "第20投票区",
         "order": 7,
-        "name": "滝の杜公園東側",
-        "address": "印西市滝野6-143",
-        "board_number": "22-5",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.176354,
-          35.809034
-        ]
-      },
-      "properties": {
-        "district": "第22投票区",
-        "order": 8,
-        "name": "滝野小学校前",
-        "address": "印西市滝野5-1",
-        "board_number": "22-4",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
+        "name": "本埜支所前",
+        "address": "印西市笠神2587",
+        "board_number": "20-1",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
         "status": "not_yet"
       }
     },
@@ -1876,21 +1920,65 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.178822,
-          35.810162
+          140.191522,
+          35.820345
         ]
       },
       "properties": {
-        "district": "第22投票区",
+        "district": "第20投票区",
+        "order": 8,
+        "name": "諏訪神社入口",
+        "address": "印西市物木230番地先",
+        "board_number": "20-10",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.179973,
+          35.817669
+        ]
+      },
+      "properties": {
+        "district": "第20投票区",
         "order": 9,
-        "name": "みのりの広場公園北側",
-        "address": "印西市滝野18",
-        "board_number": "22-1",
-        "total_points": 9,
-        "total_distance_km": 4.69,
-        "estimated_hours": 0.9,
-        "district_number": 22,
+        "name": "滝青年館前",
+        "address": "印西市滝1008-2",
+        "board_number": "20-9",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
         "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.188392,
+          35.804805
+        ]
+      },
+      "properties": {
+        "district": "第20投票区",
+        "order": 10,
+        "name": "五十嵐花園北側畑地",
+        "address": "印西市竜腹寺478-1地先",
+        "board_number": "20-7",
+        "total_points": 10,
+        "total_distance_km": 10.65,
+        "estimated_hours": 2.1,
+        "district_number": 20,
+        "status": "reserved"
       }
     },
     {
@@ -2316,20 +2404,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.186256,
-          35.822941
+          140.152438,
+          35.766902
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 1,
-        "name": "小林中学校前",
-        "address": "印西市小林大門下1-4-1",
-        "board_number": "2-5",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "name": "万福寺前",
+        "address": "印西市吉田821",
+        "board_number": "17-10",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2338,20 +2426,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.191968,
-          35.826334
+          140.154443,
+          35.764749
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 2,
-        "name": "いなりや第二幼児公園南側",
-        "address": "印西市小林浅間1-17-13",
-        "board_number": "2-7",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "name": "吉田宗像神社前",
+        "address": "印西市吉田1600-1地先",
+        "board_number": "17-9",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2360,20 +2448,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.191942,
-          35.829964
+          140.164386,
+          35.763075
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 3,
-        "name": "旧ショッピングセンター前",
-        "address": "印西市小林1811-1",
-        "board_number": "2-2",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "name": "印旛西部公園前",
+        "address": "印西市岩戸2878-2",
+        "board_number": "17-2",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2382,20 +2470,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.192872,
-          35.830543
+          140.169935,
+          35.766291
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 4,
-        "name": "小林駅南口",
-        "address": "印西市小林643-1",
-        "board_number": "2-1",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "name": "岩戸構造改善センター前",
+        "address": "印西市岩戸1616-1",
+        "board_number": "17-1",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2404,20 +2492,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.187499,
-          35.836771
+          140.184163,
+          35.760516
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 5,
-        "name": "小林小学校前",
-        "address": "印西市小林2448-2",
-        "board_number": "2-6",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "name": "広福寺前",
+        "address": "印西市師戸1486-1",
+        "board_number": "17-3",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2426,20 +2514,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.184005,
-          35.834154
+          140.191542,
+          35.762504
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 6,
         "name": "masked",
-        "address": "印西市小林2727",
-        "board_number": "2-3",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
+        "address": "印西市師戸3315-4",
+        "board_number": "17-4",
+        "total_points": 10,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2448,42 +2536,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.175671,
-          35.837158
+          140.189761,
+          35.773991
         ]
       },
       "properties": {
-        "district": "第2投票区",
+        "district": "第17投票区",
         "order": 7,
-        "name": "masked",
-        "address": "印西市平岡1196",
-        "board_number": "2-4",
-        "total_points": 7,
-        "total_distance_km": 4.4,
-        "estimated_hours": 0.9,
-        "district_number": 2,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.192105,
-          35.787015
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 1,
-        "name": "角田栄福寺入口",
-        "address": "印西市角田2地先",
-        "board_number": "20-6",
+        "name": "鎌苅構造改善センター前",
+        "address": "印西市鎌苅590-1",
+        "board_number": "17-5",
         "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2492,152 +2558,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.197233,
-          35.796657
+          140.173151,
+          35.772686
         ]
       },
       "properties": {
-        "district": "第20投票区",
-        "order": 2,
-        "name": "荒野コミュニティセンター向い",
-        "address": "印西市荒野469-2地先",
-        "board_number": "20-5",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.201764,
-          35.803766
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 3,
-        "name": "辺田前コミュニティセンター前",
-        "address": "印西市中根187",
-        "board_number": "20-4",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.202641,
-          35.81114
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 4,
-        "name": "旧本埜村元商工会前",
-        "address": "印西市中根856-8",
-        "board_number": "20-8",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.209111,
-          35.813256
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 5,
-        "name": "一区コミュニティセンター前",
-        "address": "印西市行徳21",
-        "board_number": "20-3",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.203474,
-          35.815125
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 6,
-        "name": "masked",
-        "address": "印西市笠神2346-3番地先",
-        "board_number": "20-2",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.20223,
-          35.816427
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
-        "order": 7,
-        "name": "本埜支所前",
-        "address": "印西市笠神2587",
-        "board_number": "20-1",
-        "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.191522,
-          35.820345
-        ]
-      },
-      "properties": {
-        "district": "第20投票区",
+        "district": "第17投票区",
         "order": 8,
-        "name": "諏訪神社入口",
-        "address": "印西市物木230番地先",
-        "board_number": "20-10",
+        "name": "カーピカランド岩戸前",
+        "address": "印西市岩戸3245-2地先",
+        "board_number": "17-7",
         "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2646,20 +2580,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.179973,
-          35.817669
+          140.181975,
+          35.779558
         ]
       },
       "properties": {
-        "district": "第20投票区",
+        "district": "第17投票区",
         "order": 9,
-        "name": "滝青年館前",
-        "address": "印西市滝1008-2",
-        "board_number": "20-9",
+        "name": "masked",
+        "address": "印西市大廻269-3地先",
+        "board_number": "17-8",
         "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -2668,482 +2602,20 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.188392,
-          35.804805
+          140.176104,
+          35.78905
         ]
       },
       "properties": {
-        "district": "第20投票区",
+        "district": "第17投票区",
         "order": 10,
-        "name": "五十嵐花園北側畑地",
-        "address": "印西市竜腹寺478-1地先",
-        "board_number": "20-7",
+        "name": "酢崎材木店脇",
+        "address": "印西市造谷658-3地先",
+        "board_number": "17-6",
         "total_points": 10,
-        "total_distance_km": 10.65,
-        "estimated_hours": 2.1,
-        "district_number": 20,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.123091,
-          35.821145
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 1,
-        "name": "masked",
-        "address": "印西市和泉892-2",
-        "board_number": "5-8",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.122485,
-          35.823832
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 2,
-        "name": "和泉三差路",
-        "address": "印西市和泉552番地先",
-        "board_number": "5-6",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.117205,
-          35.81733
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 3,
-        "name": "masked",
-        "address": "印西市和泉1114番地先",
-        "board_number": "5-7",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.10896,
-          35.824523
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 4,
-        "name": "旧永治小学校前",
-        "address": "印西市浦部557番地先",
-        "board_number": "5-5",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.102699,
-          35.82516
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 5,
-        "name": "宮内集会所隣",
-        "address": "印西市浦部1991-1地先",
-        "board_number": "5-1",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.102907,
-          35.823239
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 6,
-        "name": "富沢商店前",
-        "address": "印西市浦部1432-1地先",
-        "board_number": "5-2",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.101075,
-          35.819857
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 7,
-        "name": "masked",
-        "address": "印西市白幡49-1",
-        "board_number": "5-3",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.10481,
-          35.81726
-        ]
-      },
-      "properties": {
-        "district": "第5投票区",
-        "order": 8,
-        "name": "masked",
-        "address": "印西市白幡277",
-        "board_number": "5-4",
-        "total_points": 8,
-        "total_distance_km": 5.04,
-        "estimated_hours": 1.0,
-        "district_number": 5,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.154404,
-          35.807901
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 1,
-        "name": "牧の原学校給食センター前",
-        "address": "印西市別所71－1",
-        "board_number": "14-3",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.15757,
-          35.803684
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 2,
-        "name": "西の原中学校北側",
-        "address": "印西市西の原1-3",
-        "board_number": "14-6",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.158924,
-          35.800817
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 3,
-        "name": "西の原東街区公園東側",
-        "address": "印西市西の原2-1",
-        "board_number": "14-2",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.15774,
-          35.801345
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 4,
-        "name": "西の原公園南側",
-        "address": "印西市西の原1-4",
-        "board_number": "14-5",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.155729,
-          35.802582
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 5,
-        "name": "西の原北街区公園東側",
-        "address": "印西市西の原3-8",
-        "board_number": "14-4",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.153303,
-          35.801064
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 6,
-        "name": "西の原西街区公園南側",
-        "address": "印西市西の原3-13",
-        "board_number": "14-7",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.152087,
-          35.800994
-        ]
-      },
-      "properties": {
-        "district": "第14投票区",
-        "order": 7,
-        "name": "西の原小学校北側",
-        "address": "印西市西の原2-7",
-        "board_number": "14-1",
-        "total_points": 7,
-        "total_distance_km": 1.63,
-        "estimated_hours": 0.4,
-        "district_number": 14,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.109232,
-          35.789179
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 1,
-        "name": "ﾊｰﾄｳﾞｨﾚｯﾁﾞ前",
-        "address": "印西市武西1269－1",
-        "board_number": "6-5",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.107615,
-          35.784094
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 2,
-        "name": "武西三差路脇",
-        "address": "印西市武西355-1",
-        "board_number": "6-6",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.106978,
-          35.783379
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 3,
-        "name": "武西集会所前",
-        "address": "印西市武西908",
-        "board_number": "6-1",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.112374,
-          35.782714
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 4,
-        "name": "安養寺前",
-        "address": "印西市武西158-1",
-        "board_number": "6-2",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
-        "status": "not_yet"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.117169,
-          35.785241
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 5,
-        "name": "消防貯水池脇",
-        "address": "印西市戸神222番地先",
-        "board_number": "6-3",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
-        "status": "reserved"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.116525,
-          35.787465
-        ]
-      },
-      "properties": {
-        "district": "第6投票区",
-        "order": 6,
-        "name": "masked",
-        "address": "印西市戸神814",
-        "board_number": "6-4",
-        "total_points": 6,
-        "total_distance_km": 2.96,
-        "estimated_hours": 0.6,
-        "district_number": 6,
+        "total_distance_km": 12.27,
+        "estimated_hours": 2.5,
+        "district_number": 17,
         "status": "not_yet"
       }
     },
@@ -3163,7 +2635,7 @@
         "address": "印西市草深66-7",
         "board_number": "8-1",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "reserved"
@@ -3185,7 +2657,7 @@
         "address": "印西市草深132",
         "board_number": "8-3",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "reserved"
@@ -3207,7 +2679,7 @@
         "address": "印西市草深943-1",
         "board_number": "8-2",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "reserved"
@@ -3229,7 +2701,7 @@
         "address": "印西市草深2504-3",
         "board_number": "8-5",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "not_yet"
@@ -3251,7 +2723,7 @@
         "address": "印西市草深924",
         "board_number": "8-4",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "reserved"
@@ -3273,7 +2745,7 @@
         "address": "印西市草深423-2",
         "board_number": "8-6",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "not_yet"
@@ -3295,10 +2767,538 @@
         "address": "印西市草深489",
         "board_number": "8-7",
         "total_points": 7,
-        "total_distance_km": 3.58,
+        "total_distance_km": 4.47,
         "estimated_hours": 0.9,
         "district_number": 8,
         "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.166808,
+          35.809969
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 1,
+        "name": "牧の原東街区公園北側",
+        "address": "印西市牧の原5-3035-25",
+        "board_number": "22-9",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.161698,
+          35.812028
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 2,
+        "name": "牧の原小学校東側",
+        "address": "印西市牧の原3-1-1",
+        "board_number": "22-7",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.158865,
+          35.807765
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 3,
+        "name": "牧の原西街区公園南側",
+        "address": "印西市牧の原3-109",
+        "board_number": "22-6",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.167516,
+          35.805958
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 4,
+        "name": "牧の原公園南側",
+        "address": "印西市牧の原5-108",
+        "board_number": "22-8",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.171949,
+          35.806434
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 5,
+        "name": "滝野公園南側",
+        "address": "印西市滝野4-2-1",
+        "board_number": "22-3",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.171621,
+          35.81101
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 6,
+        "name": "牧の原公園東側",
+        "address": "印西市草深1612-5",
+        "board_number": "22-2",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.174502,
+          35.810295
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 7,
+        "name": "滝の杜公園東側",
+        "address": "印西市滝野6-143",
+        "board_number": "22-5",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.176354,
+          35.809034
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 8,
+        "name": "滝野小学校前",
+        "address": "印西市滝野5-1",
+        "board_number": "22-4",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.178822,
+          35.810162
+        ]
+      },
+      "properties": {
+        "district": "第22投票区",
+        "order": 9,
+        "name": "みのりの広場公園北側",
+        "address": "印西市滝野18",
+        "board_number": "22-1",
+        "total_points": 9,
+        "total_distance_km": 4.69,
+        "estimated_hours": 0.9,
+        "district_number": 22,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.116525,
+          35.787465
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 1,
+        "name": "masked",
+        "address": "印西市戸神814",
+        "board_number": "6-4",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.117169,
+          35.785241
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 2,
+        "name": "消防貯水池脇",
+        "address": "印西市戸神222番地先",
+        "board_number": "6-3",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.112374,
+          35.782714
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 3,
+        "name": "安養寺前",
+        "address": "印西市武西158-1",
+        "board_number": "6-2",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.106978,
+          35.783379
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 4,
+        "name": "武西集会所前",
+        "address": "印西市武西908",
+        "board_number": "6-1",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.107615,
+          35.784094
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 5,
+        "name": "武西三差路脇",
+        "address": "印西市武西355-1",
+        "board_number": "6-6",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109232,
+          35.789179
+        ]
+      },
+      "properties": {
+        "district": "第6投票区",
+        "order": 6,
+        "name": "ﾊｰﾄｳﾞｨﾚｯﾁﾞ前",
+        "address": "印西市武西1269－1",
+        "board_number": "6-5",
+        "total_points": 6,
+        "total_distance_km": 2.96,
+        "estimated_hours": 0.6,
+        "district_number": 6,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.136662,
+          35.798446
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 1,
+        "name": "高花北街区公園南側",
+        "address": "印西市高花1-24",
+        "board_number": "13-8",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.13918,
+          35.797667
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 2,
+        "name": "高花小学校前",
+        "address": "印西市高花2-4",
+        "board_number": "13-4",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.141956,
+          35.797749
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 3,
+        "name": "高花東街区公園東側",
+        "address": "印西市高花2-5",
+        "board_number": "13-5",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.138053,
+          35.795863
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 4,
+        "name": "高花公園東側",
+        "address": "印西市高花5-4",
+        "board_number": "13-3",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.140927,
+          35.793701
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 5,
+        "name": "高花中児童公園南側",
+        "address": "印西市高花4-8-1",
+        "board_number": "13-2",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.142777,
+          35.790678
+        ]
+      },
+      "properties": {
+        "district": "第13投票区",
+        "order": 6,
+        "name": "高花南児童公園東側",
+        "address": "印西市高花6-28",
+        "board_number": "13-6",
+        "total_points": 6,
+        "total_distance_km": 2.45,
+        "estimated_hours": 0.5,
+        "district_number": 13,
+        "status": "not_yet"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.12389,
+          35.791701
+        ]
+      },
+      "properties": {
+        "district": "第11投票区",
+        "order": 1,
+        "name": "内野南第２団地入口",
+        "address": "印西市内野2‐6‐3",
+        "board_number": "11-7",
+        "total_points": 3,
+        "total_distance_km": 1.44,
+        "estimated_hours": 0.3,
+        "district_number": 11,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.123501,
+          35.798697
+        ]
+      },
+      "properties": {
+        "district": "第11投票区",
+        "order": 2,
+        "name": "北総花の丘公園入口",
+        "address": "印西市原山1-12-1",
+        "board_number": "11-1",
+        "total_points": 3,
+        "total_distance_km": 1.44,
+        "estimated_hours": 0.3,
+        "district_number": 11,
+        "status": "reserved"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.125475,
+          35.798511
+        ]
+      },
+      "properties": {
+        "district": "第11投票区",
+        "order": 3,
+        "name": "内野小学校北側",
+        "address": "印西市内野1-1",
+        "board_number": "11-2",
+        "total_points": 3,
+        "total_distance_km": 1.44,
+        "estimated_hours": 0.3,
+        "district_number": 11,
+        "status": "reserved"
       }
     },
     {
@@ -3317,8 +3317,8 @@
         "address": "印西市小倉台4-102",
         "board_number": "10-7",
         "total_points": 3,
-        "total_distance_km": 0.64,
-        "estimated_hours": 0.2,
+        "total_distance_km": 1.39,
+        "estimated_hours": 0.3,
         "district_number": 10,
         "status": "not_yet"
       }
@@ -3339,8 +3339,8 @@
         "address": "印西市小倉台4-4",
         "board_number": "10-3",
         "total_points": 3,
-        "total_distance_km": 0.64,
-        "estimated_hours": 0.2,
+        "total_distance_km": 1.39,
+        "estimated_hours": 0.3,
         "district_number": 10,
         "status": "not_yet"
       }
@@ -3361,8 +3361,8 @@
         "address": "印西市小倉台2-3",
         "board_number": "10-6",
         "total_points": 3,
-        "total_distance_km": 0.64,
-        "estimated_hours": 0.2,
+        "total_distance_km": 1.39,
+        "estimated_hours": 0.3,
         "district_number": 10,
         "status": "not_yet"
       }
@@ -3394,26 +3394,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.114469,
-          35.800579
-        ]
-      },
-      "properties": {
-        "district": "第23投票区",
-        "order": 0,
-        "name": "千葉ニュータウン中央駅北口自転車駐車場前",
-        "address": "印西市中央北2-1-1",
-        "board_number": "23-8",
-        "district_number": 23,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           140.12799,
           35.794939
         ]
@@ -3434,17 +3414,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.128926,
-          35.797038
+          140.114469,
+          35.800579
         ]
       },
       "properties": {
-        "district": "第12投票区",
+        "district": "第23投票区",
         "order": 0,
-        "name": "原山南児童公園南側",
-        "address": "印西市原山1-10",
-        "board_number": "12-6",
-        "district_number": 12,
+        "name": "千葉ニュータウン中央駅北口自転車駐車場前",
+        "address": "印西市中央北2-1-1",
+        "board_number": "23-8",
+        "district_number": 23,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.125667,
+          35.794565
+        ]
+      },
+      "properties": {
+        "district": "第11投票区",
+        "order": 0,
+        "name": "内野南児童公園東側",
+        "address": "印西市内野2-8",
+        "board_number": "11-4",
+        "district_number": 11,
         "status": "done",
         "type": "completed_board"
       }
@@ -3474,17 +3474,97 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.125667,
-          35.794565
+          140.128926,
+          35.797038
         ]
       },
       "properties": {
-        "district": "第11投票区",
+        "district": "第12投票区",
         "order": 0,
-        "name": "内野南児童公園東側",
-        "address": "印西市内野2-8",
-        "board_number": "11-4",
-        "district_number": 11,
+        "name": "原山南児童公園南側",
+        "address": "印西市原山1-10",
+        "board_number": "12-6",
+        "district_number": 12,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.120004,
+          35.796933
+        ]
+      },
+      "properties": {
+        "district": "第23投票区",
+        "order": 0,
+        "name": "戸神台東街区公園西側",
+        "address": "印西市戸神台1-2-5",
+        "board_number": "23-6",
+        "district_number": 23,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.109209,
+          35.804756
+        ]
+      },
+      "properties": {
+        "district": "第10投票区",
+        "order": 0,
+        "name": "小倉台小学校北側",
+        "address": "印西市小倉台2-3",
+        "board_number": "10-4",
+        "district_number": 10,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.115016,
+          35.80169
+        ]
+      },
+      "properties": {
+        "district": "第23投票区",
+        "order": 0,
+        "name": "千葉ニュータウン中央駅北口",
+        "address": "印西市中央北1-106",
+        "board_number": "23-2",
+        "district_number": 23,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.1106911,
+          35.8070051
+        ]
+      },
+      "properties": {
+        "district": "第10投票区",
+        "order": 0,
+        "name": "木刈中学校前",
+        "address": "印西市木刈2-1",
+        "board_number": "10-5",
+        "district_number": 10,
         "status": "done",
         "type": "completed_board"
       }
@@ -3534,26 +3614,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.1106911,
-          35.8070051
-        ]
-      },
-      "properties": {
-        "district": "第10投票区",
-        "order": 0,
-        "name": "木刈中学校前",
-        "address": "印西市木刈2-1",
-        "board_number": "10-5",
-        "district_number": 10,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           140.131287,
           35.799703
         ]
@@ -3594,36 +3654,16 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.109209,
-          35.804756
-        ]
-      },
-      "properties": {
-        "district": "第10投票区",
-        "order": 0,
-        "name": "小倉台小学校北側",
-        "address": "印西市小倉台2-3",
-        "board_number": "10-4",
-        "district_number": 10,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.120004,
-          35.796933
+          140.116389,
+          35.79585
         ]
       },
       "properties": {
         "district": "第23投票区",
         "order": 0,
-        "name": "戸神台東街区公園西側",
-        "address": "印西市戸神台1-2-5",
-        "board_number": "23-6",
+        "name": "戸神台西街区公園東側",
+        "address": "印西市戸神台2-3-1",
+        "board_number": "23-5",
         "district_number": 23,
         "status": "done",
         "type": "completed_board"
@@ -3644,46 +3684,6 @@
         "name": "大塚街区公園北側",
         "address": "印西市大塚3-30",
         "board_number": "9-8",
-        "district_number": 9,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.106182,
-          35.81032
-        ]
-      },
-      "properties": {
-        "district": "第9投票区",
-        "order": 0,
-        "name": "木刈小学校前",
-        "address": "印西市木刈2-6",
-        "board_number": "9-5",
-        "district_number": 9,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.106198,
-          35.807244
-        ]
-      },
-      "properties": {
-        "district": "第9投票区",
-        "order": 0,
-        "name": "木刈中児童公園西側",
-        "address": "印西市木刈2-3",
-        "board_number": "9-7",
         "district_number": 9,
         "status": "done",
         "type": "completed_board"
@@ -3734,17 +3734,77 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.116389,
-          35.79585
+          140.113533,
+          35.804186
+        ]
+      },
+      "properties": {
+        "district": "第10投票区",
+        "order": 0,
+        "name": "大塚前公園東側",
+        "address": "印西市小倉台1-2",
+        "board_number": "10-1",
+        "district_number": 10,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.124281,
+          35.796817
+        ]
+      },
+      "properties": {
+        "district": "第11投票区",
+        "order": 0,
+        "name": "内野保育園前",
+        "address": "印西市内野1-12",
+        "board_number": "11-3",
+        "district_number": 11,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.115918,
+          35.799864
         ]
       },
       "properties": {
         "district": "第23投票区",
         "order": 0,
-        "name": "戸神台西街区公園東側",
-        "address": "印西市戸神台2-3-1",
-        "board_number": "23-5",
+        "name": "千葉ニュータウン中央駅南口",
+        "address": "印西市中央南１-436-3",
+        "board_number": "23-7",
         "district_number": 23,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          140.106182,
+          35.81032
+        ]
+      },
+      "properties": {
+        "district": "第9投票区",
+        "order": 0,
+        "name": "木刈小学校前",
+        "address": "印西市木刈2-6",
+        "board_number": "9-5",
+        "district_number": 9,
         "status": "done",
         "type": "completed_board"
       }
@@ -3794,66 +3854,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.124281,
-          35.796817
-        ]
-      },
-      "properties": {
-        "district": "第11投票区",
-        "order": 0,
-        "name": "内野保育園前",
-        "address": "印西市内野1-12",
-        "board_number": "11-3",
-        "district_number": 11,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.113533,
-          35.804186
-        ]
-      },
-      "properties": {
-        "district": "第10投票区",
-        "order": 0,
-        "name": "大塚前公園東側",
-        "address": "印西市小倉台1-2",
-        "board_number": "10-1",
-        "district_number": 10,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.115918,
-          35.799864
-        ]
-      },
-      "properties": {
-        "district": "第23投票区",
-        "order": 0,
-        "name": "千葉ニュータウン中央駅南口",
-        "address": "印西市中央南１-436-3",
-        "board_number": "23-7",
-        "district_number": 23,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           140.128517,
           35.79845
         ]
@@ -3874,6 +3874,26 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          140.106198,
+          35.807244
+        ]
+      },
+      "properties": {
+        "district": "第9投票区",
+        "order": 0,
+        "name": "木刈中児童公園西側",
+        "address": "印西市木刈2-3",
+        "board_number": "9-7",
+        "district_number": 9,
+        "status": "done",
+        "type": "completed_board"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           140.133159,
           35.795212
         ]
@@ -3885,26 +3905,6 @@
         "address": "印西市高花1-3",
         "board_number": "13-1",
         "district_number": 13,
-        "status": "done",
-        "type": "completed_board"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          140.115016,
-          35.80169
-        ]
-      },
-      "properties": {
-        "district": "第23投票区",
-        "order": 0,
-        "name": "千葉ニュータウン中央駅北口",
-        "address": "印西市中央北1-106",
-        "board_number": "23-2",
-        "district_number": 23,
         "status": "done",
         "type": "completed_board"
       }
