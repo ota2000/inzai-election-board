@@ -458,6 +458,17 @@ export class DistrictManager {
         try {
             this.mapManager.setView(coord, 16);
             console.log('Map view set to:', coord, 'zoom: 16');
+            
+            // 画面をマップエリアにスクロール
+            const mapElement = document.getElementById('map');
+            if (mapElement) {
+                mapElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center',
+                    inline: 'nearest'
+                });
+                console.log('Scrolled to map area');
+            }
         } catch (error) {
             console.error('Error setting map view:', error);
         }
@@ -520,7 +531,7 @@ export class DistrictManager {
     }
     
     // 完了地点リストを更新（後方互換性のため保持）
-    updateCompletedList(completedPoints) {
+    updateCompletedList() {
         // 統合表示に変更したため、この関数は非表示のみ実行
         this.hideCompletedCard();
     }

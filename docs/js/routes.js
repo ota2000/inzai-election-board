@@ -21,13 +21,13 @@ export class RouteManager {
     }
     
     // 簡略化されたポイント取得（ルートセグメントなし）
-    getPointOnRoute(from, to, fromOrder, toOrder) {
+    getPointOnRoute(from, to) {
         // ポイントのみシステムでは中点を返す
         return [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2];
     }
     
     // ルートセグメント表示は削除（ポイントのみシステム）
-    displayRouteSegments(districtName) {
+    displayRouteSegments() {
         // ポイントのみシステムではルートセグメントを表示しない
         console.log('ポイントのみシステムのためルートセグメントは表示しません');
     }
