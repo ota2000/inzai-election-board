@@ -136,3 +136,33 @@ export function downloadData(data, filename) {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
 }
+
+// ステータス表示変換
+export function getStatusDisplayName(status) {
+    const statusMap = {
+        'not_yet': '未貼付',
+        'reserved': '予約',
+        'done': '完了',
+        'error_wrong_place': '場所違い',
+        'error_damaged': '破損',
+        'error_wrong_poster': '他党',
+        'other': 'その他'
+    };
+    
+    return statusMap[status] || status || '不明';
+}
+
+// ステータスに応じた色を取得
+export function getStatusColor(status) {
+    const colorMap = {
+        'not_yet': '#e74c3c',        // 赤 - 未貼付
+        'reserved': '#f39c12',       // オレンジ - 予約
+        'done': '#27ae60',           // 緑 - 完了
+        'error_wrong_place': '#e67e22', // ダークオレンジ - 場所違い
+        'error_damaged': '#8e44ad',     // 紫 - 破損
+        'error_wrong_poster': '#c0392b', // ダークレッド - 他党
+        'other': '#95a5a6'              // グレー - その他
+    };
+    
+    return colorMap[status] || '#7f8c8d'; // デフォルトはグレー
+}

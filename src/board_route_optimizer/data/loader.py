@@ -10,6 +10,7 @@ from typing import Dict, List, Tuple, Optional
 from pathlib import Path
 
 from ..config import Config
+from .bigquery_loader import BigQueryLoader
 
 
 class DataLoader:
@@ -38,15 +39,32 @@ class DataLoader:
             FileNotFoundError: If required data files are not found
             ValueError: If data format is invalid
         """
-        # Load poster board data
-        poster_path = Path(self.config.data.poster_board_csv)
-        if not poster_path.exists():
-            raise FileNotFoundError(f"Poster board data not found: {poster_path}")
+        # Check if we should use BigQuery or CSV
+        if self.config.data.use_bigquery:
+            # Load from BigQuery
+            bigquery_loader = BigQueryLoader(
+                project_id=self.config.data.bigquery_project_id,
+                dataset_id=self.config.data.bigquery_dataset_id,
+                table_id=self.config.data.bigquery_table_id
+            )
+            self.poster_boards_df = bigquery_loader.load_poster_boards(
+                prefecture=self.config.data.prefecture,
+                city=self.config.data.city,
+                exclude_done=True  # doneステータスの地点を最適化から除外
+            )
+            # BigQueryLoaderインスタンスを保存してdone_boardsにアクセス可能にする
+            self.bigquery_loader = bigquery_loader
+        else:
+            # Load poster board data from CSV
+            poster_path = Path(self.config.data.poster_board_csv)
+            if not poster_path.exists():
+                raise FileNotFoundError(f"Poster board data not found: {poster_path}")
+            
+            self.poster_boards_df = pd.read_csv(poster_path)
         
-        self.poster_boards_df = pd.read_csv(poster_path)
         self._validate_poster_board_data()
         
-        # Load polling place data
+        # Load polling place data (still from CSV for now)
         polling_path = Path(self.config.data.polling_places_csv)
         if polling_path.exists():
             self.polling_places_df = pd.read_csv(polling_path)
@@ -89,8 +107,15 @@ class DataLoader:
     
     def _preprocess_poster_board_data(self) -> None:
         """Preprocess poster board data."""
-        # Extract district names
-        self.poster_boards_df['投票区名'] = self.poster_boards_df['投票区'].str.extract(r': (.+)$')[0]
+        # Extract district names based on data source
+        if self.config.data.use_bigquery:
+            # For BigQuery data, create district name from voting_district_number
+            self.poster_boards_df['投票区名'] = self.poster_boards_df['投票区番号'].apply(
+                lambda x: f"第{x}投票区"
+            )
+        else:
+            # For CSV data, extract from the original format
+            self.poster_boards_df['投票区名'] = self.poster_boards_df['投票区'].str.extract(r': (.+)$')[0]
         
         # Anonymize personal names if enabled
         if self.config.data.anonymize_personal_names:
@@ -129,14 +154,22 @@ class DataLoader:
     
     def extract_board_number(self, voting_area: str) -> str:
         """
-        Extract board number from voting area string.
+        Extract board number from voting area string or board number directly.
         
         Args:
-            voting_area: Voting area identifier
+            voting_area: Voting area identifier or board number (e.g., "第1投票区ー1" or "1-1")
             
         Returns:
             Formatted board number (e.g., "1-1")
         """
+        # If data comes from BigQuery, check if we have board number column
+        if hasattr(self, 'poster_boards_df') and '掲示板番号' in self.poster_boards_df.columns:
+            # For BigQuery data, board number is already in the correct format
+            row = self.poster_boards_df[self.poster_boards_df['投票区'] == voting_area]
+            if not row.empty:
+                return str(row.iloc[0]['掲示板番号'])
+        
+        # Original CSV format extraction
         try:
             match = re.search(r'第([０-９\d]+)投票区ー([０-９\d]+)', voting_area)
             if match:
@@ -185,3 +218,14 @@ class DataLoader:
         return self.poster_boards_df[
             self.poster_boards_df['投票区名'] == district_name
         ].reset_index(drop=True)
+    
+    def get_done_boards(self) -> pd.DataFrame:
+        """
+        Get boards with 'done' status (reference data).
+        
+        Returns:
+            DataFrame containing done boards, or empty DataFrame if not available
+        """
+        if hasattr(self, 'bigquery_loader') and self.bigquery_loader.done_boards is not None:
+            return self.bigquery_loader.done_boards
+        return pd.DataFrame()

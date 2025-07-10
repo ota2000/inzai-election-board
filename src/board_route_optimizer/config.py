@@ -41,8 +41,21 @@ class OptimizationConfig:
 @dataclass
 class DataConfig:
     """Data processing configuration."""
+    # Data source settings
+    use_bigquery: bool = True
+    
+    # CSV settings (legacy)
     poster_board_csv: str = "data/poster_board_locations.csv"
     polling_places_csv: str = "data/polling_places.csv"
+    
+    # BigQuery settings
+    bigquery_project_id: Optional[str] = None
+    bigquery_dataset_id: str = "prd_public"
+    bigquery_table_id: str = "poster_boards"
+    prefecture: str = "千葉県"
+    city: str = "印西市"
+    
+    # Output settings
     output_directory: str = "docs/data"
     output_filename: str = "poster_board_routes.geojson"
     
@@ -116,8 +129,14 @@ class Config:
                 'tsp_improvement_threshold': self.optimization.tsp_improvement_threshold
             },
             'data': {
+                'use_bigquery': self.data.use_bigquery,
                 'poster_board_csv': self.data.poster_board_csv,
                 'polling_places_csv': self.data.polling_places_csv,
+                'bigquery_project_id': self.data.bigquery_project_id,
+                'bigquery_dataset_id': self.data.bigquery_dataset_id,
+                'bigquery_table_id': self.data.bigquery_table_id,
+                'prefecture': self.data.prefecture,
+                'city': self.data.city,
                 'output_directory': self.data.output_directory,
                 'output_filename': self.data.output_filename,
                 'anonymize_personal_names': self.data.anonymize_personal_names

@@ -56,6 +56,12 @@ class GeoJSONExporter:
                     district_name, result, voting_offices[district_name]
                 ))
         
+        # Add done boards as reference points (no routes)
+        done_boards = data_loader.get_done_boards()
+        if not done_boards.empty:
+            print(f"\\nAdding {len(done_boards)} completed boards as reference points...")
+            features.extend(self._create_done_board_features(done_boards, data_loader))
+        
         return {
             "type": "FeatureCollection",
             "features": features
@@ -68,7 +74,22 @@ class GeoJSONExporter:
         
         for i, location in enumerate(result['locations']):
             # Extract board number
-            board_number = data_loader.extract_board_number(location['投票区'])
+            if '掲示板番号' in location:
+                # BigQuery data has board number directly
+                board_number = location['掲示板番号']
+            else:
+                # CSV data needs extraction
+                board_number = data_loader.extract_board_number(location['投票区'])
+            
+            # Get district number as integer
+            if '投票区番号' in location:
+                # BigQuery data has voting district number
+                district_number = int(location['投票区番号'])
+            else:
+                # Extract from district name (e.g., "第5投票区" -> 5)
+                import re
+                match = re.search(r'第(\d+)投票区', district_name)
+                district_number = int(match.group(1)) if match else 0
             
             feature = {
                 "type": "Feature",
@@ -85,9 +106,8 @@ class GeoJSONExporter:
                     "total_points": len(result['locations']),
                     "total_distance_km": round(result['distance'] / 1000, 2),
                     "estimated_hours": round(result['duration'] / 3600, 1),
-                    "office_name": district_name,
-                    "office_address": office_info.get('address', ''),
-                    "district_number": office_info.get('district_number', '')
+                    "district_number": district_number,
+                    "status": location.get('ステータス', 'unknown')
                 }
             }
             features.append(feature)
@@ -136,10 +156,41 @@ class GeoJSONExporter:
                 "name": district_name,
                 "address": office_data['address'],
                 "district_number": office_data['district_number'],
-                "office_name": district_name,
-                "office_address": office_data['address'],
                 "total_points": len(result['locations']),
                 "total_distance_km": round(result['distance'] / 1000, 2),
                 "estimated_hours": round(result['duration'] / 3600, 1)
             }
         }
+    
+    def _create_done_board_features(self, done_boards, data_loader) -> List[Dict[str, Any]]:
+        """Create GeoJSON features for completed (done) boards."""
+        features = []
+        
+        for _, board in done_boards.iterrows():
+            # Extract board number
+            board_number = board.get('掲示板番号', '')
+            
+            # Get district number as integer
+            district_number = int(board['投票区番号']) if '投票区番号' in board else 0
+            district_name = board.get('投票区名', f"第{district_number}投票区")
+            
+            feature = {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [board['経度'], board['緯度']]
+                },
+                "properties": {
+                    "district": district_name,
+                    "order": 0,  # Done boards don't have route order
+                    "name": board['設置場所名'],
+                    "address": board['住所'],
+                    "board_number": board_number,
+                    "district_number": district_number,
+                    "status": "done",
+                    "type": "completed_board"
+                }
+            }
+            features.append(feature)
+        
+        return features

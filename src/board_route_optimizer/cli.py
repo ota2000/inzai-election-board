@@ -19,11 +19,14 @@ def create_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Basic usage with default settings
+  # Basic usage with BigQuery (default)
   python -m board_route_optimizer.cli
   
-  # Specify custom data files
-  python -m board_route_optimizer.cli --poster-csv data/boards.csv --polling-csv data/offices.csv
+  # Use CSV files instead of BigQuery
+  python -m board_route_optimizer.cli --use-csv --poster-csv data/boards.csv
+  
+  # Specify BigQuery parameters
+  python -m board_route_optimizer.cli --project-id my-project --city 印西市
   
   # Use API key for road distance calculation
   python -m board_route_optimizer.cli --api-key YOUR_API_KEY
@@ -36,14 +39,58 @@ Examples:
         """
     )
     
-    # Data options
+    # Data source options
+    data_group = parser.add_mutually_exclusive_group()
+    data_group.add_argument(
+        '--use-bigquery',
+        action='store_true',
+        default=True,
+        help='Use BigQuery as data source (default)'
+    )
+    data_group.add_argument(
+        '--use-csv',
+        action='store_true',
+        help='Use CSV files as data source'
+    )
+    
+    # BigQuery options
+    parser.add_argument(
+        '--project-id',
+        type=str,
+        help='GCP project ID for BigQuery'
+    )
+    parser.add_argument(
+        '--dataset-id',
+        type=str,
+        default='prd_public',
+        help='BigQuery dataset ID (default: prd_public)'
+    )
+    parser.add_argument(
+        '--table-id',
+        type=str,
+        default='poster_boards',
+        help='BigQuery table ID (default: poster_boards)'
+    )
+    parser.add_argument(
+        '--prefecture',
+        type=str,
+        default='千葉県',
+        help='Prefecture to filter (default: 千葉県)'
+    )
+    parser.add_argument(
+        '--city',
+        type=str,
+        default='印西市',
+        help='City to filter (default: 印西市)'
+    )
+    
+    # CSV options
     parser.add_argument(
         '--poster-csv',
         type=str,
         default='data/poster_board_locations.csv',
         help='Path to poster board locations CSV file'
     )
-    
     parser.add_argument(
         '--polling-csv', 
         type=str,
@@ -118,10 +165,24 @@ def create_config_from_args(args) -> Config:
         config = Config()
     
     # Override with command line arguments
+    config.data.use_bigquery = not args.use_csv
+    
+    # BigQuery settings
+    if args.project_id:
+        config.data.bigquery_project_id = args.project_id
+    config.data.bigquery_dataset_id = args.dataset_id
+    config.data.bigquery_table_id = args.table_id
+    config.data.prefecture = args.prefecture
+    config.data.city = args.city
+    
+    # CSV settings
     config.data.poster_board_csv = args.poster_csv
     config.data.polling_places_csv = args.polling_csv
+    
+    # Optimization settings
     config.optimization.walking_speed_kmh = args.walking_speed
     
+    # API settings
     if args.api_key:
         config.api.api_key = args.api_key
     elif args.no_api:

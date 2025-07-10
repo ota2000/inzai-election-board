@@ -35,12 +35,13 @@ class RouteOptimizer:
         self.voting_offices: Dict = None
         self.optimization_results: Dict = {}
     
-    def load_data(self) -> None:
+    def load_data(self) -> Tuple[DataLoader, Dict]:
         """Load and preprocess data."""
         print("Loading data...")
         self.poster_boards_df, self.voting_offices = self.data_loader.load_data()
         print(f"Loaded {len(self.poster_boards_df)} poster board locations")
         print(f"Loaded {len(self.voting_offices)} voting offices")
+        return self.data_loader, self.voting_offices
     
     def optimize_all_districts(self) -> Dict[str, Any]:
         """
@@ -90,6 +91,54 @@ class RouteOptimizer:
         
         if len(district_data) == 0:
             raise ValueError(f"No data found for district: {district_name}")
+        
+        # Prepare coordinates (lon, lat format)
+        locations = [
+            (row['経度'], row['緯度']) 
+            for _, row in district_data.iterrows()
+        ]
+        
+        # Calculate distance matrix
+        distance_matrix, duration_matrix = self.distance_calculator.calculate_matrix(
+            locations, use_api=bool(self.config.api.api_key)
+        )
+        
+        # Solve TSP
+        optimized_route, optimized_distance = self.tsp_solver.solve_with_optimal_start(
+            distance_matrix
+        )
+        
+        # Calculate total duration
+        total_duration = sum(
+            duration_matrix[optimized_route[i]][optimized_route[i+1]]
+            for i in range(len(optimized_route) - 1)
+        )
+        
+        # Prepare result
+        result = {
+            'data': district_data,
+            'route': optimized_route,
+            'distance': optimized_distance,
+            'duration': total_duration,
+            'locations': [district_data.iloc[i] for i in optimized_route],
+            'distance_matrix': distance_matrix.tolist(),
+            'duration_matrix': duration_matrix.tolist()
+        }
+        
+        return result
+    
+    def optimize_district(self, district_data: pd.DataFrame) -> Dict[str, Any]:
+        """
+        Optimize route for district data (for single district testing).
+        
+        Args:
+            district_data: DataFrame containing poster board data for the district
+            
+        Returns:
+            Dictionary containing optimization results
+        """
+        if len(district_data) == 0:
+            raise ValueError("No data provided for optimization")
         
         # Prepare coordinates (lon, lat format)
         locations = [

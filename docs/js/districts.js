@@ -1,4 +1,5 @@
 import { CONFIG } from './config.js';
+import { getStatusDisplayName, getStatusColor } from './utils.js';
 
 // 投票区管理クラス
 export class DistrictManager {
@@ -55,9 +56,9 @@ export class DistrictManager {
         
         // 投票区番号順にソート
         const districts = Array.from(districtMap.entries()).sort((a, b) => {
-            // 第X投票区の番号を抽出してソート
-            const numA = parseInt(a[1].replace('第', '').replace('投票区', '')) || 0;
-            const numB = parseInt(b[1].replace('第', '').replace('投票区', '')) || 0;
+            // district_numberが数値の場合はそれを使用、文字列の場合は抽出
+            const numA = typeof a[1] === 'number' ? a[1] : parseInt(a[1].replace('第', '').replace('投票区', '')) || 0;
+            const numB = typeof b[1] === 'number' ? b[1] : parseInt(b[1].replace('第', '').replace('投票区', '')) || 0;
             return numA - numB;
         });
         
@@ -68,8 +69,8 @@ export class DistrictManager {
             const btn = document.createElement('div');
             btn.className = 'district-btn';
             
-            // 投票区番号を表示（第X投票区のXを使用）
-            const voteNumber = districtNumber.replace('第', '').replace('投票区', '');
+            // 投票区番号を表示（数値または文字列から番号を抽出）
+            const voteNumber = typeof districtNumber === 'number' ? districtNumber : districtNumber.replace('第', '').replace('投票区', '');
             
             // データ属性を設定（検索用）
             btn.dataset.district = district;
@@ -108,7 +109,11 @@ export class DistrictManager {
         
         // 該当データをフィルタ
         const districtPoints = this.allData.features.filter(f =>
-            f.properties.district === districtName && f.geometry.type === 'Point' && f.properties.type !== 'voting_office'
+            f.properties.district === districtName && f.geometry.type === 'Point' && 
+            f.properties.type !== 'voting_office' && f.properties.type !== 'completed_board'
+        );
+        const donePoints = this.allData.features.filter(f =>
+            f.properties.district === districtName && f.properties.type === 'completed_board'
         );
         const votingOffice = this.allData.features.find(f =>
             f.properties.district === districtName && f.properties.type === 'voting_office'
@@ -119,6 +124,11 @@ export class DistrictManager {
         // ポイントマーカー追加
         this.addDistrictMarkers(districtPoints);
         
+        // 完了済み地点マーカー追加
+        if (donePoints.length > 0) {
+            this.addCompletedBoardMarkers(donePoints);
+        }
+        
         // 投票所マーカー追加
         if (votingOffice) {
             this.addVotingOfficeMarker(votingOffice);
@@ -128,7 +138,7 @@ export class DistrictManager {
         this.routeManager.displayRouteSegments(districtName);
         
         // 地図の表示範囲を調整
-        this.fitDistrictBounds(districtPoints, votingOffice);
+        this.fitDistrictBounds([...districtPoints, ...donePoints], votingOffice);
         
         // UI状態の更新
         this.updateUIForDistrictSelection();
@@ -153,9 +163,12 @@ export class DistrictManager {
                 const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
                 
                 const isStart = point.properties.order === 1;
+                const status = point.properties.status || 'unknown';
+                const statusColor = getStatusColor(status);
+                
                 const marker = L.circleMarker(coord, {
                     radius: isStart ? CONFIG.MARKERS.START_RADIUS : CONFIG.MARKERS.NORMAL_RADIUS,
-                    fillColor: isStart ? CONFIG.COLORS.START_POINT : CONFIG.COLORS.NORMAL_POINT,
+                    fillColor: isStart ? CONFIG.COLORS.START_POINT : statusColor,
                     color: CONFIG.COLORS.WHITE,
                     weight: CONFIG.MARKERS.WEIGHT,
                     fillOpacity: CONFIG.MARKERS.OPACITY
@@ -166,10 +179,16 @@ export class DistrictManager {
                 
                 // ポップアップ（シンプル版）
                 const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+                const statusDisplay = getStatusDisplayName(status);
                 const popupContent = `
                     <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
                         <div style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;">
                             ${point.properties.order}. ${boardNumber}${point.properties.name}
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <span style="display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; color: white; background-color: ${statusColor};">
+                                ${statusDisplay}
+                            </span>
                         </div>
                         <div class="clickable-address" 
                              style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
@@ -183,7 +202,7 @@ export class DistrictManager {
                 
                 // 番号表示（クリック可能）
                 const numberIcon = L.divIcon({
-                    html: `<div style="background: ${isStart ? CONFIG.COLORS.START_POINT : CONFIG.COLORS.NORMAL_POINT}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
+                    html: `<div style="background: ${isStart ? CONFIG.COLORS.START_POINT : statusColor}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
                     className: 'custom-div-icon clickable',
                     iconSize: [24, 24],
                     iconAnchor: [12, 12]
@@ -199,6 +218,68 @@ export class DistrictManager {
                     this.mapManager.setView(coord, CONFIG.MAP.DETAIL_ZOOM);
                 });
             });
+    }
+    
+    // 完了済み掲示板マーカーを追加
+    addCompletedBoardMarkers(completedPoints) {
+        const markersLayer = this.mapManager.getMarkersLayer();
+        
+        completedPoints.forEach((point) => {
+            const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
+            const status = point.properties.status || 'done';
+            const statusColor = getStatusColor(status);
+            
+            // 完了済みマーカー（少し小さく、透明度を下げる）
+            const marker = L.circleMarker(coord, {
+                radius: CONFIG.MARKERS.NORMAL_RADIUS - 2,
+                fillColor: statusColor,
+                color: CONFIG.COLORS.WHITE,
+                weight: CONFIG.MARKERS.WEIGHT,
+                fillOpacity: 0.7
+            }).addTo(markersLayer);
+            
+            // ポップアップ
+            const boardNumber = point.properties.board_number ? `【${point.properties.board_number}】` : '';
+            const statusDisplay = getStatusDisplayName(status);
+            const popupContent = `
+                <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
+                    <div style="font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem;">
+                        ${boardNumber}${point.properties.name}
+                    </div>
+                    <div style="margin-bottom: 0.5rem;">
+                        <span style="display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold; color: white; background-color: ${statusColor};">
+                            ${statusDisplay}
+                        </span>
+                        <span style="margin-left: 8px; font-size: 0.8rem; color: #666;">
+                            （巡回対象外）
+                        </span>
+                    </div>
+                    <div class="clickable-address" 
+                         style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
+                         onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
+                         title="クリックでコピー">
+                         ${point.properties.address}
+                    </div>
+                </div>
+            `;
+            marker.bindPopup(popupContent);
+            
+            // 完了マーク表示
+            const completedIcon = L.divIcon({
+                html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); opacity: 0.8;">✓</div>`,
+                className: 'custom-div-icon clickable completed-board',
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            });
+            
+            const completedMarker = L.marker(coord, { icon: completedIcon }).addTo(markersLayer);
+            
+            // 完了マーカーにクリックイベントを追加
+            completedMarker.on('click', () => {
+                marker.openPopup();
+                this.mapManager.setView(coord, CONFIG.MAP.DETAIL_ZOOM);
+            });
+        });
     }
     
     // 投票所マーカーを追加
@@ -221,7 +302,7 @@ export class DistrictManager {
                 <h4>🗳️ ${votingOffice.properties.name}</h4>
                 <div style="margin: 0.5rem 0; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; border-left: 3px solid #007bff;">
                     <div style="font-weight: bold; color: #007bff; margin-bottom: 0.25rem;">
-                        ${votingOffice.properties.district_number}
+                        第${votingOffice.properties.district_number}投票区
                     </div>
                     <div style="font-size: 0.85rem; color: #666; line-height: 1.4;">
                         掲示板数: ${votingOffice.properties.total_points}ヶ所<br>
