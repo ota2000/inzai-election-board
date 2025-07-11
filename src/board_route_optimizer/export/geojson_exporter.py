@@ -53,6 +53,27 @@ class GeoJSONExporter:
             print(f"\\nAdding {len(done_boards)} completed boards as reference points...")
             features.extend(self._create_done_board_features(done_boards, data_loader))
         
+        # Sort features by district_number and board_number for consistent output
+        def sort_key(feature):
+            props = feature['properties']
+            district_num = props.get('district_number', 0)
+            board_num = props.get('board_number', '')
+            
+            # Extract numeric part from board_number for proper sorting
+            # e.g., "13-4" -> (13, 4), "12-10" -> (12, 10)
+            if board_num and '-' in str(board_num):
+                try:
+                    board_parts = str(board_num).split('-')
+                    board_main = int(board_parts[0])
+                    board_sub = int(board_parts[1])
+                    return (district_num, board_main, board_sub)
+                except (ValueError, IndexError):
+                    return (district_num, 999, 999)  # fallback for invalid format
+            else:
+                return (district_num, 999, 999)  # fallback for no board_number
+        
+        features.sort(key=sort_key)
+        
         return {
             "type": "FeatureCollection",
             "features": features,
