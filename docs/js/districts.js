@@ -340,10 +340,8 @@ export class DistrictManager {
             // 境界計算用に位置を追加
             allBounds.push(position);
             
-            // 完了状況に応じて色を決定
-            const color = districtProgress.isFullyCompleted ? 
-                '#27ae60' : // 緑色（完了）
-                CONFIG.COLORS.DISTRICT_COLORS[index % CONFIG.COLORS.DISTRICT_COLORS.length];
+            // 投票区代表マーカーは統一色（青系）
+            const color = '#3b82f6'; // 青色（掲示板ステータスと被らない色）
             
             const marker = L.circleMarker(position, {
                 radius: CONFIG.MARKERS.DISTRICT_RADIUS,
@@ -353,33 +351,25 @@ export class DistrictManager {
                 fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
-            // 完了済み投票区の場合はチェックマークアイコンを追加（サイズ統一）
-            if (districtProgress.isFullyCompleted) {
-                const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 12 * 2 = 24px（投票区は少し大きく）
-                const checkIcon = L.divIcon({
-                    html: `<div style="background: #22c55e; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
-                    className: 'custom-div-icon clickable completed-district',
-                    iconSize: [markerSize, markerSize],
-                    iconAnchor: [markerSize/2, markerSize/2]
-                });
-                
-                const checkMarker = L.marker(position, { icon: checkIcon }).addTo(markersLayer);
-                
-                // チェックマーカーにもクリックイベントを追加
-                checkMarker.on('click', () => {
-                    this.showDistrict(district);
-                });
-                
-                // ポップアップも共有
-                checkMarker.bindPopup(`
-                    <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
-                        <h4>${district}</h4>
-                        <p>地点数: ${districtProgress.totalBoards}地点</p>
-                        <p>状況: <span style="color: #27ae60; font-weight: bold;">✓ 完了</span></p>
-                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
-                    </div>
-                `);
-            }
+            // 投票区番号を表示（完了/未完了に関わらず統一デザイン）
+            const districtNumber = this.allData.features.find(f => 
+                f.properties.district === district
+            )?.properties.district_number || '';
+            
+            const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 24px
+            const numberIcon = L.divIcon({
+                html: `<div style="background: ${color}; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${districtNumber}</div>`,
+                className: 'custom-div-icon clickable district-representative',
+                iconSize: [markerSize, markerSize],
+                iconAnchor: [markerSize/2, markerSize/2]
+            });
+            
+            const numberMarker = L.marker(position, { icon: numberIcon }).addTo(markersLayer);
+            
+            // 番号マーカーにクリックイベントを追加
+            numberMarker.on('click', () => {
+                this.showDistrict(district);
+            });
             
             // マーカーのクリックイベントで直接投票区を表示
             marker.on('click', () => {
@@ -551,10 +541,8 @@ export class DistrictManager {
             // 境界計算用に位置を追加
             allBounds.push(position);
             
-            // 完了状況に応じて色を決定
-            const color = districtProgress.isFullyCompleted ? 
-                '#27ae60' : // 緑色（完了）
-                CONFIG.COLORS.DISTRICT_COLORS[index % CONFIG.COLORS.DISTRICT_COLORS.length];
+            // 投票区代表マーカーは統一色（青系）
+            const color = '#3b82f6'; // 青色（掲示板ステータスと被らない色）
             
             const marker = L.circleMarker(position, {
                 radius: CONFIG.MARKERS.DISTRICT_RADIUS,
@@ -564,33 +552,28 @@ export class DistrictManager {
                 fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
-            // 完了済み投票区の場合はチェックマークアイコンを追加（サイズ統一）
-            if (districtProgress.isFullyCompleted) {
-                const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 12 * 2 = 24px（投票区は少し大きく）
-                const checkIcon = L.divIcon({
-                    html: `<div style="background: #22c55e; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
-                    className: 'custom-div-icon clickable completed-district',
-                    iconSize: [markerSize, markerSize],
-                    iconAnchor: [markerSize/2, markerSize/2]
-                });
-                
-                const checkMarker = L.marker(position, { icon: checkIcon }).addTo(markersLayer);
-                
-                // チェックマーカーにもクリックイベントを追加
-                checkMarker.on('click', () => {
-                    this.showDistrict(district);
-                });
-                
-                // ポップアップも共有
-                checkMarker.bindPopup(`
-                    <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
-                        <h4>${district}</h4>
-                        <p>地点数: ${districtProgress.totalBoards}地点</p>
-                        <p>状況: <span style="color: #27ae60; font-weight: bold;">✓ 完了</span></p>
-                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
-                    </div>
-                `);
-            }
+            // 投票区番号を表示（完了/未完了に関わらず統一デザイン）
+            const districtNumber = this.allData.features.find(f => 
+                f.properties.district === district
+            )?.properties.district_number || '';
+            
+            const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 24px
+            const numberIcon = L.divIcon({
+                html: `<div style="background: ${color}; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${districtNumber}</div>`,
+                className: 'custom-div-icon clickable district-representative',
+                iconSize: [markerSize, markerSize],
+                iconAnchor: [markerSize/2, markerSize/2]
+            });
+            
+            const numberMarker = L.marker(position, { icon: numberIcon }).addTo(markersLayer);
+            
+            // 番号マーカーにクリックイベントを追加
+            numberMarker.on('click', () => {
+                this.showDistrict(district);
+            });
+            
+            // ポップアップも番号マーカーに設定
+            numberMarker.bindPopup(marker.getPopup());
             
             // マーカーのクリックイベントで直接投票区を表示
             marker.on('click', () => {
