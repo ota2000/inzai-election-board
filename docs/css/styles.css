@@ -14,19 +14,19 @@
     --status-error: #7c2d12;
     --status-other: #6b7280;
     
-    /* Text colors */
-    --text-primary: #111827;
-    --text-secondary: #4b5563;
-    --text-tertiary: #9ca3af;
+    /* Text colors with improved readability */
+    --text-primary: #1f2937;
+    --text-secondary: #374151;
+    --text-tertiary: #6b7280;
     --text-inverse: #ffffff;
     
     /* Background colors */
     --background: #ffffff;
-    --surface: #f9fafb;
-    --surface-hover: #f3f4f6;
+    --surface: #f8fafc;
+    --surface-hover: #f1f5f9;
     --surface-elevated: #ffffff;
-    --border: #e5e7eb;
-    --border-hover: #d1d5db;
+    --border: #e2e8f0;
+    --border-hover: #cbd5e1;
     --border-focus: #3b82f6;
     
     /* Shadows with subtle variations */
@@ -104,7 +104,7 @@ body {
 
 .header {
     background: var(--primary-color);
-    color: white;
+    color: var(--text-inverse);
     padding: 2rem 1rem;
     text-align: center;
     box-shadow: var(--shadow-md);
@@ -226,33 +226,37 @@ body {
 }
 
 .district-btn {
-    background: var(--surface-hover);
-    border: 1px solid var(--border);
+    background: var(--background);
+    border: 2px solid var(--border);
     border-radius: var(--radius-md);
-    padding: 0.75rem 1rem;
+    padding: 0.875rem 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     text-align: left;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
 }
 
 .district-btn:hover {
     background: var(--surface);
     border-color: var(--primary-color);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
+    color: var(--text-primary);
 }
 
 .district-btn.active {
     background: var(--primary-color);
-    color: white;
+    color: var(--text-inverse);
     border-color: var(--primary-color);
     box-shadow: var(--shadow-md);
+    font-weight: 700;
 }
 
 .district-btn.hidden {
@@ -581,40 +585,14 @@ body {
     height: 300px;
 }
 
-/* District button enhancements */
-.district-btn {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-hover) 100%);
-    border: 1px solid var(--border);
-    transition: all var(--transition-normal);
-}
-
-.district-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-color);
-    background: linear-gradient(135deg, var(--primary-light) 0%, rgba(37, 99, 235, 0.1) 100%);
-}
-
-.district-btn.active {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-    color: var(--text-inverse);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
+/* District button enhancements - integrated with main styles above */
 
 /* Staggered animation for district grid */
 .district-grid {
     --stagger-delay: 0;
 }
 
-.district-btn {
-    animation: fadeInUp 0.4s ease forwards;
-    animation-delay: calc(var(--stagger-delay) * 0.05s);
-    opacity: 0;
-    transform: translateY(20px);
-}
+/* Remove conflicting animation styles - handled by main district-btn styles */
 
 @keyframes fadeInUp {
     to {
@@ -1130,15 +1108,17 @@ html {
 }
 
 .popup-title {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .popup-subtitle {
     font-size: 0.875rem;
     color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .popup-body {
@@ -1153,14 +1133,16 @@ html {
 }
 
 .popup-label {
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text-secondary);
     min-width: 80px;
+    font-size: 0.875rem;
 }
 
 .popup-value {
     color: var(--text-primary);
     flex: 1;
+    font-weight: 500;
 }
 
 .status-badge {

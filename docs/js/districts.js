@@ -247,10 +247,10 @@ export class DistrictManager {
                 const statusColor = getStatusColor(status);
                 
                 const marker = L.circleMarker(coord, {
-                    radius: isStart ? CONFIG.MARKERS.START_RADIUS : CONFIG.MARKERS.NORMAL_RADIUS,
+                    radius: CONFIG.MARKERS.NORMAL_RADIUS,
                     fillColor: statusColor,
-                    color: isStart ? CONFIG.COLORS.START_POINT : CONFIG.COLORS.WHITE,
-                    weight: isStart ? 3 : CONFIG.MARKERS.WEIGHT,
+                    color: CONFIG.COLORS.WHITE,
+                    weight: CONFIG.MARKERS.WEIGHT,
                     fillOpacity: CONFIG.MARKERS.OPACITY
                 }).addTo(markersLayer);
                 
