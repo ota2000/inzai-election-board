@@ -135,10 +135,11 @@ export class RouteManager {
                     状態: ${statusText}
                 </div>
                 <div class="clickable-address" 
-                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
-                     onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
-                     title="クリックでコピー">
-                     📍 ${point.properties.address}
+                     style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; display: flex; align-items: center; gap: 0.5rem;"
+                     onclick="window.open('https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(point.properties.address)}', '_blank')" 
+                     title="📍 Googleマップで開く">
+                     <span style="font-size: 1rem;">📍</span>
+                     <span>${point.properties.address}</span>
                 </div>
             </div>
         `;

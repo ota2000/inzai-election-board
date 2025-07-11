@@ -272,10 +272,11 @@ export class DistrictManager {
                             </span>
                         </div>
                         <div class="clickable-address" 
-                             style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
-                             onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
-                             title="クリックでコピー">
-                             ${point.properties.address}
+                             style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; display: flex; align-items: center; gap: 0.5rem;"
+                             onclick="window.open('https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(point.properties.address)}', '_blank')" 
+                             title="📍 Googleマップで開く">
+                             <span style="font-size: 1rem;">📍</span>
+                             <span>${point.properties.address}</span>
                         </div>
                     </div>
                 `;
@@ -311,13 +312,13 @@ export class DistrictManager {
             const status = point.properties.status || 'done';
             const statusColor = getStatusColor(status);
             
-            // 完了済みマーカー（少し小さく、透明度を下げる）
+            // 完了済みマーカー（通常サイズに統一）
             const marker = L.circleMarker(coord, {
-                radius: CONFIG.MARKERS.NORMAL_RADIUS - 2,
+                radius: CONFIG.MARKERS.NORMAL_RADIUS,
                 fillColor: statusColor,
                 color: CONFIG.COLORS.WHITE,
                 weight: CONFIG.MARKERS.WEIGHT,
-                fillOpacity: 0.7
+                fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
             // ポップアップ
@@ -337,10 +338,11 @@ export class DistrictManager {
                         </span>
                     </div>
                     <div class="clickable-address" 
-                         style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef;"
-                         onclick="window.appUtils.copyToClipboard('${point.properties.address}')" 
-                         title="クリックでコピー">
-                         ${point.properties.address}
+                         style="color: #666; font-size: 0.9rem; cursor: pointer; padding: 0.25rem; border-radius: 4px; background: #f8f9fa; border: 1px solid #e9ecef; display: flex; align-items: center; gap: 0.5rem;"
+                         onclick="window.open('https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(point.properties.address)}', '_blank')" 
+                         title="📍 Googleマップで開く">
+                         <span style="font-size: 1rem;">📍</span>
+                         <span>${point.properties.address}</span>
                     </div>
                 </div>
             `;
