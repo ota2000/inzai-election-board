@@ -114,8 +114,7 @@ export class DistrictManager {
             if (districtProgress.isFullyCompleted) {
                 progressText = `<div class="district-btn-progress completed">✓ 完了</div>`;
             } else if (districtProgress.totalBoards > 0) {
-                const remaining = districtProgress.totalBoards - districtProgress.completedBoards;
-                progressText = `<div class="district-btn-progress">(${remaining}/${districtProgress.totalBoards})</div>`;
+                progressText = `<div class="district-btn-progress">(${districtProgress.completedBoards}/${districtProgress.totalBoards})</div>`;
             }
             
             btn.innerHTML = `
@@ -185,7 +184,8 @@ export class DistrictManager {
             f.properties.district === districtName && f.properties.type === 'completed_board'
         );
         
-        if (districtPoints.length === 0) return;
+        // 未完了地点も完了地点もない場合のみreturn
+        if (districtPoints.length === 0 && donePoints.length === 0) return;
         
         // ポイントマーカー追加
         this.addDistrictMarkers(districtPoints);
@@ -205,10 +205,29 @@ export class DistrictManager {
         this.googleMapsManager.showButton(districtPoints);
         
         // 情報パネル更新（完了地点情報も含む）
-        this.updateInfoPanel(districtName, districtPoints[0].properties, donePoints);
+        // 未完了地点がない場合は完了地点の情報を使用
+        const referenceProperties = districtPoints.length > 0 ? 
+            districtPoints[0].properties : 
+            (donePoints.length > 0 ? donePoints[0].properties : null);
+            
+        if (referenceProperties) {
+            this.updateInfoPanel(districtName, referenceProperties, donePoints);
+        }
         
         // ルートリスト更新
         this.routeManager.updateRouteList(districtPoints);
+        
+        // UI状態の更新（完了済み投票区でも必要）
+        if (districtPoints.length > 0) {
+            // 未完了地点がある場合の通常処理
+            this.updateUIForDistrictSelection();
+        } else {
+            // 完了済み投票区の場合はルートカードを非表示
+            const routeCard = document.getElementById('routeCard');
+            if (routeCard) {
+                routeCard.style.display = 'none';
+            }
+        }
         
         // 完了地点の独立カードを非表示（統合表示に変更したため）
         this.hideCompletedCard();
@@ -379,8 +398,9 @@ export class DistrictManager {
         const districtCenters = new Map();
         const allBounds = [];
         
+        // 全ての地点（未完了と完了済み両方）を含める
         this.allData.features
-            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'completed_board')
+            .filter(f => f.geometry.type === 'Point')
             .forEach(point => {
                 const district = point.properties.district;
                 if (!districtCenters.has(district)) {
@@ -448,7 +468,7 @@ export class DistrictManager {
             // 完了状況を含むポップアップ
             const statusText = districtProgress.isFullyCompleted ? 
                 '✓ 完了' : 
-                `残り${districtProgress.incompleteBoards}/${districtProgress.totalBoards}`;
+                `完了${districtProgress.completedBoards}/${districtProgress.totalBoards}`;
             
             marker.bindPopup(`
                 <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
@@ -497,6 +517,21 @@ export class DistrictManager {
             `;
         }
         
+        // 距離と時間の表示（完了済み投票区の場合は非表示）
+        let distanceTimeHtml = '';
+        if (optimizationPoints > 0 && properties.total_distance_km && properties.estimated_hours) {
+            distanceTimeHtml = `
+                <div class="stat-item">
+                    <span class="stat-label">最適経路距離</span>
+                    <span class="stat-value">${properties.total_distance_km}km</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">推定時間</span>
+                    <span class="stat-value">${properties.estimated_hours}時間</span>
+                </div>
+            `;
+        }
+        
         document.getElementById('districtInfo').innerHTML = `
             <div class="stat-item">
                 <span class="stat-label">掲示板数</span>
@@ -504,14 +539,7 @@ export class DistrictManager {
                     ${totalPoints}ヶ所 (未完了: ${optimizationPoints})
                 </span>
             </div>
-            <div class="stat-item">
-                <span class="stat-label">最適経路距離</span>
-                <span class="stat-value">${properties.total_distance_km}km</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">推定時間</span>
-                <span class="stat-value">${properties.estimated_hours}時間</span>
-            </div>
+            ${distanceTimeHtml}
             ${completedListHtml}
         `;
         
