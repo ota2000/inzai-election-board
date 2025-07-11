@@ -460,6 +460,33 @@ export class DistrictManager {
                 fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
+            // 完了済み投票区の場合はチェックマークアイコンを追加
+            if (districtProgress.isFullyCompleted) {
+                const checkIcon = L.divIcon({
+                    html: `<div style="background: #27ae60; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
+                    className: 'custom-div-icon clickable completed-district',
+                    iconSize: [20, 20],
+                    iconAnchor: [10, 10]
+                });
+                
+                const checkMarker = L.marker(position, { icon: checkIcon }).addTo(markersLayer);
+                
+                // チェックマーカーにもクリックイベントを追加
+                checkMarker.on('click', () => {
+                    this.showDistrict(district);
+                });
+                
+                // ポップアップも共有
+                checkMarker.bindPopup(`
+                    <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
+                        <h4>${district}</h4>
+                        <p>地点数: ${districtProgress.totalBoards}地点</p>
+                        <p>状況: <span style="color: #27ae60; font-weight: bold;">✓ 完了</span></p>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
+                    </div>
+                `);
+            }
+            
             // マーカーのクリックイベントで直接投票区を表示
             marker.on('click', () => {
                 this.showDistrict(district);
@@ -648,37 +675,33 @@ export class DistrictManager {
     
     // 全体情報を更新
     updateOverallInfo() {
-        const districts = new Set();
+        const allDistricts = new Set();
+        const incompleteDistricts = new Set();
+        let incompletePoints = 0;
         let totalPoints = 0;
-        let totalDistance = 0;
-        let totalTime = 0;
         
+        // 全ての投票区と未完了の投票区を集計
         this.allData.features
-            .filter(f => f.geometry.type === 'Point' && f.properties.type !== 'completed_board')
+            .filter(f => f.geometry.type === 'Point')
             .forEach(f => {
-                districts.add(f.properties.district);
+                allDistricts.add(f.properties.district);
                 totalPoints++;
-                totalDistance += f.properties.total_distance_km || 0;
-                totalTime += f.properties.estimated_hours || 0;
+                
+                if (f.properties.type !== 'completed_board') {
+                    incompleteDistricts.add(f.properties.district);
+                    incompletePoints++;
+                }
             });
         
         document.getElementById('districtInfoTitle').textContent = '全投票区情報';
         document.getElementById('districtInfo').innerHTML = `
             <div class="stat-item">
                 <span class="stat-label">総投票区数</span>
-                <span class="stat-value">${districts.size}区</span>
+                <span class="stat-value">${allDistricts.size}区 (未完了: ${incompleteDistricts.size}区)</span>
             </div>
             <div class="stat-item">
                 <span class="stat-label">総掲示板数</span>
-                <span class="stat-value">${totalPoints}ヶ所（未完了のみ）</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総距離</span>
-                <span class="stat-value">${(totalDistance/districts.size).toFixed(1)}km（平均）</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">総時間</span>
-                <span class="stat-value">${(totalTime/districts.size).toFixed(1)}時間（平均）</span>
+                <span class="stat-value">${totalPoints}ヶ所 (未完了: ${incompletePoints}ヶ所)</span>
             </div>
         `;
     }
