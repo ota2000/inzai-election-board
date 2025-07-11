@@ -197,6 +197,9 @@ export class DistrictManager {
             this.addCompletedBoardMarkers(donePoints);
         }
         
+        // 他の投票区の代表地点を追加（全区表示と同じ形式）
+        this.addOtherDistrictRepresentatives(districtName);
+        
         // 地図の表示範囲を調整（ポイントのみ）
         this.fitDistrictBounds([...districtPoints, ...donePoints]);
         
@@ -301,6 +304,102 @@ export class DistrictManager {
                     this.mapManager.setView(coord, CONFIG.MAP.DETAIL_ZOOM);
                 });
             });
+    }
+    
+    // 他の投票区の代表地点を追加（現在選択中の投票区以外）
+    addOtherDistrictRepresentatives(currentDistrictName) {
+        const markersLayer = this.mapManager.getMarkersLayer();
+        const districtCenters = new Map();
+        const allBounds = [];
+        
+        // 全ての地点（未完了と完了済み両方）を含めて、現在の投票区以外を集計
+        this.allData.features
+            .filter(f => f.geometry.type === 'Point' && f.properties.district !== currentDistrictName)
+            .forEach(point => {
+                const district = point.properties.district;
+                if (!districtCenters.has(district)) {
+                    districtCenters.set(district, []);
+                }
+                districtCenters.get(district).push([
+                    point.geometry.coordinates[1],
+                    point.geometry.coordinates[0]
+                ]);
+            });
+        
+        // 各投票区の掲示板地点にマーカー配置（全区表示と同じ実装）
+        Array.from(districtCenters.entries()).forEach(([district, coords], index) => {
+            // 投票区の進捗状況を取得
+            const districtProgress = this.calculateDistrictProgress(district);
+            
+            // 掲示板の中心点を計算
+            const position = [
+                coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
+                coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length
+            ];
+            
+            // 境界計算用に位置を追加
+            allBounds.push(position);
+            
+            // 完了状況に応じて色を決定
+            const color = districtProgress.isFullyCompleted ? 
+                '#27ae60' : // 緑色（完了）
+                CONFIG.COLORS.DISTRICT_COLORS[index % CONFIG.COLORS.DISTRICT_COLORS.length];
+            
+            const marker = L.circleMarker(position, {
+                radius: CONFIG.MARKERS.DISTRICT_RADIUS,
+                fillColor: color,
+                color: CONFIG.COLORS.WHITE,
+                weight: CONFIG.MARKERS.WEIGHT,
+                fillOpacity: CONFIG.MARKERS.OPACITY
+            }).addTo(markersLayer);
+            
+            // 完了済み投票区の場合はチェックマークアイコンを追加（サイズ統一）
+            if (districtProgress.isFullyCompleted) {
+                const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 12 * 2 = 24px（投票区は少し大きく）
+                const checkIcon = L.divIcon({
+                    html: `<div style="background: #22c55e; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
+                    className: 'custom-div-icon clickable completed-district',
+                    iconSize: [markerSize, markerSize],
+                    iconAnchor: [markerSize/2, markerSize/2]
+                });
+                
+                const checkMarker = L.marker(position, { icon: checkIcon }).addTo(markersLayer);
+                
+                // チェックマーカーにもクリックイベントを追加
+                checkMarker.on('click', () => {
+                    this.showDistrict(district);
+                });
+                
+                // ポップアップも共有
+                checkMarker.bindPopup(`
+                    <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
+                        <h4>${district}</h4>
+                        <p>地点数: ${districtProgress.totalBoards}地点</p>
+                        <p>状況: <span style="color: #27ae60; font-weight: bold;">✓ 完了</span></p>
+                        <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
+                    </div>
+                `);
+            }
+            
+            // マーカーのクリックイベントで直接投票区を表示
+            marker.on('click', () => {
+                this.showDistrict(district);
+            });
+            
+            // 完了状況を含むポップアップ
+            const statusText = districtProgress.isFullyCompleted ? 
+                '✓ 完了' : 
+                `完了${districtProgress.completedBoards}/${districtProgress.totalBoards}`;
+            
+            marker.bindPopup(`
+                <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
+                    <h4>${district}</h4>
+                    <p>地点数: ${districtProgress.totalBoards}地点</p>
+                    <p>状況: <span style="color: ${districtProgress.isFullyCompleted ? '#27ae60' : '#e74c3c'}; font-weight: bold;">${statusText}</span></p>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
+                </div>
+            `);
+        });
     }
     
     // 完了済み掲示板マーカーを追加
