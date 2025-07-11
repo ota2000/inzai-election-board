@@ -348,10 +348,10 @@ export class DistrictManager {
             `;
             marker.bindPopup(popupContent);
             
-            // 完了マーク表示（通常マーカーと同じサイズに統一）
-            const markerSize = CONFIG.MARKERS.NORMAL_RADIUS * 2; // 8 * 2 = 16px
+            // 完了マーク表示（番号マーカーと同じサイズに統一）
+            const markerSize = 24; // 番号マーカーと同じサイズ
             const completedIcon = L.divIcon({
-                html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
+                html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
                 className: 'custom-div-icon clickable completed-board',
                 iconSize: [markerSize, markerSize],
                 iconAnchor: [markerSize/2, markerSize/2]
