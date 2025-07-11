@@ -152,17 +152,17 @@ export function getStatusDisplayName(status) {
     return statusMap[status] || status || '不明';
 }
 
-// ステータスに応じた色を取得
+// ステータスに応じた色を取得（アクセシビリティ改善版）
 export function getStatusColor(status) {
     const colorMap = {
-        'not_yet': '#e74c3c',        // 赤 - 未貼付
-        'reserved': '#f39c12',       // オレンジ - 予約
-        'done': '#27ae60',           // 緑 - 完了
-        'error_wrong_place': '#e67e22', // ダークオレンジ - 場所違い
-        'error_damaged': '#8e44ad',     // 紫 - 破損
-        'error_wrong_poster': '#c0392b', // ダークレッド - 他党
-        'other': '#95a5a6'              // グレー - その他
+        'not_yet': '#dc2626',        // 改善された赤 - 未貼付
+        'reserved': '#ea580c',       // 改善されたオレンジ - 予約
+        'done': '#059669',           // 改善された緑 - 完了
+        'error_wrong_place': '#d97706', // 改善されたアンバー - 場所違い
+        'error_damaged': '#7c3aed',     // 改善された紫 - 破損
+        'error_wrong_poster': '#991b1b', // 改善されたダークレッド - 他党
+        'other': '#6b7280'              // 改善されたグレー - その他
     };
     
-    return colorMap[status] || '#7f8c8d'; // デフォルトはグレー
+    return colorMap[status] || '#6b7280'; // デフォルトはグレー
 }
