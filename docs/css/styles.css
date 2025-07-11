@@ -1228,12 +1228,25 @@ html {
     background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
     border-color: #10b981 !important;
     box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2) !important;
+    color: #065f46 !important;
 }
 
 .district-btn-completed:hover {
     background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%) !important;
     border-color: #059669 !important;
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+    color: #064e3b !important;
+}
+
+.district-btn-completed .district-btn-name {
+    color: #065f46 !important;
+    font-weight: 700 !important;
+}
+
+.district-btn-completed .district-btn-number {
+    background: rgba(6, 95, 70, 0.15) !important;
+    color: #065f46 !important;
+    font-weight: 700 !important;
 }
 
 /* 進捗表示 */

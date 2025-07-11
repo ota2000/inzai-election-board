@@ -242,7 +242,6 @@ export class DistrictManager {
             .forEach((point) => {
                 const coord = [point.geometry.coordinates[1], point.geometry.coordinates[0]];
                 
-                const isStart = point.properties.order === 1;
                 const status = point.properties.status || 'unknown';
                 const statusColor = getStatusColor(status);
                 
@@ -282,7 +281,7 @@ export class DistrictManager {
                 
                 // 番号表示（クリック可能）
                 const numberIcon = L.divIcon({
-                    html: `<div style="background: ${isStart ? CONFIG.COLORS.START_POINT : statusColor}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
+                    html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
                     className: 'custom-div-icon clickable',
                     iconSize: [24, 24],
                     iconAnchor: [12, 12]
