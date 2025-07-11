@@ -4,6 +4,7 @@ GeoJSON export functionality.
 
 import json
 from typing import Dict, List, Any
+from datetime import datetime
 from ..config import Config
 
 
@@ -54,7 +55,13 @@ class GeoJSONExporter:
         
         return {
             "type": "FeatureCollection",
-            "features": features
+            "features": features,
+            "metadata": {
+                "last_updated": datetime.now().isoformat(),
+                "total_districts": len(results),
+                "total_optimization_points": sum(len(result['locations']) for result in results.values()),
+                "total_completed_points": len(done_boards) if not done_boards.empty else 0
+            }
         }
     
     def _create_poster_board_features(self, district_name: str, result: Dict[str, Any],

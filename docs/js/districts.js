@@ -15,6 +15,31 @@ export class DistrictManager {
     setData(data) {
         this.allData = data;
         this.routeManager.setData(data);
+        this.updateLastUpdatedTime(data);
+    }
+    
+    // 最終更新日時を更新
+    updateLastUpdatedTime(data) {
+        const lastUpdatedElement = document.getElementById('lastUpdated');
+        if (lastUpdatedElement && data.metadata && data.metadata.last_updated) {
+            const updateDate = new Date(data.metadata.last_updated);
+            const formatOptions = {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Tokyo'
+            };
+            const formattedDate = updateDate.toLocaleDateString('ja-JP', formatOptions);
+            
+            const totalBoards = data.metadata.total_optimization_points + data.metadata.total_completed_points;
+            const completionRate = ((data.metadata.total_completed_points / totalBoards) * 100).toFixed(1);
+            
+            lastUpdatedElement.innerHTML = `
+                <span>データ更新: ${formattedDate} | 完了率: ${completionRate}% (${data.metadata.total_completed_points}/${totalBoards})</span>
+            `;
+        }
     }
     
     // 投票区検索機能
