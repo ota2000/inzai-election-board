@@ -281,12 +281,13 @@ export class DistrictManager {
                 `;
                 marker.bindPopup(popupContent);
                 
-                // 番号表示（クリック可能）
+                // 番号表示（クリック可能）- サイズ統一
+                const numberSize = 24; // 番号は少し大きめで視認性確保
                 const numberIcon = L.divIcon({
-                    html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
+                    html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: ${numberSize}px; height: ${numberSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${point.properties.order}</div>`,
                     className: 'custom-div-icon clickable',
-                    iconSize: [24, 24],
-                    iconAnchor: [12, 12]
+                    iconSize: [numberSize, numberSize],
+                    iconAnchor: [numberSize/2, numberSize/2]
                 });
                 
                 const numberMarker = L.marker(coord, { icon: numberIcon }).addTo(markersLayer);
@@ -345,12 +346,13 @@ export class DistrictManager {
             `;
             marker.bindPopup(popupContent);
             
-            // 完了マーク表示
+            // 完了マーク表示（通常マーカーと同じサイズに統一）
+            const markerSize = CONFIG.MARKERS.NORMAL_RADIUS * 2; // 8 * 2 = 16px
             const completedIcon = L.divIcon({
-                html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); opacity: 0.8;">✓</div>`,
+                html: `<div style="background: ${statusColor}; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
                 className: 'custom-div-icon clickable completed-board',
-                iconSize: [20, 20],
-                iconAnchor: [10, 10]
+                iconSize: [markerSize, markerSize],
+                iconAnchor: [markerSize/2, markerSize/2]
             });
             
             const completedMarker = L.marker(coord, { icon: completedIcon }).addTo(markersLayer);
@@ -461,13 +463,14 @@ export class DistrictManager {
                 fillOpacity: CONFIG.MARKERS.OPACITY
             }).addTo(markersLayer);
             
-            // 完了済み投票区の場合はチェックマークアイコンを追加
+            // 完了済み投票区の場合はチェックマークアイコンを追加（サイズ統一）
             if (districtProgress.isFullyCompleted) {
+                const markerSize = CONFIG.MARKERS.DISTRICT_RADIUS * 2; // 12 * 2 = 24px（投票区は少し大きく）
                 const checkIcon = L.divIcon({
-                    html: `<div style="background: #27ae60; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
+                    html: `<div style="background: #22c55e; color: white; border-radius: 50%; width: ${markerSize}px; height: ${markerSize}px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">✓</div>`,
                     className: 'custom-div-icon clickable completed-district',
-                    iconSize: [20, 20],
-                    iconAnchor: [10, 10]
+                    iconSize: [markerSize, markerSize],
+                    iconAnchor: [markerSize/2, markerSize/2]
                 });
                 
                 const checkMarker = L.marker(position, { icon: checkIcon }).addTo(markersLayer);
