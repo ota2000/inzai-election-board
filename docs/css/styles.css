@@ -665,6 +665,32 @@ html {
     flex-shrink: 0;
 }
 
+/* 完了済み投票区ボタン */
+.district-btn-completed {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+    border-color: #10b981 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2) !important;
+}
+
+.district-btn-completed:hover {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%) !important;
+    border-color: #059669 !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3) !important;
+}
+
+/* 進捗表示 */
+.district-btn-progress {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.district-btn-progress.completed {
+    color: #059669;
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .route-item-header {
         flex-direction: column;
@@ -676,6 +702,11 @@ html {
         align-self: flex-end;
         font-size: 0.7rem;
         padding: 0.15rem 0.4rem;
+    }
+    
+    .district-btn-progress {
+        font-size: 0.7rem;
+        margin-top: 0.2rem;
     }
 }
 

@@ -66,8 +66,16 @@ export class DistrictManager {
         selector.innerHTML = '';
         
         districts.forEach(([district, districtNumber]) => {
+            // 投票区の完了状況を計算
+            const districtProgress = this.calculateDistrictProgress(district);
+            
             const btn = document.createElement('div');
             btn.className = 'district-btn';
+            
+            // 完了状況に応じてクラスを追加
+            if (districtProgress.isFullyCompleted) {
+                btn.classList.add('district-btn-completed');
+            }
             
             // 投票区番号を表示（数値または文字列から番号を抽出）
             const voteNumber = typeof districtNumber === 'number' ? districtNumber : districtNumber.replace('第', '').replace('投票区', '');
@@ -76,14 +84,50 @@ export class DistrictManager {
             btn.dataset.district = district;
             btn.dataset.number = voteNumber;
             
+            // 進捗情報を表示
+            let progressText = '';
+            if (districtProgress.isFullyCompleted) {
+                progressText = `<div class="district-btn-progress completed">✓ 完了</div>`;
+            } else if (districtProgress.totalBoards > 0) {
+                const remaining = districtProgress.totalBoards - districtProgress.completedBoards;
+                progressText = `<div class="district-btn-progress">(${remaining}/${districtProgress.totalBoards})</div>`;
+            }
+            
             btn.innerHTML = `
                 <div class="district-btn-name">${district}</div>
                 <div class="district-btn-number">${voteNumber}</div>
+                ${progressText}
             `;
             
             btn.onclick = () => this.showDistrict(district);
             selector.appendChild(btn);
         });
+    }
+    
+    // 投票区の進捗状況を計算
+    calculateDistrictProgress(districtName) {
+        // 該当投票区の未完了地点
+        const incompleteBoards = this.allData.features.filter(f =>
+            f.properties.district === districtName && 
+            f.geometry.type === 'Point' && 
+            f.properties.type !== 'completed_board'
+        );
+        
+        // 該当投票区の完了済み地点
+        const completedBoards = this.allData.features.filter(f =>
+            f.properties.district === districtName && 
+            f.properties.type === 'completed_board'
+        );
+        
+        const totalBoards = incompleteBoards.length + completedBoards.length;
+        const isFullyCompleted = incompleteBoards.length === 0 && completedBoards.length > 0;
+        
+        return {
+            totalBoards,
+            completedBoards: completedBoards.length,
+            incompleteBoards: incompleteBoards.length,
+            isFullyCompleted
+        };
     }
     
     // 特定投票区表示
@@ -346,6 +390,9 @@ export class DistrictManager {
         const markersLayer = this.mapManager.getMarkersLayer();
         
         Array.from(districtCenters.entries()).forEach(([district, coords], index) => {
+            // 投票区の進捗状況を取得
+            const districtProgress = this.calculateDistrictProgress(district);
+            
             // 掲示板の中心点を計算
             const position = [
                 coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length,
@@ -355,7 +402,11 @@ export class DistrictManager {
             // 境界計算用に位置を追加
             allBounds.push(position);
             
-            const color = CONFIG.COLORS.DISTRICT_COLORS[index % CONFIG.COLORS.DISTRICT_COLORS.length];
+            // 完了状況に応じて色を決定
+            const color = districtProgress.isFullyCompleted ? 
+                '#27ae60' : // 緑色（完了）
+                CONFIG.COLORS.DISTRICT_COLORS[index % CONFIG.COLORS.DISTRICT_COLORS.length];
+            
             const marker = L.circleMarker(position, {
                 radius: CONFIG.MARKERS.DISTRICT_RADIUS,
                 fillColor: color,
@@ -369,10 +420,16 @@ export class DistrictManager {
                 this.showDistrict(district);
             });
             
+            // 完了状況を含むポップアップ
+            const statusText = districtProgress.isFullyCompleted ? 
+                '✓ 完了' : 
+                `残り${districtProgress.incompleteBoards}/${districtProgress.totalBoards}`;
+            
             marker.bindPopup(`
                 <div style="min-width: ${CONFIG.UI.POPUP_MIN_WIDTH};">
                     <h4>${district}</h4>
-                    <p>地点数: ${coords.length}地点</p>
+                    <p>地点数: ${districtProgress.totalBoards}地点</p>
+                    <p>状況: <span style="color: ${districtProgress.isFullyCompleted ? '#27ae60' : '#e74c3c'}; font-weight: bold;">${statusText}</span></p>
                     <div style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">クリックで詳細表示</div>
                 </div>
             `);
