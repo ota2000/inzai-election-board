@@ -118,8 +118,10 @@ export class DistrictManager {
             }
             
             btn.innerHTML = `
-                <div class="district-btn-name">${district}</div>
-                <div class="district-btn-number">${voteNumber}</div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex: 1;">
+                    <div class="district-btn-number">${voteNumber}</div>
+                    <div class="district-btn-name">${district}</div>
+                </div>
                 ${progressText}
             `;
             
