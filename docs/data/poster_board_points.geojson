@@ -32,15 +32,13 @@
       },
       "properties": {
         "district": "第1投票区",
-        "order": 1,
+        "order": 0,
         "name": "総合福祉センター前",
         "address": "印西市竹袋614-9",
         "board_number": "1-2",
-        "total_points": 5,
-        "total_distance_km": 4.07,
-        "estimated_hours": 0.8,
         "district_number": 1,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -54,13 +52,13 @@
       },
       "properties": {
         "district": "第1投票区",
-        "order": 4,
+        "order": 3,
         "name": "旧木下保育園跡地北側",
         "address": "印西市木下1342-4",
         "board_number": "1-3",
-        "total_points": 5,
-        "total_distance_km": 4.07,
-        "estimated_hours": 0.8,
+        "total_points": 4,
+        "total_distance_km": 3.16,
+        "estimated_hours": 0.6,
         "district_number": 1,
         "status": "not_yet"
       }
@@ -76,13 +74,13 @@
       },
       "properties": {
         "district": "第1投票区",
-        "order": 5,
+        "order": 4,
         "name": "木下東四丁目もみじ公園東側",
         "address": "印西市木下東4-3",
         "board_number": "1-4",
-        "total_points": 5,
-        "total_distance_km": 4.07,
-        "estimated_hours": 0.8,
+        "total_points": 4,
+        "total_distance_km": 3.16,
+        "estimated_hours": 0.6,
         "district_number": 1,
         "status": "not_yet"
       }
@@ -118,13 +116,13 @@
       },
       "properties": {
         "district": "第1投票区",
-        "order": 3,
+        "order": 1,
         "name": "masked",
         "address": "印西市竹袋470-4",
         "board_number": "1-6",
-        "total_points": 5,
-        "total_distance_km": 4.07,
-        "estimated_hours": 0.8,
+        "total_points": 4,
+        "total_distance_km": 3.16,
+        "estimated_hours": 0.6,
         "district_number": 1,
         "status": "not_yet"
       }
@@ -164,9 +162,9 @@
         "name": "木下南公園北側",
         "address": "印西市木下南2-9",
         "board_number": "1-8",
-        "total_points": 5,
-        "total_distance_km": 4.07,
-        "estimated_hours": 0.8,
+        "total_points": 4,
+        "total_distance_km": 3.16,
+        "estimated_hours": 0.6,
         "district_number": 1,
         "status": "not_yet"
       }
@@ -350,7 +348,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 6,
+        "order": 1,
         "name": "なかうし西公園西側",
         "address": "印西市小林北2-6-4",
         "board_number": "3-2",
@@ -372,7 +370,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 4,
+        "order": 3,
         "name": "小林公民館前",
         "address": "印西市小林北5-1-6",
         "board_number": "3-3",
@@ -394,7 +392,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 5,
+        "order": 2,
         "name": "小林中継ポンプ場前",
         "address": "印西市小林3293-2",
         "board_number": "3-4",
@@ -416,7 +414,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 2,
+        "order": 5,
         "name": "浅間山公園西側",
         "address": "印西市小林浅間3-1-10",
         "board_number": "3-5",
@@ -438,7 +436,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 3,
+        "order": 4,
         "name": "なかうし第三幼児公園南側",
         "address": "印西市小林北3-8-15",
         "board_number": "3-6",
@@ -460,7 +458,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 1,
+        "order": 6,
         "name": "しろやま第一幼児公園南側",
         "address": "印西市小林浅間3-4-6",
         "board_number": "3-7",
@@ -482,15 +480,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 6,
+        "order": 0,
         "name": "masked",
         "address": "印西市大森3213",
         "board_number": "4-1",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -504,15 +500,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 5,
+        "order": 0,
         "name": "大森小学校前",
         "address": "印西市大森3345-11地先",
         "board_number": "4-2",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -526,15 +520,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 4,
+        "order": 0,
         "name": "寺田商店駐車場前",
         "address": "印西市大森3561-2",
         "board_number": "4-3",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -548,15 +540,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 2,
+        "order": 0,
         "name": "市役所駐車場",
         "address": "印西市大森2364-2地先",
         "board_number": "4-4",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -570,15 +560,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 3,
+        "order": 0,
         "name": "印西市役所前",
         "address": "印西市大森2531-2地先",
         "board_number": "4-5",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -592,15 +580,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 1,
+        "order": 0,
         "name": "masked",
         "address": "印西市大森2289-2地先",
         "board_number": "4-6",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -614,15 +600,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 9,
+        "order": 0,
         "name": "鹿黒集会所前",
         "address": "印西市鹿黒456-2",
         "board_number": "4-7",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
         "district_number": 4,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -636,13 +620,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 7,
+        "order": 1,
         "name": "masked",
         "address": "印西市発作650",
         "board_number": "4-8",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
+        "total_points": 2,
+        "total_distance_km": 0.72,
+        "estimated_hours": 0.1,
         "district_number": 4,
         "status": "not_yet"
       }
@@ -658,13 +642,13 @@
       },
       "properties": {
         "district": "第4投票区",
-        "order": 8,
+        "order": 2,
         "name": "亀成会館前",
         "address": "印西市亀成174-1",
         "board_number": "4-9",
-        "total_points": 9,
-        "total_distance_km": 6.03,
-        "estimated_hours": 1.2,
+        "total_points": 2,
+        "total_distance_km": 0.72,
+        "estimated_hours": 0.1,
         "district_number": 4,
         "status": "not_yet"
       }
@@ -988,15 +972,13 @@
       },
       "properties": {
         "district": "第7投票区",
-        "order": 6,
+        "order": 0,
         "name": "多々羅田青年館前",
         "address": "印西市多々羅田44番地先",
         "board_number": "7-1",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
         "district_number": 7,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -1014,11 +996,11 @@
         "name": "結縁寺青年館前",
         "address": "印西市結縁寺535-1",
         "board_number": "7-2",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
+        "total_points": 5,
+        "total_distance_km": 4.71,
+        "estimated_hours": 0.9,
         "district_number": 7,
-        "status": "not_yet"
+        "status": "reserved"
       }
     },
     {
@@ -1056,9 +1038,9 @@
         "name": "船穂ｺﾐｭﾆﾃｨｾﾝﾀｰ前",
         "address": "印西市船尾786-1",
         "board_number": "7-4",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
+        "total_points": 5,
+        "total_distance_km": 4.71,
+        "estimated_hours": 0.9,
         "district_number": 7,
         "status": "not_yet"
       }
@@ -1078,9 +1060,9 @@
         "name": "masked",
         "address": "印西市船尾637-3番地先",
         "board_number": "7-5",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
+        "total_points": 5,
+        "total_distance_km": 4.71,
+        "estimated_hours": 0.9,
         "district_number": 7,
         "status": "not_yet"
       }
@@ -1100,9 +1082,9 @@
         "name": "masked",
         "address": "印西市松崎397",
         "board_number": "7-6",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
+        "total_points": 5,
+        "total_distance_km": 4.71,
+        "estimated_hours": 0.9,
         "district_number": 7,
         "status": "not_yet"
       }
@@ -1122,9 +1104,9 @@
         "name": "masked",
         "address": "印西市松崎343",
         "board_number": "7-7",
-        "total_points": 6,
-        "total_distance_km": 5.75,
-        "estimated_hours": 1.2,
+        "total_points": 5,
+        "total_distance_km": 4.71,
+        "estimated_hours": 0.9,
         "district_number": 7,
         "status": "not_yet"
       }
@@ -1724,15 +1706,13 @@
       },
       "properties": {
         "district": "第12投票区",
-        "order": 1,
+        "order": 0,
         "name": "原山小学校北側",
         "address": "印西市原山3-4",
         "board_number": "12-1",
-        "total_points": 2,
-        "total_distance_km": 0.47,
-        "estimated_hours": 0.1,
         "district_number": 12,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -1806,15 +1786,13 @@
       },
       "properties": {
         "district": "第12投票区",
-        "order": 2,
+        "order": 0,
         "name": "原山北街区公園南側",
         "address": "印西市原山1-6",
         "board_number": "12-5",
-        "total_points": 2,
-        "total_distance_km": 0.47,
-        "estimated_hours": 0.1,
         "district_number": 12,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -1928,15 +1906,13 @@
       },
       "properties": {
         "district": "第13投票区",
-        "order": 2,
+        "order": 0,
         "name": "高花公園東側",
         "address": "印西市高花5-4",
         "board_number": "13-3",
-        "total_points": 2,
-        "total_distance_km": 0.87,
-        "estimated_hours": 0.2,
         "district_number": 13,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -1950,15 +1926,13 @@
       },
       "properties": {
         "district": "第13投票区",
-        "order": 1,
+        "order": 0,
         "name": "高花小学校前",
         "address": "印西市高花2-4",
         "board_number": "13-4",
-        "total_points": 2,
-        "total_distance_km": 0.87,
-        "estimated_hours": 0.2,
         "district_number": 13,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -2352,15 +2326,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 5,
+        "order": 0,
         "name": "瀬戸構造改善センター前",
         "address": "印西市美瀬1080",
         "board_number": "16-1",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
         "district_number": 16,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -2374,15 +2346,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 4,
+        "order": 0,
         "name": "松田敏郎畑地東側",
         "address": "印西市瀬戸1388地先",
         "board_number": "16-2",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
         "district_number": 16,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -2420,9 +2390,9 @@
         "name": "宮後構造改善センター向い",
         "address": "印西市山田875-2",
         "board_number": "16-4",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
+        "total_points": 5,
+        "total_distance_km": 7.95,
+        "estimated_hours": 1.6,
         "district_number": 16,
         "status": "not_yet"
       }
@@ -2438,13 +2408,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 2,
+        "order": 4,
         "name": "仲井構造改善センター前",
         "address": "印西市山田93-1",
         "board_number": "16-5",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
+        "total_points": 5,
+        "total_distance_km": 7.95,
+        "estimated_hours": 1.6,
         "district_number": 16,
         "status": "not_yet"
       }
@@ -2460,13 +2430,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 1,
+        "order": 5,
         "name": "仲井青年館跡前",
         "address": "印西市山田3273番地先",
         "board_number": "16-6",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
+        "total_points": 5,
+        "total_distance_km": 7.95,
+        "estimated_hours": 1.6,
         "district_number": 16,
         "status": "not_yet"
       }
@@ -2482,15 +2452,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 6,
+        "order": 0,
         "name": "吉高構造改善センター脇",
         "address": "印西市吉高854",
         "board_number": "16-7",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
         "district_number": 16,
-        "status": "not_yet"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -2504,15 +2472,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 7,
+        "order": 0,
         "name": "一本松地区入口",
         "address": "印西市吉高3258番地先",
         "board_number": "16-8",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
         "district_number": 16,
-        "status": "not_yet"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -2526,13 +2492,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 9,
+        "order": 1,
         "name": "萩原構造改善センター入口",
         "address": "印西市萩原1404-2",
         "board_number": "16-9",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
+        "total_points": 5,
+        "total_distance_km": 7.95,
+        "estimated_hours": 1.6,
         "district_number": 16,
         "status": "not_yet"
       }
@@ -2548,13 +2514,13 @@
       },
       "properties": {
         "district": "第16投票区",
-        "order": 8,
+        "order": 2,
         "name": "松虫構造改善センター前",
         "address": "印西市松虫７",
         "board_number": "16-10",
-        "total_points": 9,
-        "total_distance_km": 10.36,
-        "estimated_hours": 2.1,
+        "total_points": 5,
+        "total_distance_km": 7.95,
+        "estimated_hours": 1.6,
         "district_number": 16,
         "status": "not_yet"
       }
@@ -2570,7 +2536,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 4,
+        "order": 6,
         "name": "岩戸構造改善センター前",
         "address": "印西市岩戸1616-1",
         "board_number": "17-1",
@@ -2592,7 +2558,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 3,
+        "order": 7,
         "name": "印旛西部公園前",
         "address": "印西市岩戸2878-2",
         "board_number": "17-2",
@@ -2614,7 +2580,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 9,
+        "order": 1,
         "name": "広福寺前",
         "address": "印西市師戸1486-1",
         "board_number": "17-3",
@@ -2636,7 +2602,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 8,
+        "order": 2,
         "name": "masked",
         "address": "印西市師戸3315-4",
         "board_number": "17-4",
@@ -2658,7 +2624,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 7,
+        "order": 3,
         "name": "鎌苅構造改善センター前",
         "address": "印西市鎌苅590-1",
         "board_number": "17-5",
@@ -2722,7 +2688,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 6,
+        "order": 4,
         "name": "masked",
         "address": "印西市大廻269-3地先",
         "board_number": "17-8",
@@ -2744,7 +2710,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 2,
+        "order": 8,
         "name": "吉田宗像神社前",
         "address": "印西市吉田1600-1地先",
         "board_number": "17-9",
@@ -2766,7 +2732,7 @@
       },
       "properties": {
         "district": "第17投票区",
-        "order": 1,
+        "order": 9,
         "name": "万福寺前",
         "address": "印西市吉田821",
         "board_number": "17-10",
@@ -3096,15 +3062,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 7,
+        "order": 0,
         "name": "本埜支所前",
         "address": "印西市笠神2587",
         "board_number": "20-1",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
         "district_number": 20,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -3118,15 +3082,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 6,
+        "order": 0,
         "name": "masked",
         "address": "印西市笠神2346-3番地先",
         "board_number": "20-2",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
         "district_number": 20,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -3140,13 +3102,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 4,
+        "order": 1,
         "name": "一区コミュニティセンター前",
         "address": "印西市行徳21",
         "board_number": "20-3",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
+        "total_points": 3,
+        "total_distance_km": 2.42,
+        "estimated_hours": 0.5,
         "district_number": 20,
         "status": "not_yet"
       }
@@ -3162,15 +3124,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 2,
+        "order": 0,
         "name": "辺田前コミュニティセンター前",
         "address": "印西市中根187",
         "board_number": "20-4",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
         "district_number": 20,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -3184,15 +3144,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 1,
+        "order": 0,
         "name": "荒野コミュニティセンター向い",
         "address": "印西市荒野469-2地先",
         "board_number": "20-5",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
         "district_number": 20,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -3246,15 +3204,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 3,
+        "order": 0,
         "name": "旧本埜村元商工会前",
         "address": "印西市中根856-8",
         "board_number": "20-8",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
         "district_number": 20,
-        "status": "reserved"
+        "status": "done",
+        "type": "completed_board"
       }
     },
     {
@@ -3288,13 +3244,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 8,
+        "order": 3,
         "name": "諏訪神社入口",
         "address": "印西市物木230番地先",
         "board_number": "20-10",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
+        "total_points": 3,
+        "total_distance_km": 2.42,
+        "estimated_hours": 0.5,
         "district_number": 20,
         "status": "not_yet"
       }
@@ -3310,13 +3266,13 @@
       },
       "properties": {
         "district": "第20投票区",
-        "order": 5,
+        "order": 2,
         "name": "笠神旧消防小屋前",
         "address": "印西市笠神",
         "board_number": "20-11",
-        "total_points": 8,
-        "total_distance_km": 5.61,
-        "estimated_hours": 1.1,
+        "total_points": 3,
+        "total_distance_km": 2.42,
+        "estimated_hours": 0.5,
         "district_number": 20,
         "status": "not_yet"
       }
@@ -3817,9 +3773,9 @@
     }
   ],
   "metadata": {
-    "last_updated": "2025-07-12T13:33:52.655707",
-    "total_districts": 16,
-    "total_optimization_points": 97,
-    "total_completed_points": 84
+    "last_updated": "2025-07-12T21:29:20.484540",
+    "total_districts": 14,
+    "total_optimization_points": 75,
+    "total_completed_points": 106
   }
 }
