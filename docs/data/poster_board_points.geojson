@@ -336,7 +336,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 5,
+        "order": 3,
         "name": "小林駅北口",
         "address": "印西市小林北2-6-6",
         "board_number": "3-1",
@@ -358,7 +358,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 6,
+        "order": 2,
         "name": "なかうし西公園西側",
         "address": "印西市小林北2-6-4",
         "board_number": "3-2",
@@ -380,7 +380,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 3,
+        "order": 5,
         "name": "小林公民館前",
         "address": "印西市小林北5-1-6",
         "board_number": "3-3",
@@ -402,7 +402,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 7,
+        "order": 1,
         "name": "小林中継ポンプ場前",
         "address": "印西市小林3293-2",
         "board_number": "3-4",
@@ -424,7 +424,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 2,
+        "order": 6,
         "name": "浅間山公園西側",
         "address": "印西市小林浅間3-1-10",
         "board_number": "3-5",
@@ -468,7 +468,7 @@
       },
       "properties": {
         "district": "第3投票区",
-        "order": 1,
+        "order": 7,
         "name": "しろやま第一幼児公園南側",
         "address": "印西市小林浅間3-4-6",
         "board_number": "3-7",
@@ -1202,8 +1202,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          140.15757,
-          35.796045
+          140.150764,
+          35.796258
         ]
       },
       "properties": {
@@ -1332,7 +1332,7 @@
       },
       "properties": {
         "district": "第9投票区",
-        "order": 2,
+        "order": 1,
         "name": "木刈北児童公園南側",
         "address": "印西市木刈4-22",
         "board_number": "9-3",
@@ -1394,7 +1394,7 @@
       },
       "properties": {
         "district": "第9投票区",
-        "order": 1,
+        "order": 2,
         "name": "大塚三丁目集会所隣",
         "address": "印西市和泉1386-7",
         "board_number": "9-6",
@@ -3372,7 +3372,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 3,
+        "order": 5,
         "name": "旧本埜第二小学校北側",
         "address": "印西市笠神1747-15地先",
         "board_number": "21-2",
@@ -3394,7 +3394,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 2,
+        "order": 6,
         "name": "masked",
         "address": "印西市酒直ト杭76",
         "board_number": "21-3",
@@ -3416,7 +3416,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 1,
+        "order": 7,
         "name": "和青年館前",
         "address": "印西市下井338",
         "board_number": "21-4",
@@ -3438,7 +3438,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 7,
+        "order": 1,
         "name": "masked",
         "address": "印西市安食卜杭102-1地先",
         "board_number": "21-5",
@@ -3460,7 +3460,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 5,
+        "order": 3,
         "name": "大瀧神社前",
         "address": "印西市将監235-4地先",
         "board_number": "21-6",
@@ -3482,7 +3482,7 @@
       },
       "properties": {
         "district": "第21投票区",
-        "order": 6,
+        "order": 2,
         "name": "旧村総合グラウンド前",
         "address": "印西市物木419番地先",
         "board_number": "21-7",
@@ -3835,7 +3835,7 @@
     }
   ],
   "metadata": {
-    "last_updated": "2025-07-12T00:32:03.908413",
+    "last_updated": "2025-07-12T09:44:51.641704",
     "total_districts": 17,
     "total_optimization_points": 106,
     "total_completed_points": 75
